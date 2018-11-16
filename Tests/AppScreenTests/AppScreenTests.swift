@@ -1,15 +1,15 @@
 //
-//  NowHereTests.swift
-//  NowHereTests
+//  AppScreenTests.swift
+//  AppScreenTests
 //
-//  Created by 服部穣 on 2018/11/16.
+//  Created by 服部穣 on 2018/11/17.
 //  Copyright © 2018 服部穣. All rights reserved.
 //
 
 import XCTest
-@testable import NowHere
+@testable import AppScreen
 
-class NowHereTests: XCTestCase {
+class AppScreenTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

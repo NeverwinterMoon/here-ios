@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ChatViewController.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/16.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
-
-
 }
-

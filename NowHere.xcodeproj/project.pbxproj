@@ -11,6 +11,8 @@
 		D9061BCE219F0F0800A9A7CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9061BCC219F0F0800A9A7CA /* Main.storyboard */; };
 		D9061BD0219F0F0900A9A7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9061BCF219F0F0900A9A7CA /* Assets.xcassets */; };
 		D9061BD3219F0F0900A9A7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9061BD1219F0F0900A9A7CA /* LaunchScreen.storyboard */; };
+		D91AAB1A21A24DD60024E048 /* AppFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; };
+		D91AAB1C21A24DE10024E048 /* AppFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D925C24A219F19DD00B166B4 /* AppScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D925C241219F19DD00B166B4 /* AppScreen.framework */; };
 		D925C251219F19DD00B166B4 /* AppScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D925C250219F19DD00B166B4 /* AppScreenTests.swift */; };
 		D925C253219F19DD00B166B4 /* AppScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = D925C243219F19DD00B166B4 /* AppScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,6 +70,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D925C257219F19DD00B166B4 /* AppScreen.framework in Embed Frameworks */,
+				D91AAB1C21A24DE10024E048 /* AppFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +89,7 @@
 		D9061BD9219F0F0900A9A7CA /* NowHereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NowHereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9061BE4219F0F0900A9A7CA /* NowHereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NowHereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9061BF6219F0F5A00A9A7CA /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
 		D925C241219F19DD00B166B4 /* AppScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D925C243219F19DD00B166B4 /* AppScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppScreen.h; sourceTree = "<group>"; };
 		D925C244219F19DD00B166B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91AAB1A21A24DD60024E048 /* AppFoundation.framework in Frameworks */,
 				D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +241,7 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D91AAB1921A24DD60024E048 /* AppFoundation.framework */,
 				D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */,
 			);
 			name = Frameworks;
@@ -654,6 +660,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = THLP3245G5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NowHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -673,6 +683,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = THLP3245G5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NowHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

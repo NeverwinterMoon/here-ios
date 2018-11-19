@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppFoundation
 import FlexLayout
 
 class ProfileViewController: UIViewController {

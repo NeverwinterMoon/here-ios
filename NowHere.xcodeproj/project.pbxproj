@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D900BB2A21A3A57C00E2E9A7 /* MapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB2921A3A57C00E2E9A7 /* MapInterface.swift */; };
+		D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB2B21A3A68E00E2E9A7 /* ProfileInterface.swift */; };
+		D900BB3C21A3EFD000E2E9A7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB3921A3EF5500E2E9A7 /* ProfilePresenter.swift */; };
+		D900BB3D21A3EFD300E2E9A7 /* ProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB2D21A3A8C800E2E9A7 /* ProfileWireframe.swift */; };
+		D900BB3E21A3EFD900E2E9A7 /* InfoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB3121A3E89B00E2E9A7 /* InfoInterface.swift */; };
+		D900BB3F21A3EFDE00E2E9A7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB3321A3E8A500E2E9A7 /* InfoViewController.swift */; };
+		D900BB4021A3EFE100E2E9A7 /* InfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB3521A3E8BB00E2E9A7 /* InfoPresenter.swift */; };
+		D900BB4121A3EFE500E2E9A7 /* InfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB3721A3E8C700E2E9A7 /* InfoWireframe.swift */; };
 		D9061BC7219F0F0800A9A7CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BC6219F0F0800A9A7CA /* AppDelegate.swift */; };
 		D9061BCE219F0F0800A9A7CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9061BCC219F0F0800A9A7CA /* Main.storyboard */; };
 		D9061BD0219F0F0900A9A7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9061BCF219F0F0900A9A7CA /* Assets.xcassets */; };
@@ -81,6 +89,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D900BB2921A3A57C00E2E9A7 /* MapInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInterface.swift; sourceTree = "<group>"; };
+		D900BB2B21A3A68E00E2E9A7 /* ProfileInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInterface.swift; sourceTree = "<group>"; };
+		D900BB2D21A3A8C800E2E9A7 /* ProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWireframe.swift; sourceTree = "<group>"; };
+		D900BB3121A3E89B00E2E9A7 /* InfoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInterface.swift; sourceTree = "<group>"; };
+		D900BB3321A3E8A500E2E9A7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		D900BB3521A3E8BB00E2E9A7 /* InfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPresenter.swift; sourceTree = "<group>"; };
+		D900BB3721A3E8C700E2E9A7 /* InfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoWireframe.swift; sourceTree = "<group>"; };
+		D900BB3921A3EF5500E2E9A7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		D9061BC3219F0F0800A9A7CA /* NowHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NowHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9061BC6219F0F0800A9A7CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +162,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D900BB2521A3A36200E2E9A7 /* AppInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				D900BB2621A3A39200E2E9A7 /* Interactor */,
+			);
+			path = AppInteractor;
+			sourceTree = "<group>";
+		};
+		D900BB2621A3A39200E2E9A7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D900BB2721A3A3A000E2E9A7 /* AppEntity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppEntity;
+			sourceTree = "<group>";
+		};
+		D900BB2821A3A3B400E2E9A7 /* AppRequest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppRequest;
+			sourceTree = "<group>";
+		};
+		D900BB2F21A3E86400E2E9A7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D900BB2B21A3A68E00E2E9A7 /* ProfileInterface.swift */,
+				D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */,
+				D900BB3921A3EF5500E2E9A7 /* ProfilePresenter.swift */,
+				D900BB2D21A3A8C800E2E9A7 /* ProfileWireframe.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D900BB3021A3E87900E2E9A7 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				D900BB3121A3E89B00E2E9A7 /* InfoInterface.swift */,
+				D900BB3321A3E8A500E2E9A7 /* InfoViewController.swift */,
+				D900BB3521A3E8BB00E2E9A7 /* InfoPresenter.swift */,
+				D900BB3721A3E8C700E2E9A7 /* InfoWireframe.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		D9061BBA219F0F0800A9A7CA = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +251,9 @@
 		D925C23B219F19BD00B166B4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D900BB2721A3A3A000E2E9A7 /* AppEntity */,
+				D900BB2521A3A36200E2E9A7 /* AppInteractor */,
+				D900BB2821A3A3B400E2E9A7 /* AppRequest */,
 				D925C242219F19DD00B166B4 /* AppScreen */,
 			);
 			path = Source;
@@ -192,11 +262,11 @@
 		D925C242219F19DD00B166B4 /* AppScreen */ = {
 			isa = PBXGroup;
 			children = (
-				D925C243219F19DD00B166B4 /* AppScreen.h */,
-				D98040B221A1341600E2C3F5 /* Chat */,
-				D925C244219F19DD00B166B4 /* Info.plist */,
 				D98040B121A1340D00E2C3F5 /* Map */,
+				D98040B221A1341600E2C3F5 /* Chat */,
 				D98040B021A133F900E2C3F5 /* Profile */,
+				D925C243219F19DD00B166B4 /* AppScreen.h */,
+				D925C244219F19DD00B166B4 /* Info.plist */,
 			);
 			path = AppScreen;
 			sourceTree = "<group>";
@@ -221,7 +291,8 @@
 		D98040B021A133F900E2C3F5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */,
+				D900BB3021A3E87900E2E9A7 /* Info */,
+				D900BB2F21A3E86400E2E9A7 /* Profile */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -229,6 +300,7 @@
 		D98040B121A1340D00E2C3F5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				D900BB2921A3A57C00E2E9A7 /* MapInterface.swift */,
 				D9061BCA219F0F0800A9A7CA /* MapViewController.swift */,
 			);
 			path = Map;
@@ -456,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9061BC7219F0F0800A9A7CA /* AppDelegate.swift in Sources */,
+				D900BB2A21A3A57C00E2E9A7 /* MapInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,9 +550,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D900BB4121A3EFE500E2E9A7 /* InfoWireframe.swift in Sources */,
+				D900BB3D21A3EFD300E2E9A7 /* ProfileWireframe.swift in Sources */,
+				D900BB4021A3EFE100E2E9A7 /* InfoPresenter.swift in Sources */,
 				D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */,
+				D900BB3E21A3EFD900E2E9A7 /* InfoInterface.swift in Sources */,
 				D925C261219F19F100B166B4 /* ChatViewController.swift in Sources */,
 				D925C260219F19ED00B166B4 /* MapViewController.swift in Sources */,
+				D900BB3C21A3EFD000E2E9A7 /* ProfilePresenter.swift in Sources */,
+				D900BB3F21A3EFDE00E2E9A7 /* InfoViewController.swift in Sources */,
+				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

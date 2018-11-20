@@ -44,7 +44,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        view.flex.layout()
+        self.view.flex.layout()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

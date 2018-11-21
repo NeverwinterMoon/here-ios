@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import AppEntity
+import AppInteractor
 import RxCocoa
 import RxSwift
 
@@ -15,9 +17,11 @@ protocol ProfileViewInterface {
     var tapFriends: Signal<Void> { get }
 }
 
-//protocol ProfileInteractorInterface {
-//    <#requirements#>
-//}
+protocol ProfileInteractorInterface {
+    func user(userId: String) -> Single<User>
+}
+
+extension ProfileInteractor: ProfileInteractorInterface { }
 
 protocol ProfilePresenterInterface {
     var profileImageURL: Driver<URL> { get }

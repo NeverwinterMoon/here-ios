@@ -16,13 +16,14 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     
     var presenter: ProfilePresenterInterface!
     
-    var tapInfo: Signal<Void> {
+    var tapEditProfile: Signal<Void> {
         
+        return self.editProfileButton.rx.tap.asSignal()
     }
     
     var tapFriends: Signal<Void> {
         
-        friendsButton.rx.tap.asSignal()
+        return self.friendsButton.rx.tap.asSignal()
     }
     
     convenience init() {
@@ -60,16 +61,18 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         self.editProfileButton.do {
             
             $0.titleLabel?.text = "プロフィールを編集する"
+            $0.layer.borderWidth = 0.1
+            $0.layer.borderColor = UIColor.black.cgColor
             // TODO ここを枠線ありのボタンにする
         }
         
         self.friendsButton.do {
-            
+
             $0.titleLabel?.text = "友達"
             $0.titleLabel?.font.withSize(14)
             $0.backgroundColor = .blue
         }
-        
+
         self.flexLayout()
     }
     

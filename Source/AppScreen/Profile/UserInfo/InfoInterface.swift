@@ -1,5 +1,5 @@
 //
-//  InfoInterface.swift
+//  UserInfoInterface.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -10,22 +10,22 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-protocol InfoViewInterface {
+protocol UserInfoViewInterface {
     var tapChangeProfileImage: Signal<Void> { get }
 }
 
-//protocol InfoInteractorInterface {
-//    <#requirements#>
-//}
+protocol UserInfoInteractorInterface {
+    <#requirements#>
+}
 
-protocol InfoPresenterInterface {
+protocol UserInfoPresenterInterface {
     var name: Driver<String> { get }
     var userId: Driver<String> { get }
     var userIntro: Driver<String> { get }
     var userEMailAddress: Driver<String> { get }
 }
 
-protocol InfoWireframeInterface {
+protocol UserInfoWireframeInterface {
     func showCamera()
     func showCameraRoll()
 }

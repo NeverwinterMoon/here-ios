@@ -8,10 +8,11 @@
 
 import Foundation
 
-final class ProfileWireframe: ProfileWireframeInterface {
+final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
     
-    func pushInfo() {
-        let controller = InfoViewController()
+    func pushUserInfo() {
+        let controller = UserInfoViewController()
+        let wireframe = UserInfoWireframe(navigationController: navigationController)
     }
     
     func pushfFriendsList(myId: String) {

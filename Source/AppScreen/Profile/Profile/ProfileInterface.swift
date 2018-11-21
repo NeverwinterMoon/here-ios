@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol ProfileViewInterface {
-    var tapInfo: Signal<Void> { get }
+    var tapEditProfile: Signal<Void> { get }
     var tapFriends: Signal<Void> { get }
 }
 
@@ -25,6 +25,6 @@ protocol ProfilePresenterInterface {
 }
 
 protocol ProfileWireframeInterface {
-    func pushInfo()
+    func pushUserInfo()
     func pushfFriendsList(myId: String)
 }

@@ -1,5 +1,5 @@
 //
-//  InfoViewController.swift
+//  UserInfoViewController.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -11,7 +11,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class InfoViewController: UIViewController, InfoViewInterface {
+final class UserInfoViewController: UIViewController, UserInfoViewInterface {
     
     var tapChangeProfileImage: Signal<Void> {
         

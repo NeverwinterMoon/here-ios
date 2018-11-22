@@ -9,6 +9,7 @@
 import UIKit
 import AppExtensions
 import FlexLayout
+import Nuke
 import RxCocoa
 import RxSwift
 
@@ -50,18 +51,24 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
 //            tmp
             $0.backgroundColor = .blue
             
-            presenter.profileImageURL
-                .drive(onNext: { url in
-//                    load image with Nuke
-//                    NEXT install Nuke
+            self.presenter.profileImageURL
+                .drive(onNext: { [unowned self] url in
+                    
+                    Nuke.loadImage(with: url, into: self.profileImageView)
                 })
                 .dispose(with: self)
         }
         
         self.introTextView.do {
-//            presenter gives this image
+            
             $0.text = "testtest"
             $0.font?.withSize(14)
+            
+            self.presenter.profileIntro
+                .drive(onNext: { [unowned self] intro in
+                    self.introTextView.text = intro
+                })
+                .dispose(with: self)
         }
         
         self.editProfileButton.do {

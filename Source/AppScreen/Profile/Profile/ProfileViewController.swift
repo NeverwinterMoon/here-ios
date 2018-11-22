@@ -45,9 +45,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         super.viewDidLoad()
         
         self.profileImageView.do {
-            $0.image = UIImage()
-            $0.tintColor = .blue
-            
 //            tmp
             $0.backgroundColor = .blue
             

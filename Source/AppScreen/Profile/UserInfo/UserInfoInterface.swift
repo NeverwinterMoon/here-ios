@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppEntity
 import RxCocoa
 import RxSwift
 
@@ -15,7 +16,7 @@ protocol UserInfoViewInterface {
 }
 
 protocol UserInfoInteractorInterface {
-    <#requirements#>
+    func user(userId: String) -> Single<User>
 }
 
 protocol UserInfoPresenterInterface {
@@ -27,4 +28,5 @@ protocol UserInfoPresenterInterface {
 protocol UserInfoWireframeInterface {
     func showCamera()
     func showCameraRoll()
+    func pushChangeEmailAddress()
 }

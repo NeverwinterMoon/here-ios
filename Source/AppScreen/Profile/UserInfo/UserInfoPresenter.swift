@@ -12,11 +12,8 @@ import RxSwift
 
 final class UserInfoPresenter: UserInfoPresenterInterface {
     
-    let name: Driver<String>
     let userId: Driver<String>
-    let userIntro: Driver<String>
-    let userEMailAddress: Driver<String>
-    
+
     init(userId: String, view: UserInfoViewInterface, interactor: UserInfoInteractorInterface, wireframe: UserInfoWireframeInterface) {
         
         self.view = view

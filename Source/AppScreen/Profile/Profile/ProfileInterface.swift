@@ -25,10 +25,11 @@ extension ProfileInteractor: ProfileInteractorInterface { }
 
 protocol ProfilePresenterInterface {
     var profileImageURL: Driver<URL> { get }
-    var profileInfo: Driver<String> { get }
+    var profileIntro: Driver<String> { get }
+    var friendsNumber: Driver<Int> { get }
 }
 
 protocol ProfileWireframeInterface {
-    func pushUserInfo()
-    func pushfFriendsList(myId: String)
+    func presentUserInfo(userId: String)
+    func pushfFriendsList(userId: String)
 }

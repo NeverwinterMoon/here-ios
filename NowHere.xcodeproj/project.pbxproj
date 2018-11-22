@@ -46,6 +46,9 @@
 		D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B54D21A6385B001ECA7F /* AppTargetType.swift */; };
 		D908B55021A6387F001ECA7F /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B54F21A6387F001ECA7F /* Moya.framework */; };
 		D908B55421A63958001ECA7F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B55321A63958001ECA7F /* Alamofire.framework */; };
+		D908B55621A6436D001ECA7F /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55521A6436D001ECA7F /* API+User.swift */; };
+		D908B55821A64388001ECA7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55721A64388001ECA7F /* API.swift */; };
+		D908B55A21A650EB001ECA7F /* AppRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */; };
 		D91AAB1A21A24DD60024E048 /* AppFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; };
 		D91AAB1C21A24DE10024E048 /* AppFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D91AAB1D21A24F0C0024E048 /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
@@ -199,6 +202,8 @@
 		D908B54F21A6387F001ECA7F /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		D908B55121A63949001ECA7F /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Build; path = Carthage/Build; sourceTree = "<group>"; };
 		D908B55321A63958001ECA7F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D908B55521A6436D001ECA7F /* API+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+User.swift"; sourceTree = "<group>"; };
+		D908B55721A64388001ECA7F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
 		D925C241219F19DD00B166B4 /* AppScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D925C243219F19DD00B166B4 /* AppScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppScreen.h; sourceTree = "<group>"; };
@@ -267,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D908B55A21A650EB001ECA7F /* AppRequest.framework in Frameworks */,
 				D908B54621A58077001ECA7F /* RxCocoa.framework in Frameworks */,
 				D908B54721A58077001ECA7F /* RxSwift.framework in Frameworks */,
 				D908B54421A58030001ECA7F /* Realm.framework in Frameworks */,
@@ -390,7 +396,9 @@
 		D908B4EE21A4FB4D001ECA7F /* AppRequest */ = {
 			isa = PBXGroup;
 			children = (
+				D908B55721A64388001ECA7F /* API.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
+				D908B55521A6436D001ECA7F /* API+User.swift */,
 				D908B4EF21A4FB4D001ECA7F /* AppRequest.h */,
 				D908B4F021A4FB4D001ECA7F /* Info.plist */,
 			);
@@ -905,6 +913,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
+				D908B55821A64388001ECA7F /* API.swift in Sources */,
 				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

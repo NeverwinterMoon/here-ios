@@ -8,8 +8,9 @@
 
 import Foundation
 import Moya
+import RxSwift
 
-protocol AppTargetType: TargetType {
+protocol AppTargetType: TargetType, PrimitiveSequenceType {
     
     var path: String { get }
     var method: Moya.Method { get }
@@ -41,5 +42,15 @@ extension AppTargetType {
     public var headers: [String : String]? {
         
         return nil
+    }
+}
+
+extension AppTargetType {
+    
+    public func asSingle() -> Single<ElementType> {
+        
+        return self.primitiveSequence
+            .asObservable()
+            .asSingle()
     }
 }

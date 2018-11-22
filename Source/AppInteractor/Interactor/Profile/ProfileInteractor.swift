@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import AppRequest
 import RxCocoa
 import RxSwift
 
@@ -18,6 +19,6 @@ public final class ProfileInteractor {
     public init() {}
     
     public func user(userId: String) -> Single<User> {
-        
+        return API.User.Get(userId: userId).asSingle()
     }
 }

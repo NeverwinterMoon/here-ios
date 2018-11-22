@@ -21,9 +21,6 @@
 		D9061BD3219F0F0900A9A7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9061BD1219F0F0900A9A7CA /* LaunchScreen.storyboard */; };
 		D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B47821A4F386001ECA7F /* AppInterface.swift */; };
 		D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B47A21A4F3EC001ECA7F /* AppWireframe.swift */; };
-		D908B4B721A4F9C3001ECA7F /* AppInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = D908B4A721A4F9C2001ECA7F /* AppInteractor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D908B4BA21A4F9C3001ECA7F /* AppInteractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4A521A4F9C2001ECA7F /* AppInteractor.framework */; };
-		D908B4BB21A4F9C3001ECA7F /* AppInteractor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4A521A4F9C2001ECA7F /* AppInteractor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D908B4D421A4FB3C001ECA7F /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4CB21A4FB3C001ECA7F /* AppEntity.framework */; };
 		D908B4DB21A4FB3C001ECA7F /* AppEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B4DA21A4FB3C001ECA7F /* AppEntityTests.swift */; };
 		D908B4DD21A4FB3C001ECA7F /* AppEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = D908B4CD21A4FB3C001ECA7F /* AppEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,16 +29,23 @@
 		D908B4FF21A4FB4D001ECA7F /* AppRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D908B4EF21A4FB4D001ECA7F /* AppRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D908B50221A4FB4D001ECA7F /* AppRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */; };
 		D908B50321A4FB4D001ECA7F /* AppRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D908B50B21A4FB99001ECA7F /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50A21A4FB99001ECA7F /* RxMoya.framework */; };
-		D908B50E21A4FBB0001ECA7F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50C21A4FBAF001ECA7F /* RxCocoa.framework */; };
-		D908B50F21A4FBB0001ECA7F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50D21A4FBB0001ECA7F /* RxSwift.framework */; };
 		D908B51021A4FCA8001ECA7F /* AppFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; };
 		D908B51321A4FFE8001ECA7F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51121A4FFE8001ECA7F /* RealmSwift.framework */; };
 		D908B51421A4FFE8001ECA7F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51221A4FFE8001ECA7F /* Realm.framework */; };
 		D908B52921A54DE9001ECA7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B52721A54DE3001ECA7F /* User.swift */; };
-		D908B52B21A55247001ECA7F /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B52A21A55247001ECA7F /* ProfileInteractor.swift */; };
 		D908B52C21A55376001ECA7F /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4CB21A4FB3C001ECA7F /* AppEntity.framework */; };
-		D908B52D21A55376001ECA7F /* AppInteractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4A521A4F9C2001ECA7F /* AppInteractor.framework */; };
+		D908B53821A57FD0001ECA7F /* AppInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = D908B53621A57FD0001ECA7F /* AppInteractor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D908B53B21A57FD0001ECA7F /* AppInteractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B53421A57FD0001ECA7F /* AppInteractor.framework */; };
+		D908B53C21A57FD0001ECA7F /* AppInteractor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D908B53421A57FD0001ECA7F /* AppInteractor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D908B54321A58017001ECA7F /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4CB21A4FB3C001ECA7F /* AppEntity.framework */; };
+		D908B54421A58030001ECA7F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51221A4FFE8001ECA7F /* Realm.framework */; };
+		D908B54521A58030001ECA7F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51121A4FFE8001ECA7F /* RealmSwift.framework */; };
+		D908B54621A58077001ECA7F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50C21A4FBAF001ECA7F /* RxCocoa.framework */; };
+		D908B54721A58077001ECA7F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50D21A4FBB0001ECA7F /* RxSwift.framework */; };
+		D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B54A21A63668001ECA7F /* ProfileInteractor.swift */; };
+		D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B54D21A6385B001ECA7F /* AppTargetType.swift */; };
+		D908B55021A6387F001ECA7F /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B54F21A6387F001ECA7F /* Moya.framework */; };
+		D908B55421A63958001ECA7F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B55321A63958001ECA7F /* Alamofire.framework */; };
 		D91AAB1A21A24DD60024E048 /* AppFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; };
 		D91AAB1C21A24DE10024E048 /* AppFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D91AAB1921A24DD60024E048 /* AppFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D91AAB1D21A24F0C0024E048 /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
@@ -72,13 +76,6 @@
 			remoteGlobalIDString = D9061BC2219F0F0800A9A7CA;
 			remoteInfo = NowHere;
 		};
-		D908B4B821A4F9C3001ECA7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9061BBB219F0F0800A9A7CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D908B4A421A4F9C2001ECA7F;
-			remoteInfo = AppInteractor;
-		};
 		D908B4D521A4FB3C001ECA7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D9061BBB219F0F0800A9A7CA /* Project object */;
@@ -106,6 +103,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D908B4EC21A4FB4D001ECA7F;
 			remoteInfo = AppRequest;
+		};
+		D908B53921A57FD0001ECA7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9061BBB219F0F0800A9A7CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D908B53321A57FD0001ECA7F;
+			remoteInfo = AppInteractor;
 		};
 		D925C24B219F19DD00B166B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -137,12 +141,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D908B4BB21A4F9C3001ECA7F /* AppInteractor.framework in Embed Frameworks */,
 				D908B4E121A4FB3C001ECA7F /* AppEntity.framework in Embed Frameworks */,
 				D908B50321A4FB4D001ECA7F /* AppRequest.framework in Embed Frameworks */,
 				D91AAB1E21A24F0C0024E048 /* FlexLayout.framework in Embed Frameworks */,
 				D925C257219F19DD00B166B4 /* AppScreen.framework in Embed Frameworks */,
 				D91AAB1C21A24DE10024E048 /* AppFoundation.framework in Embed Frameworks */,
+				D908B53C21A57FD0001ECA7F /* AppInteractor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,11 +175,6 @@
 		D9061BF6219F0F5A00A9A7CA /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D908B47821A4F386001ECA7F /* AppInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInterface.swift; sourceTree = "<group>"; };
 		D908B47A21A4F3EC001ECA7F /* AppWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWireframe.swift; sourceTree = "<group>"; };
-		D908B4A521A4F9C2001ECA7F /* AppInteractor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppInteractor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D908B4A721A4F9C2001ECA7F /* AppInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInteractor.h; sourceTree = "<group>"; };
-		D908B4A821A4F9C2001ECA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D908B4B421A4F9C3001ECA7F /* AppInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInteractorTests.swift; sourceTree = "<group>"; };
-		D908B4B621A4F9C3001ECA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D908B4CB21A4FB3C001ECA7F /* AppEntity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppEntity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D908B4CD21A4FB3C001ECA7F /* AppEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppEntity.h; sourceTree = "<group>"; };
 		D908B4CE21A4FB3C001ECA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,8 +184,6 @@
 		D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D908B4EF21A4FB4D001ECA7F /* AppRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppRequest.h; sourceTree = "<group>"; };
 		D908B4F021A4FB4D001ECA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D908B4FC21A4FB4D001ECA7F /* AppRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequestTests.swift; sourceTree = "<group>"; };
-		D908B4FE21A4FB4D001ECA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D908B50A21A4FB99001ECA7F /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		D908B50C21A4FBAF001ECA7F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D908B50D21A4FBB0001ECA7F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -194,7 +191,14 @@
 		D908B51221A4FFE8001ECA7F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		D908B52321A54CE8001ECA7F /* ap copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ap copy-Info.plist"; path = "/Users/joehattori/dev/personal_project/NowHere/ap copy-Info.plist"; sourceTree = "<absolute>"; };
 		D908B52721A54DE3001ECA7F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D908B52A21A55247001ECA7F /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		D908B53421A57FD0001ECA7F /* AppInteractor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppInteractor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D908B53621A57FD0001ECA7F /* AppInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInteractor.h; sourceTree = "<group>"; };
+		D908B53721A57FD0001ECA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D908B54A21A63668001ECA7F /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		D908B54D21A6385B001ECA7F /* AppTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTargetType.swift; sourceTree = "<group>"; };
+		D908B54F21A6387F001ECA7F /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		D908B55121A63949001ECA7F /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Build; path = Carthage/Build; sourceTree = "<group>"; };
+		D908B55321A63958001ECA7F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
 		D925C241219F19DD00B166B4 /* AppScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D925C243219F19DD00B166B4 /* AppScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppScreen.h; sourceTree = "<group>"; };
@@ -210,11 +214,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D908B53B21A57FD0001ECA7F /* AppInteractor.framework in Frameworks */,
 				D908B50221A4FB4D001ECA7F /* AppRequest.framework in Frameworks */,
 				D925C256219F19DD00B166B4 /* AppScreen.framework in Frameworks */,
 				D908B4E021A4FB3C001ECA7F /* AppEntity.framework in Frameworks */,
 				D91AAB1D21A24F0C0024E048 /* FlexLayout.framework in Frameworks */,
-				D908B4BA21A4F9C3001ECA7F /* AppInteractor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,16 +233,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D908B4A221A4F9C2001ECA7F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D908B50E21A4FBB0001ECA7F /* RxCocoa.framework in Frameworks */,
-				D908B50F21A4FBB0001ECA7F /* RxSwift.framework in Frameworks */,
-				D908B50B21A4FB99001ECA7F /* RxMoya.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +258,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D908B55421A63958001ECA7F /* Alamofire.framework in Frameworks */,
+				D908B55021A6387F001ECA7F /* Moya.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D908B53121A57FD0001ECA7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D908B54621A58077001ECA7F /* RxCocoa.framework in Frameworks */,
+				D908B54721A58077001ECA7F /* RxSwift.framework in Frameworks */,
+				D908B54421A58030001ECA7F /* Realm.framework in Frameworks */,
+				D908B54521A58030001ECA7F /* RealmSwift.framework in Frameworks */,
+				D908B54321A58017001ECA7F /* AppEntity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D908B52C21A55376001ECA7F /* AppEntity.framework in Frameworks */,
-				D908B52D21A55376001ECA7F /* AppInteractor.framework in Frameworks */,
 				D91AAB1A21A24DD60024E048 /* AppFoundation.framework in Frameworks */,
 				D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */,
 			);
@@ -317,9 +324,7 @@
 				D925C262219F1A0E00B166B4 /* Tests */,
 				D925C23B219F19BD00B166B4 /* Source */,
 				D9061BC5219F0F0800A9A7CA /* NowHere */,
-				D908B4B321A4F9C3001ECA7F /* AppInteractorTests */,
 				D908B4D921A4FB3C001ECA7F /* AppEntityTests */,
-				D908B4FB21A4FB4D001ECA7F /* AppRequestTests */,
 				D9061BC4219F0F0800A9A7CA /* Products */,
 				D9B945AE219F1F1D0009FF6D /* Frameworks */,
 				D908B52321A54CE8001ECA7F /* ap copy-Info.plist */,
@@ -334,10 +339,10 @@
 				D9061BE4219F0F0900A9A7CA /* NowHereUITests.xctest */,
 				D925C241219F19DD00B166B4 /* AppScreen.framework */,
 				D925C249219F19DD00B166B4 /* AppScreenTests.xctest */,
-				D908B4A521A4F9C2001ECA7F /* AppInteractor.framework */,
 				D908B4CB21A4FB3C001ECA7F /* AppEntity.framework */,
 				D908B4D321A4FB3C001ECA7F /* AppEntityTests.xctest */,
 				D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */,
+				D908B53421A57FD0001ECA7F /* AppInteractor.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -363,41 +368,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		D908B4A621A4F9C2001ECA7F /* AppInteractor */ = {
-			isa = PBXGroup;
-			children = (
-				D908B4C221A4F9D9001ECA7F /* Interactor */,
-				D908B4A721A4F9C2001ECA7F /* AppInteractor.h */,
-				D908B4A821A4F9C2001ECA7F /* Info.plist */,
-			);
-			path = AppInteractor;
-			sourceTree = "<group>";
-		};
-		D908B4B321A4F9C3001ECA7F /* AppInteractorTests */ = {
-			isa = PBXGroup;
-			children = (
-				D908B4B421A4F9C3001ECA7F /* AppInteractorTests.swift */,
-				D908B4B621A4F9C3001ECA7F /* Info.plist */,
-			);
-			path = AppInteractorTests;
-			sourceTree = "<group>";
-		};
-		D908B4C221A4F9D9001ECA7F /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				D908B4C321A4F9EE001ECA7F /* Profile */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		D908B4C321A4F9EE001ECA7F /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				D908B52A21A55247001ECA7F /* ProfileInteractor.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		D908B4CC21A4FB3C001ECA7F /* AppEntity */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,19 +390,11 @@
 		D908B4EE21A4FB4D001ECA7F /* AppRequest */ = {
 			isa = PBXGroup;
 			children = (
+				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D908B4EF21A4FB4D001ECA7F /* AppRequest.h */,
 				D908B4F021A4FB4D001ECA7F /* Info.plist */,
 			);
 			path = AppRequest;
-			sourceTree = "<group>";
-		};
-		D908B4FB21A4FB4D001ECA7F /* AppRequestTests */ = {
-			isa = PBXGroup;
-			children = (
-				D908B4FC21A4FB4D001ECA7F /* AppRequestTests.swift */,
-				D908B4FE21A4FB4D001ECA7F /* Info.plist */,
-			);
-			path = AppRequestTests;
 			sourceTree = "<group>";
 		};
 		D908B52421A54D4E001ECA7F /* Account */ = {
@@ -443,12 +405,38 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		D908B53521A57FD0001ECA7F /* AppInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				D908B54921A63651001ECA7F /* Interactor */,
+				D908B53621A57FD0001ECA7F /* AppInteractor.h */,
+				D908B53721A57FD0001ECA7F /* Info.plist */,
+			);
+			path = AppInteractor;
+			sourceTree = "<group>";
+		};
+		D908B54921A63651001ECA7F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D908B54C21A63701001ECA7F /* Profile */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D908B54C21A63701001ECA7F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D908B54A21A63668001ECA7F /* ProfileInteractor.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D925C23B219F19BD00B166B4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				D908B4CC21A4FB3C001ECA7F /* AppEntity */,
+				D908B53521A57FD0001ECA7F /* AppInteractor */,
 				D908B4EE21A4FB4D001ECA7F /* AppRequest */,
-				D908B4A621A4F9C2001ECA7F /* AppInteractor */,
 				D925C242219F19DD00B166B4 /* AppScreen */,
 			);
 			path = Source;
@@ -513,6 +501,9 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D908B55321A63958001ECA7F /* Alamofire.framework */,
+				D908B55121A63949001ECA7F /* Build */,
+				D908B54F21A6387F001ECA7F /* Moya.framework */,
 				D908B51221A4FFE8001ECA7F /* Realm.framework */,
 				D908B51121A4FFE8001ECA7F /* RealmSwift.framework */,
 				D908B50C21A4FBAF001ECA7F /* RxCocoa.framework */,
@@ -527,14 +518,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		D908B4A021A4F9C2001ECA7F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D908B4B721A4F9C3001ECA7F /* AppInteractor.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D908B4C621A4FB3C001ECA7F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +531,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D908B4FF21A4FB4D001ECA7F /* AppRequest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D908B52F21A57FD0001ECA7F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D908B53821A57FD0001ECA7F /* AppInteractor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,9 +566,9 @@
 			);
 			dependencies = (
 				D925C255219F19DD00B166B4 /* PBXTargetDependency */,
-				D908B4B921A4F9C3001ECA7F /* PBXTargetDependency */,
 				D908B4DF21A4FB3C001ECA7F /* PBXTargetDependency */,
 				D908B50121A4FB4D001ECA7F /* PBXTargetDependency */,
+				D908B53A21A57FD0001ECA7F /* PBXTargetDependency */,
 			);
 			name = NowHere;
 			productName = NowHere;
@@ -619,24 +610,6 @@
 			productName = NowHereUITests;
 			productReference = D9061BE4219F0F0900A9A7CA /* NowHereUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		D908B4A421A4F9C2001ECA7F /* AppInteractor */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D908B4BC21A4F9C3001ECA7F /* Build configuration list for PBXNativeTarget "AppInteractor" */;
-			buildPhases = (
-				D908B4A021A4F9C2001ECA7F /* Headers */,
-				D908B4A121A4F9C2001ECA7F /* Sources */,
-				D908B4A221A4F9C2001ECA7F /* Frameworks */,
-				D908B4A321A4F9C2001ECA7F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AppInteractor;
-			productName = AppInteractor;
-			productReference = D908B4A521A4F9C2001ECA7F /* AppInteractor.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		D908B4CA21A4FB3C001ECA7F /* AppEntity */ = {
 			isa = PBXNativeTarget;
@@ -691,6 +664,24 @@
 			name = AppRequest;
 			productName = AppRequest;
 			productReference = D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D908B53321A57FD0001ECA7F /* AppInteractor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D908B53D21A57FD0001ECA7F /* Build configuration list for PBXNativeTarget "AppInteractor" */;
+			buildPhases = (
+				D908B52F21A57FD0001ECA7F /* Headers */,
+				D908B53021A57FD0001ECA7F /* Sources */,
+				D908B53121A57FD0001ECA7F /* Frameworks */,
+				D908B53221A57FD0001ECA7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppInteractor;
+			productName = AppInteractor;
+			productReference = D908B53421A57FD0001ECA7F /* AppInteractor.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D925C240219F19DD00B166B4 /* AppScreen */ = {
@@ -751,10 +742,6 @@
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = D9061BC2219F0F0800A9A7CA;
 					};
-					D908B4A421A4F9C2001ECA7F = {
-						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1000;
-					};
 					D908B4CA21A4FB3C001ECA7F = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -764,6 +751,11 @@
 					};
 					D908B4EC21A4FB4D001ECA7F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					D908B53321A57FD0001ECA7F = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					D925C240219F19DD00B166B4 = {
 						CreatedOnToolsVersion = 10.1;
@@ -792,10 +784,10 @@
 				D9061BE3219F0F0900A9A7CA /* NowHereUITests */,
 				D925C240219F19DD00B166B4 /* AppScreen */,
 				D925C248219F19DD00B166B4 /* AppScreenTests */,
-				D908B4A421A4F9C2001ECA7F /* AppInteractor */,
 				D908B4CA21A4FB3C001ECA7F /* AppEntity */,
 				D908B4D221A4FB3C001ECA7F /* AppEntityTests */,
 				D908B4EC21A4FB4D001ECA7F /* AppRequest */,
+				D908B53321A57FD0001ECA7F /* AppInteractor */,
 			);
 		};
 /* End PBXProject section */
@@ -825,13 +817,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D908B4A321A4F9C2001ECA7F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D908B4C921A4FB3C001ECA7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -847,6 +832,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D908B4EB21A4FB4D001ECA7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D908B53221A57FD0001ECA7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -893,14 +885,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D908B4A121A4F9C2001ECA7F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D908B52B21A55247001ECA7F /* ProfileInteractor.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D908B4C721A4FB3C001ECA7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -921,6 +905,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D908B53021A57FD0001ECA7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,11 +957,6 @@
 			target = D9061BC2219F0F0800A9A7CA /* NowHere */;
 			targetProxy = D9061BE5219F0F0900A9A7CA /* PBXContainerItemProxy */;
 		};
-		D908B4B921A4F9C3001ECA7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D908B4A421A4F9C2001ECA7F /* AppInteractor */;
-			targetProxy = D908B4B821A4F9C3001ECA7F /* PBXContainerItemProxy */;
-		};
 		D908B4D621A4FB3C001ECA7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D908B4CA21A4FB3C001ECA7F /* AppEntity */;
@@ -988,6 +976,11 @@
 			isa = PBXTargetDependency;
 			target = D908B4EC21A4FB4D001ECA7F /* AppRequest */;
 			targetProxy = D908B50021A4FB4D001ECA7F /* PBXContainerItemProxy */;
+		};
+		D908B53A21A57FD0001ECA7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D908B53321A57FD0001ECA7F /* AppInteractor */;
+			targetProxy = D908B53921A57FD0001ECA7F /* PBXContainerItemProxy */;
 		};
 		D925C24C219F19DD00B166B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1270,73 +1263,6 @@
 			};
 			name = Release;
 		};
-		D908B4BD21A4F9C3001ECA7F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = THLP3245G5;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = AppInteractor/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = joehattori.AppInteractor;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D908B4BE21A4F9C3001ECA7F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = THLP3245G5;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = AppInteractor/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = joehattori.AppInteractor;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		D908B4E321A4FB3C001ECA7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1444,6 +1370,7 @@
 		D908B50521A4FB4D001ECA7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1452,6 +1379,44 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = AppRequest/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joehattori.AppRequest;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D908B50621A4FB4D001ECA7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = THLP3245G5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AppRequest/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1467,11 +1432,12 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		D908B50621A4FB4D001ECA7F /* Release */ = {
+		D908B53E21A57FD0001ECA7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1480,14 +1446,52 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = AppRequest/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = AppInteractor/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = joehattori.AppRequest;
+				PRODUCT_BUNDLE_IDENTIFIER = joehattori.AppInteractor;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D908B53F21A57FD0001ECA7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = THLP3245G5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = AppInteractor/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joehattori.AppInteractor;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -1644,15 +1648,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D908B4BC21A4F9C3001ECA7F /* Build configuration list for PBXNativeTarget "AppInteractor" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D908B4BD21A4F9C3001ECA7F /* Debug */,
-				D908B4BE21A4F9C3001ECA7F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D908B4E221A4FB3C001ECA7F /* Build configuration list for PBXNativeTarget "AppEntity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1676,6 +1671,15 @@
 			buildConfigurations = (
 				D908B50521A4FB4D001ECA7F /* Debug */,
 				D908B50621A4FB4D001ECA7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D908B53D21A57FD0001ECA7F /* Build configuration list for PBXNativeTarget "AppInteractor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D908B53E21A57FD0001ECA7F /* Debug */,
+				D908B53F21A57FD0001ECA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

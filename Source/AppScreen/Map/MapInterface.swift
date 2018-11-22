@@ -9,14 +9,10 @@
 import Foundation
 
 protocol MapViewInterface: class {
-    <#requirements#>
 }
 protocol MapInteractorInterface: class {
-    <#requirements#>
 }
 protocol MapPresenterInterface: class {
-    <#requirements#>
 }
 protocol MapWireframeInterface: class {
-    <#requirements#>
 }

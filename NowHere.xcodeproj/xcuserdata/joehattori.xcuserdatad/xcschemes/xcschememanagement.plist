@@ -9,10 +9,15 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>AppInteractor.xcscheme</key>
+		<key>AppExtensions.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>AppInteractor.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>AppInterface.xcscheme</key>
 		<dict>
@@ -34,10 +39,15 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>AppUIKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>CustomExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>NowHere.xcscheme</key>
 		<dict>

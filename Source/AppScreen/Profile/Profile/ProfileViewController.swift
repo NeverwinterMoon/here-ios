@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import AppFoundation
-import CustomExtensions
+import AppExtensions
 import FlexLayout
 import RxCocoa
 import RxSwift
@@ -70,7 +69,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             $0.titleLabel?.text = "プロフィールを編集する"
             $0.layer.borderWidth = 0.1
             $0.layer.borderColor = UIColor.black.cgColor
-            // TODO ここを枠線ありのボタンにする
         }
         
         self.friendsButton.do {

@@ -16,8 +16,8 @@ extension API {
         
         public struct Get: AppTargetType {
             
-            public typealias ObjectType = User
-            
+            public typealias ElementType = User
+
             public let path: String
             public let method: Moya.Method = .get
             public let parameters: [String: Any] = [:]

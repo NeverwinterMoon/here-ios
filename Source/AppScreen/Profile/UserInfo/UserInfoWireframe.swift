@@ -11,10 +11,8 @@ import Foundation
 final class UserInfoWireframe: AppWireframe, UserInfoWireframeInterface {
     
     func showCamera() {
-        <#code#>
     }
     
     func showCameraRoll() {
-        <#code#>
     }
 }

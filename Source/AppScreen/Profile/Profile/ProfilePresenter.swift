@@ -8,9 +8,8 @@
 
 import Foundation
 import AppEntity
-import AppFoundation
+import AppExtensions
 import AppInteractor
-import CustomExtensions
 import RxCocoa
 import RxSwift
 

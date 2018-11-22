@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AppFoundation
+import AppExtensions
 import CoreLocation
 import FlexLayout
 import MapKit

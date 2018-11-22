@@ -17,14 +17,7 @@ extension Disposer {
     
     fileprivate var disposeBag: DisposeBag {
         
-        if let bag = objc_getAssociatedObject(self, &PropertyKey.disposeBag) as? DisposeBag {
-            
-            return bag
-        }
-        
-        let bag = DisposeBag()
-        objc_setAssociatedObject(self, &PropertyKey.disposeBag, bag, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        return bag
+        return DisposeBag()
     }
 }
 

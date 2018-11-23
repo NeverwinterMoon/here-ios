@@ -53,4 +53,30 @@ extension AppTargetType {
             .asObservable()
             .asSingle()
     }
+    
+    public typealias TraitType = SingleTrait
+}
+
+protocol GETTargetType: AppTargetType {}
+extension GETTargetType {
+    public var method: Moya.Method { return .get }
+    public var parameterEncoding: ParameterEncoding { return URLEncoding.default }
+}
+
+protocol PUTTargetType: AppTargetType {}
+extension PUTTargetType {
+    public var method: Moya.Method { return .put }
+    public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
+}
+
+protocol POSTTargetType {}
+extension POSTTargetType {
+    public var method: Moya.Method { return .post }
+    public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
+}
+
+protocol PATCHTargetType {}
+extension PATCHTargetType {
+    public var method: Moya.Method { return .patch }
+    public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
 }

@@ -14,7 +14,7 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
-final class UserInfoViewController: UIViewController, UserInfoViewInterface {
+final class UserInfoViewController: UIViewController, UserInfoViewInterface, UITableViewDelegate {
     
     var presenter: UserInfoPresenterInterface
     
@@ -25,6 +25,15 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
+        let dataSource = RxTableViewSectionedReloadDataSource<ProfileSection>(
+            configureCell: { dataSource, tableView, indexPath, item -> UITableViewCell in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath)
+                cell.title = item.title
+                return cell
+        })
+        
+        self.dataSource = dataSource
+
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -50,6 +59,14 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface {
                 })
                 .dispose(with: self)
         }
+        
+        self.profileInfoTableView.do {
+            $0.delegate = self
+            $0.register(ProfileInfoCell.self, forCellWithReuseIdentifier: "ProfileInfoCell")
+            $0.width = self.view.bounds.width
+            $0.alwaysBounceVertical = true
+            $0.showsVerticalScrollIndicator = true
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,7 +77,8 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface {
     // MARK: - Private
     private let changeProfileImageButton = UIButton()
     private let profileImageView = UIImageView()
-    private let profileInfoTableView = UITableView()
+    private let profileInfoTableView = UICollectionView()
+    private let dataSource: RxTableViewSectionedReloadDataSource<ProfileSection>
 
     private func flexLayout() {
         

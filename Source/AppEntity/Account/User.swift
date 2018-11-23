@@ -22,9 +22,9 @@ public final class User: Object, Decodable {
         
         return "id"
     }
-
+    
     private enum CodingKeys: String, CodingKey {
-
+        
         case id
         case emailAddress = "email_address"
         case profileImageURL = "profile_image_url"

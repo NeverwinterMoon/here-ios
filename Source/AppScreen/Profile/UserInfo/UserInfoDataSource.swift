@@ -10,7 +10,8 @@ import Foundation
 import RxDataSources
 
 struct ProfileInfo {
-    var emailAddress: String
+    let title: String
+    let body: String
 }
 
 struct ProfileSection {

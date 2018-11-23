@@ -2,7 +2,7 @@
 //  AppEntity.h
 //  AppEntity
 //
-//  Created by 服部穣 on 2018/11/21.
+//  Created by 服部穣 on 2018/11/23.
 //  Copyright © 2018 服部穣. All rights reserved.
 //
 

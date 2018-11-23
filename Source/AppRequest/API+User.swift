@@ -14,15 +14,13 @@ extension API {
     
     public enum User {
         
-        public struct Get: AppTargetType {
+        public struct Get: GETTargetType {
             
             public typealias ElementType = User
 
             public let path: String
-            public let method: Moya.Method = .get
             public let parameters: [String: Any] = [:]
-            public let parameterEncoding: ParameterEncoding = URLEncoding.default
-            
+
             public init(userId: String) {
                 self.path = "users/\(userId)"
             }

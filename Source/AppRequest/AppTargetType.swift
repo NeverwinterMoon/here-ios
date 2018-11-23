@@ -43,6 +43,14 @@ extension AppTargetType {
         
         return nil
     }
+    
+    public var primitiveSequence: PrimitiveSequence<SingleTrait, ElementType> {
+        
+        return Single.create(subscribe: { (observer) -> Disposable in
+            let provider = MoyaProvider<TargetTypeWrapper>(endpointClosure: endPointClosure)
+            
+        })
+    }
 }
 
 extension AppTargetType {
@@ -53,8 +61,6 @@ extension AppTargetType {
             .asObservable()
             .asSingle()
     }
-    
-    public typealias TraitType = SingleTrait
 }
 
 protocol GETTargetType: AppTargetType {}

@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import RxSwift
 import Moya
 
 extension API {

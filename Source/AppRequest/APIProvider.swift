@@ -37,17 +37,34 @@ public class APIProvider: MoyaProvider<TargetTypeWrapper> {
     private init() {
         
         let endPointClosure: EndpointClosure = { target in
+            
             return MoyaProvider.defaultEndpointMapping(for: target)
         }
         
+        let networkActivityClosure: NetworkActivityPlugin.NetworkActivityClosure = { change, _ in
+            
+            switch change {
+            case .began:
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            case .ended:
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
         
-        super.init(endpointClosure: <#T##(TargetTypeWrapper) -> Endpoint#>,
-                   requestClosure: <#T##(Endpoint, @escaping (Result<URLRequest, MoyaError>) -> Void) -> Void#>,
-                   stubClosure: <#T##(TargetTypeWrapper) -> StubBehavior#>,
-                   callbackQueue: <#T##DispatchQueue?#>,
-                   manager: <#T##Manager#>,
-                   plugins: <#T##[PluginType]#>,
-                   trackInflights: <#T##Bool#>
-        )
+        let requestClosure: RequestClosure = { endPoint, closure in
+            
+            return MoyaProvider<TargetTypeWrapper>.defaultRequestMapping(for: endPoint, closure: closure)
+        }
+        
+        var plugins: [PluginType] = []
+        plugins.append(NetworkActivityPlugin(networkActivityClosure: networkActivityClosure))
+        
+        super.init(endpointClosure: endPointClosure,
+                   requestClosure: requestClosure,
+                   stubClosure: MoyaProvider.neverStub,
+                   callbackQueue: DispatchQueue.main,
+                   manager: .default,
+                   plugins: plugins,
+                   trackInflights: false)
     }
 }

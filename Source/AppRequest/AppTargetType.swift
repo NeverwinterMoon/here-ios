@@ -47,7 +47,32 @@ extension AppTargetType {
     public var primitiveSequence: PrimitiveSequence<SingleTrait, ElementType> {
         
         return Single.create(subscribe: { (observer) -> Disposable in
-            let provider = MoyaProvider<TargetTypeWrapper>(endpointClosure: endPointClosure)
+            let response = APIProvider.shared.request(TargetTypeWrapper(target: self), completion: { result in
+                switch result {
+                case let .success(response):
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes().data
+                        observer(.success(data))
+                    }
+                    catch MoyaError.statusCode {
+                        do {
+                            let data = response.data
+                            //                            TODO: make struct APIError
+                            let error = try JSONDecoder().decode(Error.self, from: data)
+                            observer(.error(error))
+                        }
+                        catch {
+                            
+                        }
+                    }
+                    catch {
+                        
+                    }
+
+                case let .failure(error):
+                    observer(.error(error))
+                }
+            })
             
         })
     }

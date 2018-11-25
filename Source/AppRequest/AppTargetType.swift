@@ -17,6 +17,7 @@ public protocol AppTargetType: TargetType, PrimitiveSequenceType {
     var method: Moya.Method { get }
     var parameters: [String: Any] { get }
     var parameterEncoding: ParameterEncoding { get }
+    static func decodeData(_ data: Data) throws -> ElementType
 }
 
 extension AppTargetType {
@@ -77,17 +78,10 @@ extension AppTargetType {
                 }
             })
             
+            return Disposables.create(with: {
+                cancellable.cancel()
+            })
         })
-    }
-}
-
-extension AppTargetType {
-    
-    public func asSingle() -> Single<ElementType> {
-        
-        return self.primitiveSequence
-            .asObservable()
-            .asSingle()
     }
 }
 

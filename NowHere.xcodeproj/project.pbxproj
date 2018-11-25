@@ -80,6 +80,8 @@
 		D96E804F21A7A02E00887846 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E804E21A7A02E00887846 /* User.swift */; };
 		D96E805021A7A05000887846 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51221A4FFE8001ECA7F /* Realm.framework */; };
 		D96E805121A7A05000887846 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51121A4FFE8001ECA7F /* RealmSwift.framework */; };
+		D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363B21AA1FDC002D52E4 /* APIError.swift */; };
+		D978363D21AA286A002D52E4 /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96E804121A7A00900887846 /* AppEntity.framework */; };
 		D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
 		D9D1B16721A6FB9100FE3829 /* UserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* UserInfoDataSource.swift */; };
@@ -261,6 +263,7 @@
 		D96E804321A7A00900887846 /* AppEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppEntity.h; sourceTree = "<group>"; };
 		D96E804421A7A00A00887846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96E804E21A7A02E00887846 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D978363B21AA1FDC002D52E4 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* UserInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataSource.swift; sourceTree = "<group>"; };
@@ -306,6 +309,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D978363D21AA286A002D52E4 /* AppEntity.framework in Frameworks */,
 				D908B55421A63958001ECA7F /* Alamofire.framework in Frameworks */,
 				D908B55021A6387F001ECA7F /* Moya.framework in Frameworks */,
 			);
@@ -594,6 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				D96E804D21A7A01800887846 /* Account */,
+				D978363A21AA1FC3002D52E4 /* Shared */,
 				D96E804321A7A00900887846 /* AppEntity.h */,
 				D96E804421A7A00A00887846 /* Info.plist */,
 			);
@@ -606,6 +611,14 @@
 				D96E804E21A7A02E00887846 /* User.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		D978363A21AA1FC3002D52E4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D978363B21AA1FDC002D52E4 /* APIError.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		D98040B021A133F900E2C3F5 /* Profile */ = {
@@ -1188,6 +1201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
+				D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

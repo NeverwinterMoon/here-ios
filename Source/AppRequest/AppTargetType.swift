@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import AppEntity
 import Moya
 import RxSwift
 
-protocol AppTargetType: TargetType, PrimitiveSequenceType {
+public protocol AppTargetType: TargetType, PrimitiveSequenceType {
     
     var path: String { get }
     var method: Moya.Method { get }
@@ -47,30 +48,32 @@ extension AppTargetType {
     public var primitiveSequence: PrimitiveSequence<SingleTrait, ElementType> {
         
         return Single.create(subscribe: { (observer) -> Disposable in
-            let response = APIProvider.shared.request(TargetTypeWrapper(target: self), completion: { result in
+            let cancellable = APIProvider.shared.request(TargetTypeWrapper(target: self), completion: { result in
                 switch result {
                 case let .success(response):
                     do {
                         let data = try response.filterSuccessfulStatusCodes().data
-                        observer(.success(data))
+                        let element = try Self.decodeData(data)
+                        observer(.success(element))
                     }
                     catch MoyaError.statusCode {
                         do {
                             let data = response.data
-                            //                            TODO: make struct APIError
-                            let error = try JSONDecoder().decode(Error.self, from: data)
+                            let error = try JSONDecoder().decode(APIError.self, from: data)
                             observer(.error(error))
                         }
                         catch {
-                            
+                            assertionFailure("error when decoding Error to APIError: \(error)")
+                            observer(.error(error))
                         }
                     }
                     catch {
-                        
+                        assertionFailure("error when decoding error to data: \(error)")
+                        observer(.error(error))
                     }
 
                 case let .failure(error):
-                    observer(.error(error))
+                    observer(.error(APIError(moyaError: error)))
                 }
             })
             
@@ -85,6 +88,22 @@ extension AppTargetType {
         return self.primitiveSequence
             .asObservable()
             .asSingle()
+    }
+}
+
+extension AppTargetType where ElementType == Void {
+    
+    public static func decodeData(_ data: Data) throws {
+        
+        return
+    }
+}
+
+extension AppTargetType where ElementType: Decodable {
+    
+    public static func decodeData(_ data: Data) throws -> ElementType {
+        
+        return try JSONDecoder().decode(ElementType.self, from: data)
     }
 }
 

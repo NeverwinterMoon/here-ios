@@ -8,7 +8,6 @@
 
 import Foundation
 import AppEntity
-import RxSwift
 import Moya
 
 extension API {
@@ -17,7 +16,7 @@ extension API {
         
         public struct Get: GETTargetType {
             
-            public typealias ElementType = User
+            public typealias ElementType = AppEntity.User
 
             public let path: String
             public let parameters: [String: Any] = [:]

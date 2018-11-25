@@ -82,6 +82,7 @@
 		D96E805121A7A05000887846 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51121A4FFE8001ECA7F /* RealmSwift.framework */; };
 		D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363B21AA1FDC002D52E4 /* APIError.swift */; };
 		D978363D21AA286A002D52E4 /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96E804121A7A00900887846 /* AppEntity.framework */; };
+		D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */; };
 		D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
 		D9D1B16721A6FB9100FE3829 /* UserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* UserInfoDataSource.swift */; };
@@ -264,6 +265,7 @@
 		D96E804421A7A00A00887846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96E804E21A7A02E00887846 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D978363B21AA1FDC002D52E4 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToSingle.swift; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* UserInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataSource.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		D908B53521A57FD0001ECA7F /* AppInteractor */ = {
 			isa = PBXGroup;
 			children = (
+				D978363E21AADD99002D52E4 /* Base */,
 				D908B54921A63651001ECA7F /* Interactor */,
 				D908B53621A57FD0001ECA7F /* AppInteractor.h */,
 				D908B53721A57FD0001ECA7F /* Info.plist */,
@@ -598,7 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				D96E804D21A7A01800887846 /* Account */,
-				D978363A21AA1FC3002D52E4 /* Shared */,
+				D978363A21AA1FC3002D52E4 /* Base */,
 				D96E804321A7A00900887846 /* AppEntity.h */,
 				D96E804421A7A00A00887846 /* Info.plist */,
 			);
@@ -613,12 +616,20 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
-		D978363A21AA1FC3002D52E4 /* Shared */ = {
+		D978363A21AA1FC3002D52E4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				D978363B21AA1FDC002D52E4 /* APIError.swift */,
 			);
-			path = Shared;
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D978363E21AADD99002D52E4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		D98040B021A133F900E2C3F5 /* Profile */ = {
@@ -1139,6 +1150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
 				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

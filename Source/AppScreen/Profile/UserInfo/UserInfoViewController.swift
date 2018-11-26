@@ -16,30 +16,35 @@ import RxSwift
 
 final class UserInfoViewController: UIViewController, UserInfoViewInterface, UITableViewDelegate {
     
-    var presenter: UserInfoPresenterInterface
+    var presenter: UserInfoPresenterInterface!
     
     var tapChangeProfileImage: Signal<Void> {
         
-        self.changeProfileImageButton.rx.tap.asSignal()
+        return self.changeProfileImageButton.rx.tap.asSignal()
+    }
+    
+    convenience init() {
+        self.init(nibName: nil, bundle: nil)
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        let dataSource = RxTableViewSectionedReloadDataSource<ProfileSection>(
+        let dataSource = RxTableViewSectionedReloadDataSource<ProfileInfoSection>(
             configureCell: { dataSource, tableView, indexPath, item -> UITableViewCell in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath)
-                cell.title = item.title
+                cell.textLabel?.text = item.title
                 return cell
         })
         
+//        tmp
+        self.profileInfoTableView = UITableView()
         self.dataSource = dataSource
 
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
+        fatalError()
     }
 
     override func viewDidLoad() {
@@ -62,8 +67,7 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface, UIT
         
         self.profileInfoTableView.do {
             $0.delegate = self
-            $0.register(ProfileInfoCell.self, forCellWithReuseIdentifier: "ProfileInfoCell")
-            $0.width = self.view.bounds.width
+            $0.register(ProfileInfoCell.self, forCellReuseIdentifier: "ProfileInfoCell")
             $0.alwaysBounceVertical = true
             $0.showsVerticalScrollIndicator = true
         }
@@ -77,8 +81,8 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface, UIT
     // MARK: - Private
     private let changeProfileImageButton = UIButton()
     private let profileImageView = UIImageView()
-    private let profileInfoTableView = UICollectionView()
-    private let dataSource: RxTableViewSectionedReloadDataSource<ProfileSection>
+    private let profileInfoTableView: UITableView
+    private let dataSource: RxTableViewSectionedReloadDataSource<ProfileInfoSection>
 
     private func flexLayout() {
         

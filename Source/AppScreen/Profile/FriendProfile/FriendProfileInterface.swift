@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import AppInteractor
 import RxCocoa
 import RxSwift
 
@@ -16,10 +17,10 @@ protocol FriendProfileViewInterface {
 }
 
 protocol FriendProfileInteractorInterface {
-    func friendsOf(userId: String) -> Single<[User]>
+    func user(userId: String) -> Single<User>
 }
 
-//extension
+extension ProfileInteractor: FriendProfileInteractorInterface {}
 
 protocol FriendProfilePresenterInterface {
     var userId: Driver<String> { get }

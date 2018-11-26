@@ -10,6 +10,9 @@ import Foundation
 
 final class UserInfoWireframe: AppWireframe, UserInfoWireframeInterface {
     
+    func pushChangeEmailAddress() {
+    }
+
     func showCamera() {
     }
     

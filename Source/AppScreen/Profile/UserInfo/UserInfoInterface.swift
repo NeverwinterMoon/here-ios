@@ -21,7 +21,7 @@ protocol UserInfoInteractorInterface {
 
 protocol UserInfoPresenterInterface {
     var userEmailAddress: Driver<String> { get }
-    var userIntro: Driver<String> { get }
+    var userProfileIntro: Driver<String> { get }
     var userProfileImageURL: Driver<URL> { get }
 }
 

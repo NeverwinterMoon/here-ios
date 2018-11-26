@@ -21,4 +21,8 @@ public final class ProfileInteractor {
     public func user(userId: String) -> Single<User> {
         return API.User.Get(userId: userId).asSingle()
     }
+    
+    public func friendsOf(userId: String) -> Single<[User]> {
+        return API.User.GetFriends(userId: userId).asSingle()
+    }
 }

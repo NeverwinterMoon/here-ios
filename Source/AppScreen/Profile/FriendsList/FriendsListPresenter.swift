@@ -7,3 +7,26 @@
 //
 
 import Foundation
+import RxCocoa
+
+final class FriendsListPresenter: FriendsListPresenterInterface {
+    
+    var sections: Driver<[FriendsListSection]> {
+        
+        return self.sectionsRelay.asDriver()
+    }
+    
+    private let sectionsRelay: BehaviorRelay<[FriendsListSection]> = .init(value: [])
+
+    init(userId: String, view: FriendsListViewInterface, interactor: FriendsListInteractorInterface, wireframe: FriendsListWireframe) {
+        
+        self.view = view
+        self.interactor = interactor
+        self.wireframe = wireframe
+    }
+    
+    // MARK: - Private
+    private let view: FriendsListViewInterface
+    private let interactor: FriendsListInteractorInterface
+    private let wireframe: FriendsListWireframe
+}

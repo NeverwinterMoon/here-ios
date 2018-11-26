@@ -7,19 +7,25 @@
 //
 
 import Foundation
+import AppEntity
+import AppInteractor
+import RxCocoa
+import RxSwift
 
 protocol FriendsListViewInterface {
-    <#requirements#>
+    var tapFriend: Signal<IndexPath> { get }
 }
 
-protocol FriendsListInteractorInterface {
-    <#requirements#>
+protocol FriendsListInteractorInterface: class {
+    func friendsOf(userId: String) -> Single<[User]>
 }
 
-protocol FriendsListPresenterInterface {
-    <#requirements#>
+extension ProfileInteractor: FriendsListInteractorInterface {}
+
+protocol FriendsListPresenterInterface: class {
+    var sections: Driver<[FriendsListSection]> { get }
 }
 
-protocol FriendsListWireframeInterface {
-    <#requirements#>
+protocol FriendsListWireframeInterface: WireframeInterface {
+    func pushFriendInfo(userId: String)
 }

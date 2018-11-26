@@ -9,20 +9,20 @@
 import Foundation
 import RxDataSources
 
-struct ProfileInfo {
+struct ProfileInfoItem {
     let title: String
     let body: String
 }
 
-struct ProfileSection {
+struct ProfileInfoSection {
     var header: String
     var items: [Item]
 }
 
-extension ProfileSection: SectionModelType {
-    typealias Item = ProfileInfo
-    
-    init(original: Self, items: [Self.Item]) {
+extension ProfileInfoSection: SectionModelType {
+    typealias Item = ProfileInfoItem
+
+    init(original: ProfileInfoSection, items: [Item]) {
         self = original
         self.items = items
     }

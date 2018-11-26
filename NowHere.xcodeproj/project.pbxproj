@@ -67,7 +67,7 @@
 		D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */; };
 		D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */; };
 		D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */; };
-		D92AFC8C21A6A34C00FCB5FD /* FriendsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8B21A6A34C00FCB5FD /* FriendsWireframe.swift */; };
+		D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8B21A6A34C00FCB5FD /* FriendsListWireframe.swift */; };
 		D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8E21A6A41900FCB5FD /* FriendProfileInterface.swift */; };
 		D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC9021A6A42700FCB5FD /* FriendProfileViewController.swift */; };
 		D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC9221A6A43600FCB5FD /* FriendProfilePresenter.swift */; };
@@ -83,6 +83,8 @@
 		D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363B21AA1FDC002D52E4 /* APIError.swift */; };
 		D978363D21AA286A002D52E4 /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96E804121A7A00900887846 /* AppEntity.framework */; };
 		D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */; };
+		D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */; };
+		D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D978364521AB8E19002D52E4 /* RxOptional.framework */; };
 		D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
 		D9D1B16721A6FB9100FE3829 /* UserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* UserInfoDataSource.swift */; };
@@ -252,7 +254,7 @@
 		D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListInterface.swift; sourceTree = "<group>"; };
 		D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListPresenter.swift; sourceTree = "<group>"; };
-		D92AFC8B21A6A34C00FCB5FD /* FriendsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsWireframe.swift; sourceTree = "<group>"; };
+		D92AFC8B21A6A34C00FCB5FD /* FriendsListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListWireframe.swift; sourceTree = "<group>"; };
 		D92AFC8E21A6A41900FCB5FD /* FriendProfileInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileInterface.swift; sourceTree = "<group>"; };
 		D92AFC9021A6A42700FCB5FD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		D92AFC9221A6A43600FCB5FD /* FriendProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfilePresenter.swift; sourceTree = "<group>"; };
@@ -266,6 +268,8 @@
 		D96E804E21A7A02E00887846 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D978363B21AA1FDC002D52E4 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToSingle.swift; sourceTree = "<group>"; };
+		D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListDataSource.swift; sourceTree = "<group>"; };
+		D978364521AB8E19002D52E4 /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* UserInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataSource.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */,
 				D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */,
 				D91E938521A6DE0F00E93E04 /* AppUIKit.framework in Frameworks */,
 				D91E936B21A6DCC500E93E04 /* AppExtensions.framework in Frameworks */,
@@ -579,9 +584,10 @@
 			isa = PBXGroup;
 			children = (
 				D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */,
+				D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */,
 				D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */,
 				D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */,
-				D92AFC8B21A6A34C00FCB5FD /* FriendsWireframe.swift */,
+				D92AFC8B21A6A34C00FCB5FD /* FriendsListWireframe.swift */,
 			);
 			path = FriendsList;
 			sourceTree = "<group>";
@@ -663,6 +669,7 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D978364521AB8E19002D52E4 /* RxOptional.framework */,
 				D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */,
 				D91E936D21A6DD5A00E93E04 /* CoreGraphics.framework */,
 				D908B55321A63958001ECA7F /* Alamofire.framework */,
@@ -1190,11 +1197,12 @@
 				D92AFC9521A6A44F00FCB5FD /* FriendProfileWireframe.swift in Sources */,
 				D900BB3C21A3EFD000E2E9A7 /* ProfilePresenter.swift in Sources */,
 				D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */,
+				D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */,
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
 				D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */,
 				D900BB3F21A3EFDE00E2E9A7 /* UserInfoViewController.swift in Sources */,
-				D92AFC8C21A6A34C00FCB5FD /* FriendsWireframe.swift in Sources */,
+				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 			);

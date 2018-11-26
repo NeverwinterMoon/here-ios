@@ -24,11 +24,12 @@ final class ProfileInfoCell: UITableViewCell {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
         self.bodyLabel.do {
-            
+
             $0.numberOfLines = 1
         }
         
@@ -39,6 +40,10 @@ final class ProfileInfoCell: UITableViewCell {
                 flex.addItem(self.bodyLabel)
             }
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
     
     override func layoutSubviews() {

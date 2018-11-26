@@ -37,8 +37,6 @@ class AppWireframe: WireframeInterface {
             self.navigationController.pushViewController(viewController, animated: animated)
         case .present:
             self.navigationController.present(viewController, animated: animated, completion: nil)
-        default:
-            assertionFailure("no case except push/present in enum Transition: AppWireframe")
         }
     }
 }

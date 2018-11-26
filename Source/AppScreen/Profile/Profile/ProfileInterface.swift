@@ -17,19 +17,19 @@ protocol ProfileViewInterface {
     var tapFriends: Signal<Void> { get }
 }
 
-protocol ProfileInteractorInterface {
+protocol ProfileInteractorInterface: class {
     func user(userId: String) -> Single<User>
 }
 
-extension ProfileInteractor: ProfileInteractorInterface { }
+extension ProfileInteractor: ProfileInteractorInterface {}
 
-protocol ProfilePresenterInterface {
+protocol ProfilePresenterInterface: class {
     var profileImageURL: Driver<URL> { get }
     var profileIntro: Driver<String> { get }
-    var friendsNumber: Driver<Int> { get }
+    var friendsCount: Driver<Int> { get }
 }
 
-protocol ProfileWireframeInterface {
+protocol ProfileWireframeInterface: WireframeInterface {
     func presentUserInfo(userId: String)
     func pushfFriendsList(userId: String)
 }

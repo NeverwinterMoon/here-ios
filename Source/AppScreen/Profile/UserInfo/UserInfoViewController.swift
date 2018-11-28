@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AppExtensions
 import FlexLayout
 import Nuke
 import RxCocoa
@@ -70,6 +71,10 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface, UIT
             $0.register(ProfileInfoCell.self, forCellReuseIdentifier: "ProfileInfoCell")
             $0.alwaysBounceVertical = true
             $0.showsVerticalScrollIndicator = true
+            
+            self.presenter.sections
+                .drive($0.rx.items(dataSource: self.dataSource))
+                .dispose(with: self)
         }
     }
     

@@ -13,14 +13,14 @@ final class ProfileInfoCell: UITableViewCell {
     var title: String? {
         
         didSet {
-            self.textLabel?.text = title
+            self.textLabel?.text = self.title
         }
     }
     
     var content: String? {
         
         didSet {
-            self.bodyLabel.text = content
+            self.bodyLabel.text = self.content
         }
     }
     

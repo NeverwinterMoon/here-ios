@@ -18,7 +18,7 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
         let presenter = UserInfoPresenter(
             userId: userId,
             view: controller,
-            interactor: ProfileInteractor() as! UserInfoInteractorInterface,
+            interactor: ProfileInteractor(),
             wireframe: wireframe
         )
         controller.presenter = presenter

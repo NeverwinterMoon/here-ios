@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import AppInteractor
 import RxCocoa
 import RxSwift
 
@@ -15,14 +16,17 @@ protocol UserInfoViewInterface {
     var tapChangeProfileImage: Signal<Void> { get }
 }
 
-protocol UserInfoInteractorInterface {
+protocol UserInfoInteractorInterface: class {
     func user(userId: String) -> Single<User>
 }
+
+extension ProfileInteractor: UserInfoInteractorInterface {}
 
 protocol UserInfoPresenterInterface {
     var userEmailAddress: Driver<String> { get }
     var userProfileIntro: Driver<String> { get }
     var userProfileImageURL: Driver<URL> { get }
+    var sections: Driver<[ProfileInfoSection]> { get }
 }
 
 protocol UserInfoWireframeInterface {

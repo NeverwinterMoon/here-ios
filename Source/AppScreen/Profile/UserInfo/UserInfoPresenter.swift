@@ -17,6 +17,13 @@ final class UserInfoPresenter: UserInfoPresenterInterface {
     let userEmailAddress: Driver<String>
     let userProfileIntro: Driver<String>
     let userProfileImageURL: Driver<URL>
+    
+    var sections: Driver<[ProfileInfoSection]> {
+        
+        return self.sectionsRelay.asDriver()
+    }
+    
+    private let sectionsRelay: BehaviorRelay<[ProfileInfoSection]> = .init(value: [])
 
     init(userId: String, view: UserInfoViewInterface, interactor: UserInfoInteractorInterface, wireframe: UserInfoWireframeInterface) {
         

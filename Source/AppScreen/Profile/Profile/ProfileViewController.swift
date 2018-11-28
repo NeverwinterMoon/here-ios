@@ -71,15 +71,20 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.editProfileButton.do {
             
-            $0.titleLabel?.text = "プロフィールを編集する"
-            $0.layer.borderWidth = 0.1
+            $0.setTitle("プロフィールを編集する", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+            $0.layer.borderWidth = 5
             $0.layer.borderColor = UIColor.black.cgColor
+        }
+        
+        self.friendsIconImageView.do {
+            // tmp
+            $0.backgroundColor = .orange
         }
         
         self.friendsButton.do {
 
-            $0.titleLabel?.text = "友達"
-            $0.titleLabel?.font.withSize(14)
+            $0.setTitle("友達", for: .normal)
             $0.backgroundColor = .blue
         }
 
@@ -97,6 +102,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     private let introLabel = UILabel()
     private let editProfileButton = UIButton()
     private let friendsButton = UIButton()
+    private let friendsIconImageView = UIImageView()
 
     private func flexLayout() {
         
@@ -112,14 +118,15 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .define { flex in
                 
                 flex.addItem(self.profileImageView).size(80).marginRight(40)
-                flex.addItem(self.introTextView).grow(1)
+                flex.addItem(self.introLabel).grow(1)
             }
             
-            flex.addItem(self.editProfileButton).marginBottom(20)
+            flex.addItem(self.editProfileButton).marginHorizontal(50).marginBottom(20).height(50)
             
-            flex.addItem().height(100).define { flex in
+            flex.addItem().height(100).direction(.row).define { flex in
                 
-                flex.addItem(self.friendsButton).grow(1).marginLeft(40)
+                flex.addItem(self.friendsIconImageView).width(80)
+                flex.addItem(self.friendsButton).grow(1)
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  UserInfoDataSource.swift
+//  EditUserInfoDataSource.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/11/22.

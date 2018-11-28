@@ -1,5 +1,5 @@
 //
-//  UserInfoViewController.swift
+//  EditUserInfoViewController.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -59,11 +59,11 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface, UIT
 //            tmp
             $0.backgroundColor = .blue
             
-            self.presenter.userProfileImageURL
-                .drive(onNext: { [unowned self] url in
-                    Nuke.loadImage(with: url, into: self.profileImageView)
-                })
-                .dispose(with: self)
+//            self.presenter.userProfileImageURL
+//                .drive(onNext: { [unowned self] url in
+//                    Nuke.loadImage(with: url, into: self.profileImageView)
+//                })
+//                .dispose(with: self)
         }
         
         self.profileInfoTableView.do {

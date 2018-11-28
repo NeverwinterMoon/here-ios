@@ -1,5 +1,5 @@
 //
-//  UserInfoInterface.swift
+//  EditUserInfoInterface.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.

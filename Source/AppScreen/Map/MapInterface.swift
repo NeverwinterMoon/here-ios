@@ -7,12 +7,23 @@
 //
 
 import Foundation
+import AppEntity
+import AppInteractor
+import RxCocoa
+import RxSwift
 
 protocol MapViewInterface: class {
 }
+
 protocol MapInteractorInterface: class {
+    func nearbyFriends(userId: String) -> Single<[User]>
 }
+
+extension MapInteractor: MapInteractorInterface {}
+
 protocol MapPresenterInterface: class {
+    var nearbyFriends: Driver<[User]> { get }
 }
+
 protocol MapWireframeInterface: class {
 }

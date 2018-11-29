@@ -12,7 +12,7 @@ import CoreLocation
 import FlexLayout
 import MapKit
 
-final class MapViewController: UIViewController, CLLocationManagerDelegate {
+public final class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -22,7 +22,7 @@ final class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -41,13 +41,14 @@ final class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.flexLayout()
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
         self.view.flex.layout()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    // MARK: - Private
+    private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let currentLocation = locations.last!
         let center = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
@@ -55,7 +56,7 @@ final class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.mapView.setRegion(region, animated: true)
     }
     
-    func checkLocationAuthorization() {
+    private func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse:
             self.mapView.showsUserLocation = true
@@ -65,7 +66,6 @@ final class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    // MARK: - Private
     private let mapView = MKMapView()
     private let locationManager = CLLocationManager()
     

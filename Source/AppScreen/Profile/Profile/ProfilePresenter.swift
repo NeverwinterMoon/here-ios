@@ -25,13 +25,17 @@ final class ProfilePresener: ProfilePresenterInterface, Disposer {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        let user: Driver<User> = self.interactor.user(userId: userId).asDriver(onErrorJustReturn: .init())
-        
-        self.profileImageURL = user.map { URL(string: $0.profileImageURL) }.filterNil()
-        self.profileIntro = user.map { $0.profileIntro }
-        self.friendsCount = user.map { $0.friendsCount }
+//        let user: Driver<User> = self.interactor.user(userId: userId).asDriver(onErrorJustReturn: .init())
+//
+//        self.profileImageURL = user.map { URL(string: $0.profileImageURL) }.filterNil()
+//        self.profileIntro = user.map { $0.profileIntro }
+//        self.friendsCount = user.map { $0.friendsCount }
+        self.profileImageURL = Driver.just(URL(string: "test")).filterNil()
+        self.profileIntro = Driver.just("test")
+        self.friendsCount = Driver.just(1)
         
         view.tapEditProfile
+            .debug()
             .asObservable()
             .subscribe(onNext: { [unowned self] _ in
                 self.wireframe.presentUserInfo(userId: userId)

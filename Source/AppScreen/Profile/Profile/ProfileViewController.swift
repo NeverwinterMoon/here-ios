@@ -62,19 +62,21 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             $0.text = "testtest"
             $0.font?.withSize(14)
             
-//            self.presenter.profileIntro
-//                .drive(onNext: { [unowned self] intro in
-//                    self.introTextView.text = intro
-//                })
-//                .dispose(with: self)
+            self.presenter
+                .profileIntro
+                .drive(onNext: { [unowned self] in
+                    self.introLabel.text = $0
+                })
+                .dispose(with: self)
         }
         
         self.editProfileButton.do {
             
             $0.setTitle("プロフィールを編集する", for: .normal)
             $0.setTitleColor(.black, for: .normal)
-            $0.layer.borderWidth = 5
+            $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.black.cgColor
+            $0.layer.cornerRadius = 15
         }
         
         self.friendsIconImageView.do {
@@ -121,7 +123,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 flex.addItem(self.introLabel).grow(1)
             }
             
-            flex.addItem(self.editProfileButton).marginHorizontal(50).marginBottom(20).height(50)
+            flex.addItem(self.editProfileButton).marginHorizontal(50).marginBottom(20).height(30)
             
             flex.addItem().height(100).direction(.row).define { flex in
                 

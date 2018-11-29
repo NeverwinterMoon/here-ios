@@ -10,27 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/AppScreen/Profile/Profile/ProfilePresenter.swift"
-            timestampString = "565087443.794381"
+            timestampString = "565147083.952422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "init(userId:view:interactor:wireframe:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Source/AppScreen/Profile/Profile/ProfilePresenter.swift"
-            timestampString = "565087443.794451"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "init(userId:view:interactor:wireframe:)"
             landmarkType = "7">
          </BreakpointContent>

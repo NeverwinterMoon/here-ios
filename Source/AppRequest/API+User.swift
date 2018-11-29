@@ -37,5 +37,17 @@ extension API {
                 self.path = "users/\(userId)/friends"
             }
         }
+        
+        public struct GetNearbyFriends: GETTargetType {
+            
+            public typealias ElementType = [AppEntity.User]
+            
+            public let path: String
+            public let parameters: [String: Any] = [:]
+            
+            public init(userId: String) {
+                self.path = "users/\(userId)/nearby_friends"
+            }
+        }
     }
 }

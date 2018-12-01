@@ -1,18 +1,17 @@
 //
-//  User.swift
-//  NowHere
+//  Me.swift
+//  AppEntity
 //
-//  Created by 服部穣 on 2018/11/21.
+//  Created by 服部穣 on 2018/11/29.
 //  Copyright © 2018 服部穣. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-public final class User: Object, Decodable {
+public final class Me: Object, Decodable {
     
     @objc public dynamic var id: String = ""
-    // TODO: think if this email is really necessary
     @objc public dynamic var emailAddress: String = ""
     @objc public dynamic var profileImageURL: String = ""
     @objc public dynamic var profileIntro: String = ""

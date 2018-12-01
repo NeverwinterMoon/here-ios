@@ -19,8 +19,8 @@ public final class MapInteractor {
     
     public init() {}
 
-    public func nearbyFriends(userId: String) -> Single<[User]> {
+    public func nearbyFriends() -> Single<[User]> {
         
-        return API.User.GetNearbyFriends(userId: userId).asSingle()
+        return API.User.GetNearbyFriends().asSingle()
     }
 }

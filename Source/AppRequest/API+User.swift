@@ -45,7 +45,7 @@ extension API {
             public let path: String
             public let parameters: [String: Any] = [:]
             
-            public init(userId: String) {
+            public init() {
                 self.path = "users/\(userId)/nearby_friends"
             }
         }

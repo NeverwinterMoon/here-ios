@@ -16,7 +16,7 @@ protocol MapViewInterface: class {
 }
 
 protocol MapInteractorInterface: class {
-    func nearbyFriends(userId: String) -> Single<[User]>
+    func nearbyFriends() -> Single<[User]>
 }
 
 extension MapInteractor: MapInteractorInterface {}

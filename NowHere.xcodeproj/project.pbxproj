@@ -57,6 +57,10 @@
 		D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */; };
 		D925C260219F19ED00B166B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BCA219F0F0800A9A7CA /* MapViewController.swift */; };
 		D925C261219F19F100B166B4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BF6219F0F5A00A9A7CA /* ChatViewController.swift */; };
+		D92A41CD21B13143003ABE8A /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41CC21B13143003ABE8A /* BaseInteractor.swift */; };
+		D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D221B13B63003ABE8A /* DBManager.swift */; };
+		D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */; };
+		D92A41D921B2382A003ABE8A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D821B2382A003ABE8A /* Account.swift */; };
 		D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */; };
 		D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */; };
 		D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */; };
@@ -123,6 +127,12 @@
 		D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612721AF81F100CD5424 /* MapWireframe.swift */; };
 		D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB2921A3A57C00E2E9A7 /* MapInterface.swift */; };
 		D9BB612C21AF85A800CD5424 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612B21AF85A800CD5424 /* MapInteractor.swift */; };
+		D9BB612E21AF8B9F00CD5424 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612D21AF8B9F00CD5424 /* ChatPresenter.swift */; };
+		D9BB613021AF8BAA00CD5424 /* ChatInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612F21AF8BAA00CD5424 /* ChatInterface.swift */; };
+		D9BB613221AF8BBD00CD5424 /* ChatWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613121AF8BBD00CD5424 /* ChatWireframe.swift */; };
+		D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */; };
+		D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613621AFA2AE00CD5424 /* API+Me.swift */; };
+		D9BB613921AFA32800CD5424 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613821AFA32800CD5424 /* Me.swift */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
 		D9D1B16721A6FB9100FE3829 /* EditUserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* EditUserInfoDataSource.swift */; };
 /* End PBXBuildFile section */
@@ -302,6 +312,10 @@
 		D925C249219F19DD00B166B4 /* AppScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D925C250219F19DD00B166B4 /* AppScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenTests.swift; sourceTree = "<group>"; };
 		D925C252219F19DD00B166B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D92A41CC21B13143003ABE8A /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
+		D92A41D221B13B63003ABE8A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDBMaganer.swift; sourceTree = "<group>"; };
+		D92A41D821B2382A003ABE8A /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListInterface.swift; sourceTree = "<group>"; };
 		D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListPresenter.swift; sourceTree = "<group>"; };
@@ -336,6 +350,12 @@
 		D9BB612521AF81E300CD5424 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		D9BB612721AF81F100CD5424 /* MapWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWireframe.swift; sourceTree = "<group>"; };
 		D9BB612B21AF85A800CD5424 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		D9BB612D21AF8B9F00CD5424 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		D9BB612F21AF8BAA00CD5424 /* ChatInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInterface.swift; sourceTree = "<group>"; };
+		D9BB613121AF8BBD00CD5424 /* ChatWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWireframe.swift; sourceTree = "<group>"; };
+		D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInteractor.swift; sourceTree = "<group>"; };
+		D9BB613621AFA2AE00CD5424 /* API+Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Me.swift"; sourceTree = "<group>"; };
+		D9BB613821AFA32800CD5424 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* EditUserInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -554,6 +574,7 @@
 			children = (
 				D908B55721A64388001ECA7F /* API.swift */,
 				D908B55521A6436D001ECA7F /* API+User.swift */,
+				D9BB613621AFA2AE00CD5424 /* API+Me.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D954B95821A8481B00A42D2C /* APIProvider.swift */,
 				D908B4EF21A4FB4D001ECA7F /* AppRequest.h */,
@@ -576,8 +597,12 @@
 		D908B54921A63651001ECA7F /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				D92A41D421B23722003ABE8A /* Shared */,
+				D92A41D121B13B2B003ABE8A /* DB */,
 				D9BB612A21AF859600CD5424 /* Map */,
+				D9BB613321AF8BC800CD5424 /* Chat */,
 				D908B54C21A63701001ECA7F /* Profile */,
+				D92A41CC21B13143003ABE8A /* BaseInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -663,6 +688,30 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		D92A41D121B13B2B003ABE8A /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				D92A41D221B13B63003ABE8A /* DBManager.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		D92A41D421B23722003ABE8A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D92A41D721B23816003ABE8A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D92A41D821B2382A003ABE8A /* Account.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D92AFC8421A6A2D200FCB5FD /* FriendsList */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,8 +738,9 @@
 		D96E804221A7A00900887846 /* AppEntity */ = {
 			isa = PBXGroup;
 			children = (
+				D92A41D721B23816003ABE8A /* Shared */,
 				D96E804D21A7A01800887846 /* Account */,
-				D978363A21AA1FC3002D52E4 /* Base */,
+				D978363A21AA1FC3002D52E4 /* Error */,
 				D96E804321A7A00900887846 /* AppEntity.h */,
 				D96E804421A7A00A00887846 /* Info.plist */,
 			);
@@ -701,16 +751,17 @@
 			isa = PBXGroup;
 			children = (
 				D96E804E21A7A02E00887846 /* User.swift */,
+				D9BB613821AFA32800CD5424 /* Me.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
 		};
-		D978363A21AA1FC3002D52E4 /* Base */ = {
+		D978363A21AA1FC3002D52E4 /* Error */ = {
 			isa = PBXGroup;
 			children = (
 				D978363B21AA1FDC002D52E4 /* APIError.swift */,
 			);
-			path = Base;
+			path = Error;
 			sourceTree = "<group>";
 		};
 		D978363E21AADD99002D52E4 /* Base */ = {
@@ -747,7 +798,10 @@
 		D98040B221A1341600E2C3F5 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D9BB612F21AF8BAA00CD5424 /* ChatInterface.swift */,
 				D9061BF6219F0F5A00A9A7CA /* ChatViewController.swift */,
+				D9BB612D21AF8B9F00CD5424 /* ChatPresenter.swift */,
+				D9BB613121AF8BBD00CD5424 /* ChatWireframe.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -795,6 +849,14 @@
 				D9BB612B21AF85A800CD5424 /* MapInteractor.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		D9BB613321AF8BC800CD5424 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1258,6 +1320,7 @@
 			files = (
 				D954B95921A8481B00A42D2C /* APIProvider.swift in Sources */,
 				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
+				D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */,
 				D908B55821A64388001ECA7F /* API.swift in Sources */,
 				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
 			);
@@ -1268,7 +1331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BB612C21AF85A800CD5424 /* MapInteractor.swift in Sources */,
+				D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */,
+				D92A41CD21B13143003ABE8A /* BaseInteractor.swift in Sources */,
 				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
+				D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */,
+				D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */,
 				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1304,6 +1371,7 @@
 				D900BB3E21A3EFD900E2E9A7 /* EditUserInfoInterface.swift in Sources */,
 				D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */,
 				D925C261219F19F100B166B4 /* ChatViewController.swift in Sources */,
+				D9BB612E21AF8B9F00CD5424 /* ChatPresenter.swift in Sources */,
 				D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */,
 				D9D1B16721A6FB9100FE3829 /* EditUserInfoDataSource.swift in Sources */,
 				D925C260219F19ED00B166B4 /* MapViewController.swift in Sources */,
@@ -1321,8 +1389,10 @@
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* ChangeEmailInterface.swift in Sources */,
 				D9BB612421AF803600CD5424 /* AppTabBarController.swift in Sources */,
+				D9BB613221AF8BBD00CD5424 /* ChatWireframe.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* ChangeEmailViewController.swift in Sources */,
+				D9BB613021AF8BAA00CD5424 /* ChatInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1339,7 +1409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
+				D92A41D921B2382A003ABE8A /* Account.swift in Sources */,
 				D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */,
+				D9BB613921AFA32800CD5424 /* Me.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

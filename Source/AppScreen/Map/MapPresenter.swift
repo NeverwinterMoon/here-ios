@@ -15,13 +15,13 @@ final class MapPresenter: MapPresenterInterface {
     
     let nearbyFriends: Driver<[User]>
 
-    init(userId: String, view: MapViewInterface, interactor: MapInteractorInterface, wireframe: MapWireframeInterface) {
+    init(view: MapViewInterface, interactor: MapInteractorInterface, wireframe: MapWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.nearbyFriends = interactor.nearbyFriends(userId: userId).asDriver(onErrorJustReturn: .init([]))
+        self.nearbyFriends = interactor.nearbyFriends().asDriver(onErrorJustReturn: .init([]))
     }
     
     // MARK: - Private

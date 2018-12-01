@@ -8,6 +8,8 @@
 
 import Foundation
 import AppExtensions
+import AppInteractor
+import AppUIKit
 
 final class AppTabBarController: UITabBarController, UITabBarControllerDelegate {
     
@@ -34,6 +36,19 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             $0.tintColor = .blue
         }
         
+        map: do {
+            let controller = MapViewController()
+            let navigationController = AppNavigationController(rootViewController: controller)
+            let presenter = MapPresenter(view: , interactor: MapInteractor(), wireframe: )
+            controller.presenter = presenter
+        }
         
+        chat: do {
+            
+        }
+        
+        profile: do {
+            
+        }
     }
 }

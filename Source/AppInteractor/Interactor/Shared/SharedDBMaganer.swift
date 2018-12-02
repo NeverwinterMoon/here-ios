@@ -21,20 +21,21 @@ public final class SharedDBManager {
     
     static func activatedAccount() -> Single<Realm> {
         
-        return self.activatedUserId
+        return self.activatedId
             .filterNil()
             .take(1)
             .map { try! Realm(configuration: accountConfig(userId: $0)) }
             .asSingle()
     }
 
-    static let activatedUserId = BehaviorRelay<String?>(value: nil)
-    static let loggedIdUserId = BehaviorRelay<[String]>(value: [])
+    static let activatedId = BehaviorRelay<String?>(value: nil)
+    static let loggedIdUserIds = BehaviorRelay<[String]>(value: [])
 
     public func setDefaultRealmForUser(userId: String) {
         
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(userId).realm")
+        config.readOnly = true
         Realm.Configuration.defaultConfiguration = config
     }
     

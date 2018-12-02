@@ -13,6 +13,7 @@ public final class Me: Object, Decodable {
     
     @objc public dynamic var id: String = ""
     @objc public dynamic var emailAddress: String = ""
+    @objc public dynamic var password: String = ""
     @objc public dynamic var profileImageURL: String = ""
     @objc public dynamic var profileIntro: String = ""
     @objc public dynamic var friendsCount: Int = 0

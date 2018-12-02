@@ -18,8 +18,9 @@ public final class DBManager {
         self.database = try! Realm()
     }
     
-    public func getDataFromDB() -> Results<Object> {
+    public func getDataFromDB<Item: Object>() -> Results<Item> {
     
-        let results: Results<Object> = self.database.objects(Item.self)
+        let results: Results<Item> = self.database.objects(Item.self)
+        return results
     }
 }

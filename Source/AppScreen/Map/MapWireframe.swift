@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+final class MapWireframe: AppWireframe, MapWireframeInterface {
+    
+}

@@ -13,13 +13,13 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-final class ProfilePresener: ProfilePresenterInterface, Disposer {
+final class ProfilePresenter: ProfilePresenterInterface, Disposer {
 
     let profileImageURL: Driver<URL>
     let profileIntro: Driver<String>
     let friendsCount: Driver<Int>
     
-    init(userId: String, view: ProfileViewInterface, interactor: ProfileInteractorInterface, wireframe: ProfileWireframeInterface) {
+    init(view: ProfileViewInterface, interactor: ProfileInteractorInterface, wireframe: ProfileWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
@@ -38,14 +38,14 @@ final class ProfilePresener: ProfilePresenterInterface, Disposer {
             .debug()
             .asObservable()
             .subscribe(onNext: { [unowned self] _ in
-                self.wireframe.presentUserInfo(userId: userId)
+                self.wireframe.presentUserInfo()
             })
             .dispose(with: self)
 
         view.tapFriends
             .asObservable()
             .subscribe(onNext: { [unowned self] _ in
-                self.wireframe.pushfFriendsList(userId: userId)
+                self.wireframe.pushfFriendsList()
             })
             .dispose(with: self)
     }

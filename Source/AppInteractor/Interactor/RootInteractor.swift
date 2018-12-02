@@ -1,5 +1,5 @@
 //
-//  BaseInteractor.swift
+//  RootInteractor.swift
 //  AppInteractor
 //
 //  Created by 服部穣 on 2018/11/30.
@@ -11,7 +11,7 @@ import AppExtensions
 import RxCocoa
 import RxSwift
 
-public final class BaseInteractor: Disposer {
+public final class RootInteractor: Disposer {
     
     public enum State {
         case loggedIn

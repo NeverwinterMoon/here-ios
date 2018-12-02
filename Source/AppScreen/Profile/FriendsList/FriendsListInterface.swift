@@ -17,7 +17,7 @@ protocol FriendsListViewInterface {
 }
 
 protocol FriendsListInteractorInterface: class {
-    func friendsOf(userId: String) -> Single<[User]>
+    func friends() -> Single<[User]>
 }
 
 extension ProfileInteractor: FriendsListInteractorInterface {}

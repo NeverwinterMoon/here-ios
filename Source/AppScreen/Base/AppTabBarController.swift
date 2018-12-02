@@ -39,7 +39,8 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
         map: do {
             let controller = MapViewController()
             let navigationController = AppNavigationController(rootViewController: controller)
-            let presenter = MapPresenter(view: , interactor: MapInteractor(), wireframe: )
+            let wireframe = MapWireframe(navigationController: navigationController)
+            let presenter = MapPresenter(view: controller, interactor: MapInteractor(), wireframe: wireframe)
             controller.presenter = presenter
         }
         
@@ -48,7 +49,11 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
         }
         
         profile: do {
-            
+            let controller = ProfileViewController()
+            let navigationController = AppNavigationController(rootViewController: controller)
+            let wireframe = ProfileWireframe(navigationController: navigationController)
+            let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor(), wireframe: wireframe)
+            controller.presenter = presenter
         }
     }
 }

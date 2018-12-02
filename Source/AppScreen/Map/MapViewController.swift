@@ -12,7 +12,9 @@ import CoreLocation
 import FlexLayout
 import MapKit
 
-public final class MapViewController: UIViewController, CLLocationManagerDelegate {
+public final class MapViewController: UIViewController, CLLocationManagerDelegate, MapViewInterface {
+    
+    var presenter: MapPresenter!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

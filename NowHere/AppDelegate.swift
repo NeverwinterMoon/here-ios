@@ -13,9 +13,11 @@ import AppScreen
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var rootPresenter: RootPresenter?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.rootPresenter = RootPresenter(wireframe: wireframe, interactor: interactor)
         return true
     }
 

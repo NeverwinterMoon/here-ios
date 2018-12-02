@@ -18,7 +18,7 @@ final class FriendsListPresenter: FriendsListPresenterInterface {
     
     private let sectionsRelay: BehaviorRelay<[FriendsListSection]> = .init(value: [])
 
-    init(userId: String, view: FriendsListViewInterface, interactor: FriendsListInteractorInterface, wireframe: FriendsListWireframe) {
+    init(view: FriendsListViewInterface, interactor: FriendsListInteractorInterface, wireframe: FriendsListWireframe) {
         
         self.view = view
         self.interactor = interactor

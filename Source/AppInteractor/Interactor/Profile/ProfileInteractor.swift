@@ -11,6 +11,7 @@ import AppEntity
 import AppRequest
 import RxCocoa
 import RxSwift
+import RxOptional
 
 public final class ProfileInteractor {
     
@@ -18,11 +19,22 @@ public final class ProfileInteractor {
     
     public init() {}
     
+    public func activatedUser() -> Single<Me> {
+        return SharedDBManager.activatedAccount()
+            .map { $0.objects(Me.self).first }
+            .asObservable()
+            .filterNil()
+            .asSingle()
+    }
+    
     public func user(userId: String) -> Single<User> {
         return API.User.Get(userId: userId).asSingle()
     }
-    
-    public func friendsOf(userId: String) -> Single<[User]> {
-        return API.User.GetFriends(userId: userId).asSingle()
+
+    public func friends() -> Single<[User]> {
+        return activatedUser()
+            .flatMap {
+                API.User.GetFriends(userId: $0.id).asSingle()
+            }
     }
 }

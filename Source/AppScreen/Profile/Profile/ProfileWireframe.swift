@@ -11,12 +11,11 @@ import AppInteractor
 
 final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
     
-    func presentUserInfo(userId: String) {
+    func presentUserInfo() {
         
         let controller = UserInfoViewController()
         let wireframe = UserInfoWireframe(navigationController: navigationController)
         let presenter = UserInfoPresenter(
-            userId: userId,
             view: controller,
             interactor: ProfileInteractor(),
             wireframe: wireframe
@@ -25,12 +24,11 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
         show(controller, with: .present, animated: true)
     }
     
-    func pushfFriendsList(userId: String) {
+    func pushfFriendsList() {
         
         let controller = FriendsListViewController()
         let wireframe = FriendsListWireframe(navigationController: navigationController)
         let presenter = FriendsListPresenter(
-            userId: userId,
             view: controller,
             interactor: ProfileInteractor(),
             wireframe: wireframe

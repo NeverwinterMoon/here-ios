@@ -18,7 +18,7 @@ protocol ProfileViewInterface {
 }
 
 protocol ProfileInteractorInterface: class {
-    func user(userId: String) -> Single<User>
+    func activatedUser() -> Single<Me>
 }
 
 extension ProfileInteractor: ProfileInteractorInterface {}
@@ -30,6 +30,6 @@ protocol ProfilePresenterInterface: class {
 }
 
 protocol ProfileWireframeInterface: WireframeInterface {
-    func presentUserInfo(userId: String)
-    func pushfFriendsList(userId: String)
+    func presentUserInfo()
+    func pushfFriendsList()
 }

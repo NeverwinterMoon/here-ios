@@ -25,13 +25,13 @@ final class UserInfoPresenter: UserInfoPresenterInterface {
     
     private let sectionsRelay: BehaviorRelay<[ProfileInfoSection]> = .init(value: [])
 
-    init(userId: String, view: UserInfoViewInterface, interactor: UserInfoInteractorInterface, wireframe: UserInfoWireframeInterface) {
+    init(view: UserInfoViewInterface, interactor: UserInfoInteractorInterface, wireframe: UserInfoWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
         
-        let user: Driver<User> = self.interactor.user(userId: userId).asDriver(onErrorJustReturn: .init())
+        let user: Driver<Me> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         
         self.userEmailAddress = user.map { $0.emailAddress }
         self.userProfileIntro = user.map { $0.profileIntro }

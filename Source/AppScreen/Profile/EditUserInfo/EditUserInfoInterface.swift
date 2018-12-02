@@ -17,7 +17,7 @@ protocol UserInfoViewInterface {
 }
 
 protocol UserInfoInteractorInterface: class {
-    func user(userId: String) -> Single<User>
+    func activatedUser() -> Single<Me>
 }
 
 extension ProfileInteractor: UserInfoInteractorInterface {}

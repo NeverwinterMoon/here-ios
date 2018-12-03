@@ -46,6 +46,12 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let presenter = MapPresenter(view: controller, interactor: MapInteractor(), wireframe: wireframe)
             controller.presenter = presenter
             viewControllers.append(controller)
+            
+            navigationController.tabBarItem = UITabBarItem(
+                title: "map",
+                image: UIImage(named: "first"),
+                selectedImage: UIImage(named: "first")
+            )
         }
         
         chat: do {
@@ -55,6 +61,12 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let presenter = ChatPresenter(view: controller, interactor: ChatInteractor(), wireframe: wireframe)
             controller.presenter = presenter
             viewControllers.append(controller)
+            
+            navigationController.tabBarItem = UITabBarItem(
+                title: "chat",
+                image: UIImage(named: "first"),
+                selectedImage: UIImage(named: "first")
+            )
         }
         
         profile: do {
@@ -64,8 +76,14 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor(), wireframe: wireframe)
             controller.presenter = presenter
             viewControllers.append(controller)
+            
+            navigationController.tabBarItem = UITabBarItem(
+                title: "profile",
+                image: UIImage(named: "first"),
+                selectedImage: UIImage(named: "first")
+            )
         }
-        
+
         self.setViewControllers(viewControllers, animated: false)
         self.selectedIndex = 2
     }

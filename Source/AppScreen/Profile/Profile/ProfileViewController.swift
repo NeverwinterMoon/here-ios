@@ -44,6 +44,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .white
+        
         self.profileImageView.do {
 //            tmp
             $0.backgroundColor = .blue

@@ -25,11 +25,11 @@ final class ProfilePresenter: ProfilePresenterInterface, Disposer {
         self.interactor = interactor
         self.wireframe = wireframe
         
-//        let user: Driver<User> = self.interactor.user(userId: userId).asDriver(onErrorJustReturn: .init())
+//        let me: Driver<Me> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
 //
-//        self.profileImageURL = user.map { URL(string: $0.profileImageURL) }.filterNil()
-//        self.profileIntro = user.map { $0.profileIntro }
-//        self.friendsCount = user.map { $0.friendsCount }
+//        self.profileImageURL = me.map { URL(string: $0.profileImageURL) }.filterNil()
+//        self.profileIntro = me.map { $0.profileIntro }
+//        self.friendsCount = me.map { $0.friendsCount }
         self.profileImageURL = Driver.just(URL(string: "test")).filterNil()
         self.profileIntro = Driver.just("test")
         self.friendsCount = Driver.just(1)

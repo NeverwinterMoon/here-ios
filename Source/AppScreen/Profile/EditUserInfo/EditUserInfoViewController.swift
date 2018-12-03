@@ -44,9 +44,8 @@ final class UserInfoViewController: UIViewController, UserInfoViewInterface, UIT
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
 
     override func viewDidLoad() {
         

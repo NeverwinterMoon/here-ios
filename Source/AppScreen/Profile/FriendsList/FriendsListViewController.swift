@@ -29,10 +29,9 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+
     // MARK: - Private
     private let tableView: UITableView
 }

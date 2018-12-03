@@ -37,11 +37,11 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.view.backgroundColor = .white

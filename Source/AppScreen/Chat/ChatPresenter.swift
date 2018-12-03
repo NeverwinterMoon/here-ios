@@ -10,4 +10,14 @@ import Foundation
 
 final class ChatPresenter: ChatPresenterInterface {
     
+    init(view: ChatViewInterface, interactor: ChatInteractorInterface, wireframe: ChatWireframeInterface) {
+        self.view = view
+        self.interactor = interactor
+        self.wireframe = wireframe
+    }
+    
+    // MARK: - Private
+    let view: ChatViewInterface
+    let interactor: ChatInteractorInterface
+    let wireframe: ChatWireframeInterface
 }

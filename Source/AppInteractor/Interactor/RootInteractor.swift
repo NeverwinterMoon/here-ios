@@ -16,6 +16,8 @@ import RxSwift
 
 public final class RootInteractor: Disposer {
     
+    public static let shared = RootInteractor()
+    
     public enum State {
         case hasAccount
         case noAccount
@@ -26,7 +28,7 @@ public final class RootInteractor: Disposer {
         return self.stateSubject.asObservable()
     }
     
-    private var stateSubject: BehaviorSubject<State> = .init(value: .noAccount)
+    private let stateSubject: BehaviorSubject<State> = .init(value: .noAccount)
     
     private init() {
 

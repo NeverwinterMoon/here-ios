@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class RootWireframe: RootWireframeInterface {
+public final class RootWireframe: RootWireframeInterface {
     
     let window: UIWindow?
     
@@ -16,10 +16,10 @@ final class RootWireframe: RootWireframeInterface {
         self.window = window
     }
     
-    func setWelcome() {
+    public func setWelcome() {
     }
     
-    func setRootTabBar() {
+    public func setRootTabBar() {
         let controller = AppTabBarController()
         window?.rootViewController = controller
         window?.makeKeyAndVisible()

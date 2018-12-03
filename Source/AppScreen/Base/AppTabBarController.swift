@@ -36,16 +36,24 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             $0.tintColor = .blue
         }
         
+        var viewControllers: [UIViewController] = []
+        
         map: do {
             let controller = MapViewController()
             let navigationController = AppNavigationController(rootViewController: controller)
             let wireframe = MapWireframe(navigationController: navigationController)
             let presenter = MapPresenter(view: controller, interactor: MapInteractor(), wireframe: wireframe)
             controller.presenter = presenter
+            viewControllers.append(controller)
         }
         
         chat: do {
-            
+            let controller = ChatViewController()
+            let navigationController = AppNavigationController(rootViewController: controller)
+            let wireframe = ChatWireframe(navigationController: navigationController)
+            let presenter = ChatPresenter(view: controller, interactor: ChatInteractor(), wireframe: wireframe)
+            controller.presenter = presenter
+            viewControllers.append(controller)
         }
         
         profile: do {
@@ -54,6 +62,10 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let wireframe = ProfileWireframe(navigationController: navigationController)
             let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor(), wireframe: wireframe)
             controller.presenter = presenter
+            viewControllers.append(controller)
         }
+        
+        self.setViewControllers(viewControllers, animated: false)
+        self.selectedIndex = 0
     }
 }

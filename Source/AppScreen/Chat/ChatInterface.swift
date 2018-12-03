@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import AppInteractor
 
 protocol ChatViewInterface: class {
 }
 
 protocol ChatInteractorInterface: class {
 }
+
+extension ChatInteractor: ChatInteractorInterface {}
 
 protocol ChatPresenterInterface: class {
 }

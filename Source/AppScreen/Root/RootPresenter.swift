@@ -8,13 +8,27 @@
 
 import Foundation
 import AppExtensions
+import AppInteractor
 
-final class RootPresenter: Disposer {
+public final class RootPresenter: Disposer {
     
     public init(wireframe: RootWireframeInterface, interactor: RootInteractorInterface) {
         
         self.wireframe = wireframe
         self.interactor = interactor
+        
+        interactor.state
+            .take(1)
+            .subscribe(onNext: { [unowned self] state in
+                switch state {
+                case .hasAccount:
+                    self.wireframe.setRootTabBar()
+                case .noAccount:
+//                    self.wireframe.setWelcome()
+                    self.wireframe.setRootTabBar()
+                }
+            })
+            .dispose(with: self)
     }
     
     // MARK: - Private

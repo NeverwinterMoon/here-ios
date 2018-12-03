@@ -11,11 +11,13 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol RootInteractorInterface {
+public protocol RootInteractorInterface {
     var state: Observable<RootInteractor.State> { get }
 }
 
-protocol RootWireframeInterface {
+extension RootInteractor: RootInteractorInterface {}
+
+public protocol RootWireframeInterface {
     func setRootTabBar()
     func setWelcome()
 }

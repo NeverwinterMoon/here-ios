@@ -9,7 +9,9 @@
 import UIKit
 import FlexLayout
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, ChatViewInterface {
+    
+    var presenter: ChatPresenterInterface!
 
     override func viewDidLoad() {
         super.viewDidLoad()

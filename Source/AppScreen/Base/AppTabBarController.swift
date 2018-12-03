@@ -34,6 +34,7 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
         self.tabBar.do {
             
             $0.tintColor = .blue
+            $0.unselectedItemTintColor = .gray
         }
         
         var viewControllers: [UIViewController] = []
@@ -66,6 +67,6 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
         }
         
         self.setViewControllers(viewControllers, animated: false)
-        self.selectedIndex = 0
+        self.selectedIndex = 2
     }
 }

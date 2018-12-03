@@ -12,7 +12,7 @@ public final class RootWireframe: RootWireframeInterface {
     
     let window: UIWindow?
     
-    init(window: UIWindow) {
+    public init(window: UIWindow) {
         self.window = window
     }
     

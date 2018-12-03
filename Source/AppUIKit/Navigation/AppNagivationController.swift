@@ -9,12 +9,20 @@
 import Foundation
 import UIKit
 
-open class AppNavigationController: UINavigationController {
+public class AppNavigationController: UINavigationController {
     
     public override init(rootViewController: UIViewController) {
         
         super.init(navigationBarClass: UINavigationBar.self, toolbarClass: UIToolbar.self)
         self.pushViewController(rootViewController, animated: false)
+    }
+    
+    convenience init() {
+        self.init(nibName: nil, bundle: nil)
+    }
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required public init?(coder aDecoder: NSCoder) {

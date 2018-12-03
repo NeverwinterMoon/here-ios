@@ -44,8 +44,6 @@
 		D91E936C21A6DD4A00E93E04 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50D21A4FBB0001ECA7F /* RxSwift.framework */; };
 		D91E936E21A6DD5B00E93E04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E936D21A6DD5A00E93E04 /* CoreGraphics.framework */; };
 		D91E937821A6DD9F00E93E04 /* AppUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E937621A6DD9F00E93E04 /* AppUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D91E938221A6DDD700E93E04 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
-		D91E938421A6DDEF00E93E04 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
 		D91E938521A6DE0F00E93E04 /* AppUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E937421A6DD9F00E93E04 /* AppUIKit.framework */; };
 		D9223F8121A6A0FD00C5B2E7 /* AppRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */; };
 		D9223F8221A6A1BC00C5B2E7 /* AppInteractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B53421A57FD0001ECA7F /* AppInteractor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -124,11 +122,11 @@
 		D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */; };
 		D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */; };
 		D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D978364521AB8E19002D52E4 /* RxOptional.framework */; };
+		D9B1919F21B4C96B00D9AD47 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612321AF803600CD5424 /* AppTabBarController.swift */; };
 		D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
 		D9BB611E21AE893D00CD5424 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB611D21AE893D00CD5424 /* ChangeEmailViewController.swift */; };
 		D9BB612021AE894E00CD5424 /* ChangeEmailInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB611F21AE894E00CD5424 /* ChangeEmailInterface.swift */; };
 		D9BB612221AE896100CD5424 /* ChangeEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612121AE896100CD5424 /* ChangeEmailPresenter.swift */; };
-		D9BB612421AF803600CD5424 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612321AF803600CD5424 /* AppTabBarController.swift */; };
 		D9BB612621AF81E300CD5424 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612521AF81E300CD5424 /* MapPresenter.swift */; };
 		D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612721AF81F100CD5424 /* MapWireframe.swift */; };
 		D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900BB2921A3A57C00E2E9A7 /* MapInterface.swift */; };
@@ -139,6 +137,8 @@
 		D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */; };
 		D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613621AFA2AE00CD5424 /* API+Me.swift */; };
 		D9BB613921AFA32800CD5424 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613821AFA32800CD5424 /* Me.swift */; };
+		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
+		D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
 		D9D1B16721A6FB9100FE3829 /* EditUserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* EditUserInfoDataSource.swift */; };
 /* End PBXBuildFile section */
@@ -1311,8 +1311,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D91E938421A6DDEF00E93E04 /* AppNavigationEmbeded.swift in Sources */,
-				D91E938221A6DDD700E93E04 /* AppNagivationController.swift in Sources */,
 				D9061BC7219F0F0800A9A7CA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1378,6 +1376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */,
+				D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,6 +1385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B1919F21B4C96B00D9AD47 /* AppTabBarController.swift in Sources */,
 				D900BB4121A3EFE500E2E9A7 /* EditUserInfoWireframe.swift in Sources */,
 				D900BB3D21A3EFD300E2E9A7 /* ProfileWireframe.swift in Sources */,
 				D900BB4021A3EFE100E2E9A7 /* EditUserInfoPresenter.swift in Sources */,
@@ -1416,7 +1417,6 @@
 				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* ChangeEmailInterface.swift in Sources */,
-				D9BB612421AF803600CD5424 /* AppTabBarController.swift in Sources */,
 				D9BB613221AF8BBD00CD5424 /* ChatWireframe.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* ChangeEmailViewController.swift in Sources */,
@@ -1656,6 +1656,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = joehattori.NowHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h ";

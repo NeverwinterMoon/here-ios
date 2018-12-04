@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppUIKit
 
 public final class RootWireframe: RootWireframeInterface {
 
@@ -15,6 +16,25 @@ public final class RootWireframe: RootWireframeInterface {
     }
     
     public func setWelcome() {
+        let controller = WelcomeViewController()
+        let navigationController = AppNavigationController(rootViewController: controller)
+//        let wireframe = WelcomeWireframe(navigationController: navigationController)
+//        let presenter = WelcomePresenter(view: controller, wireframe: wireframe)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        
+//        let controller = ProfileViewController()
+//        let navigationController = AppNavigationController(rootViewController: controller)
+//        let wireframe = ProfileWireframe(navigationController: navigationController)
+//        let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
+//        controller.presenter = presenter
+//        viewControllers.append(navigationController)
+//
+//        navigationController.tabBarItem = UITabBarItem(
+//            title: "profile",
+//            image: UIImage(named: "first"),
+//            selectedImage: UIImage(named: "first")
+//        )
     }
     
     public func setRootTabBar() {

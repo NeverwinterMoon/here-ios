@@ -20,9 +20,8 @@ public final class MapViewController: UIViewController, CLLocationManagerDelegat
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
     override public func viewDidLoad() {
         super.viewDidLoad()

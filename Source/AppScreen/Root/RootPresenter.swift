@@ -26,8 +26,8 @@ public final class RootPresenter {
                 case .hasAccount:
                     self.wireframe.setRootTabBar()
                 case .noAccount:
-//                    self.wireframe.setWelcome()
-                    self.wireframe.setRootTabBar()
+                    self.wireframe.setWelcome()
+//                    self.wireframe.setRootTabBar()
                 }
             })
             .disposed(by: self.disposeBag)

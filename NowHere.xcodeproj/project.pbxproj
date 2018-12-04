@@ -65,6 +65,16 @@
 		D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC9021A6A42700FCB5FD /* FriendProfileViewController.swift */; };
 		D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC9221A6A43600FCB5FD /* FriendProfilePresenter.swift */; };
 		D92AFC9521A6A44F00FCB5FD /* FriendProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC9421A6A44F00FCB5FD /* FriendProfileWireframe.swift */; };
+		D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939304F21B6BBCE00929DA8 /* WelcomeInterface.swift */; };
+		D939305221B6BBD900929DA8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939305121B6BBD900929DA8 /* WelcomeViewController.swift */; };
+		D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939305321B6BBE500929DA8 /* WelcomePresenter.swift */; };
+		D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939305521B6BBF500929DA8 /* WelcomeWireframe.swift */; };
+		D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306421B6C70200929DA8 /* CreateNewAccountInterface.swift */; };
+		D939306721B6C70B00929DA8 /* CreateNewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306621B6C70B00929DA8 /* CreateNewAccountViewController.swift */; };
+		D939306921B6C71300929DA8 /* CreateNewAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306821B6C71300929DA8 /* CreateNewAccountPresenter.swift */; };
+		D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306A21B6C71900929DA8 /* CreateNewAccountWireframe.swift */; };
+		D939306E21B6C8E000929DA8 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306D21B6C8E000929DA8 /* WelcomeInteractor.swift */; };
+		D939307021B6C9CC00929DA8 /* API+LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306F21B6C9CC00929DA8 /* API+LogIn.swift */; };
 		D954B95921A8481B00A42D2C /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954B95821A8481B00A42D2C /* APIProvider.swift */; };
 		D95FED8721B3DD05007CEFD6 /* RootInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8621B3DD05007CEFD6 /* RootInterface.swift */; };
 		D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8821B3DD1A007CEFD6 /* RootPresenter.swift */; };
@@ -328,6 +338,16 @@
 		D92AFC9021A6A42700FCB5FD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		D92AFC9221A6A43600FCB5FD /* FriendProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfilePresenter.swift; sourceTree = "<group>"; };
 		D92AFC9421A6A44F00FCB5FD /* FriendProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileWireframe.swift; sourceTree = "<group>"; };
+		D939304F21B6BBCE00929DA8 /* WelcomeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInterface.swift; sourceTree = "<group>"; };
+		D939305121B6BBD900929DA8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D939305321B6BBE500929DA8 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		D939305521B6BBF500929DA8 /* WelcomeWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWireframe.swift; sourceTree = "<group>"; };
+		D939306421B6C70200929DA8 /* CreateNewAccountInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountInterface.swift; sourceTree = "<group>"; };
+		D939306621B6C70B00929DA8 /* CreateNewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountViewController.swift; sourceTree = "<group>"; };
+		D939306821B6C71300929DA8 /* CreateNewAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountPresenter.swift; sourceTree = "<group>"; };
+		D939306A21B6C71900929DA8 /* CreateNewAccountWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountWireframe.swift; sourceTree = "<group>"; };
+		D939306D21B6C8E000929DA8 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		D939306F21B6C9CC00929DA8 /* API+LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LogIn.swift"; sourceTree = "<group>"; };
 		D954B95821A8481B00A42D2C /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		D95FED8621B3DD05007CEFD6 /* RootInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInterface.swift; sourceTree = "<group>"; };
 		D95FED8821B3DD1A007CEFD6 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
@@ -583,6 +603,7 @@
 				D908B55721A64388001ECA7F /* API.swift */,
 				D908B55521A6436D001ECA7F /* API+User.swift */,
 				D9BB613621AFA2AE00CD5424 /* API+Me.swift */,
+				D939306F21B6C9CC00929DA8 /* API+LogIn.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D954B95821A8481B00A42D2C /* APIProvider.swift */,
 				D908B4EF21A4FB4D001ECA7F /* AppRequest.h */,
@@ -605,6 +626,7 @@
 		D908B54921A63651001ECA7F /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				D939306C21B6C8CD00929DA8 /* Welcome */,
 				D92A41D421B23722003ABE8A /* Shared */,
 				D92A41D121B13B2B003ABE8A /* DB */,
 				D9BB612A21AF859600CD5424 /* Map */,
@@ -668,6 +690,7 @@
 		D925C242219F19DD00B166B4 /* AppScreen */ = {
 			isa = PBXGroup;
 			children = (
+				D939304E21B6BBB700929DA8 /* Welcome */,
 				D95FED8521B3DCF3007CEFD6 /* Root */,
 				D908B47721A4F373001ECA7F /* Base */,
 				D98040B121A1340D00E2C3F5 /* Map */,
@@ -741,6 +764,45 @@
 				D92AFC9421A6A44F00FCB5FD /* FriendProfileWireframe.swift */,
 			);
 			path = FriendProfile;
+			sourceTree = "<group>";
+		};
+		D939304E21B6BBB700929DA8 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				D939305821B6C5DB00929DA8 /* CreateNewAccount */,
+				D939305721B6C5C400929DA8 /* Welcome */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		D939305721B6C5C400929DA8 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				D939304F21B6BBCE00929DA8 /* WelcomeInterface.swift */,
+				D939305121B6BBD900929DA8 /* WelcomeViewController.swift */,
+				D939305321B6BBE500929DA8 /* WelcomePresenter.swift */,
+				D939305521B6BBF500929DA8 /* WelcomeWireframe.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		D939305821B6C5DB00929DA8 /* CreateNewAccount */ = {
+			isa = PBXGroup;
+			children = (
+				D939306421B6C70200929DA8 /* CreateNewAccountInterface.swift */,
+				D939306621B6C70B00929DA8 /* CreateNewAccountViewController.swift */,
+				D939306821B6C71300929DA8 /* CreateNewAccountPresenter.swift */,
+				D939306A21B6C71900929DA8 /* CreateNewAccountWireframe.swift */,
+			);
+			path = CreateNewAccount;
+			sourceTree = "<group>";
+		};
+		D939306C21B6C8CD00929DA8 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				D939306D21B6C8E000929DA8 /* WelcomeInteractor.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		D95FED8521B3DCF3007CEFD6 /* Root */ = {
@@ -1338,6 +1400,7 @@
 				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
 				D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */,
 				D908B55821A64388001ECA7F /* API.swift in Sources */,
+				D939307021B6C9CC00929DA8 /* API+LogIn.swift in Sources */,
 				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1347,6 +1410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BB612C21AF85A800CD5424 /* MapInteractor.swift in Sources */,
+				D939306E21B6C8E000929DA8 /* WelcomeInteractor.swift in Sources */,
 				D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */,
 				D92A41CD21B13143003ABE8A /* RootInteractor.swift in Sources */,
 				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
@@ -1384,11 +1448,13 @@
 				D9BB612221AE896100CD5424 /* ChangeEmailPresenter.swift in Sources */,
 				D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */,
 				D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */,
+				D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */,
 				D96E803B21A788A300887846 /* EditProfileInfoCell.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
 				D900BB3E21A3EFD900E2E9A7 /* EditUserInfoInterface.swift in Sources */,
 				D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */,
 				D925C261219F19F100B166B4 /* ChatViewController.swift in Sources */,
+				D939306921B6C71300929DA8 /* CreateNewAccountPresenter.swift in Sources */,
 				D9BB612E21AF8B9F00CD5424 /* ChatPresenter.swift in Sources */,
 				D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */,
 				D9D1B16721A6FB9100FE3829 /* EditUserInfoDataSource.swift in Sources */,
@@ -1402,10 +1468,15 @@
 				D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */,
 				D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */,
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
+				D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */,
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
+				D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */,
 				D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */,
 				D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */,
+				D939306721B6C70B00929DA8 /* CreateNewAccountViewController.swift in Sources */,
 				D900BB3F21A3EFDE00E2E9A7 /* EditUserInfoViewController.swift in Sources */,
+				D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */,
+				D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */,
 				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* ChangeEmailInterface.swift in Sources */,
@@ -1413,6 +1484,7 @@
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* ChangeEmailViewController.swift in Sources */,
 				D9BB613021AF8BAA00CD5424 /* ChatInterface.swift in Sources */,
+				D939305221B6BBD900929DA8 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

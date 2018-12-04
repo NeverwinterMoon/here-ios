@@ -9,9 +9,7 @@
 import Foundation
 
 public final class RootWireframe: RootWireframeInterface {
-    
-    let window: UIWindow?
-    
+
     public init(window: UIWindow) {
         self.window = window
     }
@@ -21,7 +19,14 @@ public final class RootWireframe: RootWireframeInterface {
     
     public func setRootTabBar() {
         let controller = AppTabBarController()
-        window?.rootViewController = controller
-        window?.makeKeyAndVisible()
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+    }
+    
+    // MARK: - Private
+    private weak var window: UIWindow?
+    private weak var rootViewController: UIViewController? {
+        
+        return self.window?.rootViewController
     }
 }

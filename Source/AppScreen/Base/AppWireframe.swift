@@ -16,7 +16,8 @@ enum Transition {
 
 class AppWireframe: WireframeInterface {
     
-    unowned let navigationController: UINavigationController
+//    unowned let navigationController: UINavigationController
+    let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -27,7 +28,7 @@ class AppWireframe: WireframeInterface {
     }
     
     func dismiss(animated: Bool, completion: (() -> Void)?) {
-        navigationController.dismiss(animated: animated, completion: completion)
+        self.navigationController.dismiss(animated: animated, completion: completion)
     }
     
     func show(_ viewController: UIViewController, with transition: Transition, animated: Bool) {

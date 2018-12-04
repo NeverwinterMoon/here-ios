@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserInfoWireframe: AppWireframe, UserInfoWireframeInterface {
+final class EditUserInfoWireframe: AppWireframe, EditUserInfoWireframeInterface {
     
     func pushChangeEmailAddress() {
     }

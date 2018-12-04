@@ -12,24 +12,24 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol UserInfoViewInterface {
+protocol EditUserInfoViewInterface {
     var tapChangeProfileImage: Signal<Void> { get }
 }
 
-protocol UserInfoInteractorInterface: class {
+protocol EditUserInfoInteractorInterface: class {
     func activatedUser() -> Single<Me>
 }
 
-extension ProfileInteractor: UserInfoInteractorInterface {}
+extension ProfileInteractor: EditUserInfoInteractorInterface {}
 
-protocol UserInfoPresenterInterface {
+protocol EditUserInfoPresenterInterface {
     var userEmailAddress: Driver<String> { get }
     var userProfileIntro: Driver<String> { get }
     var userProfileImageURL: Driver<URL> { get }
-    var sections: Driver<[ProfileInfoSection]> { get }
+    var sections: Driver<[EditProfileInfoSection]> { get }
 }
 
-protocol UserInfoWireframeInterface {
+protocol EditUserInfoWireframeInterface {
     func showCamera()
     func showCameraRoll()
     func pushChangeEmailAddress()

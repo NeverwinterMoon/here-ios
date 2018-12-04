@@ -37,7 +37,6 @@
 		D908B55621A6436D001ECA7F /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55521A6436D001ECA7F /* API+User.swift */; };
 		D908B55821A64388001ECA7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55721A64388001ECA7F /* API.swift */; };
 		D91E936121A6DC6300E93E04 /* AppExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E935F21A6DC6300E93E04 /* AppExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D91E936921A6DC7500E93E04 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFCB021A6B3D600FCB5FD /* Rx.swift */; };
 		D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E935421A6DA4200E93E04 /* Then.swift */; };
 		D91E936B21A6DCC500E93E04 /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
 		D91E936C21A6DD4A00E93E04 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50D21A4FBB0001ECA7F /* RxSwift.framework */; };
@@ -329,7 +328,6 @@
 		D92AFC9021A6A42700FCB5FD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		D92AFC9221A6A43600FCB5FD /* FriendProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfilePresenter.swift; sourceTree = "<group>"; };
 		D92AFC9421A6A44F00FCB5FD /* FriendProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileWireframe.swift; sourceTree = "<group>"; };
-		D92AFCB021A6B3D600FCB5FD /* Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx.swift; sourceTree = "<group>"; };
 		D954B95821A8481B00A42D2C /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		D95FED8621B3DD05007CEFD6 /* RootInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInterface.swift; sourceTree = "<group>"; };
 		D95FED8821B3DD1A007CEFD6 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
@@ -630,7 +628,6 @@
 			children = (
 				D91E935F21A6DC6300E93E04 /* AppExtensions.h */,
 				D91E936021A6DC6300E93E04 /* Info.plist */,
-				D92AFCB021A6B3D600FCB5FD /* Rx.swift */,
 				D91E935421A6DA4200E93E04 /* Then.swift */,
 			);
 			path = AppExtensions;
@@ -1364,7 +1361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */,
-				D91E936921A6DC7500E93E04 /* Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

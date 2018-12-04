@@ -12,20 +12,20 @@ import RxCocoa
 import RxOptional
 import RxSwift
 
-final class UserInfoPresenter: UserInfoPresenterInterface {
+final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
     
     let userEmailAddress: Driver<String>
     let userProfileIntro: Driver<String>
     let userProfileImageURL: Driver<URL>
     
-    var sections: Driver<[ProfileInfoSection]> {
+    var sections: Driver<[EditProfileInfoSection]> {
         
         return self.sectionsRelay.asDriver()
     }
     
-    private let sectionsRelay: BehaviorRelay<[ProfileInfoSection]> = .init(value: [])
+    private let sectionsRelay: BehaviorRelay<[EditProfileInfoSection]> = .init(value: [])
 
-    init(view: UserInfoViewInterface, interactor: UserInfoInteractorInterface, wireframe: UserInfoWireframeInterface) {
+    init(view: EditUserInfoViewInterface, interactor: EditUserInfoInteractorInterface, wireframe: EditUserInfoWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
@@ -39,7 +39,7 @@ final class UserInfoPresenter: UserInfoPresenterInterface {
     }
     
     // MARK: - Private
-    private let view: UserInfoViewInterface
-    private let interactor: UserInfoInteractorInterface
-    private let wireframe: UserInfoWireframeInterface
+    private let view: EditUserInfoViewInterface
+    private let interactor: EditUserInfoInteractorInterface
+    private let wireframe: EditUserInfoWireframeInterface
 }

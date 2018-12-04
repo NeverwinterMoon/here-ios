@@ -46,6 +46,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.view.backgroundColor = .white
         
+        self.title = "Profile"
+        
         self.profileImageView.do {
 //            tmp
             $0.backgroundColor = .blue
@@ -69,7 +71,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .drive(onNext: { [unowned self] in
                     self.introLabel.text = $0
                 })
-                .dispose(with: self)
+                .disposed(by: self.disposeBag)
         }
         
         self.editProfileButton.do {
@@ -77,7 +79,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             $0.setTitle("プロフィールを編集する", for: .normal)
             $0.setTitleColor(.black, for: .normal)
             $0.layer.borderWidth = 1
-            $0.layer.borderColor = UIColor.black.cgColor
             $0.layer.cornerRadius = 15
         }
         
@@ -94,10 +95,11 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
 
         self.flexLayout()
     }
-    
+
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
+        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
     }
     
@@ -107,6 +109,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     private let editProfileButton = UIButton()
     private let friendsButton = UIButton()
     private let friendsIconImageView = UIImageView()
+    private let disposeBag = DisposeBag()
 
     private func flexLayout() {
         
@@ -117,7 +120,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .direction(.row)
                 .alignItems(.center)
                 .paddingHorizontal(40)
-                .marginTop(40)
                 .marginBottom(20)
                 .define { flex in
                 

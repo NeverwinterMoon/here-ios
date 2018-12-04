@@ -9,8 +9,10 @@
 import Foundation
 import AppExtensions
 import AppInteractor
+import RxCocoa
+import RxSwift
 
-public final class RootPresenter: Disposer {
+public final class RootPresenter {
     
     public init(wireframe: RootWireframeInterface, interactor: RootInteractorInterface) {
         
@@ -28,10 +30,11 @@ public final class RootPresenter: Disposer {
                     self.wireframe.setRootTabBar()
                 }
             })
-            .dispose(with: self)
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
     private let wireframe: RootWireframeInterface
     private let interactor: RootInteractorInterface
+    private let disposeBag = DisposeBag()
 }

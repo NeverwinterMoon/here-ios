@@ -14,7 +14,7 @@ import RxCocoa
 import RxRealm
 import RxSwift
 
-public final class RootInteractor: Disposer {
+public final class RootInteractor {
     
     public static let shared = RootInteractor()
     
@@ -51,6 +51,8 @@ public final class RootInteractor: Disposer {
             }
             .distinctUntilChanged()
             .bind(to: stateSubject)
-            .dispose(with: self)
+            .disposed(by: self.disposeBag)
     }
+    
+    private let disposeBag = DisposeBag()
 }

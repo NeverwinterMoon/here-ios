@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ProfileInfoCell: UITableViewCell {
+final class EditProfileInfoCell: UITableViewCell {
     
     var title: String? {
         

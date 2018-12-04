@@ -45,7 +45,7 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let wireframe = MapWireframe(navigationController: navigationController)
             let presenter = MapPresenter(view: controller, interactor: MapInteractor(), wireframe: wireframe)
             controller.presenter = presenter
-            viewControllers.append(controller)
+            viewControllers.append(navigationController)
             
             navigationController.tabBarItem = UITabBarItem(
                 title: "map",
@@ -60,7 +60,7 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let wireframe = ChatWireframe(navigationController: navigationController)
             let presenter = ChatPresenter(view: controller, interactor: ChatInteractor(), wireframe: wireframe)
             controller.presenter = presenter
-            viewControllers.append(controller)
+            viewControllers.append(navigationController)
             
             navigationController.tabBarItem = UITabBarItem(
                 title: "chat",
@@ -73,9 +73,9 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let controller = ProfileViewController()
             let navigationController = AppNavigationController(rootViewController: controller)
             let wireframe = ProfileWireframe(navigationController: navigationController)
-            let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor(), wireframe: wireframe)
+            let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
             controller.presenter = presenter
-            viewControllers.append(controller)
+            viewControllers.append(navigationController)
             
             navigationController.tabBarItem = UITabBarItem(
                 title: "profile",

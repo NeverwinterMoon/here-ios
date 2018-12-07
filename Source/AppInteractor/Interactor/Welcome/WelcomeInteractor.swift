@@ -21,4 +21,8 @@ public final class WelcomeInteractor {
         
         return API.LogIn.Get(userId: userId, passWord: passWord).asSingle()
     }
+    
+    public func sendEmail(emailAddress: String) {
+        
+    }
 }

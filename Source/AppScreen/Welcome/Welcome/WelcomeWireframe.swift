@@ -7,10 +7,17 @@
 //
 
 import Foundation
+import AppInteractor
 
 final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
     
     func pushCreateNewAccount() {
+        
+        let controller = CreateNewAccountViewController()
+        let wireframe = CreateNewAccountWireframe(navigationController: self.navigationController)
+        let presenter = CreateNewAccountPresenter(view: controller, interactor: WelcomeInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
     }
     
     func pushLogIn() {

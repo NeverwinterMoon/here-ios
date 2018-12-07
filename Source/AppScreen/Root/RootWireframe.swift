@@ -18,8 +18,9 @@ public final class RootWireframe: RootWireframeInterface {
     public func setWelcome() {
         let controller = WelcomeViewController()
         let navigationController = AppNavigationController(rootViewController: controller)
-//        let wireframe = WelcomeWireframe(navigationController: navigationController)
-//        let presenter = WelcomePresenter(view: controller, wireframe: wireframe)
+        let wireframe = WelcomeWireframe(navigationController: navigationController)
+        let presenter = WelcomePresenter(view: controller, wireframe: wireframe)
+        controller.presenter = presenter
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         

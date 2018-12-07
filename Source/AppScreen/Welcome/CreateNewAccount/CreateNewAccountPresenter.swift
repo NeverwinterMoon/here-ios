@@ -8,6 +8,17 @@
 
 import Foundation
 
-final class CreateNewAccountPresenter {
+final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
     
+    init(view: CreateNewAccountViewInterface, interactor: CreateNewAccountInteractorInterface, wireframe: CreateNewAccountWireframeInterface) {
+        
+        self.view = view
+        self.interactor = interactor
+        self.wireframe = wireframe
+    }
+    
+    // MARK: - Private
+    private let view: CreateNewAccountViewInterface
+    private let interactor: CreateNewAccountInteractorInterface
+    private let wireframe: CreateNewAccountWireframeInterface
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppInteractor
 import RxCocoa
 import RxSwift
 
@@ -15,6 +16,12 @@ protocol CreateNewAccountViewInterface {
 }
 
 protocol CreateNewAccountInteractorInterface {
+    func sendEmail(emailAddress: String)
+}
+
+extension WelcomeInteractor: CreateNewAccountInteractorInterface {}
+
+protocol CreateNewAccountPresenterInterface {
 }
 
 protocol CreateNewAccountWireframeInterface {

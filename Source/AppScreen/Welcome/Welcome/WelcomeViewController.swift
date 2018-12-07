@@ -13,6 +13,8 @@ import RxCocoa
 import RxSwift
 
 final class WelcomeViewController: UIViewController, WelcomeViewInterface {
+    
+    var presenter: WelcomePresenterInterface!
 
     var tapCreateNewAccount: Signal<Void> {
         
@@ -58,14 +60,14 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         self.emailLabel.do {
             
             $0.text = "メールアドレス"
-            $0.font = UIFont.systemFont(ofSize: 15)
+            $0.font = UIFont.systemFont(ofSize: 12)
             $0.textColor = .black
         }
         
         self.passWordLabel.do {
             
             $0.text = "パスワード"
-            $0.font = UIFont.systemFont(ofSize: 15)
+            $0.font = UIFont.systemFont(ofSize: 12)
             $0.textColor = .black
         }
         

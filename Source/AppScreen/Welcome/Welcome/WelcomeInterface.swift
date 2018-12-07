@@ -22,6 +22,9 @@ protocol WelcomeInteractorInterface: class {
 
 extension WelcomeInteractor: WelcomeInteractorInterface {}
 
+protocol WelcomePresenterInterface {
+}
+
 protocol WelcomeWireframeInterface {
     func pushCreateNewAccount()
     func pushLogIn()

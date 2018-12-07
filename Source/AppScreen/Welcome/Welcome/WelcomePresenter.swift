@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class WelcomePresenter {
+final class WelcomePresenter: WelcomePresenterInterface {
     
     init(view: WelcomeViewInterface, wireframe: WelcomeWireframeInterface) {
         

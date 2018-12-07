@@ -22,7 +22,7 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
             wireframe: wireframe
         )
         controller.presenter = presenter
-        show(controller, with: .push, animated: true)
+        self.show(controller, with: .push, animated: true)
     }
     
     func pushfFriendsList() {

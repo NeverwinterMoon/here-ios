@@ -32,7 +32,7 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
             $0.textColor = .black
         }
         
-        self.passWordLabel.do {
+        self.passwordLabel.do {
             
             $0.text = "パスワード"
             $0.font = UIFont.systemFont(ofSize: 12)
@@ -46,7 +46,7 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
             $0.layer.cornerRadius = 10
         }
         
-        self.passWordTextField.do {
+        self.passwordTextField.do {
             
             $0.layer.borderWidth = 0.5
             $0.layer.borderColor = UIColor.black.cgColor
@@ -67,8 +67,8 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
     private let createAccountButton = UIButton()
     private let emailLabel = UILabel()
     private let emailTextField = UITextField()
-    private let passWordLabel = UILabel()
-    private let passWordTextField = UITextField()
+    private let passwordLabel = UILabel()
+    private let passwordTextField = UITextField()
     
     private func flexLayout() {
         

@@ -21,8 +21,8 @@ extension API {
             public let path = "/login"
             public let parameters: [String: Any]
             
-            public init(username: String, passWord: String) {
-                self.parameters = ["username": username, "password": passWord]
+            public init(username: String, password: String) {
+                self.parameters = ["username": username, "password": password]
             }
         }
     }

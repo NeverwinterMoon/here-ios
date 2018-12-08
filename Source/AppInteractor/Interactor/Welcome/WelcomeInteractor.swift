@@ -17,9 +17,9 @@ public final class WelcomeInteractor {
     
     public init() {}
     
-    public func validLogin(username: String, passWord: String) -> Single<Bool> {
+    public func validLogin(username: String, password: String) -> Single<Bool> {
         
-        return API.Login.Get(username: username, passWord: passWord).asSingle()
+        return API.Login.Get(username: username, password: password).asSingle()
     }
     
     public func sendEmail(emailAddress: String) {

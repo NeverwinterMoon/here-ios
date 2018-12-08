@@ -18,8 +18,8 @@ final class WelcomePresenter: WelcomePresenterInterface {
         self.wireframe = wireframe
         
         self.view.tapLogin
-            .emit(onNext: {
-                self.wireframe.pushLogin()
+            .asObservable()
+            .subscribe(onNext: { [unowned self] _ in
             })
             .disposed(by: self.disposeBag)
         
@@ -34,4 +34,9 @@ final class WelcomePresenter: WelcomePresenterInterface {
     private let disposeBag = DisposeBag()
     private let view: WelcomeViewInterface
     private let wireframe: WelcomeWireframeInterface
+}
+
+struct LoginInfo {
+    let username: String
+    let email: String
 }

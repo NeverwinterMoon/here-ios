@@ -15,6 +15,8 @@ final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        
+//        self.view.tapCreateAccount
     }
     
     // MARK: - Private

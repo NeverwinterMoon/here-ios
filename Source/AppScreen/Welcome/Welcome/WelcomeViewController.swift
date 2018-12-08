@@ -21,9 +21,21 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         return self.createNewAccountButton.rx.tap.asSignal()
     }
     
-    var tapLogin: Signal<Void> {
+    var tapLogin: Signal<LoginInfo> {
         
-        return self.loginButton.rx.tap.asSignal()
+        return self.loginButton.rx.tap
+            .map { [unowned self] _ in
+                LoginInfo(username: self.emailOrUsernameTextField.text!, email: self.emailOrUsernameTextField.text!)
+            }
+            .asSignal(onErrorJustReturn: .init(username: "", email: ""))
+    }
+    
+    private var emailOrUsernameIsEmpty: Observable<Bool> {
+        return self.emailOrUsernameTextField.rx.attributedText.map { $0 == nil }.asObservable()
+    }
+    
+    private var passwordIsEmpty: Observable<Bool> {
+        return self.passwordTextField.rx.attributedText.map { $0 == nil }.asObservable()
     }
     
     convenience init() {
@@ -57,28 +69,28 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.layer.cornerRadius = 20
         }
         
-        self.emailLabel.do {
+        self.emailOrUsernameLabel.do {
             
             $0.text = "メールアドレス"
             $0.font = UIFont.systemFont(ofSize: 12)
             $0.textColor = .black
         }
         
-        self.passWordLabel.do {
+        self.passwordLabel.do {
             
             $0.text = "パスワード"
             $0.font = UIFont.systemFont(ofSize: 12)
             $0.textColor = .black
         }
         
-        self.emailTextField.do {
+        self.emailOrUsernameTextField.do {
             
             $0.layer.borderWidth = 0.5
             $0.layer.borderColor = UIColor.black.cgColor
             $0.layer.cornerRadius = 10
         }
         
-        self.passWordTextField.do {
+        self.passwordTextField.do {
             
             $0.layer.borderWidth = 0.5
             $0.layer.borderColor = UIColor.black.cgColor
@@ -94,6 +106,12 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.layer.cornerRadius = 20
         }
         
+        Observable.combineLatest(self.emailOrUsernameIsEmpty, self.passwordIsEmpty)
+            .subscribe(onNext: { e, p in
+                self.loginButton.isEnabled = e && p
+            })
+            .disposed(by: self.disposeBag)
+
         self.flexLayout()
     }
     
@@ -106,12 +124,13 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     // MARK: - Private
     private let welcomeLabel = UILabel()
     private let createNewAccountButton = UIButton()
-    private let emailLabel = UILabel()
-    private let emailTextField = UITextField()
-    private let passWordLabel = UILabel()
-    private let passWordTextField = UITextField()
+    private let emailOrUsernameLabel = UILabel()
+    private let emailOrUsernameTextField = UITextField()
+    private let passwordLabel = UILabel()
+    private let passwordTextField = UITextField()
     private let loginButton = UIButton()
-    private let forgotPassWordButton = UIButton()
+    private let forgotPasswordButton = UIButton()
+    private let disposeBag = DisposeBag()
 
     private func flexLayout() {
         
@@ -122,14 +141,14 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             
             flex.addItem().direction(.row).marginTop(40).marginHorizontal(20).height(50).define { flex in
                 
-                flex.addItem(self.emailLabel).width(80)
-                flex.addItem(self.emailTextField).grow(1)
+                flex.addItem(self.emailOrUsernameLabel).width(80)
+                flex.addItem(self.emailOrUsernameTextField).grow(1)
             }
             
             flex.addItem().direction(.row).marginTop(20).marginHorizontal(20).height(50).define { flex in
                 
-                flex.addItem(self.passWordLabel).width(80)
-                flex.addItem(self.passWordTextField).grow(1)
+                flex.addItem(self.passwordLabel).width(80)
+                flex.addItem(self.passwordTextField).grow(1)
             }
             
             flex.addItem(self.loginButton).marginTop(40).marginHorizontal(20).height(40)

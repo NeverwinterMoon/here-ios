@@ -21,8 +21,8 @@ extension API {
             public let path: String
             public let parameters: [String: Any] = [:]
 
-            public init(userId: String) {
-                self.path = "users/\(userId)"
+            public init(username: String) {
+                self.path = "users/\(username)"
             }
         }
         
@@ -33,8 +33,8 @@ extension API {
             public let path: String
             public let parameters: [String: Any] = [:]
             
-            public init(userId: String) {
-                self.path = "users/\(userId)/friends"
+            public init(username: String) {
+                self.path = "users/\(username)/friends"
             }
         }
         
@@ -45,8 +45,8 @@ extension API {
             public let path: String
             public let parameters: [String: Any] = [:]
             
-            public init(userId: String) {
-                self.path = "users/\(userId)/nearby_friends"
+            public init(username: String) {
+                self.path = "users/\(username)/nearby_friends"
             }
         }
     }

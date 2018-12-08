@@ -17,7 +17,7 @@ protocol FriendProfileViewInterface {
 }
 
 protocol FriendProfileInteractorInterface {
-    func user(userId: String) -> Single<User>
+    func user(username: String) -> Single<User>
 }
 
 extension ProfileInteractor: FriendProfileInteractorInterface {}

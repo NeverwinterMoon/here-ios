@@ -12,7 +12,8 @@ import RealmSwift
 public final class User: Object, Decodable {
     
     @objc public dynamic var id: String = ""
-    // TODO: think if this email is really necessary
+    @objc public dynamic var userName: String = ""
+    @objc public dynamic var userDisplayName: String = ""
     @objc public dynamic var emailAddress: String = ""
     @objc public dynamic var profileImageURL: String = ""
     @objc public dynamic var profileIntro: String = ""
@@ -28,6 +29,8 @@ public final class User: Object, Decodable {
     private enum CodingKeys: String, CodingKey {
         
         case id
+        case userName = "username"
+        case userDisplayName = "user_display_name"
         case emailAddress = "email_address"
         case profileImageURL = "profile_image_url"
         case profileIntro = "profile_intro"
@@ -42,6 +45,8 @@ public final class User: Object, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(String.self, forKey: .id)
+        self.userName = try container.decode(String.self, forKey: .userName)
+        self.userDisplayName = try container.decode(String.self, forKey: .userDisplayName)
         self.emailAddress = try container.decode(String.self, forKey: .emailAddress)
         self.profileImageURL = try container.decode(String.self, forKey: .profileImageURL)
         self.profileIntro = try container.decode(String.self, forKey: .profileIntro)

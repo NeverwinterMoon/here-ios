@@ -32,7 +32,7 @@ public final class MapInteractor {
         
         return self.activatedUser()
             .flatMap {
-                API.User.GetNearbyFriends(userId: $0.id).asSingle()
+                API.User.GetNearbyFriends(username: $0.id).asSingle()
             }
     }
 }

@@ -27,14 +27,14 @@ public final class ProfileInteractor {
             .asSingle()
     }
     
-    public func user(userId: String) -> Single<User> {
-        return API.User.Get(userId: userId).asSingle()
+    public func user(username: String) -> Single<User> {
+        return API.User.Get(username: username).asSingle()
     }
 
     public func friends() -> Single<[User]> {
         return activatedUser()
             .flatMap {
-                API.User.GetFriends(userId: $0.id).asSingle()
+                API.User.GetFriends(username: $0.id).asSingle()
             }
     }
 }

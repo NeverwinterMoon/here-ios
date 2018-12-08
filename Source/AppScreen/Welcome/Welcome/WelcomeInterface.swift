@@ -17,7 +17,7 @@ protocol WelcomeViewInterface {
 }
 
 protocol WelcomeInteractorInterface: class {
-    func validlogIn(userId: String, passWord: String) -> Single<Bool>
+    func validlogIn(username: String, passWord: String) -> Single<Bool>
 }
 
 extension WelcomeInteractor: WelcomeInteractorInterface {}

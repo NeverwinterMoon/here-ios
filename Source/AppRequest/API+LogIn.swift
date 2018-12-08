@@ -18,11 +18,11 @@ extension API {
             
             public typealias ElementType = Bool
             
-            public let path = "/log_in"
+            public let path = "/login"
             public let parameters: [String: Any]
             
-            public init(userId: String, passWord: String) {
-                self.parameters = ["user_id": userId, "pass_word": passWord]
+            public init(username: String, passWord: String) {
+                self.parameters = ["username": username, "password": passWord]
             }
         }
     }

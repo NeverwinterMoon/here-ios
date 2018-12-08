@@ -21,9 +21,9 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         return self.createNewAccountButton.rx.tap.asSignal()
     }
     
-    var tapLogIn: Signal<Void> {
+    var tapLogin: Signal<Void> {
         
-        return self.logInButton.rx.tap.asSignal()
+        return self.loginButton.rx.tap.asSignal()
     }
     
     convenience init() {
@@ -87,7 +87,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             // TODO: customize textfield to close cursor when tapped outside of textfield (maybe make custom class??)
         }
         
-        self.logInButton.do {
+        self.loginButton.do {
             
             $0.setTitle("ログイン", for: .normal)
             $0.backgroundColor = .blue
@@ -110,7 +110,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     private let emailTextField = UITextField()
     private let passWordLabel = UILabel()
     private let passWordTextField = UITextField()
-    private let logInButton = UIButton()
+    private let loginButton = UIButton()
     private let forgotPassWordButton = UIButton()
 
     private func flexLayout() {
@@ -132,7 +132,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
                 flex.addItem(self.passWordTextField).grow(1)
             }
             
-            flex.addItem(self.logInButton).marginTop(40).marginHorizontal(20).height(40)
+            flex.addItem(self.loginButton).marginTop(40).marginHorizontal(20).height(40)
         }
     }
 }

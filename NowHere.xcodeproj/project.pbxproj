@@ -74,7 +74,7 @@
 		D939306921B6C71300929DA8 /* CreateNewAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306821B6C71300929DA8 /* CreateNewAccountPresenter.swift */; };
 		D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306A21B6C71900929DA8 /* CreateNewAccountWireframe.swift */; };
 		D939306E21B6C8E000929DA8 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306D21B6C8E000929DA8 /* WelcomeInteractor.swift */; };
-		D939307021B6C9CC00929DA8 /* API+LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306F21B6C9CC00929DA8 /* API+LogIn.swift */; };
+		D939307021B6C9CC00929DA8 /* API+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306F21B6C9CC00929DA8 /* API+Login.swift */; };
 		D954B95921A8481B00A42D2C /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954B95821A8481B00A42D2C /* APIProvider.swift */; };
 		D95FED8721B3DD05007CEFD6 /* RootInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8621B3DD05007CEFD6 /* RootInterface.swift */; };
 		D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8821B3DD1A007CEFD6 /* RootPresenter.swift */; };
@@ -347,7 +347,7 @@
 		D939306821B6C71300929DA8 /* CreateNewAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountPresenter.swift; sourceTree = "<group>"; };
 		D939306A21B6C71900929DA8 /* CreateNewAccountWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountWireframe.swift; sourceTree = "<group>"; };
 		D939306D21B6C8E000929DA8 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
-		D939306F21B6C9CC00929DA8 /* API+LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LogIn.swift"; sourceTree = "<group>"; };
+		D939306F21B6C9CC00929DA8 /* API+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Login.swift"; sourceTree = "<group>"; };
 		D954B95821A8481B00A42D2C /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		D95FED8621B3DD05007CEFD6 /* RootInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInterface.swift; sourceTree = "<group>"; };
 		D95FED8821B3DD1A007CEFD6 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
@@ -603,7 +603,7 @@
 				D908B55721A64388001ECA7F /* API.swift */,
 				D908B55521A6436D001ECA7F /* API+User.swift */,
 				D9BB613621AFA2AE00CD5424 /* API+Me.swift */,
-				D939306F21B6C9CC00929DA8 /* API+LogIn.swift */,
+				D939306F21B6C9CC00929DA8 /* API+Login.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D954B95821A8481B00A42D2C /* APIProvider.swift */,
 				D908B4EF21A4FB4D001ECA7F /* AppRequest.h */,
@@ -1400,7 +1400,7 @@
 				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
 				D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */,
 				D908B55821A64388001ECA7F /* API.swift in Sources */,
-				D939307021B6C9CC00929DA8 /* API+LogIn.swift in Sources */,
+				D939307021B6C9CC00929DA8 /* API+Login.swift in Sources */,
 				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

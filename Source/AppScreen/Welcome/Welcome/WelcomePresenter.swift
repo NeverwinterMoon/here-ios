@@ -17,7 +17,7 @@ final class WelcomePresenter: WelcomePresenterInterface {
         self.view = view
         self.wireframe = wireframe
         
-        self.view.tapLogIn
+        self.view.tapLogin
             .emit(onNext: {
                 self.wireframe.pushLogIn()
             })

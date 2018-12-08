@@ -13,11 +13,11 @@ import RxSwift
 
 protocol WelcomeViewInterface {
     var tapCreateNewAccount: Signal<Void> { get }
-    var tapLogIn: Signal<Void> { get }
+    var tapLogin: Signal<Void> { get }
 }
 
 protocol WelcomeInteractorInterface: class {
-    func validlogIn(username: String, passWord: String) -> Single<Bool>
+    func validlogin(username: String, passWord: String) -> Single<Bool>
 }
 
 extension WelcomeInteractor: WelcomeInteractorInterface {}

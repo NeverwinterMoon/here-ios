@@ -1,5 +1,5 @@
 //
-//  API+LogIn.swift
+//  API+Login.swift
 //  AppRequest
 //
 //  Created by 服部穣 on 2018/12/04.
@@ -12,7 +12,7 @@ import Moya
 
 extension API {
     
-    public enum LogIn {
+    public enum Login {
         
         public struct Get: GETTargetType {
             

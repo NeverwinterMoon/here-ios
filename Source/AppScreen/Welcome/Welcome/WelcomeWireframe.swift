@@ -20,7 +20,7 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
         self.show(controller, with: .push, animated: true)
     }
     
-    func pushLogIn() {
+    func pushLogin() {
         // present alert
     }
 }

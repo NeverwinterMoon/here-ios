@@ -17,7 +17,7 @@ public final class WelcomeInteractor {
     
     public init() {}
     
-    public func validlogin(username: String, passWord: String) -> Single<Bool> {
+    public func validLogin(username: String, passWord: String) -> Single<Bool> {
         
         return API.Login.Get(username: username, passWord: passWord).asSingle()
     }

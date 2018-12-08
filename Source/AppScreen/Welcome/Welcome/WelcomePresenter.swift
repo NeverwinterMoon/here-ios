@@ -19,7 +19,7 @@ final class WelcomePresenter: WelcomePresenterInterface {
         
         self.view.tapLogin
             .emit(onNext: {
-                self.wireframe.pushLogIn()
+                self.wireframe.pushLogin()
             })
             .disposed(by: self.disposeBag)
         

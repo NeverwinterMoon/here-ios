@@ -16,13 +16,19 @@ extension API {
         
         public struct Get: GETTargetType {
             
-            public typealias ElementType = Bool
+            public typealias ElementType = AccountInfo
             
             public let path = "/login"
             public let parameters: [String: Any]
             
-            public init(username: String, password: String) {
-                self.parameters = ["username": username, "password": password]
+            public init(usernameOrEmail: String, password: String) {
+                self.parameters = ["username_or_email": usernameOrEmail, "password": password]
+            }
+            
+            public struct AccountInfo: Decodable {
+                public let username: String
+                public let email: String
+                public let password: String
             }
         }
     }

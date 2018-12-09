@@ -23,4 +23,8 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
     func pushLogin() {
         // present alert
     }
+    
+    func popLoginFailedAlert() {
+        
+    }
 }

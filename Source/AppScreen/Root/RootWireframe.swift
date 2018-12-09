@@ -8,6 +8,7 @@
 
 import Foundation
 import AppUIKit
+import AppInteractor
 
 public final class RootWireframe: RootWireframeInterface {
 
@@ -19,7 +20,7 @@ public final class RootWireframe: RootWireframeInterface {
         let controller = WelcomeViewController()
         let navigationController = AppNavigationController(rootViewController: controller)
         let wireframe = WelcomeWireframe(navigationController: navigationController)
-        let presenter = WelcomePresenter(view: controller, wireframe: wireframe)
+        let presenter = WelcomePresenter(view: controller, interactor: WelcomeInteractor.shared, wireframe: wireframe)
         controller.presenter = presenter
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppEntity
 import AppRequest
 import RxCocoa
 import RxSwift
@@ -17,12 +18,36 @@ public final class WelcomeInteractor {
     
     public init() {}
     
-    public func validLogin(username: String, password: String) -> Single<Bool> {
+    public func login(usernameOrEmail: String, password: String) {
         
-        return API.Login.Get(username: username, password: password).asSingle()
+        API.Login.Get(usernameOrEmail: usernameOrEmail, password: password).asSingle()
+            .flatMap { accountInfo -> Single<Void> in
+                let account = Account()
+                account.username = accountInfo.username
+                account.email = accountInfo.email
+                account.password = accountInfo.password
+
+                return Single<Void>.create { single -> Disposable in
+                    do {
+                        let realm = SharedDBManager.shared()
+                        try realm.write {
+                            realm.add(account)
+                        }
+                        single(.success(()))
+                    } catch let error {
+                        single(.error(error))
+                    }
+                    return Disposables.create()
+                }
+            }
+            .subscribe()
+            .disposed(by: self.disposeBag)
     }
     
     public func sendEmail(emailAddress: String) {
         
     }
+    
+    // MARK: - Private
+    private let disposeBag = DisposeBag()
 }

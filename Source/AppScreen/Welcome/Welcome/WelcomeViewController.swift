@@ -25,9 +25,9 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         
         return self.loginButton.rx.tap
             .map { [unowned self] _ in
-                LoginInfo(username: self.emailOrUsernameTextField.text!, email: self.emailOrUsernameTextField.text!)
+                LoginInfo(usernameOrEmail: self.emailOrUsernameTextField.text!, password: self.passwordTextField.text!)
             }
-            .asSignal(onErrorJustReturn: .init(username: "", email: ""))
+            .asSignal(onErrorJustReturn: .init(usernameOrEmail: "", password: ""))
     }
     
     private var emailOrUsernameIsEmpty: Observable<Bool> {
@@ -107,8 +107,8 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         }
         
         Observable.combineLatest(self.emailOrUsernameIsEmpty, self.passwordIsEmpty)
-            .subscribe(onNext: { e, p in
-                self.loginButton.isEnabled = e && p
+            .subscribe(onNext: {
+                self.loginButton.isEnabled = $0 && $1
             })
             .disposed(by: self.disposeBag)
 

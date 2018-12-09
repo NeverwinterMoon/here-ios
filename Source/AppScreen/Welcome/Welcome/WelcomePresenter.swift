@@ -12,14 +12,16 @@ import RxSwift
 
 final class WelcomePresenter: WelcomePresenterInterface {
     
-    init(view: WelcomeViewInterface, wireframe: WelcomeWireframeInterface) {
+    init(view: WelcomeViewInterface, interactor: WelcomeInteractorInterface, wireframe: WelcomeWireframeInterface) {
         
         self.view = view
+        self.interactor = interactor
         self.wireframe = wireframe
         
         self.view.tapLogin
             .asObservable()
-            .subscribe(onNext: { [unowned self] _ in
+            .subscribe(onNext: { [unowned self] loginInfo in
+                self.interactor.login(usernameOrEmail: loginInfo.usernameOrEmail, password: loginInfo.password)
             })
             .disposed(by: self.disposeBag)
         
@@ -33,10 +35,11 @@ final class WelcomePresenter: WelcomePresenterInterface {
     // MARK: - Private
     private let disposeBag = DisposeBag()
     private let view: WelcomeViewInterface
+    private let interactor: WelcomeInteractorInterface
     private let wireframe: WelcomeWireframeInterface
 }
 
 struct LoginInfo {
-    let username: String
-    let email: String
+    let usernameOrEmail: String
+    let password: String
 }

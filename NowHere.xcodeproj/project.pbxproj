@@ -56,7 +56,7 @@
 		D92A41CD21B13143003ABE8A /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41CC21B13143003ABE8A /* RootInteractor.swift */; };
 		D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D221B13B63003ABE8A /* DBManager.swift */; };
 		D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */; };
-		D92A41D921B2382A003ABE8A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D821B2382A003ABE8A /* Device.swift */; };
+		D92A41D921B2382A003ABE8A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D821B2382A003ABE8A /* Account.swift */; };
 		D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */; };
 		D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */; };
 		D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */; };
@@ -329,7 +329,7 @@
 		D92A41CC21B13143003ABE8A /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		D92A41D221B13B63003ABE8A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDBMaganer.swift; sourceTree = "<group>"; };
-		D92A41D821B2382A003ABE8A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		D92A41D821B2382A003ABE8A /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListInterface.swift; sourceTree = "<group>"; };
 		D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListPresenter.swift; sourceTree = "<group>"; };
@@ -738,7 +738,7 @@
 		D92A41D721B23816003ABE8A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D92A41D821B2382A003ABE8A /* Device.swift */,
+				D92A41D821B2382A003ABE8A /* Account.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1501,7 +1501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
-				D92A41D921B2382A003ABE8A /* Device.swift in Sources */,
+				D92A41D921B2382A003ABE8A /* Account.swift in Sources */,
 				D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */,
 				D9BB613921AFA32800CD5424 /* Me.swift in Sources */,
 			);

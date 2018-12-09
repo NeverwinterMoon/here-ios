@@ -31,12 +31,12 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             .asSignal(onErrorJustReturn: .init(usernameOrEmail: "", password: ""))
     }
     
-    private var emailOrUsernameIsEmpty: Observable<Bool> {
-        return self.emailOrUsernameTextField.rx.attributedText.map { $0 == nil }.asObservable()
+    private var emailOrUsernameIsNotEmpty: Observable<Bool> {
+        return self.emailOrUsernameTextField.rx.attributedText.map { $0 != nil }.asObservable()
     }
     
-    private var passwordIsEmpty: Observable<Bool> {
-        return self.passwordTextField.rx.attributedText.map { $0 == nil }.asObservable()
+    private var passwordIsNotEmpty: Observable<Bool> {
+        return self.passwordTextField.rx.attributedText.map { $0 != nil }.asObservable()
     }
     
     convenience init() {
@@ -97,7 +97,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.layer.cornerRadius = 20
         }
         
-        Observable.combineLatest(self.emailOrUsernameIsEmpty, self.passwordIsEmpty)
+        Observable.combineLatest(self.emailOrUsernameIsNotEmpty, self.passwordIsNotEmpty)
             .subscribe(onNext: {
                 self.loginButton.isEnabled = $0 && $1
             })

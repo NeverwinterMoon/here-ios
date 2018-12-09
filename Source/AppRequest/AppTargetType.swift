@@ -29,7 +29,8 @@ extension AppTargetType {
             return URL(string: "https://here-drip-staging.herokuapp.com")!
         #else
         // TODO
-            return URL(string: "PRODUCTION_URL")!
+//            return URL(string: "PRODUCTION_URL")!
+            return URL(string: "https://here-drip-staging.herokuapp.com")!
         #endif
     }
     

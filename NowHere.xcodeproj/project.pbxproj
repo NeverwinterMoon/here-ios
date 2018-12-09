@@ -149,6 +149,8 @@
 		D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
 		D9D1B16721A6FB9100FE3829 /* EditUserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* EditUserInfoDataSource.swift */; };
+		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
+		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +387,8 @@
 		D9BB613821AFA32800CD5424 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* EditUserInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoDataSource.swift; sourceTree = "<group>"; };
+		D9F11D3021BD3A20008AB472 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		D9F11D3321BD3F27008AB472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,6 +662,8 @@
 		D91E937521A6DD9F00E93E04 /* AppUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				D9F11D3221BD3F0C008AB472 /* ViewController */,
+				D9F11D2F21BD39F2008AB472 /* TextField */,
 				D91E938021A6DDB200E93E04 /* Navigation */,
 				D91E937621A6DD9F00E93E04 /* AppUIKit.h */,
 				D91E937721A6DD9F00E93E04 /* Info.plist */,
@@ -938,6 +944,22 @@
 				D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		D9F11D2F21BD39F2008AB472 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				D9F11D3021BD3A20008AB472 /* AppTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		D9F11D3221BD3F0C008AB472 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9F11D3321BD3F27008AB472 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1434,6 +1456,8 @@
 			files = (
 				D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */,
 				D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */,
+				D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */,
+				D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

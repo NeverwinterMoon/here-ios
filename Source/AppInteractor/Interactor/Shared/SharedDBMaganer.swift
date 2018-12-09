@@ -31,7 +31,7 @@ public final class SharedDBManager {
     static let activatedId = BehaviorRelay<String?>(value: nil)
     static let loggedIdUserIds = BehaviorRelay<[String]>(value: [])
 
-    public func setDefaultRealmForUser(userId: String) {
+    public static func setDefaultRealmForUser(userId: String) {
         
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(userId).realm")

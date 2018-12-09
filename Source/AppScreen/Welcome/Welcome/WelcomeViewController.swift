@@ -8,6 +8,7 @@
 
 import Foundation
 import AppExtensions
+import AppUIKit
 import FlexLayout
 import RxCocoa
 import RxSwift
@@ -68,26 +69,14 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.setTitleColor(.white, for: .normal)
             $0.layer.cornerRadius = 20
         }
-        
-        self.emailOrUsernameLabel.do {
-            
-            $0.text = "メールアドレス"
-            $0.font = UIFont.systemFont(ofSize: 12)
-            $0.textColor = .black
-        }
-        
-        self.passwordLabel.do {
-            
-            $0.text = "パスワード"
-            $0.font = UIFont.systemFont(ofSize: 12)
-            $0.textColor = .black
-        }
-        
+
         self.emailOrUsernameTextField.do {
             
             $0.layer.borderWidth = 0.5
             $0.layer.borderColor = UIColor.black.cgColor
             $0.layer.cornerRadius = 10
+            $0.placeholder = "メールアドレスまたはユーザー名"
+            $0.font = UIFont.systemFont(ofSize: 14)
         }
         
         self.passwordTextField.do {
@@ -95,6 +84,8 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.layer.borderWidth = 0.5
             $0.layer.borderColor = UIColor.black.cgColor
             $0.layer.cornerRadius = 10
+            $0.placeholder = "パスワード"
+            $0.font = UIFont.systemFont(ofSize: 14)
             
             // TODO: customize textfield to close cursor when tapped outside of textfield (maybe make custom class??)
         }
@@ -114,7 +105,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
 
         self.flexLayout()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.flex.paddingTop(self.view.safeAreaInsets.top)
@@ -124,10 +115,8 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     // MARK: - Private
     private let welcomeLabel = UILabel()
     private let createNewAccountButton = UIButton()
-    private let emailOrUsernameLabel = UILabel()
-    private let emailOrUsernameTextField = UITextField()
-    private let passwordLabel = UILabel()
-    private let passwordTextField = UITextField()
+    private let emailOrUsernameTextField = AppTextField()
+    private let passwordTextField = AppTextField()
     private let loginButton = UIButton()
     private let forgotPasswordButton = UIButton()
     private let disposeBag = DisposeBag()
@@ -139,18 +128,9 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             flex.addItem(self.welcomeLabel).marginTop(50).height(100).marginHorizontal(20).alignSelf(.center)
             flex.addItem(self.createNewAccountButton).alignSelf(.stretch).height(40).marginHorizontal(20)
             
-            flex.addItem().direction(.row).marginTop(40).marginHorizontal(20).height(50).define { flex in
-                
-                flex.addItem(self.emailOrUsernameLabel).width(80)
-                flex.addItem(self.emailOrUsernameTextField).grow(1)
-            }
-            
-            flex.addItem().direction(.row).marginTop(20).marginHorizontal(20).height(50).define { flex in
-                
-                flex.addItem(self.passwordLabel).width(80)
-                flex.addItem(self.passwordTextField).grow(1)
-            }
-            
+            flex.addItem(self.emailOrUsernameTextField).marginTop(40).marginHorizontal(20).height(50)
+            flex.addItem(self.passwordTextField).marginTop(40).marginHorizontal(20).height(50)
+
             flex.addItem(self.loginButton).marginTop(40).marginHorizontal(20).height(40)
         }
     }

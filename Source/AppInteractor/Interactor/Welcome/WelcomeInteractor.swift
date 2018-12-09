@@ -21,11 +21,11 @@ public final class WelcomeInteractor {
     public func login(usernameOrEmail: String, password: String) {
         
         API.Login.Get(usernameOrEmail: usernameOrEmail, password: password).asSingle()
-            .flatMap { accountInfo -> Single<Void> in
+            .flatMap { user -> Single<Void> in
                 let account = Account()
-                account.username = accountInfo.username
-                account.email = accountInfo.email
-                account.password = accountInfo.password
+                account.id = user.id
+                account.username = user.username
+                account.emailAddress = user.emailAddress
 
                 return Single<Void>.create { single -> Disposable in
                     do {
@@ -33,6 +33,7 @@ public final class WelcomeInteractor {
                         try realm.write {
                             realm.add(account)
                         }
+                        SharedDBManager.setDefaultRealmForUser(userId: account.id)
                         single(.success(()))
                     } catch let error {
                         single(.error(error))

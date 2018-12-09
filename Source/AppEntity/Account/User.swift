@@ -12,7 +12,7 @@ import RealmSwift
 public final class User: Object, Decodable {
     
     @objc public dynamic var id: String = ""
-    @objc public dynamic var userName: String = ""
+    @objc public dynamic var username: String = ""
     @objc public dynamic var userDisplayName: String = ""
     @objc public dynamic var emailAddress: String = ""
     @objc public dynamic var profileImageURL: String = ""
@@ -29,7 +29,7 @@ public final class User: Object, Decodable {
     private enum CodingKeys: String, CodingKey {
         
         case id
-        case userName = "username"
+        case username = "username"
         case userDisplayName = "user_display_name"
         case emailAddress = "email_address"
         case profileImageURL = "profile_image_url"
@@ -45,7 +45,7 @@ public final class User: Object, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(String.self, forKey: .id)
-        self.userName = try container.decode(String.self, forKey: .userName)
+        self.username = try container.decode(String.self, forKey: .username)
         self.userDisplayName = try container.decode(String.self, forKey: .userDisplayName)
         self.emailAddress = try container.decode(String.self, forKey: .emailAddress)
         self.profileImageURL = try container.decode(String.self, forKey: .profileImageURL)

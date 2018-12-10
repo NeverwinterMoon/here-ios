@@ -42,7 +42,8 @@ class AppWireframe: WireframeInterface {
     }
     
     public func popAlert(message: String) {
-        print("----------------------")
-        print(message)
+        let alertController = UIAlertController(title: "エラー", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.navigationController.present(alertController, animated: true, completion: nil)
     }
 }

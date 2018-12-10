@@ -15,6 +15,12 @@ extension AppTargetType {
     
     public func asSingle() -> Single<ElementType> {
         
-        return self.primitiveSequence.asObservable().asSingle()
+        return self.primitiveSequence.asObservable().asSingle().do(onError: { (error) in
+            if let apiError = error as? APIError, let currentController = UIApplication.shared.keyWindow?.rootViewController {
+                let alertController = UIAlertController(title: "エラー", message: apiError.message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                currentController.present(alertController, animated: true, completion: nil)
+            }
+        })
     }
 }

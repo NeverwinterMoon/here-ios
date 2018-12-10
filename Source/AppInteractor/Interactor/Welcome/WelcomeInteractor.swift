@@ -18,7 +18,7 @@ public final class WelcomeInteractor {
     
     public init() {}
     
-    public func login(usernameOrEmail: String, password: String) -> Single<Void> {
+    public func login(usernameOrEmail: String, password: String) {
         
         return API.Login.Get(usernameOrEmail: usernameOrEmail, password: password).asSingle()
             .flatMap { user -> Single<Void> in
@@ -41,6 +41,8 @@ public final class WelcomeInteractor {
                     return Disposables.create()
                 }
             }
+            .subscribe()
+            .disposed(by: self.disposeBag)
     }
     
     public func sendEmail(emailAddress: String) {

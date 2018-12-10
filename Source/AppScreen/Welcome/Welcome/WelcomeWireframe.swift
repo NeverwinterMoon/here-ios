@@ -23,8 +23,4 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
     func pushLogin() {
         // present alert
     }
-    
-    func showAlert(message: String) {
-        super.popAlert(message: message)
-    }
 }

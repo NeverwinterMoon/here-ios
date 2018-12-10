@@ -22,13 +22,7 @@ final class WelcomePresenter: WelcomePresenterInterface {
         self.view.tapLogin
             .asObservable()
             .subscribe(onNext: { [unowned self] loginInfo in
-                self.interactor.login(usernameOrEmail: loginInfo.usernameOrEmail, password: loginInfo.password).do(onError: { error in
-                    if let apiError = error as? APIError {
-                        self.wireframe.showAlert(message: apiError.message)
-                    }
-                })
-                .subscribe()
-                .disposed(by: self.disposeBag)
+                self.interactor.login(usernameOrEmail: loginInfo.usernameOrEmail, password: loginInfo.password)
             })
             .disposed(by: self.disposeBag)
         

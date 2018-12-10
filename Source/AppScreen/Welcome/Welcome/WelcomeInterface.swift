@@ -17,7 +17,7 @@ protocol WelcomeViewInterface {
 }
 
 protocol WelcomeInteractorInterface: class {
-    func login(usernameOrEmail: String, password: String) -> Single<Void>
+    func login(usernameOrEmail: String, password: String)
 }
 
 extension WelcomeInteractor: WelcomeInteractorInterface {}
@@ -28,5 +28,4 @@ protocol WelcomePresenterInterface {
 protocol WelcomeWireframeInterface {
     func pushCreateNewAccount()
     func pushLogin()
-    func showAlert(message: String)
 }

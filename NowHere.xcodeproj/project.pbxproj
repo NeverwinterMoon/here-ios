@@ -36,6 +36,7 @@
 		D908B55421A63958001ECA7F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B55321A63958001ECA7F /* Alamofire.framework */; };
 		D908B55621A6436D001ECA7F /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55521A6436D001ECA7F /* API+User.swift */; };
 		D908B55821A64388001ECA7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55721A64388001ECA7F /* API.swift */; };
+		D9189E3B21BDFE1D0034C0AF /* NetworkPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */; };
 		D91E936121A6DC6300E93E04 /* AppExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E935F21A6DC6300E93E04 /* AppExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E935421A6DA4200E93E04 /* Then.swift */; };
 		D91E936B21A6DCC500E93E04 /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
@@ -311,6 +312,7 @@
 		D908B55321A63958001ECA7F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D908B55521A6436D001ECA7F /* API+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+User.swift"; sourceTree = "<group>"; };
 		D908B55721A64388001ECA7F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlugins.swift; sourceTree = "<group>"; };
 		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
 		D91E935421A6DA4200E93E04 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		D91E935D21A6DC6300E93E04 /* AppExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -610,6 +612,7 @@
 				D939306F21B6C9CC00929DA8 /* API+Login.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D954B95821A8481B00A42D2C /* APIProvider.swift */,
+				D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */,
 				D908B4EF21A4FB4D001ECA7F /* AppRequest.h */,
 				D908B4F021A4FB4D001ECA7F /* Info.plist */,
 			);
@@ -1419,6 +1422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D954B95921A8481B00A42D2C /* APIProvider.swift in Sources */,
+				D9189E3B21BDFE1D0034C0AF /* NetworkPlugins.swift in Sources */,
 				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
 				D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */,
 				D908B55821A64388001ECA7F /* API.swift in Sources */,

@@ -52,6 +52,7 @@ extension AppTargetType {
     public var primitiveSequence: PrimitiveSequence<SingleTrait, ElementType> {
         
         return Single.create(subscribe: { (observer) -> Disposable in
+            
             let cancellable = APIProvider.shared.request(TargetTypeWrapper(target: self), completion: { result in
                 switch result {
                 case let .success(response):

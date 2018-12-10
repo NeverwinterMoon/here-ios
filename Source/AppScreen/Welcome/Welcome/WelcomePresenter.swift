@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppEntity
 import RxCocoa
 import RxSwift
 
@@ -21,7 +22,13 @@ final class WelcomePresenter: WelcomePresenterInterface {
         self.view.tapLogin
             .asObservable()
             .subscribe(onNext: { [unowned self] loginInfo in
-                self.interactor.login(usernameOrEmail: loginInfo.usernameOrEmail, password: loginInfo.password)
+                self.interactor.login(usernameOrEmail: loginInfo.usernameOrEmail, password: loginInfo.password).do(onError: { error in
+                    if let apiError = error as? APIError {
+                        self.wireframe.showAlert(message: apiError.message)
+                    }
+                })
+                .subscribe()
+                .disposed(by: self.disposeBag)
             })
             .disposed(by: self.disposeBag)
         

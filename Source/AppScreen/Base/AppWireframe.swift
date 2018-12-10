@@ -40,4 +40,9 @@ class AppWireframe: WireframeInterface {
             self.navigationController.present(viewController, animated: animated, completion: nil)
         }
     }
+    
+    public func popAlert(message: String) {
+        print("----------------------")
+        print(message)
+    }
 }

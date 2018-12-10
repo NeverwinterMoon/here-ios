@@ -10,7 +10,7 @@ import Foundation
 import AppInteractor
 
 final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
-    
+
     func pushCreateNewAccount() {
         
         let controller = CreateNewAccountViewController()
@@ -24,7 +24,7 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
         // present alert
     }
     
-    func popLoginFailedAlert() {
-        
+    func showAlert(message: String) {
+        super.popAlert(message: message)
     }
 }

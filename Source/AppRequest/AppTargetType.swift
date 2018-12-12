@@ -117,13 +117,13 @@ extension PUTTargetType {
     public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
 }
 
-protocol POSTTargetType {}
+protocol POSTTargetType: AppTargetType {}
 extension POSTTargetType {
     public var method: Moya.Method { return .post }
     public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
 }
 
-protocol PATCHTargetType {}
+protocol PATCHTargetType: AppTargetType {}
 extension PATCHTargetType {
     public var method: Moya.Method { return .patch }
     public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }

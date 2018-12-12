@@ -152,6 +152,9 @@
 		D9D1B16721A6FB9100FE3829 /* EditUserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* EditUserInfoDataSource.swift */; };
 		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
 		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
+		D9F70F8D21C085FB0071A36E /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
+		D9F70F8E21C086210071A36E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50C21A4FBAF001ECA7F /* RxCocoa.framework */; };
+		D9F70F8F21C086210071A36E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B50D21A4FBB0001ECA7F /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -481,6 +484,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F70F8E21C086210071A36E /* RxCocoa.framework in Frameworks */,
+				D9F70F8F21C086210071A36E /* RxSwift.framework in Frameworks */,
+				D9F70F8D21C085FB0071A36E /* AppExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2109,6 +2115,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/AppUIKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2137,6 +2147,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/AppUIKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -10,4 +10,11 @@ import Foundation
 
 final class CreateNewAccountWireframe: AppWireframe, CreateNewAccountWireframeInterface {
     
+    func pushAppTabBarController() {
+        
+//        let controller = AppTabBarController()
+//        controller.modalTransitionStyle = .flipHorizontal
+//        let navigationController = self.navigationController
+//        navigationController.pushViewController(controller, animated: true)
+    }
 }

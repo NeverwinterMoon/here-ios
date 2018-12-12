@@ -26,19 +26,28 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         
         return self.loginButton.rx.tap
             .map { [unowned self] _ in
-                LoginInfo(usernameOrEmail: self.emailOrUsernameTextField.text!, password: self.passwordTextField.text!)
+                LoginInfo(
+                    usernameOrEmail: self.emailOrUsernameTextField.text!.trimmingCharacters(in: .whitespaces),
+                    password: self.passwordTextField.text!.trimmingCharacters(in: .whitespaces)
+                )
             }
             .asSignal(onErrorJustReturn: .init(usernameOrEmail: "", password: ""))
     }
     
     private var emailOrUsernameIsNotEmpty: Observable<Bool> {
-        return self.emailOrUsernameTextField.rx.attributedText.map { $0 != nil }.asObservable()
+        return self.emailOrUsernameTextField.rx.text
+            .map {
+                !$0!.trimmingCharacters(in: .whitespaces).isEmpty
+            }.asObservable()
     }
-    
+
     private var passwordIsNotEmpty: Observable<Bool> {
-        return self.passwordTextField.rx.attributedText.map { $0 != nil }.asObservable()
+        return self.passwordTextField.rx.text
+            .map {
+                !$0!.trimmingCharacters(in: .whitespaces).isEmpty
+            }.asObservable()
     }
-    
+
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
@@ -72,22 +81,14 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
 
         self.emailOrUsernameTextField.do {
             
-            $0.layer.borderWidth = 0.5
-            $0.layer.borderColor = UIColor.black.cgColor
-            $0.layer.cornerRadius = 10
             $0.placeholder = "メールアドレスまたはユーザー名"
             $0.font = UIFont.systemFont(ofSize: 14)
         }
         
         self.passwordTextField.do {
             
-            $0.layer.borderWidth = 0.5
-            $0.layer.borderColor = UIColor.black.cgColor
-            $0.layer.cornerRadius = 10
             $0.placeholder = "パスワード"
             $0.font = UIFont.systemFont(ofSize: 14)
-            
-            // TODO: customize textfield to close cursor when tapped outside of textfield (maybe make custom class??)
         }
         
         self.loginButton.do {
@@ -99,7 +100,8 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         
         Observable.combineLatest(self.emailOrUsernameIsNotEmpty, self.passwordIsNotEmpty)
             .subscribe(onNext: {
-                self.loginButton.isEnabled = $0 && $1
+                print($0 && $1)
+                return self.loginButton.isEnabled = $0 && $1
             })
             .disposed(by: self.disposeBag)
 
@@ -126,12 +128,12 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         self.view.flex.define { flex in
             
             flex.addItem(self.welcomeLabel).marginTop(50).height(100).marginHorizontal(20).alignSelf(.center)
-            flex.addItem(self.createNewAccountButton).alignSelf(.stretch).height(40).marginHorizontal(20)
+            flex.addItem(self.createNewAccountButton).alignSelf(.stretch).height(40).marginHorizontal(40)
             
-            flex.addItem(self.emailOrUsernameTextField).marginTop(40).marginHorizontal(20).height(50)
-            flex.addItem(self.passwordTextField).marginTop(40).marginHorizontal(20).height(50)
+            flex.addItem(self.emailOrUsernameTextField).marginTop(40).marginHorizontal(20).height(40)
+            flex.addItem(self.passwordTextField).marginTop(40).marginHorizontal(20).height(40)
 
-            flex.addItem(self.loginButton).marginTop(40).marginHorizontal(20).height(40)
+            flex.addItem(self.loginButton).marginTop(40).marginHorizontal(40).height(40)
         }
     }
 }

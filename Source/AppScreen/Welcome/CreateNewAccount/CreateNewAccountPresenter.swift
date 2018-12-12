@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
     
@@ -16,11 +17,26 @@ final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-//        self.view.tapCreateAccount
+        self.view.tapCreateAccount
+            .asObservable()
+            .flatMap { [unowned self] createUserInfo in
+                self.interactor.sendEmail(email: createUserInfo.email, password: createUserInfo.password)
+            }
+            .subscribe(onNext: { [unowned self] _ in
+                self.wireframe.pushAppTabBarController()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
     private let view: CreateNewAccountViewInterface
     private let interactor: CreateNewAccountInteractorInterface
     private let wireframe: CreateNewAccountWireframeInterface
+    private let disposeBag = DisposeBag()
+}
+
+struct CreateUserInfo {
+    let email: String
+    let username: String
+    let password: String
 }

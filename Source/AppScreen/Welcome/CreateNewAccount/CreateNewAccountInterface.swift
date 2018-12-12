@@ -12,11 +12,11 @@ import RxCocoa
 import RxSwift
 
 protocol CreateNewAccountViewInterface {
-    var tapCreateAccount: Signal<Void> { get }
+    var tapCreateAccount: Signal<CreateUserInfo> { get }
 }
 
 protocol CreateNewAccountInteractorInterface {
-    func sendEmail(emailAddress: String)
+    func sendEmail(email: String, password: String) -> Single<Void>
 }
 
 extension WelcomeInteractor: CreateNewAccountInteractorInterface {}
@@ -25,4 +25,5 @@ protocol CreateNewAccountPresenterInterface {
 }
 
 protocol CreateNewAccountWireframeInterface {
+    func pushAppTabBarController()
 }

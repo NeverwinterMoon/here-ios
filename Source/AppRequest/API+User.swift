@@ -49,5 +49,18 @@ extension API {
                 self.path = "users/\(username)/nearby_friends"
             }
         }
+        
+        public struct Create: POSTTargetType {
+            
+            public typealias ElementType = Void
+
+            public let path: String
+            public let parameters: [String: Any]
+            
+            public init(email: String, password: String) {
+                self.path = "users"
+                self.parameters = ["email": email, "username": "testUserFromiOS", "password": password]
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ public final class User: Object, Decodable {
     @objc public dynamic var userDisplayName: String = ""
     @objc public dynamic var email: String = ""
     @objc public dynamic var profileImageURL: String? = ""
-    @objc public dynamic var selfIntroduction: String = ""
+    @objc public dynamic var selfIntroduction: String? = ""
     @objc public dynamic var createdAt: Date = .init()
     @objc public dynamic var updatedAt: Date = .init()
     
@@ -47,7 +47,7 @@ public final class User: Object, Decodable {
         self.userDisplayName = try container.decode(String.self, forKey: .userDisplayName)
         self.email = try container.decode(String.self, forKey: .email)
         self.profileImageURL = try container.decodeIfPresent(String.self, forKey: .profileImageURL)
-        self.selfIntroduction = try container.decode(String.self, forKey: .selfIntroduction)
+        self.selfIntroduction = try container.decodeIfPresent(String.self, forKey: .selfIntroduction)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)
         self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
     }

@@ -33,8 +33,8 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
         
         let user: Driver<Me> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         
-        self.userEmailAddress = user.map { $0.emailAddress }
-        self.userProfileIntro = user.map { $0.profileIntro }
+        self.userEmailAddress = user.map { $0.email }
+        self.userProfileIntro = user.map { $0.selfIntroduction }
         self.userProfileImageURL = user.map { URL(string: $0.profileImageURL) }.filterNil()
     }
     

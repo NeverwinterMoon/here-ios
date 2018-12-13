@@ -16,7 +16,7 @@ protocol CreateNewAccountViewInterface {
 }
 
 protocol CreateNewAccountInteractorInterface {
-    func sendEmail(email: String, password: String) -> Single<Void>
+    func sendEmail(email: String, username: String, password: String) -> Single<Void>
 }
 
 extension WelcomeInteractor: CreateNewAccountInteractorInterface {}

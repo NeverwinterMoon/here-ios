@@ -60,7 +60,6 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
         
         Observable.combineLatest(self.emailTextField.isNotEmpty, self.usernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 && $2 }
             .subscribe {
-                print($0.element!)
                 return self.createAccountButton.isEnabled = $0.element!
             }
             .disposed(by: self.disposeBag)

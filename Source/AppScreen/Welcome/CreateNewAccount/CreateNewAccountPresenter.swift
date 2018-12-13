@@ -20,7 +20,7 @@ final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
         self.view.tapCreateAccount
             .asObservable()
             .flatMap { [unowned self] createUserInfo in
-                self.interactor.sendEmail(email: createUserInfo.email, password: createUserInfo.password)
+                self.interactor.sendEmail(email: createUserInfo.email, username: createUserInfo.username, password: createUserInfo.password)
             }
             .subscribe(onNext: { [unowned self] _ in
                 self.wireframe.pushAppTabBarController()

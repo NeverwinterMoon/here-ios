@@ -25,7 +25,7 @@ public final class WelcomeInteractor {
                 let account = Account()
                 account.id = user.id
                 account.username = user.username
-                account.emailAddress = user.emailAddress
+                account.emailAddress = user.email
 
                 return Single<Void>.create { single -> Disposable in
                     do {
@@ -43,10 +43,9 @@ public final class WelcomeInteractor {
             }
     }
     
-    public func sendEmail(email: String, password: String) -> Single<Void> {
+    public func sendEmail(email: String, username: String, password: String) -> Single<Void> {
         
-        // TODO : chnage this part to be unique (or delete the existing ones from db)
-        return API.User.Create(email: email, password: password).asSingle()
+        return API.User.Create(email: email, username: username, password: password).asSingle()
     }
     
     // MARK: - Private

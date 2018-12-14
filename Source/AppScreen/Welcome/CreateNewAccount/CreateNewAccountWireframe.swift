@@ -12,9 +12,8 @@ final class CreateNewAccountWireframe: AppWireframe, CreateNewAccountWireframeIn
     
     func pushAppTabBarController() {
         
-//        let controller = AppTabBarController()
-//        controller.modalTransitionStyle = .flipHorizontal
-//        let navigationController = self.navigationController
-//        navigationController.pushViewController(controller, animated: true)
+        let controller = AppTabBarController()
+        controller.modalTransitionStyle = .flipHorizontal
+        navigationController.pushViewController(controller, animated: true)
     }
 }

@@ -77,6 +77,7 @@
 		D939306E21B6C8E000929DA8 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306D21B6C8E000929DA8 /* WelcomeInteractor.swift */; };
 		D939307021B6C9CC00929DA8 /* API+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939306F21B6C9CC00929DA8 /* API+Login.swift */; };
 		D954B95921A8481B00A42D2C /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954B95821A8481B00A42D2C /* APIProvider.swift */; };
+		D956E47B21C33F80001DBFBA /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
 		D95FED8721B3DD05007CEFD6 /* RootInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8621B3DD05007CEFD6 /* RootInterface.swift */; };
 		D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8821B3DD1A007CEFD6 /* RootPresenter.swift */; };
 		D95FED8B21B3DD23007CEFD6 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FED8A21B3DD23007CEFD6 /* RootWireframe.swift */; };
@@ -131,6 +132,11 @@
 		D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */; };
 		D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */; };
 		D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D978364521AB8E19002D52E4 /* RxOptional.framework */; };
+		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
+		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
+		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9AE260721C33E0500B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
+		D9AE260921C33F0C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9B1919F21B4C96B00D9AD47 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612321AF803600CD5424 /* AppTabBarController.swift */; };
 		D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
 		D9BB611E21AE893D00CD5424 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB611D21AE893D00CD5424 /* ChangeEmailViewController.swift */; };
@@ -251,6 +257,7 @@
 				D968C86F21AE2E800063E335 /* RealmSwift.framework in Embed Frameworks */,
 				D968C86121AE2E800063E335 /* Result.framework in Embed Frameworks */,
 				D968C87721AE2E940063E335 /* Alamofire.framework in Embed Frameworks */,
+				D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */,
 				D968C83B21AE2BDE0063E335 /* AppUIKit.framework in Embed Frameworks */,
 				D968C85921AE2E4C0063E335 /* RxSwift.framework in Embed Frameworks */,
 				D968C83721AE2BDA0063E335 /* AppExtensions.framework in Embed Frameworks */,
@@ -376,6 +383,8 @@
 		D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToSingle.swift; sourceTree = "<group>"; };
 		D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListDataSource.swift; sourceTree = "<group>"; };
 		D978364521AB8E19002D52E4 /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
+		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
 		D9BB611D21AE893D00CD5424 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		D9BB611F21AE894E00CD5424 /* ChangeEmailInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailInterface.swift; sourceTree = "<group>"; };
@@ -412,6 +421,7 @@
 				D968C87A21AE2EA50063E335 /* Realm.framework in Frameworks */,
 				D908B53B21A57FD0001ECA7F /* AppInteractor.framework in Frameworks */,
 				D968C86C21AE2E800063E335 /* Moya.framework in Frameworks */,
+				D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */,
 				D968C87021AE2E800063E335 /* RxCocoa.framework in Frameworks */,
 				D96E804821A7A00A00887846 /* AppEntity.framework in Frameworks */,
 				D968C86A21AE2E800063E335 /* RxDataSources.framework in Frameworks */,
@@ -475,6 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AE260921C33F0C00B74CFC /* SwiftDate.framework in Frameworks */,
 				D91E936E21A6DD5B00E93E04 /* CoreGraphics.framework in Frameworks */,
 				D91E936C21A6DD4A00E93E04 /* RxSwift.framework in Frameworks */,
 			);
@@ -516,6 +527,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D956E47B21C33F80001DBFBA /* AppExtensions.framework in Frameworks */,
+				D9AE260721C33E0500B74CFC /* SwiftDate.framework in Frameworks */,
 				D96E805021A7A05000887846 /* Realm.framework in Frameworks */,
 				D96E805121A7A05000887846 /* RealmSwift.framework in Frameworks */,
 			);
@@ -664,6 +677,7 @@
 				D91E935F21A6DC6300E93E04 /* AppExtensions.h */,
 				D91E936021A6DC6300E93E04 /* Info.plist */,
 				D91E935421A6DA4200E93E04 /* Then.swift */,
+				D9AE25FF21C291B700B74CFC /* Date.swift */,
 			);
 			path = AppExtensions;
 			sourceTree = "<group>";
@@ -904,6 +918,7 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9AE260121C3399300B74CFC /* SwiftDate.framework */,
 				D95FED8D21B437F3007CEFD6 /* RxRealm.framework */,
 				D968C84C21AE2D840063E335 /* Nuke.framework */,
 				D968C84D21AE2D840063E335 /* ReactiveMoya.framework */,
@@ -1457,6 +1472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */,
+				D9AE260021C291B700B74CFC /* Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

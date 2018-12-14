@@ -99,7 +99,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
+//        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
     }
     

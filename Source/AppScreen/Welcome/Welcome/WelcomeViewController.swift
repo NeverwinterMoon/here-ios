@@ -34,20 +34,6 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             .asSignal(onErrorJustReturn: .init(usernameOrEmail: "", password: ""))
     }
     
-    private var emailOrUsernameIsNotEmpty: Observable<Bool> {
-        return self.emailOrUsernameTextField.rx.text
-            .map {
-                !$0!.trimmingCharacters(in: .whitespaces).isEmpty
-            }.asObservable()
-    }
-
-    private var passwordIsNotEmpty: Observable<Bool> {
-        return self.passwordTextField.rx.text
-            .map {
-                !$0!.trimmingCharacters(in: .whitespaces).isEmpty
-            }.asObservable()
-    }
-
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
@@ -81,7 +67,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
 
         self.emailOrUsernameTextField.do {
             
-            $0.placeholder = "メールアドレスまたはユーザー名"
+            $0.placeholder = "メールアドレス"
             $0.font = UIFont.systemFont(ofSize: 14)
         }
         
@@ -98,11 +84,10 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.layer.cornerRadius = 20
         }
         
-        Observable.combineLatest(self.emailOrUsernameIsNotEmpty, self.passwordIsNotEmpty)
-            .subscribe(onNext: {
-                print($0 && $1)
-                return self.loginButton.isEnabled = $0 && $1
-            })
+        Observable.combineLatest(self.emailOrUsernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 }
+            .subscribe {
+                return self.loginButton.isEnabled = $0.element!
+            }
             .disposed(by: self.disposeBag)
 
         self.flexLayout()

@@ -25,7 +25,6 @@ extension AppTargetType {
     public var baseURL: URL {
         
         #if STAGE
-        // TODO
             return URL(string: "https://here-drip-staging.herokuapp.com")!
         #else
         // TODO
@@ -73,7 +72,7 @@ extension AppTargetType {
                         }
                     }
                     catch {
-                        assertionFailure("error when decoding error to data: \(error)")
+                        assertionFailure("error when decoding to data: \(error)")
                         observer(.error(error))
                     }
 

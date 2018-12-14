@@ -57,9 +57,9 @@ extension API {
             public let path: String
             public let parameters: [String: Any]
             
-            public init(email: String, password: String) {
+            public init(email: String, username: String, password: String) {
                 self.path = "users"
-                self.parameters = ["email": email, "username": "testUserFromiOS", "password": password]
+                self.parameters = ["email": email, "username": username, "password": password]
             }
         }
     }

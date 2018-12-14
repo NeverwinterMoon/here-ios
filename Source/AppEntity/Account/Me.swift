@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppExtensions
 import RealmSwift
 
 public final class Me: Object, Decodable {
@@ -43,7 +44,8 @@ public final class Me: Object, Decodable {
         self.email = try container.decode(String.self, forKey: .email)
         self.profileImageURL = try container.decodeIfPresent(String.self, forKey: .profileImageURL)
         self.selfIntroduction = try container.decodeIfPresent(String.self, forKey: .selfIntroduction)
-        self.createdAt = try container.decode(Date.self, forKey: .createdAt)
-        self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        self.createdAt = try container.decodeDate(forKey: .createdAt)
+        self.updatedAt = try container.decodeDate(forKey: .updatedAt)
     }
 }
+

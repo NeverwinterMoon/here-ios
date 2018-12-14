@@ -14,8 +14,8 @@ import RxSwift
 
 final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
     
-    let userEmailAddress: Driver<String>
-    let userProfileIntro: Driver<String>
+    let userEmailAddress: Driver<String?>
+    let userProfileIntro: Driver<String?>
     let userProfileImageURL: Driver<URL>
     
     var sections: Driver<[EditProfileInfoSection]> {
@@ -35,7 +35,7 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
         
         self.userEmailAddress = user.map { $0.email }
         self.userProfileIntro = user.map { $0.selfIntroduction }
-        self.userProfileImageURL = user.map { URL(string: $0.profileImageURL) }.filterNil()
+        self.userProfileImageURL = user.map { URL(string: $0.profileImageURL!) }.filterNil()
     }
     
     // MARK: - Private

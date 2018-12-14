@@ -22,7 +22,8 @@ extension API {
             public let parameters: [String: Any]
             
             public init(usernameOrEmail: String, password: String) {
-                self.parameters = ["username_or_email": usernameOrEmail, "password": password]
+                // TODO: ゆくゆくはusernameでもemailでも行けるようにする。dripにはusername_or_emailみたいなパラメータで渡す
+                self.parameters = ["email": usernameOrEmail, "password": password]
             }
         }
     }

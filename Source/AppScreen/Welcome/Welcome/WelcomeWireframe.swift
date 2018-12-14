@@ -21,9 +21,7 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
     }
     
     func pushLogin() {
-        // present alert
-        let controller = AppTabBarController()
-        controller.modalTransitionStyle = .flipHorizontal
-        self.navigationController.pushViewController(controller, animated: true)
+        
+        RootWireframe.shared.setRootTabBar(afterLogin: true)
     }
 }

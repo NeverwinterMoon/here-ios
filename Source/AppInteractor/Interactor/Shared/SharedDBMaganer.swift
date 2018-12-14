@@ -35,7 +35,6 @@ public final class SharedDBManager {
         
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(userId).realm")
-        config.readOnly = true
         Realm.Configuration.defaultConfiguration = config
     }
     
@@ -44,7 +43,7 @@ public final class SharedDBManager {
         var sharedConfig = Realm.Configuration()
         sharedConfig.fileURL = sharedConfig.fileURL!.deletingLastPathComponent().appendingPathComponent("shared.realm")
         sharedConfig.objectTypes = [Account.self]
-        sharedConfig.readOnly = true
+//        sharedConfig.readOnly = true
         //        TODO: version
         //        sharedConfig.schemaVersion =
         return sharedConfig

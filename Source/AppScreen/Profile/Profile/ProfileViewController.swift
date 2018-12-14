@@ -8,6 +8,7 @@
 
 import UIKit
 import AppExtensions
+import AppUIKit
 import FlexLayout
 import Nuke
 import RxCocoa
@@ -99,7 +100,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-//        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
+        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
     }
     
@@ -107,7 +108,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     private let profileImageView = UIImageView()
     private let introLabel = UILabel()
     private let editProfileButton = UIButton()
-    private let friendsButton = UIButton()
+    private let friendsButton = AppButton()
     private let friendsIconImageView = UIImageView()
     private let disposeBag = DisposeBag()
 

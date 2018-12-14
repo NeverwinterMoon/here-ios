@@ -84,6 +84,11 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             $0.layer.cornerRadius = 20
         }
         
+        self.forgotPasswordButton.do {
+            
+            $0.setTitleColor(.gray, for: .normal)
+        }
+        
         Observable.combineLatest(self.emailOrUsernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 }
             .subscribe {
                 return self.loginButton.isEnabled = $0.element!
@@ -101,10 +106,10 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     
     // MARK: - Private
     private let welcomeLabel = UILabel()
-    private let createNewAccountButton = UIButton()
+    private let createNewAccountButton = AppButton()
     private let emailOrUsernameTextField = AppTextField()
     private let passwordTextField = AppTextField()
-    private let loginButton = UIButton()
+    private let loginButton = AppButton()
     private let forgotPasswordButton = UIButton()
     private let disposeBag = DisposeBag()
 
@@ -119,6 +124,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
             flex.addItem(self.passwordTextField).marginTop(40).marginHorizontal(20).height(40)
 
             flex.addItem(self.loginButton).marginTop(40).marginHorizontal(40).height(40)
+            flex.addItem(self.forgotPasswordButton).marginTop(30).marginHorizontal(60).height(30)
         }
     }
 }

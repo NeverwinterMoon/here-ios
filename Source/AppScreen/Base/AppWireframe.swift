@@ -12,6 +12,7 @@ import UIKit
 enum Transition {
     case push
     case present
+    case replace
 }
 
 class AppWireframe: WireframeInterface {
@@ -38,6 +39,8 @@ class AppWireframe: WireframeInterface {
             self.navigationController.pushViewController(viewController, animated: animated)
         case .present:
             self.navigationController.present(viewController, animated: animated, completion: nil)
+        case .replace:
+            self.navigationController.setViewControllers([viewController], animated: animated)
         }
     }
 }

@@ -13,15 +13,14 @@ import AppScreen
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    var window: UIWindow?
     private var rootPresenter: RootPresenter?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if let window = self.window {
-            let wireframe = RootWireframe(window: window)
-            self.rootPresenter = RootPresenter(wireframe: wireframe, interactor: RootInteractor.shared)
-        }
+        let wireframe = RootWireframe.shared
+        self.rootPresenter = RootPresenter(wireframe: wireframe, interactor: RootInteractor.shared)
+        self.window = wireframe.window
         return true
     }
 

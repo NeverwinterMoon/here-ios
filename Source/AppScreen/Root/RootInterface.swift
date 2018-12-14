@@ -18,6 +18,6 @@ public protocol RootInteractorInterface {
 extension RootInteractor: RootInteractorInterface {}
 
 public protocol RootWireframeInterface {
-    func setRootTabBar()
+    func setRootTabBar(afterLogin: Bool)
     func setWelcome()
 }

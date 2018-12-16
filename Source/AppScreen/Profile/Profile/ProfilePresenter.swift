@@ -12,28 +12,25 @@ import AppExtensions
 import AppInteractor
 import RxCocoa
 import RxSwift
+import RxOptional
 
 final class ProfilePresenter: ProfilePresenterInterface {
 
     let profileImageURL: Driver<URL>
-    let profileIntro: Driver<String>
-    let friendsCount: Driver<Int>
-    
+    let selfIntroduction: Driver<String?>
+
     init(view: ProfileViewInterface, interactor: ProfileInteractorInterface, wireframe: ProfileWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
         
-//        let me: Driver<Me> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
-//
-//        self.profileImageURL = me.map { URL(string: $0.profileImageURL) }.filterNil()
-//        self.profileIntro = me.map { $0.profileIntro }
-//        self.friendsCount = me.map { $0.friendsCount }
+        let user: Driver<User> = self.interactor.activatedUser().asObservable().filterNil().asDriver(onErrorJustReturn: .init())
+
+//        self.profileImageURL = account.map { URL(string: $0.profileImageURL) }.filterNil()
+        self.selfIntroduction = user.map { $0.selfIntroduction }
         self.profileImageURL = Driver.just(URL(string: "test")).filterNil()
-        self.profileIntro = Driver.just("test")
-        self.friendsCount = Driver.just(1)
-        
+
         self.view.tapEditProfile
             .emit(onNext: { [unowned self] _ in
                 self.wireframe.presentUserInfo()

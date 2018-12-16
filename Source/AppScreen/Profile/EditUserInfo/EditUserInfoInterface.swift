@@ -17,7 +17,7 @@ protocol EditUserInfoViewInterface {
 }
 
 protocol EditUserInfoInteractorInterface: class {
-    func activatedUser() -> Single<Me?>
+    func activatedUser() -> Single<User?>
 }
 
 extension ProfileInteractor: EditUserInfoInteractorInterface {}

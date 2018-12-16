@@ -14,7 +14,8 @@ public final class Me: Object, Decodable {
     
     @objc public dynamic var id: String = ""
     @objc public dynamic var email: String = ""
-    @objc public dynamic var password: String = ""
+    @objc public dynamic var username: String = ""
+    @objc public dynamic var userDisplayName: String = ""
     @objc public dynamic var profileImageURL: String? = ""
     @objc public dynamic var selfIntroduction: String? = ""
     @objc public dynamic var createdAt: Date = .init()
@@ -29,6 +30,8 @@ public final class Me: Object, Decodable {
         
         case id
         case email = "email"
+        case username
+        case userDisplayName = "user_display_name"
         case profileImageURL = "profile_image_url"
         case selfIntroduction = "self_introduction"
         case createdAt = "created_at"
@@ -42,6 +45,8 @@ public final class Me: Object, Decodable {
         
         self.id = try container.decode(String.self, forKey: .id)
         self.email = try container.decode(String.self, forKey: .email)
+        self.username = try container.decode(String.self, forKey: .username)
+        self.userDisplayName = try container.decode(String.self, forKey: .userDisplayName)
         self.profileImageURL = try container.decodeIfPresent(String.self, forKey: .profileImageURL)
         self.selfIntroduction = try container.decodeIfPresent(String.self, forKey: .selfIntroduction)
         self.createdAt = try container.decodeDate(forKey: .createdAt)

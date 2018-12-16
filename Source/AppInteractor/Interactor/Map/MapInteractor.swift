@@ -20,13 +20,10 @@ public final class MapInteractor {
     
     public init() {}
     
-    public func activatedUser() -> Single<Me?> {
-        return SharedDBManager.activatedAccount()
-            .map { accountRealm -> Me? in
-                guard let accountRealm = accountRealm else {
-                    return nil
-                }
-                return accountRealm.objects(Me.self).first
+    public func activatedUser() -> Single<User?> {
+        return SharedDBManager.activatedAccountRealm()
+            .map { accountRealm -> User? in
+                accountRealm.objects(User.self).first
             }
             .asObservable()
             .asSingle()

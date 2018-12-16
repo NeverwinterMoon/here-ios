@@ -37,7 +37,6 @@ public final class RootInteractor {
             .asObservable()
             .distinctUntilChanged()
             .map { ids -> State in
-                print(ids)
                 guard ids != [] else {
                     return .noAccount
                 }

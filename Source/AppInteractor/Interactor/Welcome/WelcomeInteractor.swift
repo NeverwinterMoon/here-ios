@@ -23,18 +23,27 @@ public final class WelcomeInteractor {
         
         return API.Login.Get(usernameOrEmail: usernameOrEmail, password: password).asSingle()
             .flatMap { user -> Single<Void> in
-                let account: Account = Account()
-                account.id = user.id
-                account.username = user.username
-                account.email = user.email
 
+                let account = Account()
+                account.do {
+                    $0.id = user.id
+                    $0.email = user.email
+                    $0.username = user.username
+                    $0.userDisplayName = user.userDisplayName
+                    $0.selfIntroduction = user.selfIntroduction
+                }
+                
                 return Single<Void>.create { single -> Disposable in
                     do {
-                        let realm = SharedDBManager.shared()
-                        try realm.write {
-                            realm.add(account)
+                        let sharedRealm = SharedDBManager.shared()
+                        try sharedRealm.write {
+                            sharedRealm.add(account)
                         }
                         SharedDBManager.setDefaultRealmForUser(userId: account.id)
+                        let defaultRealm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
+                        try defaultRealm.write {
+                            defaultRealm.add(user)
+                        }
                         single(.success(()))
                     } catch let error {
                         single(.error(error))

@@ -18,15 +18,14 @@ protocol ProfileViewInterface {
 }
 
 protocol ProfileInteractorInterface: class {
-    func activatedUser() -> Single<Me?>
+    func activatedUser() -> Single<User?>
 }
 
 extension ProfileInteractor: ProfileInteractorInterface {}
 
 protocol ProfilePresenterInterface: class {
     var profileImageURL: Driver<URL> { get }
-    var profileIntro: Driver<String> { get }
-    var friendsCount: Driver<Int> { get }
+    var selfIntroduction: Driver<String?> { get }
 }
 
 protocol ProfileWireframeInterface: WireframeInterface {

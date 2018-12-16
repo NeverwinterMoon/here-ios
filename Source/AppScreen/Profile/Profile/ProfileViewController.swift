@@ -63,12 +63,10 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.introLabel.do {
             
-            // tmp
-            $0.text = "testtest"
             $0.font?.withSize(14)
             
             self.presenter
-                .profileIntro
+                .selfIntroduction
                 .drive(onNext: { [unowned self] in
                     self.introLabel.text = $0
                 })

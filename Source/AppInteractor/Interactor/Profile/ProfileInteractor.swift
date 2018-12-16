@@ -19,11 +19,15 @@ public final class ProfileInteractor {
     
     public init() {}
     
-    public func activatedUser() -> Single<Me> {
+    public func activatedUser() -> Single<Me?> {
         return SharedDBManager.activatedAccount()
-            .map { $0.objects(Me.self).first }
+            .map { accountRealm -> Me? in
+                guard let accountRealm = accountRealm else {
+                    return nil
+                }
+                return accountRealm.objects(Me.self).first
+            }
             .asObservable()
-            .filterNil()
             .asSingle()
     }
     
@@ -32,9 +36,12 @@ public final class ProfileInteractor {
     }
 
     public func friends() -> Single<[User]> {
-        return activatedUser()
-            .flatMap {
-                API.User.GetFriends(username: $0.id).asSingle()
+        return self.activatedUser()
+            .flatMap { me -> Single<[User]> in
+                guard let me = me else {
+                    return Single.just([])
+                }
+                return API.User.GetFriends(username: me.id).asSingle()
             }
     }
 }

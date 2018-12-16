@@ -28,11 +28,11 @@ public final class RootWireframe: RootWireframeInterface {
         self.window.makeKeyAndVisible()
     }
     
-    public func setRootTabBar(afterLogin: Bool) {
+    public func setRootTabBar(loggedIn: Bool) {
         
         let controller = AppTabBarController()
         
-        if afterLogin {
+        if loggedIn {
             
             UIView.transition(
                 with: self.window,

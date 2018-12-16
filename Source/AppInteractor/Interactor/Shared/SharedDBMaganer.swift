@@ -19,17 +19,36 @@ public final class SharedDBManager {
         return try! Realm(configuration: sharedConfig)
     }
     
-    static func activatedAccount() -> Single<Realm> {
+    static func activatedAccount() -> Single<Realm?> {
         
-        return self.activatedId
-            .filterNil()
+        // TODO: activatedId はそのうちしっかり実装する
+//        return self.activatedId
+//            .filterNil()
+//            .take(1)
+//            .map { try! Realm(configuration: accountConfig(userId: $0)) }
+//            .asSingle()
+        return self.loggedInUserIds
             .take(1)
-            .map { try! Realm(configuration: accountConfig(userId: $0)) }
+            .map { ids -> Realm? in
+                guard ids != [] else {
+                    return nil
+                }
+                return try! Realm(configuration: accountConfig(userId: ids[0]))
+            }
             .asSingle()
     }
 
-    static let activatedId = BehaviorRelay<String?>(value: nil)
-    static let loggedIdUserIds = BehaviorRelay<[String]>(value: [])
+//    static let activatedId = BehaviorRelay<String?>(value: nil)
+
+    static var loggedInUserIds: BehaviorRelay<[String]> {
+        
+        let relay = BehaviorRelay<[String]>.init(value: [])
+        let accounts = shared().objects(Account.self)
+        
+        let ids: [String] = accounts.map { account in account.id }
+        relay.accept(ids)
+        return relay
+    }
 
     public static func setDefaultRealmForUser(userId: String) {
         
@@ -42,10 +61,14 @@ public final class SharedDBManager {
     private static let sharedConfig: Realm.Configuration = {
         var sharedConfig = Realm.Configuration()
         sharedConfig.fileURL = sharedConfig.fileURL!.deletingLastPathComponent().appendingPathComponent("shared.realm")
-        sharedConfig.objectTypes = [Account.self]
-//        sharedConfig.readOnly = true
-        //        TODO: version
-        //        sharedConfig.schemaVersion =
+        sharedConfig.objectTypes = [
+            User.self,
+            Me.self,
+            Account.self
+        ]
+        print("debug path for shared")
+        print(sharedConfig.fileURL)
+        sharedConfig.schemaVersion = RealmMigration.SchemaVersion.latestVersion.rawValue
         return sharedConfig
     }()
     
@@ -54,11 +77,11 @@ public final class SharedDBManager {
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(userId).realm")
         config.objectTypes = [
             User.self,
-            Me.self
+            Me.self,
+            Account.self
         ]
-        config.readOnly = true
         //        TODO: version
-        //        sharedConfig.schemaVersion =
+        config.schemaVersion = RealmMigration.SchemaVersion.latestVersion.rawValue
         return config
     }
 }

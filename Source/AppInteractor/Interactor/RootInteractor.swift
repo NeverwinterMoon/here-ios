@@ -32,22 +32,16 @@ public final class RootInteractor {
     
     private init() {
 
-        SharedDBManager.activatedId
+        // TODO: activatedId or loggedInUserIds??
+        SharedDBManager.loggedInUserIds
             .asObservable()
             .distinctUntilChanged()
-            .flatMap { userId -> Single<Realm?> in
-                guard userId != nil else {
-                    return .just(nil)
+            .map { ids -> State in
+                print(ids)
+                guard ids != [] else {
+                    return .noAccount
                 }
-                return SharedDBManager.activatedAccount()
-                    .map { realm -> Realm? in realm }
-            }
-            .flatMapLatest { realm -> Observable<State> in
-                guard let realm = realm else {
-                    return Observable.just(.noAccount)
-                }
-                return Observable.collection(from: realm.objects(Me.self))
-                    .map { $0.first == nil ? .noAccount : .hasAccount }
+                return .hasAccount
             }
             .distinctUntilChanged()
             .bind(to: stateSubject)

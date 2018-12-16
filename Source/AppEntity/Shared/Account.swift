@@ -12,5 +12,5 @@ import RealmSwift
 public final class Account: Object {
     @objc public dynamic var id: String = ""
     @objc public dynamic var username: String = ""
-    @objc public dynamic var emailAddress: String = ""
+    @objc public dynamic var email: String = ""
 }

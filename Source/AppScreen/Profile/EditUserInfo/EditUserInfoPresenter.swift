@@ -31,7 +31,7 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        let user: Driver<Me> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
+        let user: Driver<Me> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init()).filterNil()
         
         self.userEmailAddress = user.map { $0.email }
         self.userProfileIntro = user.map { $0.selfIntroduction }

@@ -24,10 +24,9 @@ public final class RootPresenter {
             .subscribe(onNext: { [unowned self] state in
                 switch state {
                 case .hasAccount:
-                    self.wireframe.setRootTabBar(afterLogin: false)
+                    self.wireframe.setRootTabBar(loggedIn: false)
                 case .noAccount:
                     self.wireframe.setWelcome()
-//                    self.wireframe.setRootTabBar()
                 }
             })
             .disposed(by: self.disposeBag)

@@ -18,7 +18,7 @@ protocol ProfileViewInterface {
 }
 
 protocol ProfileInteractorInterface: class {
-    func activatedUser() -> Single<Me>
+    func activatedUser() -> Single<Me?>
 }
 
 extension ProfileInteractor: ProfileInteractorInterface {}

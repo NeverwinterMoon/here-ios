@@ -11,6 +11,7 @@ import AppEntity
 import AppRequest
 import RxCocoa
 import RxSwift
+import RealmSwift
 
 public final class WelcomeInteractor {
     
@@ -22,10 +23,10 @@ public final class WelcomeInteractor {
         
         return API.Login.Get(usernameOrEmail: usernameOrEmail, password: password).asSingle()
             .flatMap { user -> Single<Void> in
-                let account = Account()
+                let account: Account = Account()
                 account.id = user.id
                 account.username = user.username
-                account.emailAddress = user.email
+                account.email = user.email
 
                 return Single<Void>.create { single -> Disposable in
                     do {
@@ -37,6 +38,7 @@ public final class WelcomeInteractor {
                         single(.success(()))
                     } catch let error {
                         single(.error(error))
+                        assertionFailure("error when writing to realm: \(error)")
                     }
                     return Disposables.create()
                 }

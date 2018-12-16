@@ -12,8 +12,6 @@ final class CreateNewAccountWireframe: AppWireframe, CreateNewAccountWireframeIn
     
     func pushAppTabBarController() {
         
-        let controller = AppTabBarController()
-        controller.modalTransitionStyle = .flipHorizontal
-        navigationController.pushViewController(controller, animated: true)
+        RootWireframe.shared.setRootTabBar(loggedIn: true)
     }
 }

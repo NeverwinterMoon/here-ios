@@ -22,6 +22,6 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
     
     func pushLogin() {
         
-        RootWireframe.shared.setRootTabBar(afterLogin: true)
+        RootWireframe.shared.setRootTabBar(loggedIn: true)
     }
 }

@@ -8,12 +8,12 @@
 
 import Foundation
 
-final class EditProfileInfoCell: UITableViewCell {
+final class EditProfileInfoCell: UICollectionViewCell {
     
     var title: String? {
         
         didSet {
-            self.textLabel?.text = self.title
+            self.titleLabel.text = self.title
         }
     }
     
@@ -24,9 +24,14 @@ final class EditProfileInfoCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(frame: CGRect) {
 
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(frame: frame)
+        
+        self.titleLabel.do {
+            
+            $0.numberOfLines = 1
+        }
 
         self.bodyLabel.do {
 
@@ -34,14 +39,16 @@ final class EditProfileInfoCell: UITableViewCell {
         }
         
         self.contentView.flex.define { flex in
-            
-            flex.addItem().direction(.row).paddingHorizontal(30).define { flex in
-               
+
+            flex.addItem().direction(.row).marginHorizontal(30).define { flex in
+
+                flex.addItem(self.titleLabel)
                 flex.addItem(self.bodyLabel)
             }
         }
     }
     
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
@@ -53,5 +60,6 @@ final class EditProfileInfoCell: UITableViewCell {
     }
 
     // MARK: - Private
+    private let titleLabel = UILabel()
     private let bodyLabel = UILabel()
 }

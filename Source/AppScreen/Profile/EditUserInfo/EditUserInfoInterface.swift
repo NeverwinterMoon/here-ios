@@ -24,7 +24,7 @@ extension ProfileInteractor: EditUserInfoInteractorInterface {}
 
 protocol EditUserInfoPresenterInterface {
     var userEmailAddress: Driver<String?> { get }
-    var userProfileIntro: Driver<String?> { get }
+    var selfIntroduction: Driver<String?> { get }
     var userProfileImageURL: Driver<URL> { get }
     var sections: Driver<[EditProfileInfoSection]> { get }
 }

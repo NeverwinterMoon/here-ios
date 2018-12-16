@@ -24,6 +24,8 @@ protocol ProfileInteractorInterface: class {
 extension ProfileInteractor: ProfileInteractorInterface {}
 
 protocol ProfilePresenterInterface: class {
+    var username: Driver<String> { get }
+    var userDisplayName: Driver<String> { get }
     var profileImageURL: Driver<URL> { get }
     var selfIntroduction: Driver<String?> { get }
 }

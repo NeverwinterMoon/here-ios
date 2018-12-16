@@ -47,7 +47,25 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.view.backgroundColor = .white
         
-        self.title = "Profile"
+//        self.title = "Profile"
+        self.presenter.username.drive(onNext: {
+            self.title = $0
+        }).disposed(by: self.disposeBag)
+        
+        self.presenter.userDisplayName.drive(onNext: { [unowned self] in
+            self.userDisplayNameLabel.text = $0
+        })
+        .disposed(by: self.disposeBag)
+        
+        self.presenter.username.drive(onNext: { [unowned self] in
+            self.usernameLabel.text = $0
+        })
+        .disposed(by: self.disposeBag)
+        
+        self.presenter.selfIntroduction.drive(onNext: { [unowned self] in
+            self.introLabel.text = $0
+        })
+        .disposed(by: self.disposeBag)
         
         self.profileImageView.do {
 //            tmp
@@ -59,6 +77,24 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
 //                    Nuke.loadImage(with: url, into: self.profileImageView)
 //                })
 //                .dispose(with: self)
+        }
+        
+        self.userDisplayNameLabel.do {
+            $0.font = UIFont.systemFont(ofSize: 20)
+            $0.textColor = .black
+            
+        }
+        
+        self.usernameLabel.do {
+            $0.font = UIFont.systemFont(ofSize: 10)
+            $0.textColor = .black
+            
+            self.presenter
+                .username
+                .drive(onNext: { [unowned self] in
+                    self.usernameLabel.text = $0
+                })
+                .disposed(by: self.disposeBag)
         }
         
         self.introLabel.do {
@@ -104,6 +140,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     
     // MARK: - Private
     private let profileImageView = UIImageView()
+    private let userDisplayNameLabel = UILabel()
+    private let usernameLabel = UILabel()
     private let introLabel = UILabel()
     private let editProfileButton = UIButton()
     private let friendsButton = AppButton()
@@ -121,9 +159,12 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .paddingHorizontal(40)
                 .marginBottom(20)
                 .define { flex in
-                
-                flex.addItem(self.profileImageView).size(80).marginRight(40)
-                flex.addItem(self.introLabel).grow(1)
+                    flex.addItem(self.profileImageView).size(80).marginRight(40)
+                    flex.addItem().define { flex in
+                        flex.addItem(self.userDisplayNameLabel).height(30).width(100)
+                        flex.addItem(self.usernameLabel).height(20).width(100)
+                    }
+                    flex.addItem(self.introLabel)
             }
             
             flex.addItem(self.editProfileButton).marginHorizontal(50).marginBottom(20).height(30)

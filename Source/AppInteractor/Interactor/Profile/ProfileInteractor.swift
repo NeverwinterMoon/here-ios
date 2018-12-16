@@ -22,7 +22,10 @@ public final class ProfileInteractor {
     public func activatedUser() -> Single<User?> {
         return SharedDBManager.activatedAccountRealm()
             .map { accountRealm -> User? in
-                accountRealm.objects(User.self).first
+                guard let realm = accountRealm else {
+                    return nil
+                }
+                return realm.objects(User.self).first
             }
             .asObservable()
             .asSingle()

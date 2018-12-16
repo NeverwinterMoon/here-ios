@@ -19,19 +19,16 @@ public final class SharedDBManager {
         return try! Realm(configuration: sharedConfig)
     }
     
-    static func activatedAccountRealm() -> Single<Realm> {
+    static func activatedAccountRealm() -> Single<Realm?> {
         
-        let realm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
+        let defaultAccount = shared().objects(Account.self).filter("isDefaultAccount == true")
+        guard let first = defaultAccount.first else {
+            return Single.just(nil)
+        }
+
+        let config = accountConfig(userId: first.id)
+        let realm = try! Realm(configuration: config)
         return Single.just(realm)
-//        return self.loggedInUserIds
-//            .take(1)
-//            .map { ids -> Realm? in
-//                guard ids != [] else {
-//                    return nil
-//                }
-//                return try! Realm(configuration: accountConfig(userId: ids[0]))
-//            }
-//            .asSingle()
     }
 
     static var loggedInUserIds: BehaviorRelay<[String]> {

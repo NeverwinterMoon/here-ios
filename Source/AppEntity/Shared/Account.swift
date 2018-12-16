@@ -15,4 +15,5 @@ public final class Account: Object {
     @objc public dynamic var userDisplayName: String = ""
     @objc public dynamic var selfIntroduction: String? = ""
     @objc public dynamic var email: String = ""
+    @objc public dynamic var isDefaultAccount: Bool = false
 }

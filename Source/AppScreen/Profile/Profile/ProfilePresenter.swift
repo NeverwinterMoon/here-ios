@@ -29,15 +29,11 @@ final class ProfilePresenter: ProfilePresenterInterface {
         
         let user = self.interactor.activatedUser().asObservable().filterNil()
 
-        self.username = user.map {
-            $0.username
-        }
-        .asDriver(onErrorJustReturn: "test")
-        
+        self.username = user.map { $0.username }.asDriver(onErrorJustReturn: "test")
         self.userDisplayName = user.map { $0.userDisplayName }.asDriver(onErrorJustReturn: "error")
 //        self.profileImageURL = account.map { URL(string: $0.profileImageURL) }.filterNil()
-        self.selfIntroduction = user.map { $0.selfIntroduction }.asDriver(onErrorJustReturn: "error")
         self.profileImageURL = Driver.just(URL(string: "test")).filterNil()
+        self.selfIntroduction = user.map { $0.selfIntroduction }.asDriver(onErrorJustReturn: "error")
 
         self.view.tapEditProfile
             .emit(onNext: { [unowned self] _ in

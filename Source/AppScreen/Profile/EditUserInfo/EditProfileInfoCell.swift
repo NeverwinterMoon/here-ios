@@ -40,7 +40,8 @@ final class EditProfileInfoCell: UICollectionViewCell {
         self.bodyLabel.do {
 
             $0.font = UIFont.systemFont(ofSize: 20)
-            $0.numberOfLines = 1
+            $0.numberOfLines = 0
+            $0.preferredMaxLayoutWidth = self.contentView.bounds.width - 150
         }
 
         self.contentView.flex.define { flex in

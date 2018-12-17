@@ -7,14 +7,21 @@
 //
 
 import Foundation
+import RxCocoa
 
 final class ChangeProfileInfoPresenter: ChangeProfileInfoPresenterInterface {
     
-    init(view: ChangeProfileInfoViewInterface, interactor: ChangeProfileInfoInteractorInterface, wireframe: ChangeProfileInfoWireframeInterface, infoInChange: String) {
+    let infoInChange: Driver<String>
+    let currentContent: Driver<String>
+
+    init(view: ChangeProfileInfoViewInterface, interactor: ChangeProfileInfoInteractorInterface, wireframe: ChangeProfileInfoWireframeInterface, infoInChangeInString: String, currentContent: String) {
         
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        
+        self.infoInChange = Driver<String>.just(infoInChangeInString)
+        self.currentContent = Driver<String>.just(currentContent)
     }
     
     // MARK: - Private

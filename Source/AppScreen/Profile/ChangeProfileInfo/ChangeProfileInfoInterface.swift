@@ -21,6 +21,8 @@ protocol ChangeProfileInfoInteractorInterface {
 extension ProfileInteractor: ChangeProfileInfoInteractorInterface {}
 
 protocol ChangeProfileInfoPresenterInterface {
+    var infoInChange: Driver<String> { get }
+    var currentContent: Driver<String> { get }
 }
 
 protocol ChangeProfileInfoWireframeInterface {

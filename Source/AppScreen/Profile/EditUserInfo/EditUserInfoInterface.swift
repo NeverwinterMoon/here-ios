@@ -32,5 +32,5 @@ protocol EditUserInfoPresenterInterface {
 
 protocol EditUserInfoWireframeInterface {
     func showChangeProfileImageActionSheet()
-    func pushEditProfileInfo(infoInChange: String)
+    func pushEditProfileInfo(infoInChange: String, currentContent: String)
 }

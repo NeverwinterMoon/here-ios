@@ -45,7 +45,7 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
             }
             .asObservable()
             .subscribe(onNext: { [unowned self] item in
-                self.wireframe.pushEditProfileInfo(infoInChange: item.title)
+                self.wireframe.pushEditProfileInfo(infoInChange: item.title, currentContent: item.body ?? "")
             })
             .disposed(by: self.disposeBag)
     }

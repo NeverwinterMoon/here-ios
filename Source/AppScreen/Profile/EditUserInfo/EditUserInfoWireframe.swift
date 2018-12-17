@@ -14,10 +14,17 @@ final class EditUserInfoWireframe: AppWireframe, EditUserInfoWireframeInterface 
     func showChangeProfileImageActionSheet() {
     }
     
-    func pushEditProfileInfo(infoInChange: String) {
+    func pushEditProfileInfo(infoInChange: String, currentContent: String) {
+        
         let controller = ChangeProfileInfoViewController()
         let wireframe = ChangeProfileInfoWireframe(navigationController: self.navigationController)
-        let presenter = ChangeProfileInfoPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe, infoInChange: infoInChange)
+        let presenter = ChangeProfileInfoPresenter(
+            view: controller,
+            interactor: ProfileInteractor.shared,
+            wireframe: wireframe,
+            infoInChangeInString: infoInChange,
+            currentContent: currentContent
+        )
         controller.presenter = presenter
         self.show(controller, with: .push, animated: true)
     }

@@ -11,7 +11,7 @@ import AppExtensions
 import RxCocoa
 import RxSwift
 
-public class AppTextField: UITextField {
+final public class AppTextField: UITextField {
 
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: self.paddingInsets)

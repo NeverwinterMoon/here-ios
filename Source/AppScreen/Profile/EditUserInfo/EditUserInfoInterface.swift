@@ -14,6 +14,7 @@ import RxSwift
 
 protocol EditUserInfoViewInterface {
     var tapChangeProfileImage: Signal<Void> { get }
+    var tapEditProfileRow: Signal<IndexPath> { get }
 }
 
 protocol EditUserInfoInteractorInterface: class {
@@ -30,7 +31,6 @@ protocol EditUserInfoPresenterInterface {
 }
 
 protocol EditUserInfoWireframeInterface {
-    func showCamera()
-    func showCameraRoll()
-    func pushChangeEmailAddress()
+    func showChangeProfileImageActionSheet()
+    func pushEditProfileInfo(infoInChange: String)
 }

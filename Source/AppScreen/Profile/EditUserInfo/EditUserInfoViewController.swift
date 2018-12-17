@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AppExtensions
+import AppUIKit
 import FlexLayout
 import Nuke
 import RxCocoa
@@ -24,13 +25,18 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
         return self.changeProfileImageButton.rx.tap.asSignal()
     }
     
+    var tapEditProfileRow: Signal<IndexPath> {
+        
+        return self.profileInfoCollectionView.rx.itemSelected.asSignal()
+    }
+    
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        self.profileInfoCollectionView = UICollectionView(frame: .init(), collectionViewLayout: UICollectionViewFlowLayout())
+        self.profileInfoCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.profileInfoCollectionViewFlowLayout)
 
         let dataSource = RxCollectionViewSectionedReloadDataSource<EditProfileInfoSection>(configureCell: { _, collectionView, indexPath, item -> UICollectionViewCell in
             
@@ -85,6 +91,12 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
                 .disposed(by: self.disposeBag)
         }
         
+        self.profileInfoCollectionViewFlowLayout.do {
+            
+            $0.cellWidth = self.view.bounds.width
+            $0.cellHeight = 50
+        }
+        
         self.flexLayout()
     }
     
@@ -99,6 +111,7 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
     private let changeProfileImageButton = UIButton()
     private let profileImageView = UIImageView()
     private let profileInfoCollectionView: UICollectionView
+    private let profileInfoCollectionViewFlowLayout = AppCollectionViewFlowLayout()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<EditProfileInfoSection>
     private let disposeBag = DisposeBag()
 
@@ -108,7 +121,7 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
             
             flex.addItem(self.profileImageView).size(80).marginTop(40).marginBottom(20)
             flex.addItem(self.changeProfileImageButton).alignSelf(.stretch).height(30).marginHorizontal(50)
-            flex.addItem(self.profileInfoCollectionView).grow(1).width(self.view.bounds.width).marginBottom(0)
+            flex.addItem(self.profileInfoCollectionView).grow(1).width(self.view.bounds.width).marginTop(50).marginBottom(0)
         }
     }
 }

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 final class EditProfileInfoCell: UICollectionViewCell {
     
@@ -30,28 +32,29 @@ final class EditProfileInfoCell: UICollectionViewCell {
         
         self.titleLabel.do {
             
+            $0.font = UIFont.systemFont(ofSize: 20)
             $0.numberOfLines = 1
+            $0.addGestureRecognizer(self.bodyLabelTouchRecognizer)
         }
 
         self.bodyLabel.do {
 
+            $0.font = UIFont.systemFont(ofSize: 20)
             $0.numberOfLines = 1
         }
-        
+
         self.contentView.flex.define { flex in
 
-            flex.addItem().direction(.row).marginHorizontal(30).define { flex in
+            flex.addItem().direction(.row).alignItems(.center).grow(1).marginHorizontal(30).define { flex in
 
-                flex.addItem(self.titleLabel)
+                flex.addItem(self.titleLabel).width(120)
                 flex.addItem(self.bodyLabel)
             }
         }
     }
     
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
     override func layoutSubviews() {
         
@@ -62,4 +65,5 @@ final class EditProfileInfoCell: UICollectionViewCell {
     // MARK: - Private
     private let titleLabel = UILabel()
     private let bodyLabel = UILabel()
+    private let bodyLabelTouchRecognizer = UITapGestureRecognizer()
 }

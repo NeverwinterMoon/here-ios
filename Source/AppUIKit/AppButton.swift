@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class AppButton: UIButton {
+final public class AppButton: UIButton {
     
     public convenience init(backgroundColor: UIColor = .blue) {
         self.init(frame: .init(), backgroundColor: backgroundColor)

@@ -37,6 +37,17 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
         self.userEmailAddress = user.map { $0.email }
         self.selfIntroduction = user.map { $0.selfIntroduction }
         self.userProfileImageURL = user.map { URL(string: $0.profileImageURL!) }.filterNil()
+        
+//        view.tapChangeProfileImage
+        view.tapEditProfileRow
+            .map { [unowned self] in
+                self.sectionsRelay.value[$0.section].items[$0.item]
+            }
+            .asObservable()
+            .subscribe(onNext: { [unowned self] item in
+                self.wireframe.pushEditProfileInfo(infoInChange: item.title)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

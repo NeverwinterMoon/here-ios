@@ -7,15 +7,18 @@
 //
 
 import Foundation
+import AppInteractor
 
 final class EditUserInfoWireframe: AppWireframe, EditUserInfoWireframeInterface {
     
-    func pushChangeEmailAddress() {
-    }
-
-    func showCamera() {
+    func showChangeProfileImageActionSheet() {
     }
     
-    func showCameraRoll() {
+    func pushEditProfileInfo(infoInChange: String) {
+        let controller = ChangeProfileInfoViewController()
+        let wireframe = ChangeProfileInfoWireframe(navigationController: self.navigationController)
+        let presenter = ChangeProfileInfoPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe, infoInChange: infoInChange)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
     }
 }

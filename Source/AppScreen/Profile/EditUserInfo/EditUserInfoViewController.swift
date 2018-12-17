@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 import AppExtensions
+import AppUIKit
 import FlexLayout
 import Nuke
 import RxCocoa
 import RxDataSources
 import RxSwift
 
-final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterface, UITableViewDelegate {
+final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterface, UICollectionViewDelegate {
     
     var presenter: EditUserInfoPresenterInterface!
     
@@ -24,21 +25,27 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
         return self.changeProfileImageButton.rx.tap.asSignal()
     }
     
+    var tapEditProfileRow: Signal<IndexPath> {
+        
+        return self.profileInfoCollectionView.rx.itemSelected.asSignal()
+    }
+    
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        let dataSource = RxTableViewSectionedReloadDataSource<EditProfileInfoSection>(
-            configureCell: { dataSource, tableView, indexPath, item -> UITableViewCell in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath)
-                cell.textLabel?.text = item.title
-                return cell
+        self.profileInfoCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.profileInfoCollectionViewFlowLayout)
+
+        let dataSource = RxCollectionViewSectionedReloadDataSource<EditProfileInfoSection>(configureCell: { _, collectionView, indexPath, item -> UICollectionViewCell in
+            
+            collectionView.register(EditProfileInfoCell.self, forCellWithReuseIdentifier: "EditProfileInfoCell")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditProfileInfoCell", for: indexPath) as! EditProfileInfoCell
+            cell.title = item.title
+            cell.content = item.body
+            return cell
         })
-        
-//        tmp
-        self.profileInfoTableView = UITableView()
         self.dataSource = dataSource
 
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -72,21 +79,29 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
 //                .dispose(with: self)
         }
         
-        self.profileInfoTableView.do {
+        self.profileInfoCollectionView.do {
+            
             $0.delegate = self
-            $0.register(EditProfileInfoCell.self, forCellReuseIdentifier: "ProfileInfoCell")
             $0.alwaysBounceVertical = true
             $0.showsVerticalScrollIndicator = true
+            $0.backgroundColor = .white
             
             self.presenter.sections
                 .drive($0.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
         }
         
+        self.profileInfoCollectionViewFlowLayout.do {
+            
+            $0.cellWidth = self.view.bounds.width
+            $0.cellHeight = 50
+        }
+        
         self.flexLayout()
     }
     
     override func viewDidLayoutSubviews() {
+        
         super.viewDidLayoutSubviews()
         self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
@@ -95,8 +110,9 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
     // MARK: - Private
     private let changeProfileImageButton = UIButton()
     private let profileImageView = UIImageView()
-    private let profileInfoTableView: UITableView
-    private let dataSource: RxTableViewSectionedReloadDataSource<EditProfileInfoSection>
+    private let profileInfoCollectionView: UICollectionView
+    private let profileInfoCollectionViewFlowLayout = AppCollectionViewFlowLayout()
+    private let dataSource: RxCollectionViewSectionedReloadDataSource<EditProfileInfoSection>
     private let disposeBag = DisposeBag()
 
     private func flexLayout() {
@@ -105,7 +121,7 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
             
             flex.addItem(self.profileImageView).size(80).marginTop(40).marginBottom(20)
             flex.addItem(self.changeProfileImageButton).alignSelf(.stretch).height(30).marginHorizontal(50)
-            flex.addItem(self.profileInfoTableView).grow(1)
+            flex.addItem(self.profileInfoCollectionView).grow(1).width(self.view.bounds.width).marginTop(50).marginBottom(0)
         }
     }
 }

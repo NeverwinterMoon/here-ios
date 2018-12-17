@@ -140,7 +140,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .define { flex in
                     flex.addItem(self.profileImageView).size(80).marginRight(40)
                     flex.addItem().grow(1).direction(.column).define { flex in
-                        flex.addItem(self.userDisplayNameLabel).height(50)
+                        flex.addItem(self.userDisplayNameLabel).marginTop(30).height(50)
                         flex.addItem(self.introLabel).height(40)
                     }
             }

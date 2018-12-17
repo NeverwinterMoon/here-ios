@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
-final class EditProfileInfoCell: UITableViewCell {
+final class EditProfileInfoCell: UICollectionViewCell {
     
     var title: String? {
         
         didSet {
-            self.textLabel?.text = self.title
+            self.titleLabel.text = self.title
         }
     }
     
@@ -24,27 +26,35 @@ final class EditProfileInfoCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(frame: CGRect) {
 
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(frame: frame)
+        
+        self.titleLabel.do {
+            
+            $0.font = UIFont.systemFont(ofSize: 20)
+            $0.numberOfLines = 1
+            $0.addGestureRecognizer(self.bodyLabelTouchRecognizer)
+        }
 
         self.bodyLabel.do {
 
+            $0.font = UIFont.systemFont(ofSize: 20)
             $0.numberOfLines = 1
         }
-        
+
         self.contentView.flex.define { flex in
-            
-            flex.addItem().direction(.row).paddingHorizontal(30).define { flex in
-               
+
+            flex.addItem().direction(.row).alignItems(.center).grow(1).marginHorizontal(30).define { flex in
+
+                flex.addItem(self.titleLabel).width(120)
                 flex.addItem(self.bodyLabel)
             }
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
     override func layoutSubviews() {
         
@@ -53,5 +63,7 @@ final class EditProfileInfoCell: UITableViewCell {
     }
 
     // MARK: - Private
+    private let titleLabel = UILabel()
     private let bodyLabel = UILabel()
+    private let bodyLabelTouchRecognizer = UITapGestureRecognizer()
 }

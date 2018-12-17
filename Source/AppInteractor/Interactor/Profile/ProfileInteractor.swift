@@ -44,4 +44,10 @@ public final class ProfileInteractor {
                 return API.User.GetFriends(username: me.id).asSingle()
             }
     }
+    
+    public func updateProfileInfo() -> Single<Void> {
+        
+        // TODO
+        return Single.just(())
+    }
 }

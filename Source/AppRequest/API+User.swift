@@ -52,7 +52,7 @@ extension API {
         
         public struct Create: POSTTargetType {
             
-            public typealias ElementType = Void
+            public typealias ElementType = AppEntity.User
 
             public let path: String
             public let parameters: [String: Any]

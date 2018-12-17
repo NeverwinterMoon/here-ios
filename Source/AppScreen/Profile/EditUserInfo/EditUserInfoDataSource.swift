@@ -11,7 +11,8 @@ import RxDataSources
 
 struct EditProfileInfoItem {
     let title: String
-    let body: String
+    let body: String?
+    let bodyTextColor: UIColor = .black
 }
 
 struct EditProfileInfoSection {

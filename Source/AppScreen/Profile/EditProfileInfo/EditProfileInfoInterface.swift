@@ -12,18 +12,19 @@ import RxCocoa
 import RxSwift
 
 protocol EditProfileInfoViewInterface {
-    var tapSaveProfileInfo: Signal<Void> { get }
+    var tapSaveProfileInfo: Signal<String> { get }
 }
 
 protocol EditProfileInfoInteractorInterface {
-    func updateProfileInfo() -> Single<Void>
+    func updateProfileInfo(params: [String: Any]) -> Single<Void>
 }
 extension ProfileInteractor: EditProfileInfoInteractorInterface {}
 
 protocol EditProfileInfoPresenterInterface {
     var infoInChange: Driver<String> { get }
-    var currentContent: Driver<String> { get }
+    var currentInfo: Driver<String> { get }
 }
 
 protocol EditProfileInfoWireframeInterface {
+    func popBackToDetailProfileInfo() 
 }

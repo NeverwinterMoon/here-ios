@@ -140,7 +140,7 @@
 		D9AE260921C33F0C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9B1919F21B4C96B00D9AD47 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612321AF803600CD5424 /* AppTabBarController.swift */; };
 		D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */; };
-		D9BB611E21AE893D00CD5424 /* EditProfileInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB611D21AE893D00CD5424 /* EditProfileInfoController.swift */; };
+		D9BB611E21AE893D00CD5424 /* EditProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB611D21AE893D00CD5424 /* EditProfileInfoViewController.swift */; };
 		D9BB612021AE894E00CD5424 /* EditProfileInfoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB611F21AE894E00CD5424 /* EditProfileInfoInterface.swift */; };
 		D9BB612221AE896100CD5424 /* EditProfileInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612121AE896100CD5424 /* EditProfileInfoPresenter.swift */; };
 		D9BB612621AF81E300CD5424 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB612521AF81E300CD5424 /* MapPresenter.swift */; };
@@ -391,7 +391,7 @@
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
-		D9BB611D21AE893D00CD5424 /* EditProfileInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoController.swift; sourceTree = "<group>"; };
+		D9BB611D21AE893D00CD5424 /* EditProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoViewController.swift; sourceTree = "<group>"; };
 		D9BB611F21AE894E00CD5424 /* EditProfileInfoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoInterface.swift; sourceTree = "<group>"; };
 		D9BB612121AE896100CD5424 /* EditProfileInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoPresenter.swift; sourceTree = "<group>"; };
 		D9BB612321AF803600CD5424 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
@@ -961,7 +961,7 @@
 			isa = PBXGroup;
 			children = (
 				D9BB611F21AE894E00CD5424 /* EditProfileInfoInterface.swift */,
-				D9BB611D21AE893D00CD5424 /* EditProfileInfoController.swift */,
+				D9BB611D21AE893D00CD5424 /* EditProfileInfoViewController.swift */,
 				D9BB612121AE896100CD5424 /* EditProfileInfoPresenter.swift */,
 				D981DDCF21C73F34002E55F7 /* EditProfileInfoWireframe.swift */,
 			);
@@ -1542,7 +1542,7 @@
 				D9BB612021AE894E00CD5424 /* EditProfileInfoInterface.swift in Sources */,
 				D9BB613221AF8BBD00CD5424 /* ChatWireframe.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
-				D9BB611E21AE893D00CD5424 /* EditProfileInfoController.swift in Sources */,
+				D9BB611E21AE893D00CD5424 /* EditProfileInfoViewController.swift in Sources */,
 				D9BB613021AF8BAA00CD5424 /* ChatInterface.swift in Sources */,
 				D939305221B6BBD900929DA8 /* WelcomeViewController.swift in Sources */,
 			);

@@ -10,4 +10,7 @@ import Foundation
 
 final class EditProfileInfoWireframe: AppWireframe, EditProfileInfoWireframeInterface {
     
+    func popBackToDetailProfileInfo() {
+        self.popFromNavigationController(animated: false)
+    }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import AppEntity
 import AppRequest
+import RealmSwift
 import RxCocoa
 import RxSwift
 import RxOptional
@@ -45,9 +46,24 @@ public final class ProfileInteractor {
             }
     }
     
-    public func updateProfileInfo() -> Single<Void> {
+    public func updateProfileInfo(params: [String: Any]) -> Single<Void> {
         
-        // TODO
-        return Single.just(())
+        return SharedDBManager.activatedAccountRealm().map { realm in
+            guard let realm = realm, let user = realm.objects(User.self).first else {
+                assertionFailure()
+                return
+            }
+            let userId = user.id
+            let _ = API.User.Update(userId: userId, params: params).asSingle().map { user in
+                do {
+                    try realm.write {
+                        realm.add(user, update: true)
+                    }
+                } catch let error {
+                    assertionFailure("\(error)")
+                }
+            }
+            return
+        }
     }
 }

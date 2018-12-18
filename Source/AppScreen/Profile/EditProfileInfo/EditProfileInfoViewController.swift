@@ -15,9 +15,9 @@ import RxSwift
 
 final class EditProfileInfoViewController: UIViewController, EditProfileInfoViewInterface {
     
-    var tapSaveProfileInfo: Signal<Void> {
+    var tapSaveProfileInfo: Signal<String> {
         
-        return self.saveProfileInfoButton.rx.tap.asSignal()
+        return self.saveProfileInfoButton.rx.tap.asSignal().map { self.editInfoTextField.text! }
     }
 
     var presenter: EditProfileInfoPresenterInterface!
@@ -30,12 +30,14 @@ final class EditProfileInfoViewController: UIViewController, EditProfileInfoView
         })
         .disposed(by: self.disposeBag)
         
-        self.presenter.currentContent.drive(onNext: {
+        self.presenter.currentInfo.drive(onNext: {
             self.editInfoTextField.text = $0
         })
         .disposed(by: self.disposeBag)
 
         self.view.backgroundColor = .white
+        
+        self.navigationItem.rightBarButtonItem = self.saveProfileInfoButton
 
         super.viewDidLoad()
         
@@ -55,7 +57,7 @@ final class EditProfileInfoViewController: UIViewController, EditProfileInfoView
     }
 
     // MARK: - Private
-    private let saveProfileInfoButton = UIButton()
+    private let saveProfileInfoButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
     private let disposeBag = DisposeBag()
     private let infoInChangeLabel = UILabel()
     private let editInfoTextField = AppTextField()

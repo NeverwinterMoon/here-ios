@@ -22,7 +22,7 @@ final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframe
             view: controller,
             interactor: ProfileInteractor.shared,
             wireframe: wireframe,
-            infoInChangeInString: infoInChange,
+            infoToChange: infoInChange,
             currentContent: currentContent
         )
         controller.presenter = presenter

@@ -1,5 +1,5 @@
 //
-//  EditProfileInfoCell.swift
+//  DetailProfileInfoCell.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/11/23.
@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class EditProfileInfoCell: UICollectionViewCell {
+final class DetailProfileInfoCell: UICollectionViewCell {
     
     var title: String? {
         

@@ -1,5 +1,5 @@
 //
-//  ChangeProfileInfoViewController.swift
+//  EditProfileInfoViewController.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/11/28.
@@ -13,14 +13,14 @@ import AppUIKit
 import RxCocoa
 import RxSwift
 
-final class ChangeProfileInfoViewController: UIViewController, ChangeProfileInfoViewInterface {
+final class EditProfileInfoViewController: UIViewController, EditProfileInfoViewInterface {
     
     var tapSaveProfileInfo: Signal<Void> {
         
         return self.saveProfileInfoButton.rx.tap.asSignal()
     }
 
-    var presenter: ChangeProfileInfoPresenterInterface!
+    var presenter: EditProfileInfoPresenterInterface!
 
     override func viewDidLoad() {
         

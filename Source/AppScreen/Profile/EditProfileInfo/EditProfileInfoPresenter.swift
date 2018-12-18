@@ -1,5 +1,5 @@
 //
-//  ChangeProfileInfoPresenter.swift
+//  EditProfileInfoPresenter.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/11/28.
@@ -9,12 +9,12 @@
 import Foundation
 import RxCocoa
 
-final class ChangeProfileInfoPresenter: ChangeProfileInfoPresenterInterface {
+final class EditProfileInfoPresenter: EditProfileInfoPresenterInterface {
     
     let infoInChange: Driver<String>
     let currentContent: Driver<String>
 
-    init(view: ChangeProfileInfoViewInterface, interactor: ChangeProfileInfoInteractorInterface, wireframe: ChangeProfileInfoWireframeInterface, infoInChangeInString: String, currentContent: String) {
+    init(view: EditProfileInfoViewInterface, interactor: EditProfileInfoInteractorInterface, wireframe: EditProfileInfoWireframeInterface, infoInChangeInString: String, currentContent: String) {
         
         self.view = view
         self.interactor = interactor
@@ -25,7 +25,7 @@ final class ChangeProfileInfoPresenter: ChangeProfileInfoPresenterInterface {
     }
     
     // MARK: - Private
-    private let view: ChangeProfileInfoViewInterface
-    private let interactor: ChangeProfileInfoInteractorInterface
-    private let wireframe: ChangeProfileInfoWireframeInterface
+    private let view: EditProfileInfoViewInterface
+    private let interactor: EditProfileInfoInteractorInterface
+    private let wireframe: EditProfileInfoWireframeInterface
 }

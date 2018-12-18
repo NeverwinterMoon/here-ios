@@ -1,5 +1,5 @@
 //
-//  EditUserInfoInterface.swift
+//  DetailProfileInfoInterface.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -12,25 +12,25 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol EditUserInfoViewInterface {
+protocol DetailProfileInfoViewInterface {
     var tapChangeProfileImage: Signal<Void> { get }
     var tapEditProfileRow: Signal<IndexPath> { get }
 }
 
-protocol EditUserInfoInteractorInterface: class {
+protocol DetailProfileInfoInteractorInterface: class {
     func activatedUser() -> Single<User?>
 }
 
-extension ProfileInteractor: EditUserInfoInteractorInterface {}
+extension ProfileInteractor: DetailProfileInfoInteractorInterface {}
 
-protocol EditUserInfoPresenterInterface {
+protocol DetailProfileInfoPresenterInterface {
     var userEmailAddress: Driver<String?> { get }
     var selfIntroduction: Driver<String?> { get }
     var userProfileImageURL: Driver<URL> { get }
     var sections: Driver<[EditProfileInfoSection]> { get }
 }
 
-protocol EditUserInfoWireframeInterface {
+protocol DetailProfileInfoWireframeInterface {
     func showChangeProfileImageActionSheet()
     func pushEditProfileInfo(infoInChange: String, currentContent: String)
 }

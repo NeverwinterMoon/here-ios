@@ -62,5 +62,18 @@ extension API {
                 self.parameters = ["email": email, "username": username, "password": password]
             }
         }
+        
+        public struct Update: PATCHTargetType {
+            
+            public typealias ElementType = AppEntity.User
+            
+            public let path: String
+            public let parameters: [String: Any]
+            
+            public init(userId: String, params: [String: Any]) {
+                self.path = "users/\(userId)"
+                self.parameters = params
+            }
+        }
     }
 }

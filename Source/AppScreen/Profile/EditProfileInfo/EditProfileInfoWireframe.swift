@@ -1,5 +1,5 @@
 //
-//  ChangeProfileInfoWireframe.swift
+//  EditProfileInfoWireframe.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/12/17.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class ChangeProfileInfoWireframe: AppWireframe, ChangeProfileInfoWireframeInterface {
+final class EditProfileInfoWireframe: AppWireframe, EditProfileInfoWireframeInterface {
     
 }

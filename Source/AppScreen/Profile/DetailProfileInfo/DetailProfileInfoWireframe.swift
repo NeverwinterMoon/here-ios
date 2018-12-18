@@ -1,5 +1,5 @@
 //
-//  EditUserInfoWireframe.swift
+//  DetailProfileInfoWireframe.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -9,16 +9,16 @@
 import Foundation
 import AppInteractor
 
-final class EditUserInfoWireframe: AppWireframe, EditUserInfoWireframeInterface {
+final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframeInterface {
     
     func showChangeProfileImageActionSheet() {
     }
     
     func pushEditProfileInfo(infoInChange: String, currentContent: String) {
         
-        let controller = ChangeProfileInfoViewController()
-        let wireframe = ChangeProfileInfoWireframe(navigationController: self.navigationController)
-        let presenter = ChangeProfileInfoPresenter(
+        let controller = EditProfileInfoViewController()
+        let wireframe = EditProfileInfoWireframe(navigationController: self.navigationController)
+        let presenter = EditProfileInfoPresenter(
             view: controller,
             interactor: ProfileInteractor.shared,
             wireframe: wireframe,

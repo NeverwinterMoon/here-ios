@@ -1,5 +1,5 @@
 //
-//  EditUserInfoViewController.swift
+//  DetailProfileInfoViewController.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -16,9 +16,9 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
-final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterface, UICollectionViewDelegate {
+final class DetailProfileInfoViewController: UIViewController, DetailProfileInfoViewInterface, UICollectionViewDelegate {
     
-    var presenter: EditUserInfoPresenterInterface!
+    var presenter: DetailProfileInfoPresenterInterface!
     
     var tapChangeProfileImage: Signal<Void> {
         
@@ -40,8 +40,8 @@ final class EditUserInfoViewController: UIViewController, EditUserInfoViewInterf
 
         let dataSource = RxCollectionViewSectionedReloadDataSource<EditProfileInfoSection>(configureCell: { _, collectionView, indexPath, item -> UICollectionViewCell in
             
-            collectionView.register(EditProfileInfoCell.self, forCellWithReuseIdentifier: "EditProfileInfoCell")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditProfileInfoCell", for: indexPath) as! EditProfileInfoCell
+            collectionView.register(DetailProfileInfoCell.self, forCellWithReuseIdentifier: "EditProfileInfoCell")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditProfileInfoCell", for: indexPath) as! DetailProfileInfoCell
             cell.title = item.title
             cell.content = item.body
             return cell

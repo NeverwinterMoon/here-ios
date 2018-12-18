@@ -1,5 +1,5 @@
 //
-//  EditUserInfoPresenter.swift
+//  DetailProfileInfoPresenter.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2018/11/20.
@@ -12,7 +12,7 @@ import RxCocoa
 import RxOptional
 import RxSwift
 
-final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
+final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
     
     let userEmailAddress: Driver<String?>
     let selfIntroduction: Driver<String?>
@@ -25,7 +25,7 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
     
     private let sectionsRelay: BehaviorRelay<[EditProfileInfoSection]> = .init(value: [])
 
-    init(view: EditUserInfoViewInterface, interactor: EditUserInfoInteractorInterface, wireframe: EditUserInfoWireframeInterface) {
+    init(view: DetailProfileInfoViewInterface, interactor: DetailProfileInfoInteractorInterface, wireframe: DetailProfileInfoWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
@@ -51,9 +51,9 @@ final class EditUserInfoPresenter: EditUserInfoPresenterInterface {
     }
     
     // MARK: - Private
-    private let view: EditUserInfoViewInterface
-    private let interactor: EditUserInfoInteractorInterface
-    private let wireframe: EditUserInfoWireframeInterface
+    private let view: DetailProfileInfoViewInterface
+    private let interactor: DetailProfileInfoInteractorInterface
+    private let wireframe: DetailProfileInfoWireframeInterface
     private let disposeBag = DisposeBag()
 }
 
@@ -63,10 +63,10 @@ fileprivate extension Observable where E == User {
         
         return self.map {
             
-            var items: [EditProfileInfoItem] = []
-            items.append(EditProfileInfoItem(title: "名前", body: $0.userDisplayName))
-            items.append(EditProfileInfoItem(title: "ユーザー名", body: $0.username))
-            items.append(EditProfileInfoItem(title: "自己紹介", body: $0.selfIntroduction))
+            var items: [DetailProfileInfoItem] = []
+            items.append(DetailProfileInfoItem(title: "名前", body: $0.userDisplayName))
+            items.append(DetailProfileInfoItem(title: "ユーザー名", body: $0.username))
+            items.append(DetailProfileInfoItem(title: "自己紹介", body: $0.selfIntroduction))
             let sections = [EditProfileInfoSection(header: "プロフィール", items: items)]
             return sections
         }

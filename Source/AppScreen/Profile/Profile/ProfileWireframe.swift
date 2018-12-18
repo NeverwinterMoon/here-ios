@@ -14,9 +14,9 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
     
     func presentUserInfo() {
         
-        let controller = EditUserInfoViewController()
-        let wireframe = EditUserInfoWireframe(navigationController: self.navigationController)
-        let presenter = EditUserInfoPresenter(
+        let controller = DetailProfileInfoViewController()
+        let wireframe = DetailProfileInfoWireframe(navigationController: self.navigationController)
+        let presenter = DetailProfileInfoPresenter(
             view: controller,
             interactor: ProfileInteractor(),
             wireframe: wireframe

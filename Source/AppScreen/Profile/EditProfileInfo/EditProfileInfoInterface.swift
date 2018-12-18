@@ -1,5 +1,5 @@
 //
-//  ChangeProfileInfoInterface.swift
+//  EditProfileInfoInterface.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/11/28.
@@ -11,19 +11,19 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol ChangeProfileInfoViewInterface {
+protocol EditProfileInfoViewInterface {
     var tapSaveProfileInfo: Signal<Void> { get }
 }
 
-protocol ChangeProfileInfoInteractorInterface {
+protocol EditProfileInfoInteractorInterface {
     func updateProfileInfo() -> Single<Void>
 }
-extension ProfileInteractor: ChangeProfileInfoInteractorInterface {}
+extension ProfileInteractor: EditProfileInfoInteractorInterface {}
 
-protocol ChangeProfileInfoPresenterInterface {
+protocol EditProfileInfoPresenterInterface {
     var infoInChange: Driver<String> { get }
     var currentContent: Driver<String> { get }
 }
 
-protocol ChangeProfileInfoWireframeInterface {
+protocol EditProfileInfoWireframeInterface {
 }

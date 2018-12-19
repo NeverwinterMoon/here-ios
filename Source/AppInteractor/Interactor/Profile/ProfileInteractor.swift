@@ -48,22 +48,23 @@ public final class ProfileInteractor {
     
     public func updateProfileInfo(params: [String: Any]) -> Single<Void> {
         
-        return SharedDBManager.activatedAccountRealm().map { realm in
-            guard let realm = realm, let user = realm.objects(User.self).first else {
-                assertionFailure()
-                return
-            }
-            let userId = user.id
-            let _ = API.User.Update(userId: userId, params: params).asSingle().map { user in
-                do {
-                    try realm.write {
-                        realm.add(user, update: true)
+        return SharedDBManager.activatedAccountRealm()
+            .flatMap { realm in
+                
+                guard let realm = realm, let user = realm.objects(User.self).first else {
+                    assertionFailure()
+                    return Single.just(())
+                }
+                let userId = user.id
+                return API.User.Update(userId: userId, params: params).asSingle().debug("\(userId)").map { user in
+                    do {
+                        try realm.write {
+                            realm.add(user, update: true)
+                        }
+                    } catch let error {
+                        assertionFailure("\(error)")
                     }
-                } catch let error {
-                    assertionFailure("\(error)")
                 }
             }
-            return
-        }
     }
 }

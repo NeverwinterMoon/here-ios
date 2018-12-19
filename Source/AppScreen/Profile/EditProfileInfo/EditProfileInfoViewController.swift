@@ -52,7 +52,7 @@ final class EditProfileInfoViewController: UIViewController, EditProfileInfoView
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        self.view.flex.marginTop(self.view.safeAreaInsets.top)
+        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
     }
 

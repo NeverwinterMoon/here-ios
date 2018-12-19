@@ -42,7 +42,7 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
             
             collectionView.register(DetailProfileInfoCell.self, forCellWithReuseIdentifier: "EditProfileInfoCell")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditProfileInfoCell", for: indexPath) as! DetailProfileInfoCell
-            cell.title = item.title
+            cell.title = item.type.displayTitle
             cell.content = item.body
             return cell
         })

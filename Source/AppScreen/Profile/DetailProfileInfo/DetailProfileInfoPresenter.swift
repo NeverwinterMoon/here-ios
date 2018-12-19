@@ -38,16 +38,17 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
         self.selfIntroduction = user.map { $0.selfIntroduction }
         self.userProfileImageURL = user.map { URL(string: $0.profileImageURL!) }.filterNil()
         
-//        view.tapChangeProfileImage
         view.tapEditProfileRow
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item]
             }
             .asObservable()
             .subscribe(onNext: { [unowned self] item in
-                self.wireframe.pushEditProfileInfo(infoInChange: item.title, currentContent: item.body ?? "")
+                self.wireframe.pushEditProfileInfo(infoInChange: item.type.paramsKey, currentContent: item.body ?? "")
             })
             .disposed(by: self.disposeBag)
+        
+//        view.tapChangeProfileImage
     }
     
     // MARK: - Private
@@ -64,9 +65,9 @@ fileprivate extension Observable where E == User {
         return self.map {
             
             var items: [DetailProfileInfoItem] = []
-            items.append(DetailProfileInfoItem(title: "名前", body: $0.userDisplayName))
-            items.append(DetailProfileInfoItem(title: "ユーザー名", body: $0.username))
-            items.append(DetailProfileInfoItem(title: "自己紹介", body: $0.selfIntroduction))
+            items.append(DetailProfileInfoItem(type: userInfoType(type: .userDisplayName), body: $0.userDisplayName))
+            items.append(DetailProfileInfoItem(type: userInfoType(type: .username), body: $0.username))
+            items.append(DetailProfileInfoItem(type: userInfoType(type: .selfIntroduction), body: $0.selfIntroduction))
             let sections = [EditProfileInfoSection(header: "プロフィール", items: items)]
             return sections
         }

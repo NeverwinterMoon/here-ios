@@ -44,6 +44,11 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditProfileInfoCell", for: indexPath) as! DetailProfileInfoCell
             cell.title = item.type.displayTitle
             cell.content = item.body
+            if item.type.infoType == .username {
+                cell.content = "@\(String(describing: item.body!))"
+            } else {
+                cell.content = item.body
+            }
             return cell
         })
         self.dataSource = dataSource

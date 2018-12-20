@@ -41,11 +41,11 @@ struct userInfoType {
         case email
     }
     
-    let type: InfoType
+    let infoType: InfoType
     
-    init(type: InfoType) {
-        self.type = type
-        switch self.type {
+    init(infoType: InfoType) {
+        self.infoType = infoType
+        switch self.infoType {
         case .username:
             self.displayTitle = "ユーザー名"
             self.paramsKey = "username"

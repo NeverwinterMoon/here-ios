@@ -40,6 +40,7 @@ public final class ProfileInteractor {
             }
             
             try sharedRealm.write {
+                // NEXT: Account -> User
                 account.setValue(user.username, forKeyPath: "username")
                 account.setValue(user.userDisplayName, forKeyPath: "userDisplayName")
                 account.setValue(user.email, forKeyPath: "email")

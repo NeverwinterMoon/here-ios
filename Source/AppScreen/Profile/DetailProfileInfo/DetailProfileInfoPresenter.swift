@@ -86,10 +86,10 @@ fileprivate extension Observable where E == User {
         return self.map {
             
             var items: [DetailProfileInfoItem] = []
-            items.append(DetailProfileInfoItem(type: userInfoType(type: .userDisplayName), body: $0.userDisplayName))
-            items.append(DetailProfileInfoItem(type: userInfoType(type: .username), body: $0.username))
-            items.append(DetailProfileInfoItem(type: userInfoType(type: .email), body: $0.email))
-            items.append(DetailProfileInfoItem(type: userInfoType(type: .selfIntroduction), body: $0.selfIntroduction))
+            items.append(DetailProfileInfoItem(type: userInfoType(infoType: .userDisplayName), body: $0.userDisplayName))
+            items.append(DetailProfileInfoItem(type: userInfoType(infoType: .username), body: $0.username))
+            items.append(DetailProfileInfoItem(type: userInfoType(infoType: .email), body: $0.email))
+            items.append(DetailProfileInfoItem(type: userInfoType(infoType: .selfIntroduction), body: $0.selfIntroduction))
             let sections = [EditProfileInfoSection(header: "プロフィール", items: items)]
             return sections
         }

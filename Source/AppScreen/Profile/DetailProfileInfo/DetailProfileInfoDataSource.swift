@@ -38,6 +38,7 @@ struct userInfoType {
         case username
         case userDisplayName
         case selfIntroduction
+        case email
     }
     
     let type: InfoType
@@ -51,6 +52,9 @@ struct userInfoType {
         case .userDisplayName:
             self.displayTitle = "名前"
             self.paramsKey = "user_display_name"
+        case .email:
+            self.displayTitle = "メールアドレス"
+            self.paramsKey = "email"
         case .selfIntroduction:
             self.displayTitle = "自己紹介"
             self.paramsKey = "self_introduction"

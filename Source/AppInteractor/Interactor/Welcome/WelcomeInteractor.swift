@@ -63,14 +63,14 @@ public final class WelcomeInteractor {
                     sharedRealm.add(account)
                 }
                 SharedDBManager.setDefaultRealmForUser(userId: account.id)
-                let defaultRealm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
+                let defaultRealm = try Realm(configuration: Realm.Configuration.defaultConfiguration)
                 try defaultRealm.write {
                     defaultRealm.add(user)
                 }
                 single(.success(()))
             } catch let error {
                 single(.error(error))
-                assertionFailure("error when writing to realm: \(error)")
+                assertionFailure("error when loading or writing to realm: \(error)")
             }
             return Disposables.create()
         }

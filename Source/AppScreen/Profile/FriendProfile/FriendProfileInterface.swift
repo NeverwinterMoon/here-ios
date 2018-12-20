@@ -12,12 +12,12 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol FriendProfileViewInterface {
+protocol FriendProfileViewInterface: ViewInterface {
     var tapFriends: Signal<Void> { get }
 }
 
 protocol FriendProfileInteractorInterface {
-    func user(username: String) -> Single<User>
+    func user(userId: String)
 }
 
 extension ProfileInteractor: FriendProfileInteractorInterface {}

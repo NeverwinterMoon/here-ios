@@ -12,22 +12,31 @@ import RxSwift
 
 final class EditProfileInfoPresenter: EditProfileInfoPresenterInterface {
     
-    let infoInChange: Driver<String>
+    let infoToChange: Driver<String>
     let currentInfo: Driver<String>
 
-    init(view: EditProfileInfoViewInterface, interactor: EditProfileInfoInteractorInterface, wireframe: EditProfileInfoWireframeInterface, infoToChange: String, currentContent: String) {
+    init(view: EditProfileInfoViewInterface, interactor: EditProfileInfoInteractorInterface, wireframe: EditProfileInfoWireframeInterface, infoType: userInfoType, currentContent: String) {
         
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.infoInChange = Driver<String>.just(infoToChange)
+        self.infoToChange = Driver<String>.just(infoType.displayTitle)
         self.currentInfo = Driver<String>.just(currentContent)
         
+//        self.view.viewWillDisappear
+//            .flatMap { [unowned self] in
+//                self.interactor.activatedUser()
+//            }
+//            .subscribe(onNext: { [unowned self] user in
+//                self.interactor.user(userId: user.id)
+//            })
+//            .disposed(by: self.disposeBag)
+
         self.view.tapSaveProfileInfo
             .asObservable()
             .flatMap { [unowned self] newInfo -> Single<Void> in
-                self.interactor.updateProfileInfo(params: [infoToChange: newInfo])
+                self.interactor.updateProfileInfo(params: [infoType.paramsKey: newInfo])
             }
             .subscribe(onNext: {
                 self.wireframe.popBackToDetailProfileInfo()

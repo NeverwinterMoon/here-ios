@@ -24,7 +24,7 @@ final class EditProfileInfoViewController: UIViewController, EditProfileInfoView
 
     override func viewDidLoad() {
         
-        self.presenter.infoInChange.drive(onNext: {
+        self.presenter.infoToChange.drive(onNext: {
             self.title = $0
             self.infoInChangeLabel.text = $0
         })

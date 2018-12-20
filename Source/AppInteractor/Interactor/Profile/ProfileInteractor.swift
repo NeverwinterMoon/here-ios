@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import AppExtensions
 import AppRequest
 import RealmSwift
 import RxCocoa
@@ -20,28 +21,47 @@ public final class ProfileInteractor {
     
     public init() {}
     
-    public func activatedUser() -> Single<User?> {
+    public func activatedUser() -> Single<User> {
         return SharedDBManager.activatedAccountRealm()
-            .map { accountRealm -> User? in
-                guard let realm = accountRealm else {
-                    return nil
-                }
-                return realm.objects(User.self).first
+            .map { realm -> User in
+                return realm!.objects(User.self).first!
             }
             .asObservable()
             .asSingle()
     }
     
-    public func user(username: String) -> Single<User> {
-        return API.User.Get(username: username).asSingle()
+    public func user(userId: String) {
+        return API.User.Get(userId: userId).asSingle().flatMap { user -> Single<Void> in
+            
+            let sharedRealm = SharedDBManager.shared()
+            guard let account = sharedRealm.objects(Account.self).filter("isDefaultAccount == true").first else {
+                assertionFailure("there should be at least one account in sharedRealm")
+                return Single.just(())
+            }
+            
+            try sharedRealm.write {
+                account.setValue(user.username, forKeyPath: "username")
+                account.setValue(user.userDisplayName, forKeyPath: "userDisplayName")
+                account.setValue(user.email, forKeyPath: "email")
+                account.setValue(user.selfIntroduction, forKeyPath: "selfIntroduction")
+            }
+            
+            return SharedDBManager.activatedAccountRealm().map { realm  in
+                guard let realm = realm else {
+                    return
+                }
+                try realm.write {
+                    realm.add(user, update: true)
+                }
+            }
+        }
+        .subscribe()
+        .disposed(by: self.disposeBag)
     }
 
     public func friends() -> Single<[User]> {
         return self.activatedUser()
             .flatMap { me -> Single<[User]> in
-                guard let me = me else {
-                    return Single.just([])
-                }
                 return API.User.GetFriends(username: me.id).asSingle()
             }
     }
@@ -56,7 +76,7 @@ public final class ProfileInteractor {
                     return Single.just(())
                 }
                 let userId = user.id
-                return API.User.Update(userId: userId, params: params).asSingle().debug("\(userId)").map { user in
+                return API.User.Update(userId: userId, params: params).asSingle().map { user in
                     do {
                         try realm.write {
                             realm.add(user, update: true)
@@ -67,4 +87,7 @@ public final class ProfileInteractor {
                 }
             }
     }
+    
+    // MARK: - Private
+    private let disposeBag = DisposeBag()
 }

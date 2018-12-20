@@ -21,8 +21,8 @@ extension API {
             public let path: String
             public let parameters: [String: Any] = [:]
 
-            public init(username: String) {
-                self.path = "users/\(username)"
+            public init(userId: String) {
+                self.path = "users/\(userId)"
             }
         }
         

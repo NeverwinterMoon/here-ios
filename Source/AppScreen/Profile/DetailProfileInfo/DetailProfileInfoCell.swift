@@ -34,7 +34,8 @@ final class DetailProfileInfoCell: UICollectionViewCell {
             
             $0.font = UIFont.systemFont(ofSize: 20)
             $0.numberOfLines = 1
-            $0.addGestureRecognizer(self.bodyLabelTouchRecognizer)
+//            $0.addGestureRecognizer(self.bodyLabelTouchRecognizer)
+            $0.textAlignment = .center
         }
 
         self.bodyLabel.do {
@@ -42,15 +43,13 @@ final class DetailProfileInfoCell: UICollectionViewCell {
             $0.font = UIFont.systemFont(ofSize: 20)
             $0.numberOfLines = 0
             $0.preferredMaxLayoutWidth = self.contentView.bounds.width - 150
+//            $0.addGestureRecognizer(self.bodyLabelTouchRecognizer)
         }
 
-        self.contentView.flex.define { flex in
+        self.contentView.flex.direction(.row).alignItems(.center).define { flex in
 
-            flex.addItem().direction(.row).alignItems(.center).grow(1).marginHorizontal(30).define { flex in
-
-                flex.addItem(self.titleLabel).width(120)
-                flex.addItem(self.bodyLabel)
-            }
+            flex.addItem(self.titleLabel).width(100).marginHorizontal(30)
+            flex.addItem(self.bodyLabel).grow(1)
         }
     }
     

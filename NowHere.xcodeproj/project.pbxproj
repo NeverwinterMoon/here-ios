@@ -133,6 +133,8 @@
 		D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D978364521AB8E19002D52E4 /* RxOptional.framework */; };
 		D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDCD21C72A57002E55F7 /* UICollectionViewFlowLayout.swift */; };
 		D981DDD021C73F34002E55F7 /* EditProfileInfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDCF21C73F34002E55F7 /* EditProfileInfoWireframe.swift */; };
+		D981DDD421CB22B9002E55F7 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD321CB22B9002E55F7 /* Rx.swift */; };
+		D981DDD621CB258E002E55F7 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD521CB258E002E55F7 /* Interface.swift */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -388,6 +390,8 @@
 		D978364521AB8E19002D52E4 /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
 		D981DDCD21C72A57002E55F7 /* UICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		D981DDCF21C73F34002E55F7 /* EditProfileInfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoWireframe.swift; sourceTree = "<group>"; };
+		D981DDD321CB22B9002E55F7 /* Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx.swift; sourceTree = "<group>"; };
+		D981DDD521CB258E002E55F7 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
@@ -694,6 +698,7 @@
 				D91E938021A6DDB200E93E04 /* Navigation */,
 				D91E937621A6DD9F00E93E04 /* AppUIKit.h */,
 				D91E937721A6DD9F00E93E04 /* Info.plist */,
+				D981DDD321CB22B9002E55F7 /* Rx.swift */,
 			);
 			path = AppUIKit;
 			sourceTree = "<group>";
@@ -882,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */,
+				D981DDD521CB258E002E55F7 /* Interface.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1463,6 +1469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BB612C21AF85A800CD5424 /* MapInteractor.swift in Sources */,
+				D981DDD621CB258E002E55F7 /* Interface.swift in Sources */,
 				D939306E21B6C8E000929DA8 /* WelcomeInteractor.swift in Sources */,
 				D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */,
 				D956E47F21C4FF1E001DBFBA /* RealmMigration.swift in Sources */,
@@ -1489,6 +1496,7 @@
 			files = (
 				D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */,
 				D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */,
+				D981DDD421CB22B9002E55F7 /* Rx.swift in Sources */,
 				D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */,
 				D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */,
 				D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */,

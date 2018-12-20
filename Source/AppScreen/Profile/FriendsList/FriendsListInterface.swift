@@ -12,7 +12,7 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol FriendsListViewInterface {
+protocol FriendsListViewInterface: ViewInterface {
     var tapFriend: Signal<IndexPath> { get }
 }
 

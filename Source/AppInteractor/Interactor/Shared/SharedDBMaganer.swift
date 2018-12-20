@@ -23,6 +23,7 @@ public final class SharedDBManager {
         
         let defaultAccount = shared().objects(Account.self).filter("isDefaultAccount == true")
         guard let first = defaultAccount.first else {
+            assertionFailure("when login, isDefaultAccount should be set to true for at least one account")
             return Single.just(nil)
         }
 

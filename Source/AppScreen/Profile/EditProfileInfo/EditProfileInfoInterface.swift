@@ -7,21 +7,24 @@
 //
 
 import Foundation
+import AppEntity
 import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol EditProfileInfoViewInterface {
+protocol EditProfileInfoViewInterface: ViewInterface {
     var tapSaveProfileInfo: Signal<String> { get }
 }
 
 protocol EditProfileInfoInteractorInterface {
+    func activatedUser() -> Single<User>
+    func user(userId: String)
     func updateProfileInfo(params: [String: Any]) -> Single<Void>
 }
 extension ProfileInteractor: EditProfileInfoInteractorInterface {}
 
 protocol EditProfileInfoPresenterInterface {
-    var infoInChange: Driver<String> { get }
+    var infoToChange: Driver<String> { get }
     var currentInfo: Driver<String> { get }
 }
 

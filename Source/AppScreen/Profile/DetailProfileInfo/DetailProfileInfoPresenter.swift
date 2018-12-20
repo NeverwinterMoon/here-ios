@@ -65,7 +65,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             }
             .asObservable()
             .subscribe(onNext: { [unowned self] item in
-                self.wireframe.pushEditProfileInfo(infoType: item.type, currentContent: item.body ?? "")
+                self.wireframe.pushEditProfileInfo(infoType: item.type, currentContent: item.body)
             })
             .disposed(by: self.disposeBag)
         
@@ -89,7 +89,7 @@ fileprivate extension Observable where E == User {
             items.append(DetailProfileInfoItem(type: userInfoType(infoType: .userDisplayName), body: $0.userDisplayName))
             items.append(DetailProfileInfoItem(type: userInfoType(infoType: .username), body: $0.username))
             items.append(DetailProfileInfoItem(type: userInfoType(infoType: .email), body: $0.email))
-            items.append(DetailProfileInfoItem(type: userInfoType(infoType: .selfIntroduction), body: $0.selfIntroduction))
+            items.append(DetailProfileInfoItem(type: userInfoType(infoType: .selfIntroduction), body: $0.selfIntroduction ?? ""))
             let sections = [EditProfileInfoSection(header: "プロフィール", items: items)]
             return sections
         }

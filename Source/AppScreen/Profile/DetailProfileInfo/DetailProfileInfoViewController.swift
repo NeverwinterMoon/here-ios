@@ -45,7 +45,7 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
             cell.title = item.type.displayTitle
             cell.content = item.body
             if item.type.infoType == .username {
-                cell.content = "@\(String(describing: item.body!))"
+                cell.content = "@\(String(describing: item.body))"
             } else {
                 cell.content = item.body
             }

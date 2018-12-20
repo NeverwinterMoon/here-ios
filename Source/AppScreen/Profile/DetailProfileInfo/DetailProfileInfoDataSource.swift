@@ -11,7 +11,7 @@ import RxDataSources
 
 struct DetailProfileInfoItem {
     let type: userInfoType
-    let body: String?
+    let body: String
     let bodyTextColor: UIColor = .black
 }
 

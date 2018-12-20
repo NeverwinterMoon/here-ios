@@ -48,9 +48,11 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.view.backgroundColor = .white
         
-        self.presenter.username.drive(onNext: {
-            self.title = $0
-        }).disposed(by: self.disposeBag)
+        self.presenter.username
+            .drive(onNext: {
+                self.title = "@\($0)"
+            })
+            .disposed(by: self.disposeBag)
 
         self.profileImageView.do {
 //            tmp

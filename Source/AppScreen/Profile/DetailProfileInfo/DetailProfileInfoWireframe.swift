@@ -14,8 +14,6 @@ import RxSwift
 
 final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframeInterface {
     
-    let selectedImage = BehaviorRelay<UIImage?>.init(value: nil)
-    
     func showChangeProfileImageActionSheet() {
         
         let actions = [
@@ -30,20 +28,21 @@ final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframe
                 style: .default
             )
         ]
-        self.navigationController.showActionSheet(title: "プロフィール画像を選択", actions: actions)
+        let presenter = SelectProfileImagePresenter()
+        
+        self.navigationController
+            .showActionSheet(title: "プロフィール画像を選択", actions: actions)
             .subscribe { [unowned self] in
                 if let sourceType = $0.element {
                     switch sourceType {
-                    case .camera:
-                        self.launchImagePicker(type: sourceType)
+                    case .camera, .savedPhotosAlbum:
+                        presenter.launchImagePicker(type: sourceType, navigationController: self.navigationController)
                     case .photoLibrary:
                         break
-                    case .savedPhotosAlbum:
-                        self.launchImagePicker(type: sourceType)
                     }
                 }
             }
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
     }
     
     func pushEditProfileInfo(infoType: userInfoType, currentContent: String) {
@@ -58,26 +57,9 @@ final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframe
             currentContent: currentContent
         )
         controller.presenter = presenter
-        show(controller, with: .push, animated: true)
+        self.show(controller, with: .push, animated: true)
     }
     
     // MARK: - Private
     private let disposeBag = DisposeBag()
-    
-    private func launchImagePicker(type: UIImagePickerController.SourceType) {
-        
-        UIImagePickerController.rx.createWithParent(self.navigationController) { picker in
-                picker.sourceType = type
-                picker.allowsEditing = true
-            }
-            .flatMap {
-                $0.rx.didFinishPickingMediaWithInfo
-            }
-            .take(1)
-            .map { info in
-                info [UIImagePickerController.InfoKey.originalImage] as? UIImage
-            }
-            .bind(to: selectedImage)
-            .disposed(by: disposeBag)
-    }
 }

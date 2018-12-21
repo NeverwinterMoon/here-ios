@@ -7,24 +7,31 @@
 //
 
 import Foundation
+import AppUIKit
+import RxCocoa
+import RxSwift
 
 final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface {
 
-    init(view: SelectProfileImageViewInterface, wireframe: SelectProfileImageWireframeInterface) {
+    let selectedImage = BehaviorRelay<UIImage?>.init(value: nil)
+    
+    func launchImagePicker(type: UIImagePickerController.SourceType, navigationController: UINavigationController) {
         
-        self.view = view
-        self.wireframe = wireframe
-    }
-    
-    func loadCamera() {
-        self.wireframe.loadCamera()
-    }
-    
-    func selectProfileImageFromCameraRoll() {
-        self.wireframe.selectProfileImageFromCameraRoll()
+        UIImagePickerController.rx.createWithParent(navigationController) { picker in
+            picker.sourceType = type
+            picker.allowsEditing = true
+            }
+            .flatMap {
+                $0.rx.didFinishPickingMediaWithInfo
+            }
+            .take(1)
+            .map { info in
+                info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            }
+            .bind(to: self.selectedImage)
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
-    private let view: SelectProfileImageViewInterface
-    private let wireframe: SelectProfileImageWireframeInterface
+    private let disposeBag = DisposeBag()
 }

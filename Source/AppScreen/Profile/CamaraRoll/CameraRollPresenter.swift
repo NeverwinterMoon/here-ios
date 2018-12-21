@@ -7,16 +7,8 @@
 //
 
 import Foundation
+import RxCocoa
 
 final class CameraRollPresenter: CameraRollPresenterInterface {
     
-    init(view: CameraRollViewInterface, wireframe: CameraRollWireframeInterface) {
-        
-        self.view = view
-        self.wireframe = wireframe
-    }
-    
-    // MARK: - Private
-    private let view: CameraRollViewInterface
-    private let wireframe: CameraRollWireframeInterface
 }

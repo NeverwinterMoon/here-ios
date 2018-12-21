@@ -13,11 +13,7 @@ protocol SelectProfileImageViewInterface: class {
 }
 
 protocol SelectProfileImagePresenterInterface: class {
-    func loadCamera()
-    func selectProfileImageFromCameraRoll()
 }
 
 protocol SelectProfileImageWireframeInterface {
-    func loadCamera()
-    func selectProfileImageFromCameraRoll()
 }

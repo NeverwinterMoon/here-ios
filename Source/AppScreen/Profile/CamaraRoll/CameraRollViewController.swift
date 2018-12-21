@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import FlexLayout
 
-final class CameraRollViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+final class CameraRollViewController: UIImagePickerController, CameraRollViewInterface {
     
-    var viewModel: CameraRollViewModel!
+    var presenter: CameraRollPresenterInterface!
     
     convenience init() {
         self.init(nibName: nil, bundle: nil)
@@ -24,28 +25,19 @@ final class CameraRollViewController: UIViewController, UINavigationControllerDe
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     override func viewDidLoad() {
+        
+        super.viewDidLoad()
         self.view.backgroundColor = .white
-
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            
-            self.imagePickerController.delegate = self
-            self.imagePickerController.sourceType = .savedPhotosAlbum
-            self.imagePickerController.allowsEditing = false
-            
-            self.present(imagePickerController, animated: true, completion: nil)
-        }
+        present(self.imagePicker, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         if let pickedImage = info[.originalImage] as? UIImage {
-            self.imageView.contentMode = .scaleAspectFit
-            self.imageView.image = pickedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Private
-    private let imagePickerController = UIImagePickerController()
-    private let imageView = UIImageView()
+    private let imagePicker = UIImagePickerController()
 }

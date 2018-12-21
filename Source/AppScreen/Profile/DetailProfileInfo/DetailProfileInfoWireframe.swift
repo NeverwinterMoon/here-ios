@@ -14,21 +14,36 @@ import RxSwift
 
 final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframeInterface {
     
+    let selectedImage = BehaviorRelay<UIImage?>.init(value: nil)
+    
     func showChangeProfileImageActionSheet() {
         
-        let actionSheet = UIAlertController(title: "プロフィール画像を選択", message: nil, preferredStyle: .actionSheet)
-//        let cameraAction = UIAlertAction(title: "カメラロールから選択", style: .default, handler: nil)
-        let cameraAction = UIAlertAction(title: "カメラロールから選択", style: .default) { (action) in
-            let viewModel = CameraRollViewModel()
-            let controller = CameraRollViewController()
-            controller.viewModel = viewModel
-            self.show(controller, with: .push, animated: true)
-        }
-        let takePhotoAction = UIAlertAction(title: "写真を撮る", style: .default, handler: nil)
-        actionSheet.addAction(cameraAction)
-        actionSheet.addAction(takePhotoAction)
-        actionSheet.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
-        self.show(actionSheet, with: .present, animated: true)
+        let actions = [
+            ActionSheetItem<UIImagePickerController.SourceType>(
+                title: "カメラロールから選択",
+                actionType: .savedPhotosAlbum,
+                style: .default
+            ),
+            ActionSheetItem<UIImagePickerController.SourceType>(
+                title: "撮影する",
+                actionType: .camera,
+                style: .default
+            )
+        ]
+        self.navigationController.showActionSheet(title: "プロフィール画像を選択", actions: actions)
+            .subscribe { [unowned self] in
+                if let sourceType = $0.element {
+                    switch sourceType {
+                    case .camera:
+                        self.launchImagePicker(type: sourceType)
+                    case .photoLibrary:
+                        break
+                    case .savedPhotosAlbum:
+                        self.launchImagePicker(type: sourceType)
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func pushEditProfileInfo(infoType: userInfoType, currentContent: String) {
@@ -43,6 +58,26 @@ final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframe
             currentContent: currentContent
         )
         controller.presenter = presenter
-        self.show(controller, with: .push, animated: true)
+        show(controller, with: .push, animated: true)
+    }
+    
+    // MARK: - Private
+    private let disposeBag = DisposeBag()
+    
+    private func launchImagePicker(type: UIImagePickerController.SourceType) {
+        
+        UIImagePickerController.rx.createWithParent(self.navigationController) { picker in
+                picker.sourceType = type
+                picker.allowsEditing = true
+            }
+            .flatMap {
+                $0.rx.didFinishPickingMediaWithInfo
+            }
+            .take(1)
+            .map { info in
+                info [UIImagePickerController.InfoKey.originalImage] as? UIImage
+            }
+            .bind(to: selectedImage)
+            .disposed(by: disposeBag)
     }
 }

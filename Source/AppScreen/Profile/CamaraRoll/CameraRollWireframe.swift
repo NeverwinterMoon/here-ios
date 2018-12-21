@@ -1,5 +1,5 @@
 //
-//  CameraRollViewModel.swift
+//  CameraRollWireframe.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/12/21.
@@ -8,9 +8,6 @@
 
 import Foundation
 
-final class CameraRollViewModel {
+final class CameraRollWireframe: AppWireframe, CameraRollWireframeInterface {
     
-    init() {
-        
-    }
 }

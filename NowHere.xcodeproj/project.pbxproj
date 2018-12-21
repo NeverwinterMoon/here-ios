@@ -137,10 +137,17 @@
 		D981DDD621CB258E002E55F7 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD521CB258E002E55F7 /* Interface.swift */; };
 		D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD821CC7471002E55F7 /* AlertController.swift */; };
 		D981DDDD21CC778F002E55F7 /* CameraRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */; };
-		D981DDDF21CC78F7002E55F7 /* CameraRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDE21CC78F7002E55F7 /* CameraRollViewModel.swift */; };
+		D981DDDF21CC78F7002E55F7 /* CameraRollPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDE21CC78F7002E55F7 /* CameraRollPresenter.swift */; };
 		D981DDE321CC86B7002E55F7 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
 		D981DDE421CC86D0002E55F7 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
 		D981DDE521CC86D0002E55F7 /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D981DDE921CCDBF5002E55F7 /* CameraRollInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDE621CCDB8A002E55F7 /* CameraRollInterface.swift */; };
+		D981DDEB21CCE09D002E55F7 /* SelectProfileImageAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDEA21CCE09C002E55F7 /* SelectProfileImageAlertSheet.swift */; };
+		D981DDEF21CCE259002E55F7 /* SelectProfileImageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDEE21CCE259002E55F7 /* SelectProfileImageInterface.swift */; };
+		D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */; };
+		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
+		D981DDF521CCEF35002E55F7 /* CameraRollWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */; };
+		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -401,8 +408,15 @@
 		D981DDD521CB258E002E55F7 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		D981DDD821CC7471002E55F7 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollViewController.swift; sourceTree = "<group>"; };
-		D981DDDE21CC78F7002E55F7 /* CameraRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollViewModel.swift; sourceTree = "<group>"; };
+		D981DDDE21CC78F7002E55F7 /* CameraRollPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollPresenter.swift; sourceTree = "<group>"; };
 		D981DDE221CC86B6002E55F7 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		D981DDE621CCDB8A002E55F7 /* CameraRollInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollInterface.swift; sourceTree = "<group>"; };
+		D981DDEA21CCE09C002E55F7 /* SelectProfileImageAlertSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageAlertSheet.swift; sourceTree = "<group>"; };
+		D981DDEE21CCE259002E55F7 /* SelectProfileImageInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageInterface.swift; sourceTree = "<group>"; };
+		D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImagePresenter.swift; sourceTree = "<group>"; };
+		D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageWireframe.swift; sourceTree = "<group>"; };
+		D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollWireframe.swift; sourceTree = "<group>"; };
+		D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
@@ -704,15 +718,16 @@
 		D91E937521A6DD9F00E93E04 /* AppUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				D981DDD721CC7466002E55F7 /* Alert */,
 				D956E47C21C3A6C5001DBFBA /* AppButton.swift */,
 				D9F11D3021BD3A20008AB472 /* AppTextField.swift */,
+				D981DDD321CB22B9002E55F7 /* Rx.swift */,
+				D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */,
+				D981DDD721CC7466002E55F7 /* Alert */,
 				D981DDCC21C72A3F002E55F7 /* CollectionView */,
 				D9F11D3221BD3F0C008AB472 /* ViewController */,
 				D91E938021A6DDB200E93E04 /* Navigation */,
 				D91E937621A6DD9F00E93E04 /* AppUIKit.h */,
 				D91E937721A6DD9F00E93E04 /* Info.plist */,
-				D981DDD321CB22B9002E55F7 /* Rx.swift */,
 			);
 			path = AppUIKit;
 			sourceTree = "<group>";
@@ -914,6 +929,7 @@
 				D92AFC8421A6A2D200FCB5FD /* FriendsList */,
 				D92AFC8D21A6A3FB00FCB5FD /* FriendProfile */,
 				D9BB611B21AE88E600CD5424 /* EditProfileInfo */,
+				D981DDEC21CCE230002E55F7 /* SelectProfileImage */,
 				D981DDDB21CC775B002E55F7 /* CamaraRoll */,
 			);
 			path = Profile;
@@ -960,10 +976,23 @@
 		D981DDDB21CC775B002E55F7 /* CamaraRoll */ = {
 			isa = PBXGroup;
 			children = (
+				D981DDE621CCDB8A002E55F7 /* CameraRollInterface.swift */,
 				D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */,
-				D981DDDE21CC78F7002E55F7 /* CameraRollViewModel.swift */,
+				D981DDDE21CC78F7002E55F7 /* CameraRollPresenter.swift */,
+				D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */,
 			);
 			path = CamaraRoll;
+			sourceTree = "<group>";
+		};
+		D981DDEC21CCE230002E55F7 /* SelectProfileImage */ = {
+			isa = PBXGroup;
+			children = (
+				D981DDEE21CCE259002E55F7 /* SelectProfileImageInterface.swift */,
+				D981DDEA21CCE09C002E55F7 /* SelectProfileImageAlertSheet.swift */,
+				D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */,
+				D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */,
+			);
+			path = SelectProfileImage;
 			sourceTree = "<group>";
 		};
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
@@ -1533,6 +1562,7 @@
 				D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */,
 				D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */,
 				D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */,
+				D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */,
 				D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */,
 				D956E47D21C3A6C5001DBFBA /* AppButton.swift in Sources */,
 			);
@@ -1543,21 +1573,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9B1919F21B4C96B00D9AD47 /* AppTabBarController.swift in Sources */,
+				D981DDEB21CCE09D002E55F7 /* SelectProfileImageAlertSheet.swift in Sources */,
 				D900BB4121A3EFE500E2E9A7 /* DetailProfileInfoWireframe.swift in Sources */,
 				D900BB3D21A3EFD300E2E9A7 /* ProfileWireframe.swift in Sources */,
 				D900BB4021A3EFE100E2E9A7 /* DetailProfileInfoPresenter.swift in Sources */,
 				D9BB612221AE896100CD5424 /* EditProfileInfoPresenter.swift in Sources */,
 				D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */,
-				D981DDDF21CC78F7002E55F7 /* CameraRollViewModel.swift in Sources */,
+				D981DDDF21CC78F7002E55F7 /* CameraRollPresenter.swift in Sources */,
 				D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */,
 				D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */,
+				D981DDF521CCEF35002E55F7 /* CameraRollWireframe.swift in Sources */,
 				D96E803B21A788A300887846 /* DetailProfileInfoCell.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
 				D900BB3E21A3EFD900E2E9A7 /* DetailProfileInfoInterface.swift in Sources */,
 				D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */,
+				D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */,
 				D925C261219F19F100B166B4 /* ChatViewController.swift in Sources */,
 				D939306921B6C71300929DA8 /* CreateNewAccountPresenter.swift in Sources */,
 				D9BB612E21AF8B9F00CD5424 /* ChatPresenter.swift in Sources */,
+				D981DDEF21CCE259002E55F7 /* SelectProfileImageInterface.swift in Sources */,
 				D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */,
 				D9D1B16721A6FB9100FE3829 /* DetailProfileInfoDataSource.swift in Sources */,
 				D925C260219F19ED00B166B4 /* MapViewController.swift in Sources */,
@@ -1575,12 +1609,14 @@
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
 				D981DDDD21CC778F002E55F7 /* CameraRollViewController.swift in Sources */,
 				D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */,
+				D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */,
 				D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */,
 				D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */,
 				D939306721B6C70B00929DA8 /* CreateNewAccountViewController.swift in Sources */,
 				D900BB3F21A3EFDE00E2E9A7 /* DetailProfileInfoViewController.swift in Sources */,
 				D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */,
 				D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */,
+				D981DDE921CCDBF5002E55F7 /* CameraRollInterface.swift in Sources */,
 				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* EditProfileInfoInterface.swift in Sources */,

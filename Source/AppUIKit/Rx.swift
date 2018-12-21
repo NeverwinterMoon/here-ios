@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-public extension Reactive where Base: UIViewController {
+extension Reactive where Base: UIViewController {
     
     public var viewDidLoad: ControlEvent<Void> {
         return ControlEvent(events: sentMessage(#selector(base.viewDidLoad)).map { _ in })

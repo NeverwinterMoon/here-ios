@@ -10,14 +10,20 @@ import Foundation
 import UIKit
 import RxSwift
 
-public struct ActionSheetAction<Type: Equatable> {
+public struct ActionSheetItem<Type: Equatable> {
+    
+    public init(title: String, actionType: Type, style: UIAlertAction.Style) {
+        self.title = title
+        self.actionType = actionType
+        self.style = style
+    }
     public let title: String
     public let actionType: Type
     public let style: UIAlertAction.Style
 }
 
-public extension UIViewController {
-   public func showActionSheet<Type>(title: String?, message: String? = nil, cancelMessage: String = "キャンセル", actions: [ActionSheetAction<Type>]) -> Observable<Type> {
+extension UIViewController {
+   public func showActionSheet<Type>(title: String?, message: String? = nil, cancelMessage: String = "キャンセル", actions: [ActionSheetItem<Type>]) -> Observable<Type> {
         let actionSheet = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         return actionSheet.addAction(actions: actions, cancelMessage: cancelMessage, cancelAction: nil)
             .do(onSubscribed: { [weak self] in
@@ -26,8 +32,8 @@ public extension UIViewController {
     }
 }
 
-public extension UIAlertController {
-    public func addAction<Type>(actions: [ActionSheetAction<Type>], cancelMessage: String, cancelAction: ((UIAlertAction) -> Void)? = nil) -> Observable<Type> {
+extension UIAlertController {
+    public func addAction<Type>(actions: [ActionSheetItem<Type>], cancelMessage: String, cancelAction: ((UIAlertAction) -> Void)? = nil) -> Observable<Type> {
         
         return Observable.create { [weak self] observer in
             actions.map { action in

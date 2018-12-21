@@ -50,7 +50,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.presenter.username
             .drive(onNext: {
-                self.title = "@\($0)"
+                self.title = $0
             })
             .disposed(by: self.disposeBag)
 

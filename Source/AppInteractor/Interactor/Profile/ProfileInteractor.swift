@@ -33,21 +33,7 @@ public final class ProfileInteractor {
     public func user(userId: String) {
         return API.User.Get(userId: userId).asSingle().flatMap { user -> Single<Void> in
             
-            let sharedRealm = SharedDBManager.shared()
-            guard let account = sharedRealm.objects(Account.self).filter("isDefaultAccount == true").first else {
-                assertionFailure("there should be at least one account in sharedRealm")
-                return Single.just(())
-            }
-            
-            try sharedRealm.write {
-                // NEXT: Account -> User
-                account.setValue(user.username, forKeyPath: "username")
-                account.setValue(user.userDisplayName, forKeyPath: "userDisplayName")
-                account.setValue(user.email, forKeyPath: "email")
-                account.setValue(user.selfIntroduction, forKeyPath: "selfIntroduction")
-            }
-            
-            return SharedDBManager.activatedAccountRealm().map { realm  in
+            SharedDBManager.activatedAccountRealm().map { realm  in
                 guard let realm = realm else {
                     return
                 }

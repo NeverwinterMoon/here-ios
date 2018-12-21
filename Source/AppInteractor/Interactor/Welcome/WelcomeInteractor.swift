@@ -49,10 +49,6 @@ public final class WelcomeInteractor {
         let account = Account()
         account.do {
             $0.id = user.id
-            $0.email = user.email
-            $0.username = user.username
-            $0.userDisplayName = user.userDisplayName
-            $0.selfIntroduction = user.selfIntroduction
             $0.isDefaultAccount = true
         }
         

@@ -32,7 +32,7 @@ final class DetailProfileInfoCell: UICollectionViewCell {
         
         self.titleLabel.do {
             
-            $0.font = UIFont.systemFont(ofSize: 20)
+            $0.font = UIFont.systemFont(ofSize: 15)
             $0.numberOfLines = 1
 //            $0.addGestureRecognizer(self.bodyLabelTouchRecognizer)
             $0.textAlignment = .center

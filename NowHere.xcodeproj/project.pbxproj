@@ -105,7 +105,7 @@
 		D968C86321AE2E800063E335 /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D968C84821AE2D840063E335 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D968C86821AE2E800063E335 /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D978364521AB8E19002D52E4 /* RxOptional.framework */; };
 		D968C86921AE2E800063E335 /* RxOptional.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D978364521AB8E19002D52E4 /* RxOptional.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D968C86A21AE2E800063E335 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
+		D968C86A21AE2E800063E335 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D968C86B21AE2E800063E335 /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D968C86C21AE2E800063E335 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B54F21A6387F001ECA7F /* Moya.framework */; };
 		D968C86D21AE2E800063E335 /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D908B54F21A6387F001ECA7F /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -135,6 +135,12 @@
 		D981DDD021C73F34002E55F7 /* EditProfileInfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDCF21C73F34002E55F7 /* EditProfileInfoWireframe.swift */; };
 		D981DDD421CB22B9002E55F7 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD321CB22B9002E55F7 /* Rx.swift */; };
 		D981DDD621CB258E002E55F7 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD521CB258E002E55F7 /* Interface.swift */; };
+		D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD821CC7471002E55F7 /* AlertController.swift */; };
+		D981DDDD21CC778F002E55F7 /* CameraRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */; };
+		D981DDDF21CC78F7002E55F7 /* CameraRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDE21CC78F7002E55F7 /* CameraRollViewModel.swift */; };
+		D981DDE321CC86B7002E55F7 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
+		D981DDE421CC86D0002E55F7 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
+		D981DDE521CC86D0002E55F7 /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -157,7 +163,7 @@
 		D9BB613921AFA32800CD5424 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613821AFA32800CD5424 /* Me.swift */; };
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
 		D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
-		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; };
+		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D9D1B16721A6FB9100FE3829 /* DetailProfileInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* DetailProfileInfoDataSource.swift */; };
 		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
 		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
@@ -271,6 +277,7 @@
 				D968C85B21AE2E800063E335 /* Nuke.framework in Embed Frameworks */,
 				D968C86921AE2E800063E335 /* RxOptional.framework in Embed Frameworks */,
 				D95FED9021B43801007CEFD6 /* RxRealm.framework in Embed Frameworks */,
+				D981DDE521CC86D0002E55F7 /* Differentiator.framework in Embed Frameworks */,
 				D968C86B21AE2E800063E335 /* RxDataSources.framework in Embed Frameworks */,
 				D968C86D21AE2E800063E335 /* Moya.framework in Embed Frameworks */,
 				D968C85F21AE2E800063E335 /* ReactiveSwift.framework in Embed Frameworks */,
@@ -392,6 +399,10 @@
 		D981DDCF21C73F34002E55F7 /* EditProfileInfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoWireframe.swift; sourceTree = "<group>"; };
 		D981DDD321CB22B9002E55F7 /* Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx.swift; sourceTree = "<group>"; };
 		D981DDD521CB258E002E55F7 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		D981DDD821CC7471002E55F7 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollViewController.swift; sourceTree = "<group>"; };
+		D981DDDE21CC78F7002E55F7 /* CameraRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollViewModel.swift; sourceTree = "<group>"; };
+		D981DDE221CC86B6002E55F7 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
@@ -419,11 +430,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D981DDE321CC86B7002E55F7 /* Differentiator.framework in Frameworks */,
 				D968C85721AE2E2E0063E335 /* RxSwift.framework in Frameworks */,
 				D968C86821AE2E800063E335 /* RxOptional.framework in Frameworks */,
 				D968C83621AE2BDA0063E335 /* AppExtensions.framework in Frameworks */,
 				D968C83521AE2BD10063E335 /* AppUIKit.framework in Frameworks */,
 				D968C83421AE2BCC0063E335 /* AppExtensions.framework in Frameworks */,
+				D981DDE421CC86D0002E55F7 /* Differentiator.framework in Frameworks */,
 				D968C85C21AE2E800063E335 /* ReactiveMoya.framework in Frameworks */,
 				D968C86E21AE2E800063E335 /* RealmSwift.framework in Frameworks */,
 				D968C87621AE2E940063E335 /* Alamofire.framework in Frameworks */,
@@ -691,6 +704,7 @@
 		D91E937521A6DD9F00E93E04 /* AppUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				D981DDD721CC7466002E55F7 /* Alert */,
 				D956E47C21C3A6C5001DBFBA /* AppButton.swift */,
 				D9F11D3021BD3A20008AB472 /* AppTextField.swift */,
 				D981DDCC21C72A3F002E55F7 /* CollectionView */,
@@ -900,6 +914,7 @@
 				D92AFC8421A6A2D200FCB5FD /* FriendsList */,
 				D92AFC8D21A6A3FB00FCB5FD /* FriendProfile */,
 				D9BB611B21AE88E600CD5424 /* EditProfileInfo */,
+				D981DDDB21CC775B002E55F7 /* CamaraRoll */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -934,9 +949,27 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		D981DDD721CC7466002E55F7 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				D981DDD821CC7471002E55F7 /* AlertController.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		D981DDDB21CC775B002E55F7 /* CamaraRoll */ = {
+			isa = PBXGroup;
+			children = (
+				D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */,
+				D981DDDE21CC78F7002E55F7 /* CameraRollViewModel.swift */,
+			);
+			path = CamaraRoll;
+			sourceTree = "<group>";
+		};
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D981DDE221CC86B6002E55F7 /* Differentiator.framework */,
 				D9AE260121C3399300B74CFC /* SwiftDate.framework */,
 				D95FED8D21B437F3007CEFD6 /* RxRealm.framework */,
 				D968C84C21AE2D840063E335 /* Nuke.framework */,
@@ -1499,6 +1532,7 @@
 				D981DDD421CB22B9002E55F7 /* Rx.swift in Sources */,
 				D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */,
 				D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */,
+				D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */,
 				D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */,
 				D956E47D21C3A6C5001DBFBA /* AppButton.swift in Sources */,
 			);
@@ -1514,6 +1548,7 @@
 				D900BB4021A3EFE100E2E9A7 /* DetailProfileInfoPresenter.swift in Sources */,
 				D9BB612221AE896100CD5424 /* EditProfileInfoPresenter.swift in Sources */,
 				D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */,
+				D981DDDF21CC78F7002E55F7 /* CameraRollViewModel.swift in Sources */,
 				D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */,
 				D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */,
 				D96E803B21A788A300887846 /* DetailProfileInfoCell.swift in Sources */,
@@ -1538,6 +1573,7 @@
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
 				D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */,
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
+				D981DDDD21CC778F002E55F7 /* CameraRollViewController.swift in Sources */,
 				D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */,
 				D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */,
 				D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */,

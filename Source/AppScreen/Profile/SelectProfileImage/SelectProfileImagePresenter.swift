@@ -13,8 +13,10 @@ import RxSwift
 
 final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface {
 
-    let selectedImage = BehaviorRelay<UIImage?>.init(value: nil)
+    let selectedImageRelay = BehaviorRelay<UIImage?>.init(value: nil)
     
+    // TODO: bind image to selectedImageRelay and update the image with API.User.Update (save to google cloud platform with url)
+    //       also, save it to local realm (do this part first, and GCP things would be done afterwards)
     func launchImagePicker(type: UIImagePickerController.SourceType, navigationController: UINavigationController) {
         
         UIImagePickerController.rx.createWithParent(navigationController) { picker in
@@ -28,7 +30,7 @@ final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface {
             .map { info in
                 info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             }
-            .bind(to: self.selectedImage)
+            .bind(to: self.selectedImageRelay)
             .disposed(by: self.disposeBag)
     }
     

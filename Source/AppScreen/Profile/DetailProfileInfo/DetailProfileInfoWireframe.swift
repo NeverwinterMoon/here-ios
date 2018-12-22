@@ -28,6 +28,7 @@ final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframe
                 style: .default
             )
         ]
+        
         let presenter = SelectProfileImagePresenter()
         
         self.navigationController

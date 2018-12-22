@@ -13,6 +13,7 @@ protocol SelectProfileImageViewInterface: class {
 }
 
 protocol SelectProfileImagePresenterInterface: class {
+    var selectedImageRelay: BehaviorRelay<UIImage?> { get }
 }
 
 protocol SelectProfileImageWireframeInterface {

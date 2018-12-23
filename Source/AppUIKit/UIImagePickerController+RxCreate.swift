@@ -18,10 +18,9 @@ extension Reactive where Base: UIImagePickerController {
     public var didFinishPickingMediaWithInfo: Observable<[UIImagePickerController.InfoKey : AnyObject]> {
         return delegate
             .methodInvoked(#selector(UIImagePickerControllerDelegate.imagePickerController(_:didFinishPickingMediaWithInfo:)))
-            .map({ (a) in
-//                return try castOrThrow(Dictionary<String, AnyObject>.self, a[1])
-                return try castOrThrow(Dictionary<UIImagePickerController.InfoKey, AnyObject>.self, a[1])
-            })
+            .map {
+                return try castOrThrow(Dictionary<UIImagePickerController.InfoKey, AnyObject>.self, $0[1])
+            }
     }
     
     /**
@@ -54,17 +53,19 @@ func dismissViewController(_ viewController: UIViewController, animated: Bool) {
 extension Reactive where Base: UIImagePickerController {
     
     public static func createWithParent(_ parent: UIViewController?, animated: Bool = true, configureImagePicker: @escaping (UIImagePickerController) throws -> () = { x in }) -> Observable<UIImagePickerController> {
+//    public func createWithParent(_ parent: UIViewController?, animated: Bool = true, configureImagePicker: @escaping (UIImagePickerController) throws -> () = { x in }) -> Observable<UIImagePickerController> {
         
         return Observable.create { [weak parent] observer in
+            
             let imagePicker = UIImagePickerController()
             let dismissDisposable = imagePicker.rx
-                .didCancel
-                .subscribe(onNext: { [weak imagePicker] _ in
-                    guard let imagePicker = imagePicker else {
-                        return
-                    }
-                    dismissViewController(imagePicker, animated: animated)
-                })
+                    .didCancel
+                    .subscribe(onNext: { [weak imagePicker] _ in
+                        guard let imagePicker = imagePicker else {
+                            return
+                        }
+                        dismissViewController(imagePicker, animated: animated)
+                    })
             
             do {
                 try configureImagePicker(imagePicker)

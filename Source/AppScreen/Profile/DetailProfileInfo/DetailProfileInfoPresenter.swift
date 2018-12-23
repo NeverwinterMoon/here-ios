@@ -69,9 +69,8 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             })
             .disposed(by: self.disposeBag)
         
-        view.tapChangeProfileImage
-            .asObservable()
-            .subscribe(onNext: { [unowned self] _ in
+        self.view.tapChangeProfileImage
+            .emit(onNext: { [unowned self] in
                 self.wireframe.showChangeProfileImageActionSheet()
             })
             .disposed(by: self.disposeBag)

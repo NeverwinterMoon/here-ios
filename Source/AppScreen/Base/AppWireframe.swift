@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import AppUIKit
+import AppExtensions
 
 enum Transition {
     case push
@@ -16,8 +18,8 @@ enum Transition {
 
 class AppWireframe: WireframeInterface {
     
-//    unowned let navigationController: UINavigationController
-    let navigationController: UINavigationController
+    unowned let navigationController: UINavigationController
+//    let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

@@ -7,33 +7,61 @@
 //
 
 import Foundation
+import AppExtensions
+import AppInteractor
 import AppUIKit
 import RxCocoa
+import RxMediaPicker
 import RxSwift
+import RxOptional
 
-final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface {
+final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface, RxMediaPickerDelegate {
+    
+    // RxMediaPickerDelegate
+    func present(picker: UIImagePickerController) {
+        self.wireframe.presentPicker(picker)
+    }
+    
+    func dismiss(picker: UIImagePickerController) {
+        self.wireframe.dismissPicker()
+    }
 
     let selectedImageRelay = BehaviorRelay<UIImage?>.init(value: nil)
     
-    // NEXT: bind image to selectedImageRelay and update the image with API.User.Update (save to google cloud platform with url)
-    //       also, save it to local realm (do this part first, and GCP things would be done afterwards)
-    func launchImagePicker(type: UIImagePickerController.SourceType, navigationController: UINavigationController) {
+    init(view: SelectProfileImageViewInterface, interactor: SelectProfileImageInteractorInterface, wireframe: SelectProfileImageWireframeInterface) {
         
-        UIImagePickerController.rx.createWithParent(navigationController) { picker in
-            picker.sourceType = type
-            picker.allowsEditing = true
-            }
-            .flatMap {
-                $0.rx.didFinishPickingMediaWithInfo
-            }
-            .take(1)
-            .map { info in
-                info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            }
+        self.view = view
+        self.interactor = interactor
+        self.wireframe = wireframe
+        
+        self.picker = RxMediaPicker(delegate: self)
+        
+        self.view.notifier
+            .emit(onNext: {
+                self.pickImage()
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.selectedImageRelay
+            .filterNil()
+            .subscribe(onNext: {
+                self.wireframe.showSelectedImage($0)
+            })
+            .disposed(by: self.disposeBag)
+    }
+
+    // MARK: - Private
+    private let view: SelectProfileImageViewInterface
+    private let interactor: SelectProfileImageInteractorInterface
+    private let wireframe: SelectProfileImageWireframeInterface
+    private let disposeBag = DisposeBag()
+    private var picker: RxMediaPicker!
+    
+    private func pickImage() {
+        self.picker.selectImage(source: .savedPhotosAlbum)
+            .map { $0.0 }
+            .debug("ddd")
             .bind(to: self.selectedImageRelay)
             .disposed(by: self.disposeBag)
     }
-    
-    // MARK: - Private
-    private let disposeBag = DisposeBag()
 }

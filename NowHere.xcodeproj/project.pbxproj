@@ -146,17 +146,13 @@
 		D981DDD421CB22B9002E55F7 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD321CB22B9002E55F7 /* Rx.swift */; };
 		D981DDD621CB258E002E55F7 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD521CB258E002E55F7 /* Interface.swift */; };
 		D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDD821CC7471002E55F7 /* AlertController.swift */; };
-		D981DDDD21CC778F002E55F7 /* CameraRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */; };
-		D981DDDF21CC78F7002E55F7 /* CameraRollPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDDE21CC78F7002E55F7 /* CameraRollPresenter.swift */; };
 		D981DDE321CC86B7002E55F7 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
 		D981DDE421CC86D0002E55F7 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
 		D981DDE521CC86D0002E55F7 /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D981DDE921CCDBF5002E55F7 /* CameraRollInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDE621CCDB8A002E55F7 /* CameraRollInterface.swift */; };
-		D981DDEB21CCE09D002E55F7 /* SelectProfileImageAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDEA21CCE09C002E55F7 /* SelectProfileImageAlertSheet.swift */; };
+		D981DDEB21CCE09D002E55F7 /* SelectProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDEA21CCE09C002E55F7 /* SelectProfileImageViewController.swift */; };
 		D981DDEF21CCE259002E55F7 /* SelectProfileImageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDEE21CCE259002E55F7 /* SelectProfileImageInterface.swift */; };
 		D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */; };
 		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
-		D981DDF521CCEF35002E55F7 /* CameraRollWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */; };
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
 		D989B4E221CF2317000F1DFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
@@ -183,6 +179,14 @@
 		D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D9D1B16721A6FB9100FE3829 /* DetailProfileInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* DetailProfileInfoDataSource.swift */; };
+		D9D74D8121CFA55300141FC7 /* RxMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */; };
+		D9D74D8221CFA56E00141FC7 /* RxMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */; };
+		D9D74D8321CFA58600141FC7 /* RxMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */; };
+		D9D74D8421CFA58600141FC7 /* RxMediaPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9D74D9321CFE74E00141FC7 /* SelectedImageConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9221CFE74E00141FC7 /* SelectedImageConfirmViewController.swift */; };
+		D9D74D9521CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9421CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift */; };
+		D9D74D9721CFE79900141FC7 /* SelectedImageConfirmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9621CFE79900141FC7 /* SelectedImageConfirmInterface.swift */; };
+		D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */; };
 		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
 		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
 		D9F70F8D21C085FB0071A36E /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
@@ -300,6 +304,7 @@
 				D95FED9021B43801007CEFD6 /* RxRealm.framework in Embed Frameworks */,
 				D981DDE521CC86D0002E55F7 /* Differentiator.framework in Embed Frameworks */,
 				D968C86B21AE2E800063E335 /* RxDataSources.framework in Embed Frameworks */,
+				D9D74D8421CFA58600141FC7 /* RxMediaPicker.framework in Embed Frameworks */,
 				D968C86D21AE2E800063E335 /* Moya.framework in Embed Frameworks */,
 				D968C85F21AE2E800063E335 /* ReactiveSwift.framework in Embed Frameworks */,
 				D925C257219F19DD00B166B4 /* AppScreen.framework in Embed Frameworks */,
@@ -455,15 +460,11 @@
 		D981DDD321CB22B9002E55F7 /* Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx.swift; sourceTree = "<group>"; };
 		D981DDD521CB258E002E55F7 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		D981DDD821CC7471002E55F7 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollViewController.swift; sourceTree = "<group>"; };
-		D981DDDE21CC78F7002E55F7 /* CameraRollPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollPresenter.swift; sourceTree = "<group>"; };
 		D981DDE221CC86B6002E55F7 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
-		D981DDE621CCDB8A002E55F7 /* CameraRollInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollInterface.swift; sourceTree = "<group>"; };
-		D981DDEA21CCE09C002E55F7 /* SelectProfileImageAlertSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageAlertSheet.swift; sourceTree = "<group>"; };
+		D981DDEA21CCE09C002E55F7 /* SelectProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageViewController.swift; sourceTree = "<group>"; };
 		D981DDEE21CCE259002E55F7 /* SelectProfileImageInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageInterface.swift; sourceTree = "<group>"; };
 		D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImagePresenter.swift; sourceTree = "<group>"; };
 		D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageWireframe.swift; sourceTree = "<group>"; };
-		D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollWireframe.swift; sourceTree = "<group>"; };
 		D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
 		D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -484,6 +485,11 @@
 		D9BB613821AFA32800CD5424 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* DetailProfileInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProfileInfoDataSource.swift; sourceTree = "<group>"; };
+		D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMediaPicker.framework; path = Carthage/Build/iOS/RxMediaPicker.framework; sourceTree = "<group>"; };
+		D9D74D9221CFE74E00141FC7 /* SelectedImageConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmViewController.swift; sourceTree = "<group>"; };
+		D9D74D9421CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmPresenter.swift; sourceTree = "<group>"; };
+		D9D74D9621CFE79900141FC7 /* SelectedImageConfirmInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmInterface.swift; sourceTree = "<group>"; };
+		D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmWireframe.swift; sourceTree = "<group>"; };
 		D9F11D3021BD3A20008AB472 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		D9F11D3321BD3F27008AB472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5AF598A12A570F0356243C1 /* Pods-NowHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowHereTests.debug.xcconfig"; path = "Target Support Files/Pods-NowHereTests/Pods-NowHereTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -496,10 +502,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D74D8221CFA56E00141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D916268021CE1F1600113666 /* GTMSessionFetcher.framework in Frameworks */,
 				D981DDE321CC86B7002E55F7 /* Differentiator.framework in Frameworks */,
 				D968C85721AE2E2E0063E335 /* RxSwift.framework in Frameworks */,
 				D968C86821AE2E800063E335 /* RxOptional.framework in Frameworks */,
+				D9D74D8321CFA58600141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D968C83621AE2BDA0063E335 /* AppExtensions.framework in Frameworks */,
 				D968C83521AE2BD10063E335 /* AppUIKit.framework in Frameworks */,
 				D968C83421AE2BCC0063E335 /* AppExtensions.framework in Frameworks */,
@@ -600,6 +608,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D74D8121CFA55300141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D95FED8E21B437F3007CEFD6 /* RxRealm.framework in Frameworks */,
 				D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */,
 				D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */,
@@ -1034,7 +1043,7 @@
 				D92AFC8D21A6A3FB00FCB5FD /* FriendProfile */,
 				D9BB611B21AE88E600CD5424 /* EditProfileInfo */,
 				D981DDEC21CCE230002E55F7 /* SelectProfileImage */,
-				D981DDDB21CC775B002E55F7 /* CamaraRoll */,
+				D9D74D9121CFE71300141FC7 /* SelectedImageConfirm */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1077,22 +1086,11 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		D981DDDB21CC775B002E55F7 /* CamaraRoll */ = {
-			isa = PBXGroup;
-			children = (
-				D981DDE621CCDB8A002E55F7 /* CameraRollInterface.swift */,
-				D981DDDC21CC778F002E55F7 /* CameraRollViewController.swift */,
-				D981DDDE21CC78F7002E55F7 /* CameraRollPresenter.swift */,
-				D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */,
-			);
-			path = CamaraRoll;
-			sourceTree = "<group>";
-		};
 		D981DDEC21CCE230002E55F7 /* SelectProfileImage */ = {
 			isa = PBXGroup;
 			children = (
 				D981DDEE21CCE259002E55F7 /* SelectProfileImageInterface.swift */,
-				D981DDEA21CCE09C002E55F7 /* SelectProfileImageAlertSheet.swift */,
+				D981DDEA21CCE09C002E55F7 /* SelectProfileImageViewController.swift */,
 				D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */,
 				D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */,
 			);
@@ -1102,6 +1100,7 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */,
 				D916268621CF1DA700113666 /* FirebaseCore.framework */,
 				D916268121CE1FD300113666 /* GTMSessionFetcher.framework */,
 				D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */,
@@ -1168,6 +1167,17 @@
 				D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		D9D74D9121CFE71300141FC7 /* SelectedImageConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				D9D74D9621CFE79900141FC7 /* SelectedImageConfirmInterface.swift */,
+				D9D74D9221CFE74E00141FC7 /* SelectedImageConfirmViewController.swift */,
+				D9D74D9421CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift */,
+				D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */,
+			);
+			path = SelectedImageConfirm;
 			sourceTree = "<group>";
 		};
 		D9F11D3221BD3F0C008AB472 /* ViewController */ = {
@@ -1976,19 +1986,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9B1919F21B4C96B00D9AD47 /* AppTabBarController.swift in Sources */,
-				D981DDEB21CCE09D002E55F7 /* SelectProfileImageAlertSheet.swift in Sources */,
+				D981DDEB21CCE09D002E55F7 /* SelectProfileImageViewController.swift in Sources */,
 				D900BB4121A3EFE500E2E9A7 /* DetailProfileInfoWireframe.swift in Sources */,
+				D9D74D9321CFE74E00141FC7 /* SelectedImageConfirmViewController.swift in Sources */,
 				D900BB3D21A3EFD300E2E9A7 /* ProfileWireframe.swift in Sources */,
 				D900BB4021A3EFE100E2E9A7 /* DetailProfileInfoPresenter.swift in Sources */,
 				D9BB612221AE896100CD5424 /* EditProfileInfoPresenter.swift in Sources */,
 				D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */,
-				D981DDDF21CC78F7002E55F7 /* CameraRollPresenter.swift in Sources */,
 				D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */,
 				D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */,
-				D981DDF521CCEF35002E55F7 /* CameraRollWireframe.swift in Sources */,
 				D96E803B21A788A300887846 /* DetailProfileInfoCell.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
 				D900BB3E21A3EFD900E2E9A7 /* DetailProfileInfoInterface.swift in Sources */,
+				D9D74D9721CFE79900141FC7 /* SelectedImageConfirmInterface.swift in Sources */,
 				D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */,
 				D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */,
 				D925C261219F19F100B166B4 /* ChatViewController.swift in Sources */,
@@ -2004,13 +2014,13 @@
 				D9BB612621AF81E300CD5424 /* MapPresenter.swift in Sources */,
 				D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */,
 				D95FED8B21B3DD23007CEFD6 /* RootWireframe.swift in Sources */,
+				D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */,
 				D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */,
 				D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */,
 				D981DDD021C73F34002E55F7 /* EditProfileInfoWireframe.swift in Sources */,
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
 				D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */,
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
-				D981DDDD21CC778F002E55F7 /* CameraRollViewController.swift in Sources */,
 				D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */,
 				D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */,
 				D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */,
@@ -2019,10 +2029,10 @@
 				D900BB3F21A3EFDE00E2E9A7 /* DetailProfileInfoViewController.swift in Sources */,
 				D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */,
 				D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */,
-				D981DDE921CCDBF5002E55F7 /* CameraRollInterface.swift in Sources */,
 				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* EditProfileInfoInterface.swift in Sources */,
+				D9D74D9521CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift in Sources */,
 				D9BB613221AF8BBD00CD5424 /* ChatWireframe.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* EditProfileInfoViewController.swift in Sources */,

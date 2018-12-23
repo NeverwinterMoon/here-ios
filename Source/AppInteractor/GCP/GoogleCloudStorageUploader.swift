@@ -14,8 +14,9 @@ final public class GoogleCloudStorageUploader {
     static let storage = Storage.storage()
     static let storageRef = storage.reference()
     
-    public func uploadFile(_ data: Data, filePath: String) {
+    public static func uploadFile(_ data: Data, filePath: String) {
         
+        print("て \(storageRef)")
         GoogleCloudStorageUploader.storageRef.child(filePath).putData(data, metadata: nil, completion: nil)
     }
 }

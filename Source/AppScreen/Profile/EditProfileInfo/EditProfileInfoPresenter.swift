@@ -36,9 +36,9 @@ final class EditProfileInfoPresenter: EditProfileInfoPresenterInterface {
         self.view.tapSaveProfileInfo
             .asObservable()
             .flatMap { [unowned self] newInfo -> Single<Void> in
-                self.interactor.updateProfileInfo(params: [infoType.paramsKey: newInfo])
+                self.interactor.updateProfile(params: [infoType.paramsKey: newInfo])
             }
-            .subscribe(onNext: {
+            .subscribe(onNext: { [unowned self] in
                 self.wireframe.popBackToDetailProfileInfo()
             })
             .disposed(by: self.disposeBag)

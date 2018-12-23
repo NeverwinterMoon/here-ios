@@ -53,7 +53,7 @@ public final class ProfileInteractor {
             }
     }
     
-    public func updateProfileInfo(params: [String: Any]) -> Single<Void> {
+    public func updateProfile(params: [String: Any]) -> Single<Void> {
         
         return SharedDBManager.activatedAccountRealm()
             .flatMap { realm in

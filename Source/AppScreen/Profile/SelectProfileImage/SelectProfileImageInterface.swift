@@ -7,14 +7,26 @@
 //
 
 import Foundation
+import AppInteractor
 import RxCocoa
+import RxSwift
 
 protocol SelectProfileImageViewInterface: class {
+    var notifier: Signal<Void> { get }
 }
+
+protocol SelectProfileImageInteractorInterface: class {
+    func updateProfile(params: [String: Any]) -> Single<Void>
+}
+
+extension ProfileInteractor: SelectProfileImageInteractorInterface {}
 
 protocol SelectProfileImagePresenterInterface: class {
     var selectedImageRelay: BehaviorRelay<UIImage?> { get }
 }
 
 protocol SelectProfileImageWireframeInterface {
+    func presentPicker(_ picker: UIImagePickerController)
+    func dismissPicker()
+    func showSelectedImage(_ image: UIImage)
 }

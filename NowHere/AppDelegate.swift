@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // https://firebase.google.com/docs/storage/ios/start
         FirebaseApp.configure()
-        
+
         let wireframe = RootWireframe.shared
         self.rootPresenter = RootPresenter(wireframe: wireframe, interactor: RootInteractor.shared)
         self.window = wireframe.window

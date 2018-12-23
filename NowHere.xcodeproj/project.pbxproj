@@ -44,6 +44,7 @@
 		D908B55621A6436D001ECA7F /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55521A6436D001ECA7F /* API+User.swift */; };
 		D908B55821A64388001ECA7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55721A64388001ECA7F /* API.swift */; };
 		D916268021CE1F1600113666 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */; };
+		D916268521CE223A00113666 /* GoogleCloudStorageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916268421CE223A00113666 /* GoogleCloudStorageUploader.swift */; };
 		D9189E3B21BDFE1D0034C0AF /* NetworkPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */; };
 		D91E936121A6DC6300E93E04 /* AppExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E935F21A6DC6300E93E04 /* AppExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E935421A6DA4200E93E04 /* Then.swift */; };
@@ -157,6 +158,7 @@
 		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
 		D981DDF521CCEF35002E55F7 /* CameraRollWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */; };
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
+		D989B4E221CF2317000F1DFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -383,6 +385,8 @@
 		D908B55721A64388001ECA7F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D916268121CE1FD300113666 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D916268421CE223A00113666 /* GoogleCloudStorageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCloudStorageUploader.swift; sourceTree = "<group>"; };
+		D916268621CF1DA700113666 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlugins.swift; sourceTree = "<group>"; };
 		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
 		D91E935421A6DA4200E93E04 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -461,6 +465,7 @@
 		D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageWireframe.swift; sourceTree = "<group>"; };
 		D981DDF421CCEF35002E55F7 /* CameraRollWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollWireframe.swift; sourceTree = "<group>"; };
 		D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
+		D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
@@ -721,6 +726,7 @@
 				D9061BCF219F0F0900A9A7CA /* Assets.xcassets */,
 				D9061BD1219F0F0900A9A7CA /* LaunchScreen.storyboard */,
 				D9061BD4219F0F0900A9A7CA /* Info.plist */,
+				D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */,
 			);
 			path = NowHere;
 			sourceTree = "<group>";
@@ -764,6 +770,7 @@
 			isa = PBXGroup;
 			children = (
 				D978363E21AADD99002D52E4 /* Base */,
+				D916268321CE221700113666 /* GCP */,
 				D908B54921A63651001ECA7F /* Interactor */,
 				D908B53621A57FD0001ECA7F /* AppInteractor.h */,
 				D908B53721A57FD0001ECA7F /* Info.plist */,
@@ -791,6 +798,14 @@
 				D908B54A21A63668001ECA7F /* ProfileInteractor.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D916268321CE221700113666 /* GCP */ = {
+			isa = PBXGroup;
+			children = (
+				D916268421CE223A00113666 /* GoogleCloudStorageUploader.swift */,
+			);
+			path = GCP;
 			sourceTree = "<group>";
 		};
 		D91E935E21A6DC6300E93E04 /* AppExtensions */ = {
@@ -1087,6 +1102,7 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D916268621CF1DA700113666 /* FirebaseCore.framework */,
 				D916268121CE1FD300113666 /* GTMSessionFetcher.framework */,
 				D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */,
 				D981DDE221CC86B6002E55F7 /* Differentiator.framework */,
@@ -1520,6 +1536,7 @@
 			files = (
 				D9061BD3219F0F0900A9A7CA /* LaunchScreen.storyboard in Resources */,
 				D9061BD0219F0F0900A9A7CA /* Assets.xcassets in Resources */,
+				D989B4E221CF2317000F1DFF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1759,17 +1776,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NowHere/Pods-NowHere-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1923,6 +1940,7 @@
 				D92A41CD21B13143003ABE8A /* RootInteractor.swift in Sources */,
 				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
 				D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */,
+				D916268521CE223A00113666 /* GoogleCloudStorageUploader.swift in Sources */,
 				D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */,
 				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
 			);

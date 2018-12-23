@@ -15,7 +15,7 @@ final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface {
 
     let selectedImageRelay = BehaviorRelay<UIImage?>.init(value: nil)
     
-    // TODO: bind image to selectedImageRelay and update the image with API.User.Update (save to google cloud platform with url)
+    // NEXT: bind image to selectedImageRelay and update the image with API.User.Update (save to google cloud platform with url)
     //       also, save it to local realm (do this part first, and GCP things would be done afterwards)
     func launchImagePicker(type: UIImagePickerController.SourceType, navigationController: UINavigationController) {
         

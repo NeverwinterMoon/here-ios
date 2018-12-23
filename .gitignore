@@ -30,4 +30,6 @@ fastlane/.env
 .ruby-version
 .bundle/config
 
+# Google info
+GoogleService-Info.plist
 

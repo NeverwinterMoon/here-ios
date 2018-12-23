@@ -25,11 +25,11 @@ extension AppTargetType {
     public var baseURL: URL {
         
         #if STAGE
-            return URL(string: "https://here-drip-staging.herokuapp.com")!
+            return URL(string: ProcessInfo.processInfo.environment["server_staging_url"]!)!
         #else
         // TODO
 //            return URL(string: "PRODUCTION_URL")!
-            return URL(string: "https://here-drip-staging.herokuapp.com")!
+            return URL(string: ProcessInfo.processInfo.environment["server_staging_url"]!)!
         #endif
     }
     

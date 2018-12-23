@@ -12,7 +12,7 @@
 		<key>AppEntity.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>23</integer>
+			<integer>25</integer>
 		</dict>
 		<key>AppExtensions.xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>AppExtensions.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>23</integer>
 		</dict>
 		<key>AppInteractor.xcscheme</key>
 		<dict>
@@ -32,7 +32,7 @@
 		<key>AppInteractor.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>25</integer>
+			<integer>26</integer>
 		</dict>
 		<key>AppInterface.xcscheme</key>
 		<dict>
@@ -47,7 +47,7 @@
 		<key>AppRequest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>26</integer>
+			<integer>27</integer>
 		</dict>
 		<key>AppScreen.xcscheme</key>
 		<dict>
@@ -57,7 +57,7 @@
 		<key>AppScreen.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>27</integer>
+			<integer>28</integer>
 		</dict>
 		<key>AppUIKit.xcscheme</key>
 		<dict>
@@ -82,12 +82,40 @@
 		<key>NowHere.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>0</integer>
 		</dict>
 		<key>ap copy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D9061BC2219F0F0800A9A7CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9061BD8219F0F0900A9A7CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9061BE3219F0F0900A9A7CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D908B4D221A4FB3C001ECA7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D925C248219F19DD00B166B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

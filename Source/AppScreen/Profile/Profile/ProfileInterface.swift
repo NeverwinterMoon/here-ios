@@ -15,6 +15,7 @@ import RxSwift
 protocol ProfileViewInterface: ViewInterface {
     var tapEditProfile: Signal<Void> { get }
     var tapFriends: Signal<Void> { get }
+    func update()
 }
 
 protocol ProfileInteractorInterface: class {

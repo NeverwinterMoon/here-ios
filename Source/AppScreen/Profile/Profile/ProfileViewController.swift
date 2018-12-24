@@ -48,13 +48,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         
         self.view.backgroundColor = .white
         
-        self.presenter.username
-            .asDriver()
-            .drive(onNext: { [unowned self] in
-                self.title = $0
-            })
-            .disposed(by: self.disposeBag)
-
         self.profileImageView.do {
 //            tmp
             $0.backgroundColor = .blue
@@ -63,28 +56,12 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         self.userDisplayNameLabel.do {
             $0.font = UIFont.systemFont(ofSize: 30)
             $0.textColor = .black
-            
-            self.presenter
-                .userDisplayName
-                .asDriver()
-                .drive(onNext: { [unowned self] in
-                    self.userDisplayNameLabel.text = $0
-                })
-                .disposed(by: self.disposeBag)
         }
         
         self.introLabel.do {
             
             $0.font?.withSize(14)
             $0.font = UIFont.systemFont(ofSize: 20)
-            
-            self.presenter
-                .selfIntroduction
-                .asDriver()
-                .drive(onNext: { [unowned self] in
-                    self.introLabel.text = $0
-                })
-                .disposed(by: self.disposeBag)
         }
         
         self.editProfileButton.do {
@@ -105,6 +82,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             $0.setTitle("友達", for: .normal)
             $0.backgroundColor = .blue
         }
+        
+        self.update()
 
         self.flexLayout()
     }
@@ -114,6 +93,33 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         super.viewDidLayoutSubviews()
         self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
+    }
+    
+    func update() {
+        
+        self.presenter.username
+            .drive(onNext: { [unowned self] in
+                self.title = $0
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.presenter.userDisplayName
+            .drive(onNext: { [unowned self] in
+                self.userDisplayNameLabel.text = $0
+            })
+            .disposed(by: self.disposeBag)
+        
+//        self.presenter.profileImageURL
+//            .drive(onNext: { [unowned self] in
+//
+//            })
+//            .disposed(by: self.disposeBag)
+        
+        self.presenter.selfIntroduction
+            .drive(onNext: { [unowned self] in
+                self.introLabel.text = $0
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

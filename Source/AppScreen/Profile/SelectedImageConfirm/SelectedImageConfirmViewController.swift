@@ -28,11 +28,9 @@ final class SelectedImageConfirmViewController: UIViewController, SelectedImageC
         
         self.presenter
             .selectedImage
-            .do(onNext: { [unowned self] in
+            .drive(onNext: { [unowned self] in
                 self.imageView.image = $0
             })
-            .asObservable()
-            .subscribe()
             .disposed(by: self.disposeBag)
 
         self.selectButton.do {
@@ -52,6 +50,7 @@ final class SelectedImageConfirmViewController: UIViewController, SelectedImageC
     }
     
     override func viewDidLayoutSubviews() {
+        
         super.viewDidLayoutSubviews()
         self.view.flex.marginTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()

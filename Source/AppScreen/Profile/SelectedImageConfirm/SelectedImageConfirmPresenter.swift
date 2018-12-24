@@ -26,9 +26,8 @@ final class SelectedImageConfirmPresenter: SelectedImageConfirmPresenterInterfac
             .asObservable()
             .flatMap { [unowned self] _ -> Single<Void> in
                 let filePath = UUID().uuidString.lowercased()
-                let params = ["profile_image_url": filePath]
                 self.interactor.updateProfileImage(image: selectedImage, filePath: filePath)
-                return self.interactor.updateProfile(params: params)
+                return self.interactor.updateProfile(params: ["profile_image_url": filePath])
             }
             .subscribe(onNext: { [unowned self] in
                 self.wireframe.popBack()

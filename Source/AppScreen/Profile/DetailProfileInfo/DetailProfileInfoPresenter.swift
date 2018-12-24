@@ -31,13 +31,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        // TODO: clean up these shit code
         let user: Driver<User> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
-        
-        user.asObservable()
-            .mapSections()
-            .bind(to: self.sectionsRelay)
-            .disposed(by: self.disposeBag)
         
         self.userProfileImageURL = user.map { URL(string: $0.profileImageURL ?? "") }
         

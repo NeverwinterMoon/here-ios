@@ -17,7 +17,7 @@ final class SelectProfileImageWireframe: AppWireframe, SelectProfileImageWirefra
     }
     
     func dismissPicker() {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func showSelectedImage(_ image: UIImage) {

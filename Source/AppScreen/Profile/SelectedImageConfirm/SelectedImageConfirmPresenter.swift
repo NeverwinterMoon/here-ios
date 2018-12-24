@@ -8,6 +8,7 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
 final class SelectedImageConfirmPresenter: SelectedImageConfirmPresenterInterface {
     
@@ -20,10 +21,31 @@ final class SelectedImageConfirmPresenter: SelectedImageConfirmPresenterInterfac
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        
+        self.view.tapSelect
+            .asObservable()
+            .flatMap { [unowned self] _ -> Single<Void> in
+                let filePath = UUID().uuidString.lowercased()
+                let params = ["profile_image_url": filePath]
+                self.interactor.updateProfileImage(image: selectedImage, filePath: filePath)
+                return self.interactor.updateProfile(params: params)
+            }
+            .subscribe(onNext: { [unowned self] in
+                self.wireframe.popBack()
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.view.tapCancel
+            .asObservable()
+            .subscribe(onNext: { [unowned self] in
+                self.wireframe.popBack()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
     private let view: SelectedImageConfirmViewInterface
     private let interactor: SelectedImageConfirmInteractorInterface
     private let wireframe: SelectedImageConfirmWireframeInterface
+    private let disposeBag = DisposeBag()
 }

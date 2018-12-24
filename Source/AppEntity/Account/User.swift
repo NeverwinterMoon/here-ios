@@ -20,7 +20,7 @@ public final class User: Object, Decodable {
     @objc public dynamic var selfIntroduction: String? = ""
     @objc public dynamic var createdAt: Date = .init()
     @objc public dynamic var updatedAt: Date = .init()
-    
+
     public override static func primaryKey() -> String? {
         
         return "id"

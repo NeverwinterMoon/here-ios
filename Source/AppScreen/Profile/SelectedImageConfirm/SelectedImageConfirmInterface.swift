@@ -12,6 +12,8 @@ import RxCocoa
 import RxSwift
 
 protocol SelectedImageConfirmViewInterface {
+    var tapSelect: Signal<Void> { get }
+    var tapCancel: Signal<Void> { get }
 }
 
 protocol SelectedImageConfirmPresenterInterface {
@@ -19,9 +21,13 @@ protocol SelectedImageConfirmPresenterInterface {
 }
 
 protocol SelectedImageConfirmInteractorInterface {
+    func updateProfile(params: [String: Any]) -> Single<Void>
+    func updateProfileImage(image: UIImage, filePath: String)
 }
 
 extension ProfileInteractor: SelectedImageConfirmInteractorInterface {}
 
 protocol SelectedImageConfirmWireframeInterface {
+    func selectImage()
+    func popBack()
 }

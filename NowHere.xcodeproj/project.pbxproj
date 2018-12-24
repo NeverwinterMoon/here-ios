@@ -44,7 +44,7 @@
 		D908B55621A6436D001ECA7F /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55521A6436D001ECA7F /* API+User.swift */; };
 		D908B55821A64388001ECA7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55721A64388001ECA7F /* API.swift */; };
 		D916268021CE1F1600113666 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */; };
-		D916268521CE223A00113666 /* GoogleCloudStorageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916268421CE223A00113666 /* GoogleCloudStorageUploader.swift */; };
+		D916268521CE223A00113666 /* FirebaseStorageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916268421CE223A00113666 /* FirebaseStorageUploader.swift */; };
 		D9189E3B21BDFE1D0034C0AF /* NetworkPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */; };
 		D91E936121A6DC6300E93E04 /* AppExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E935F21A6DC6300E93E04 /* AppExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E935421A6DA4200E93E04 /* Then.swift */; };
@@ -154,7 +154,6 @@
 		D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */; };
 		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
-		D989B4E221CF2317000F1DFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -187,6 +186,9 @@
 		D9D74D9521CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9421CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift */; };
 		D9D74D9721CFE79900141FC7 /* SelectedImageConfirmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9621CFE79900141FC7 /* SelectedImageConfirmInterface.swift */; };
 		D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */; };
+		D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9A21D071A700141FC7 /* ProfileImage.swift */; };
+		D9D74D9C21D0C4BB00141FC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */; };
+		D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9D21D0C4FB00141FC7 /* Configure.swift */; };
 		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
 		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
 		D9F70F8D21C085FB0071A36E /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
@@ -390,7 +392,7 @@
 		D908B55721A64388001ECA7F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D916268121CE1FD300113666 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D916268421CE223A00113666 /* GoogleCloudStorageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCloudStorageUploader.swift; sourceTree = "<group>"; };
+		D916268421CE223A00113666 /* FirebaseStorageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageUploader.swift; sourceTree = "<group>"; };
 		D916268621CF1DA700113666 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlugins.swift; sourceTree = "<group>"; };
 		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
@@ -490,6 +492,8 @@
 		D9D74D9421CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmPresenter.swift; sourceTree = "<group>"; };
 		D9D74D9621CFE79900141FC7 /* SelectedImageConfirmInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmInterface.swift; sourceTree = "<group>"; };
 		D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmWireframe.swift; sourceTree = "<group>"; };
+		D9D74D9A21D071A700141FC7 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		D9D74D9D21D0C4FB00141FC7 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		D9F11D3021BD3A20008AB472 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		D9F11D3321BD3F27008AB472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5AF598A12A570F0356243C1 /* Pods-NowHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowHereTests.debug.xcconfig"; path = "Target Support Files/Pods-NowHereTests/Pods-NowHereTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -735,7 +739,6 @@
 				D9061BCF219F0F0900A9A7CA /* Assets.xcassets */,
 				D9061BD1219F0F0900A9A7CA /* LaunchScreen.storyboard */,
 				D9061BD4219F0F0900A9A7CA /* Info.plist */,
-				D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */,
 			);
 			path = NowHere;
 			sourceTree = "<group>";
@@ -778,8 +781,9 @@
 		D908B53521A57FD0001ECA7F /* AppInteractor */ = {
 			isa = PBXGroup;
 			children = (
+				D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */,
 				D978363E21AADD99002D52E4 /* Base */,
-				D916268321CE221700113666 /* GCP */,
+				D916268321CE221700113666 /* Firebase */,
 				D908B54921A63651001ECA7F /* Interactor */,
 				D908B53621A57FD0001ECA7F /* AppInteractor.h */,
 				D908B53721A57FD0001ECA7F /* Info.plist */,
@@ -809,12 +813,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		D916268321CE221700113666 /* GCP */ = {
+		D916268321CE221700113666 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				D916268421CE223A00113666 /* GoogleCloudStorageUploader.swift */,
+				D916268421CE223A00113666 /* FirebaseStorageUploader.swift */,
+				D9D74D9D21D0C4FB00141FC7 /* Configure.swift */,
 			);
-			path = GCP;
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		D91E935E21A6DC6300E93E04 /* AppExtensions */ = {
@@ -1013,6 +1018,7 @@
 			children = (
 				D96E804E21A7A02E00887846 /* User.swift */,
 				D9BB613821AFA32800CD5424 /* Me.swift */,
+				D9D74D9A21D071A700141FC7 /* ProfileImage.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1546,7 +1552,6 @@
 			files = (
 				D9061BD3219F0F0900A9A7CA /* LaunchScreen.storyboard in Resources */,
 				D9061BD0219F0F0900A9A7CA /* Assets.xcassets in Resources */,
-				D989B4E221CF2317000F1DFF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1582,6 +1587,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D74D9C21D0C4BB00141FC7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1950,7 +1956,8 @@
 				D92A41CD21B13143003ABE8A /* RootInteractor.swift in Sources */,
 				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
 				D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */,
-				D916268521CE223A00113666 /* GoogleCloudStorageUploader.swift in Sources */,
+				D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */,
+				D916268521CE223A00113666 /* FirebaseStorageUploader.swift in Sources */,
 				D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */,
 				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
 			);
@@ -2056,6 +2063,7 @@
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
 				D92A41D921B2382A003ABE8A /* Account.swift in Sources */,
 				D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */,
+				D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */,
 				D9BB613921AFA32800CD5424 /* Me.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

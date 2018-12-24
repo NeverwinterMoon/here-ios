@@ -74,7 +74,7 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
     }
     
     // MARK: - Private
-    private let createAccountButton = UIButton()
+    private let createAccountButton = AppButton()
     private let emailTextField = AppTextField()
     private let usernameTextField = AppTextField()
     private let passwordTextField = AppTextField()

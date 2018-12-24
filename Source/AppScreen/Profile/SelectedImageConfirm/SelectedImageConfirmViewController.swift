@@ -13,6 +13,14 @@ import RxSwift
 
 final class SelectedImageConfirmViewController: UIViewController, SelectedImageConfirmViewInterface {
     
+    var tapSelect: Signal<Void> {
+        return self.selectButton.rx.tap.asSignal()
+    }
+    
+    var tapCancel: Signal<Void> {
+        return self.cancelButton.rx.tap.asSignal()
+    }
+    
     var presenter: SelectedImageConfirmPresenterInterface!
     
     override func viewDidLoad() {
@@ -38,14 +46,15 @@ final class SelectedImageConfirmViewController: UIViewController, SelectedImageC
         }
         
         self.tabBarController?.tabBar.isHidden = true
-        
+        self.navigationController?.navigationBar.isHidden = true
+
         self.flexLayout()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.view.flex.layout()
         self.view.flex.marginTop(self.view.safeAreaInsets.top)
+        self.view.flex.layout()
     }
     
     // MARK: - Private

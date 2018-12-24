@@ -47,7 +47,8 @@ public final class SharedDBManager {
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(userId).realm")
         config.objectTypes = [
-            User.self
+            User.self,
+            ProfileImage.self
         ]
         Realm.Configuration.defaultConfiguration = config
     }
@@ -69,7 +70,8 @@ public final class SharedDBManager {
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(userId).realm")
         config.objectTypes = [
-            User.self
+            User.self,
+            ProfileImage.self
         ]
         //        TODO: version
         config.schemaVersion = RealmMigration.SchemaVersion.latestVersion.rawValue

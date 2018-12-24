@@ -74,6 +74,46 @@ public final class ProfileInteractor {
                 }
             }
     }
+
+    public func updateProfileImage(image: UIImage, filePath: String) {
+        
+        guard let data = image.jpegData(compressionQuality: 1.0) else {
+            return
+        }
+        
+        SharedDBManager.activatedAccountRealm()
+            .map { realm in
+                guard let realm = realm, let user = realm.objects(User.self).first else {
+                    assertionFailure()
+                    return
+                }
+                do {
+                    
+                    let profileImage = ProfileImage()
+                    profileImage.do {
+                        $0.user = user
+                        $0.image = data
+                        $0.filePath = filePath
+                    }
+
+                    try realm.write {
+                        
+                        if let pi = realm.objects(ProfileImage.self).first {
+                            realm.delete(pi)
+                        }
+                        realm.add(profileImage)
+                    }
+                } catch let error {
+                    assertionFailure("\(error)")
+                }
+            }
+            .asObservable()
+            .flatMap { _ -> Single<Void> in
+                FirebaseStorageUploader.uploadFile(data, filePath: filePath, ext: .jpeg)
+            }
+            .subscribe()
+            .disposed(by: self.disposeBag)
+    }
     
     // MARK: - Private
     private let disposeBag = DisposeBag()

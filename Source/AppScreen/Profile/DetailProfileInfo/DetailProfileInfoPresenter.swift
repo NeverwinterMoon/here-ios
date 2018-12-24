@@ -44,8 +44,8 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             .flatMap { [unowned self] in
                 self.interactor.activatedUser()
             }
-            .subscribe(onNext: { [unowned self] user in
-                self.interactor.user(userId: user.id)
+            .subscribe(onNext: { [unowned self] in
+                self.interactor.user(userId: $0.id)
             })
             .disposed(by: self.disposeBag)
         

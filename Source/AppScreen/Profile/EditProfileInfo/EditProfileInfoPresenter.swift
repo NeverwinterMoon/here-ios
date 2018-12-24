@@ -23,15 +23,6 @@ final class EditProfileInfoPresenter: EditProfileInfoPresenterInterface {
         
         self.infoToChange = Driver<String>.just(infoType.displayTitle)
         self.currentInfo = Driver<String>.just(currentContent)
-        
-//        self.view.viewWillDisappear
-//            .flatMap { [unowned self] in
-//                self.interactor.activatedUser()
-//            }
-//            .subscribe(onNext: { [unowned self] user in
-//                self.interactor.user(userId: user.id)
-//            })
-//            .disposed(by: self.disposeBag)
 
         self.view.tapSaveProfileInfo
             .asObservable()

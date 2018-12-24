@@ -22,7 +22,7 @@ protocol MapInteractorInterface: class {
 extension MapInteractor: MapInteractorInterface {}
 
 protocol MapPresenterInterface: class {
-    var nearbyFriends: Driver<[User]> { get }
+    var nearbyFriends: BehaviorRelay<[User]> { get }
 }
 
 protocol MapWireframeInterface: class {

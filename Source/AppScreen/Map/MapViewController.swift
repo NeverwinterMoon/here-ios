@@ -36,7 +36,7 @@ public final class MapViewController: UIViewController, CLLocationManagerDelegat
             self.checkLocationAuthorization()
         } else {
             
-            // show alert
+            // TODO:  show alert
         }
         
         self.flexLayout()
@@ -62,7 +62,7 @@ public final class MapViewController: UIViewController, CLLocationManagerDelegat
         case .authorizedAlways, .authorizedWhenInUse:
             self.mapView.showsUserLocation = true
         case .denied, .notDetermined, .restricted:
-//            show some alert, but get the locations of friends
+            // TODO: show some alert, but get the locations of friends
             break
         }
     }

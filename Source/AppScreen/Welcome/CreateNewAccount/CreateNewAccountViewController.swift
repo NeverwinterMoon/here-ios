@@ -18,7 +18,7 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
     
     var tapCreateAccount: Signal<CreateUserInfo> {
         
-        return self.createAccountButton.rx.tap.asSignal().map { [unowned self] _ in
+        return self.createAccountButton.rx.tap.asSignal().map { [unowned self] in
             CreateUserInfo(
                 email: self.emailTextField.text!,
                 username: self.usernameTextField.text!,
@@ -59,8 +59,8 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
         }
         
         Observable.combineLatest(self.emailTextField.isNotEmpty, self.usernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 && $2 }
-            .subscribe {
-                return self.createAccountButton.isEnabled = $0.element!
+            .subscribe { [unowned self] in
+                self.createAccountButton.isEnabled = $0.element!
             }
             .disposed(by: self.disposeBag)
 

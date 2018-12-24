@@ -25,7 +25,7 @@ protocol DetailProfileInfoInteractorInterface: class {
 extension ProfileInteractor: DetailProfileInfoInteractorInterface {}
 
 protocol DetailProfileInfoPresenterInterface {
-    var userProfileImageURL: Driver<URL> { get }
+    var userProfileImageURL: Driver<URL?> { get }
     var sections: Driver<[EditProfileInfoSection]> { get }
 }
 

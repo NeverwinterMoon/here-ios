@@ -31,6 +31,12 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) { fatalError() }
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+    }
 
     // MARK: - Private
     private let tableView: UITableView

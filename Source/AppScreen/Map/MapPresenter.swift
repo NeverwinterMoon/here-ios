@@ -10,10 +10,11 @@ import Foundation
 import AppEntity
 import AppInteractor
 import RxCocoa
+import RxSwift
 
 final class MapPresenter: MapPresenterInterface {
     
-    let nearbyFriends: Driver<[User]>
+    let nearbyFriends: BehaviorRelay<[User]> = .init(value: [])
 
     init(view: MapViewInterface, interactor: MapInteractorInterface, wireframe: MapWireframeInterface) {
         
@@ -21,11 +22,15 @@ final class MapPresenter: MapPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.nearbyFriends = interactor.nearbyFriends().asDriver(onErrorJustReturn: .init([]))
+        self.interactor.nearbyFriends()
+            .asObservable()
+            .bind(to: self.nearbyFriends)
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
     private let view: MapViewInterface
     private let interactor: MapInteractorInterface
     private let wireframe: MapWireframeInterface
+    private let disposeBag = DisposeBag()
 }

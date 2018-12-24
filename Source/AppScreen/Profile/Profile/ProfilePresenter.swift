@@ -18,7 +18,7 @@ final class ProfilePresenter: ProfilePresenterInterface {
 
     var username: Driver<String>
     var userDisplayName: Driver<String>
-    var profileImageURL: Driver<URL>
+    var profileImageURL: Driver<URL?>
     var selfIntroduction: Driver<String?>
 
     init(view: ProfileViewInterface, interactor: ProfileInteractorInterface, wireframe: ProfileWireframeInterface) {
@@ -27,35 +27,36 @@ final class ProfilePresenter: ProfilePresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
+        // TODO: clean up these shit code
         let user = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
 
         self.username = user.map { $0.username }
         self.userDisplayName = user.map { $0.userDisplayName }
 //        self.profileImageURL = account.map { URL(string: $0.profileImageURL) }.filterNil()
-        self.profileImageURL = Driver.just(URL(string: "test")).filterNil()
+        self.profileImageURL = Driver.just(URL(string: "test"))
         self.selfIntroduction = user.map { $0.selfIntroduction }
         
         self.view.viewWillAppear
-            .flatMap { [unowned self] _ -> Single<User> in
+            .flatMap { [unowned self] in
                 self.interactor.activatedUser()
             }
-            .map {
+            .map { [unowned self] in
                 self.username = Driver.just($0.username)
                 self.userDisplayName = Driver.just($0.userDisplayName)
-                self.profileImageURL = Driver.just(URL(string: $0.profileImageURL ?? "")).filterNil()
+                self.profileImageURL = Driver.just(URL(string: $0.profileImageURL ?? ""))
                 self.selfIntroduction = Driver.just($0.selfIntroduction)
             }
             .subscribe()
             .disposed(by: self.disposeBag)
 
         self.view.tapEditProfile
-            .emit(onNext: { [unowned self] _ in
+            .emit(onNext: { [unowned self] in
                 self.wireframe.presentUserInfo()
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
 
         self.view.tapFriends
-            .emit(onNext: { [unowned self] _ in
+            .emit(onNext: { [unowned self] in
                 self.wireframe.pushfFriendsList()
             })
             .disposed(by: self.disposeBag)

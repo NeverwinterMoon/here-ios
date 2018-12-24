@@ -22,7 +22,7 @@ final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
             .flatMap { [unowned self] createUserInfo in
                 self.interactor.sendEmail(email: createUserInfo.email, username: createUserInfo.username, password: createUserInfo.password)
             }
-            .subscribe(onNext: { [unowned self] _ in
+            .subscribe(onNext: { [unowned self] in
                 self.wireframe.pushAppTabBarController()
             })
             .disposed(by: self.disposeBag)

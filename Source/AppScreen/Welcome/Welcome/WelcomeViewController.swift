@@ -25,7 +25,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     var tapLogin: Signal<LoginInfo> {
         
         return self.loginButton.rx.tap
-            .map { [unowned self] _ in
+            .map { [unowned self] in
                 LoginInfo(
                     usernameOrEmail: self.emailOrUsernameTextField.text!.trimmingCharacters(in: .whitespaces),
                     password: self.passwordTextField.text!.trimmingCharacters(in: .whitespaces)
@@ -90,8 +90,8 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         }
         
         Observable.combineLatest(self.emailOrUsernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 }
-            .subscribe {
-                return self.loginButton.isEnabled = $0.element!
+            .subscribe { [unowned self] in
+                self.loginButton.isEnabled = $0.element!
             }
             .disposed(by: self.disposeBag)
 
@@ -115,7 +115,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
 
     private func flexLayout() {
         
-        self.view.flex.define { flex in
+        self.view.flex.define { [unowned self] flex in
             
             flex.addItem(self.welcomeLabel).marginTop(50).height(100).marginHorizontal(20).alignSelf(.center)
             flex.addItem(self.createNewAccountButton).alignSelf(.stretch).height(40).marginHorizontal(40)

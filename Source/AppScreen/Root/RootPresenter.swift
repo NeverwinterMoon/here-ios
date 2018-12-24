@@ -19,7 +19,7 @@ public final class RootPresenter {
         self.wireframe = wireframe
         self.interactor = interactor
         
-        interactor.state
+        self.interactor.state
             .take(1)
             .subscribe(onNext: { [unowned self] state in
                 switch state {

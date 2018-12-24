@@ -24,13 +24,13 @@ final class EditProfileInfoViewController: UIViewController, EditProfileInfoView
 
     override func viewDidLoad() {
         
-        self.presenter.infoToChange.drive(onNext: {
+        self.presenter.infoToChange.drive(onNext: { [unowned self] in
             self.title = $0
             self.infoInChangeLabel.text = $0
         })
         .disposed(by: self.disposeBag)
         
-        self.presenter.currentInfo.drive(onNext: {
+        self.presenter.currentInfo.drive(onNext: { [unowned self] in
             self.editInfoTextField.text = $0
         })
         .disposed(by: self.disposeBag)

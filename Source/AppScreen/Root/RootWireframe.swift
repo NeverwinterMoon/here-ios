@@ -43,7 +43,6 @@ public final class RootWireframe: RootWireframeInterface {
                 },
                 completion: nil
             )
-            
         } else {
             self.window.rootViewController = controller
             self.window.makeKeyAndVisible()

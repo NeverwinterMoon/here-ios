@@ -21,15 +21,16 @@ final class WelcomePresenter: WelcomePresenterInterface {
         
         self.view.tapLogin
             .asObservable()
-            .subscribe(onNext: { [unowned self] loginInfo in
-                return self.interactor.login(usernameOrEmail: loginInfo.usernameOrEmail, password: loginInfo.password).do(onSuccess: {
-                    self.wireframe.pushLogin()
-                }).subscribe().disposed(by: self.disposeBag)
+            .flatMap { [unowned self] in
+                self.interactor.login(usernameOrEmail: $0.usernameOrEmail, password: $0.password)
+            }
+            .subscribe(onNext: { [unowned self] in
+                self.wireframe.pushLogin()
             })
             .disposed(by: self.disposeBag)
         
         self.view.tapCreateNewAccount
-            .emit(onNext: {
+            .emit(onNext: { [unowned self] in
                 self.wireframe.pushCreateNewAccount()
             })
             .disposed(by: self.disposeBag)

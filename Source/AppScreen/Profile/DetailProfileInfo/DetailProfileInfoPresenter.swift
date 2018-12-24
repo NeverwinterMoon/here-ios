@@ -16,7 +16,7 @@ import RxSwift
 
 final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
     
-    let userProfileImageURL: Driver<URL>
+    let userProfileImageURL: Driver<URL?>
     
     var sections: Driver<[EditProfileInfoSection]> {
         
@@ -31,6 +31,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
+        // TODO: clean up these shit code
         let user: Driver<User> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         
         user.asObservable()
@@ -38,7 +39,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)
         
-        self.userProfileImageURL = user.map { URL(string: $0.profileImageURL!) }.filterNil()
+        self.userProfileImageURL = user.map { URL(string: $0.profileImageURL ?? "") }
         
         self.view.viewWillAppear
             .flatMap { [unowned self] in
@@ -64,8 +65,8 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
                 self.sectionsRelay.value[$0.section].items[$0.item]
             }
             .asObservable()
-            .subscribe(onNext: { [unowned self] item in
-                self.wireframe.pushEditProfileInfo(infoType: item.type, currentContent: item.body)
+            .subscribe(onNext: { [unowned self] in
+                self.wireframe.pushEditProfileInfo(infoType: $0.type, currentContent: $0.body)
             })
             .disposed(by: self.disposeBag)
         

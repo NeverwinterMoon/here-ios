@@ -21,6 +21,7 @@ final class SelectedImageConfirmWireframe: AppWireframe, SelectedImageConfirmWir
     }
     
     func popBack() {
+        
         self.navigationController.navigationBar.isHidden = false
         self.navigationController.tabBarController?.tabBar.isHidden = false
         self.popFromNavigationController(animated: true)

@@ -49,7 +49,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         self.view.backgroundColor = .white
         
         self.presenter.username
-            .drive(onNext: {
+            .asDriver()
+            .drive(onNext: { [unowned self] in
                 self.title = $0
             })
             .disposed(by: self.disposeBag)
@@ -57,13 +58,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         self.profileImageView.do {
 //            tmp
             $0.backgroundColor = .blue
-            
-//            self.presenter.profileImageURL
-//                .drive(onNext: { [unowned self] url in
-//
-//                    Nuke.loadImage(with: url, into: self.profileImageView)
-//                })
-//                .dispose(with: self)
         }
         
         self.userDisplayNameLabel.do {
@@ -72,6 +66,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             
             self.presenter
                 .userDisplayName
+                .asDriver()
                 .drive(onNext: { [unowned self] in
                     self.userDisplayNameLabel.text = $0
                 })
@@ -85,6 +80,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             
             self.presenter
                 .selfIntroduction
+                .asDriver()
                 .drive(onNext: { [unowned self] in
                     self.introLabel.text = $0
                 })

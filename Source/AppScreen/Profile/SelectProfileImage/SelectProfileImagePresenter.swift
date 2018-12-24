@@ -37,14 +37,14 @@ final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface, R
         self.picker = RxMediaPicker(delegate: self)
         
         self.view.notifier
-            .emit(onNext: {
+            .emit(onNext: { [unowned self] in
                 self.pickImage()
             })
             .disposed(by: self.disposeBag)
         
         self.selectedImageRelay
             .filterNil()
-            .subscribe(onNext: {
+            .subscribe(onNext: { [unowned self] in
                 self.wireframe.showSelectedImage($0)
             })
             .disposed(by: self.disposeBag)

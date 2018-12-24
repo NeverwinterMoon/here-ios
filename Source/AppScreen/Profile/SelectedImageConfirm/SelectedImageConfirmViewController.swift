@@ -28,7 +28,7 @@ final class SelectedImageConfirmViewController: UIViewController, SelectedImageC
         
         self.presenter
             .selectedImage
-            .do(onNext: {
+            .do(onNext: { [unowned self] in
                 self.imageView.image = $0
             })
             .asObservable()

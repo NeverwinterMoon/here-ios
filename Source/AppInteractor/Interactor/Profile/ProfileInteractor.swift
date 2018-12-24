@@ -115,6 +115,17 @@ public final class ProfileInteractor {
             .disposed(by: self.disposeBag)
     }
     
+    public func getProfileImage() -> Single<UIImage> {
+        
+        return SharedDBManager.activatedAccountRealm()
+            .map { realm in
+                if let realm = realm, let profileImage = realm.objects(ProfileImage.self).first {
+                    return UIImage(data: profileImage.image)!
+                }
+                return UIImage(named: "first")!
+            }
+    }
+    
     // MARK: - Private
     private let disposeBag = DisposeBag()
 }

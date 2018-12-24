@@ -17,14 +17,10 @@ import RxOptional
 final class ProfilePresenter: ProfilePresenterInterface {
 
     var username: Driver<String>
-
     var userDisplayName: Driver<String>
-
-    var profileImageURL: Driver<URL?>
-
     var selfIntroduction: Driver<String?>
-
-    var user: Driver<User>
+    var profileImage: Driver<UIImage>
+    let user: Driver<User>
     
     init(view: ProfileViewInterface, interactor: ProfileInteractorInterface, wireframe: ProfileWireframeInterface) {
         
@@ -36,9 +32,10 @@ final class ProfilePresenter: ProfilePresenterInterface {
         self.user = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         self.username = self.user.map { $0.username }
         self.userDisplayName = self.user.map { $0.userDisplayName }
-        self.profileImageURL = self.user.map { URL(string: $0.profileImageURL ?? "") }
         self.selfIntroduction = self.user.map { $0.selfIntroduction }
         
+        self.profileImage = self.interactor.getProfileImage().asDriver(onErrorJustReturn: UIImage())
+
         self.view.viewWillAppear
             .do(onNext: { [unowned self] in
                 self.view.update()

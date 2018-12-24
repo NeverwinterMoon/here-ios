@@ -21,6 +21,7 @@ protocol ProfileViewInterface: ViewInterface {
 protocol ProfileInteractorInterface: class {
     func user(userId: String)
     func activatedUser() -> Single<User>
+    func getProfileImage() -> Single<UIImage>
 }
 
 extension ProfileInteractor: ProfileInteractorInterface {}
@@ -28,8 +29,8 @@ extension ProfileInteractor: ProfileInteractorInterface {}
 protocol ProfilePresenterInterface: class {
     var username: Driver<String> { get }
     var userDisplayName: Driver<String> { get }
-    var profileImageURL: Driver<URL?> { get }
     var selfIntroduction: Driver<String?> { get }
+    var profileImage: Driver<UIImage> { get }
 }
 
 protocol ProfileWireframeInterface: WireframeInterface {

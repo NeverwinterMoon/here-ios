@@ -30,6 +30,15 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
         return self.profileInfoCollectionView.rx.itemSelected.asSignal()
     }
     
+    func update() {
+
+        self.presenter.userProfileImage
+            .drive(onNext: { [unowned self] in
+                self.profileImageView.image = $0
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
@@ -72,18 +81,7 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
             $0.layer.borderWidth = 1
             $0.layer.cornerRadius = 15
         }
-        
-        self.profileImageView.do {
-//            tmp
-            $0.backgroundColor = .blue
-            
-//            self.presenter.userProfileImageURL
-//                .drive(onNext: { [unowned self] url in
-//                    Nuke.loadImage(with: url, into: self.profileImageView)
-//                })
-//                .dispose(with: self)
-        }
-        
+
         self.profileInfoCollectionView.do {
             
             $0.delegate = self
@@ -101,7 +99,7 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
             $0.cellWidth = self.view.bounds.width
             $0.cellHeight = 50
         }
-        
+
         self.flexLayout()
     }
     

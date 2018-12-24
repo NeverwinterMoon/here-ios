@@ -15,17 +15,19 @@ import RxSwift
 protocol DetailProfileInfoViewInterface: ViewInterface {
     var tapChangeProfileImage: Signal<Void> { get }
     var tapEditProfileRow: Signal<IndexPath> { get }
+    func update()
 }
 
 protocol DetailProfileInfoInteractorInterface: class {
     func user(userId: String)
     func activatedUser() -> Single<User>
+    func getProfileImage() -> Single<UIImage>
 }
 
 extension ProfileInteractor: DetailProfileInfoInteractorInterface {}
 
 protocol DetailProfileInfoPresenterInterface {
-    var userProfileImageURL: Driver<URL?> { get }
+    var userProfileImage: Driver<UIImage> { get }
     var sections: Driver<[EditProfileInfoSection]> { get }
 }
 

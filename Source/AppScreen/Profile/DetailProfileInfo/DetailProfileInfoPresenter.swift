@@ -16,8 +16,7 @@ import RxSwift
 
 final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
     
-    let userProfileImageURL: Driver<URL?>
-    
+    let userProfileImage: Driver<UIImage>
     var sections: Driver<[EditProfileInfoSection]> {
         
         return self.sectionsRelay.asDriver()
@@ -31,9 +30,9 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        let user: Driver<User> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
+        self.userProfileImage = self.interactor.getProfileImage().asDriver(onErrorJustReturn: UIImage())
         
-        self.userProfileImageURL = user.map { URL(string: $0.profileImageURL ?? "") }
+        let user: Driver<User> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         
         self.view.viewWillAppear
             .flatMap { [unowned self] in
@@ -45,6 +44,9 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             .disposed(by: self.disposeBag)
         
         self.view.viewWillAppear
+            .do(onNext: {
+                self.view.update()
+            })
             .flatMap { [unowned self] in
                 self.interactor
                     .activatedUser()

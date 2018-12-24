@@ -28,6 +28,33 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         return self.friendsButton.rx.tap.asSignal()
     }
     
+    func update() {
+        
+        self.presenter.username
+            .drive(onNext: { [unowned self] in
+                self.title = $0
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.presenter.userDisplayName
+            .drive(onNext: { [unowned self] in
+                self.userDisplayNameLabel.text = $0
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.presenter.selfIntroduction
+            .drive(onNext: { [unowned self] in
+                self.introLabel.text = $0
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.presenter.profileImage
+            .drive(onNext: { [unowned self] in
+                self.profileImageView.image = $0
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
     convenience init() {
         
         self.init(nibName: nil, bundle: nil)
@@ -83,8 +110,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             $0.backgroundColor = .blue
         }
         
-        self.update()
-
         self.flexLayout()
     }
 
@@ -93,33 +118,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         super.viewDidLayoutSubviews()
         self.view.flex.paddingTop(self.view.safeAreaInsets.top)
         self.view.flex.layout()
-    }
-    
-    func update() {
-        
-        self.presenter.username
-            .drive(onNext: { [unowned self] in
-                self.title = $0
-            })
-            .disposed(by: self.disposeBag)
-        
-        self.presenter.userDisplayName
-            .drive(onNext: { [unowned self] in
-                self.userDisplayNameLabel.text = $0
-            })
-            .disposed(by: self.disposeBag)
-        
-//        self.presenter.profileImageURL
-//            .drive(onNext: { [unowned self] in
-//
-//            })
-//            .disposed(by: self.disposeBag)
-        
-        self.presenter.selfIntroduction
-            .drive(onNext: { [unowned self] in
-                self.introLabel.text = $0
-            })
-            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

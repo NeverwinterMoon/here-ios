@@ -74,11 +74,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        
-        self.profileImageView.do {
-            $0.layer.cornerRadius = 40
-        }
-        
+
         self.userDisplayNameLabel.do {
             $0.font = UIFont.systemFont(ofSize: 30)
             $0.textColor = .black
@@ -120,7 +116,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     }
     
     // MARK: - Private
-    private let profileImageView = UIImageView()
+    private let profileImageView = RoundImageView()
     private let userDisplayNameLabel = UILabel()
     private let introLabel = UILabel()
     private let editProfileButton = UIButton()
@@ -139,6 +135,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .paddingHorizontal(40)
                 .marginBottom(20)
                 .define { flex in
+//                    flex.addItem(self.profileImageView).size(self.profileImageView.size).marginRight(40)
                     flex.addItem(self.profileImageView).size(80).marginRight(40)
                     flex.addItem().grow(1).direction(.column).define { flex in
                         flex.addItem(self.userDisplayNameLabel).marginTop(30).height(50)

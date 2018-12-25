@@ -40,7 +40,6 @@ struct userInfoType {
         case selfIntroduction
         case email
         // TODO : password
-        case profileImageURL
     }
     
     let infoType: InfoType
@@ -61,9 +60,6 @@ struct userInfoType {
         case .selfIntroduction:
             self.displayTitle = "自己紹介"
             self.paramsKey = "self_introduction"
-        case .profileImageURL:
-            self.displayTitle = "プロフィール画像"
-            self.paramsKey = "profile_image_url"
         }
     }
 }

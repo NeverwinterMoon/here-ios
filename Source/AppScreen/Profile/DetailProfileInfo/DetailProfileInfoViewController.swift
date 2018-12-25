@@ -73,11 +73,7 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
         self.title = "プロフィールを編集"
         
         self.view.backgroundColor = .white
-        
-        self.profileImageView.do {
-            $0.layer.cornerRadius = 40
-        }
-        
+
         self.changeProfileImageButton.do {
             
             $0.setTitle("プロフィール画像を変更", for: .normal)
@@ -116,7 +112,7 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
     
     // MARK: - Private
     private let changeProfileImageButton = UIButton()
-    private let profileImageView = UIImageView()
+    private let profileImageView = RoundImageView()
     private let profileInfoCollectionView: UICollectionView
     private let profileInfoCollectionViewFlowLayout = AppCollectionViewFlowLayout()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<EditProfileInfoSection>

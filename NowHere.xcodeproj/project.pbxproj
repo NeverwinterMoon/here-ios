@@ -136,6 +136,7 @@
 		D96E804921A7A00A00887846 /* AppEntity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D96E804121A7A00900887846 /* AppEntity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D96E804F21A7A02E00887846 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E804E21A7A02E00887846 /* User.swift */; };
 		D96E805121A7A05000887846 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51121A4FFE8001ECA7F /* RealmSwift.framework */; };
+		D971788121D1BC4B00137149 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971788021D1BC4B00137149 /* RoundImageView.swift */; };
 		D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363B21AA1FDC002D52E4 /* APIError.swift */; };
 		D978363D21AA286A002D52E4 /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96E804121A7A00900887846 /* AppEntity.framework */; };
 		D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */; };
@@ -453,6 +454,7 @@
 		D96E804321A7A00900887846 /* AppEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppEntity.h; sourceTree = "<group>"; };
 		D96E804421A7A00A00887846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96E804E21A7A02E00887846 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D971788021D1BC4B00137149 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		D978363B21AA1FDC002D52E4 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToSingle.swift; sourceTree = "<group>"; };
 		D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListDataSource.swift; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 			children = (
 				D956E47C21C3A6C5001DBFBA /* AppButton.swift */,
 				D9F11D3021BD3A20008AB472 /* AppTextField.swift */,
+				D971788021D1BC4B00137149 /* RoundImageView.swift */,
 				D981DDD321CB22B9002E55F7 /* Rx.swift */,
 				D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */,
 				D981DDD721CC7466002E55F7 /* Alert */,
@@ -1981,6 +1984,7 @@
 				D981DDD421CB22B9002E55F7 /* Rx.swift in Sources */,
 				D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */,
 				D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */,
+				D971788121D1BC4B00137149 /* RoundImageView.swift in Sources */,
 				D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */,
 				D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */,
 				D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */,

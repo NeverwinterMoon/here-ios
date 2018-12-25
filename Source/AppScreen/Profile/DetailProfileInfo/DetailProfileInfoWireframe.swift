@@ -14,10 +14,8 @@ import RxSwift
 
 final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframeInterface {
     
-    let selectedImageRelay = BehaviorRelay<UIImage?>.init(value: nil)
     func showChangeProfileImageActionSheet() {
-        
-        
+
         let wireframe = SelectProfileImageWireframe(navigationController: self.navigationController)
         let controller = SelectProfileImageViewController(title: "プロフィール画像を選択", message: nil, preferredStyle: .actionSheet)
         let presenter = SelectProfileImagePresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
@@ -39,7 +37,4 @@ final class DetailProfileInfoWireframe: AppWireframe, DetailProfileInfoWireframe
         controller.presenter = presenter
         self.show(controller, with: .push, animated: true)
     }
-    
-    // MARK: - Private
-    private let disposeBag = DisposeBag()
 }

@@ -43,7 +43,7 @@ final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface, R
             .disposed(by: self.disposeBag)
         
         self.view.tapCamera
-            .emit(onNext: {
+            .emit(onNext: { [unowned self] in
                 self.takePhoto()
             })
             .disposed(by: self.disposeBag)

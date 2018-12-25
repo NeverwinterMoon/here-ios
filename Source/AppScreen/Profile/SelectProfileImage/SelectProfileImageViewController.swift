@@ -16,6 +16,7 @@ import RxSwift
 final class SelectProfileImageViewController: UIAlertController, UIImagePickerControllerDelegate, SelectProfileImageViewInterface {
     
     var presenter: SelectProfileImagePresenterInterface!
+    
     var tapCameraRoll: Signal<Void> {
         return self.tapCameraRollRelay.asSignal(onErrorJustReturn: ())
     }

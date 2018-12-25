@@ -36,12 +36,18 @@ final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface, R
         
         self.picker = RxMediaPicker(delegate: self)
         
-        self.view.notifier
+        self.view.tapCameraRoll
             .emit(onNext: { [unowned self] in
                 self.pickImage()
             })
             .disposed(by: self.disposeBag)
         
+        self.view.tapCamera
+            .emit(onNext: {
+                self.takePhoto()
+            })
+            .disposed(by: self.disposeBag)
+
         self.selectedImageRelay
             .filterNil()
             .subscribe(onNext: { [unowned self] in
@@ -58,9 +64,15 @@ final class SelectProfileImagePresenter: SelectProfileImagePresenterInterface, R
     private var picker: RxMediaPicker!
     
     private func pickImage() {
-        self.picker.selectImage(source: .savedPhotosAlbum)
+        self.picker.selectImage(source: .photoLibrary)
             .map { $0.0 }
-            .debug("ddd")
+            .bind(to: self.selectedImageRelay)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func takePhoto() {
+        self.picker.selectImage(source: .camera)
+            .map { $0.0 }
             .bind(to: self.selectedImageRelay)
             .disposed(by: self.disposeBag)
     }

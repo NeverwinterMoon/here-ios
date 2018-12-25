@@ -76,8 +76,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         self.view.backgroundColor = .white
         
         self.profileImageView.do {
-//            tmp
-            $0.backgroundColor = .blue
+            $0.layer.cornerRadius = 40
         }
         
         self.userDisplayNameLabel.do {

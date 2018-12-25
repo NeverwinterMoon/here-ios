@@ -16,20 +16,24 @@ import RxSwift
 final class SelectProfileImageViewController: UIAlertController, UIImagePickerControllerDelegate, SelectProfileImageViewInterface {
     
     var presenter: SelectProfileImagePresenterInterface!
-    var notifier: Signal<Void> {
-        return self.notifierRelay.asSignal(onErrorJustReturn: ())
+    var tapCameraRoll: Signal<Void> {
+        return self.tapCameraRollRelay.asSignal(onErrorJustReturn: ())
     }
-    private var notifierRelay: BehaviorRelay<Void> = .init(value: ())
+    private var tapCameraRollRelay: BehaviorRelay<Void> = .init(value: ())
+    
+    var tapCamera: Signal<Void> {
+        return self.tapCameraRelay.asSignal(onErrorJustReturn: ())
+    }
+    private var tapCameraRelay: BehaviorRelay<Void> = .init(value: ())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.addAction(UIAlertAction(title: "カメラロールから選択", style: .default, handler: { _ in
-            Observable.just(())
-                .bind(to: self.notifierRelay)
-                .disposed(by: self.disposeBag)
+            self.tapCameraRollRelay.accept(())
         }))
         self.addAction(UIAlertAction(title: "写真を撮影する", style: .default, handler: { _ in
+            self.tapCameraRelay.accept(())
         }))
         self.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
     }

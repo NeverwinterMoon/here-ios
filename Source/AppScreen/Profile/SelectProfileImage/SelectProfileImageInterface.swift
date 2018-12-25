@@ -12,7 +12,8 @@ import RxCocoa
 import RxSwift
 
 protocol SelectProfileImageViewInterface: class {
-    var notifier: Signal<Void> { get }
+    var tapCameraRoll: Signal<Void> { get }
+    var tapCamera: Signal<Void> { get }
 }
 
 protocol SelectProfileImageInteractorInterface: class {

@@ -74,6 +74,10 @@ final class DetailProfileInfoViewController: UIViewController, DetailProfileInfo
         
         self.view.backgroundColor = .white
         
+        self.profileImageView.do {
+            $0.layer.cornerRadius = 40
+        }
+        
         self.changeProfileImageButton.do {
             
             $0.setTitle("プロフィール画像を変更", for: .normal)

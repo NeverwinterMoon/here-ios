@@ -32,6 +32,10 @@ final class SelectedImageConfirmViewController: UIViewController, SelectedImageC
                 self.imageView.image = $0
             })
             .disposed(by: self.disposeBag)
+        
+        self.imageView.do {
+            $0.contentMode = .scaleAspectFit
+        }
 
         self.selectButton.do {
             $0.backgroundColor = .black
@@ -66,8 +70,7 @@ final class SelectedImageConfirmViewController: UIViewController, SelectedImageC
         
         self.view.flex.alignItems(.center).define { flex in
             
-            // next: 画像の縦横比が固定されてしまう問題を解決(imageView自体のlayoutはこれでもいいかも。問題は、imageView.viewのレイアウト？？)
-            flex.addItem(self.imageView).height(self.view.bounds.height - 100).width(self.view.bounds.width - 20*2)
+            flex.addItem(self.imageView).height(self.view.bounds.height - 100).width(self.view.bounds.width)
             flex.addItem().direction(.row).height(50).alignItems(.center).grow(1).define { flex in
                 flex.addItem(self.cancelButton).width(150)
                 flex.addItem(self.selectButton).width(150)

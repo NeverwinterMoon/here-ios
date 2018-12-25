@@ -24,6 +24,7 @@ final public class RoundImageView: UIImageView {
         super.init(frame: frame)
         self.layer.masksToBounds = true
         self.layer.borderWidth = 2
+        self.contentMode = .scaleAspectFit
     }
 
     @available(*, unavailable)

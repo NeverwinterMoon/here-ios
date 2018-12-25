@@ -28,7 +28,6 @@ final class ProfilePresenter: ProfilePresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        // TODO: clean up these shit code
         self.user = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         self.username = self.user.map { $0.username }
         self.userDisplayName = self.user.map { $0.userDisplayName }

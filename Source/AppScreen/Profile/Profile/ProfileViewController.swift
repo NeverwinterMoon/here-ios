@@ -102,7 +102,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         self.friendsButton.do {
 
             $0.setTitle("友達", for: .normal)
-            $0.backgroundColor = .blue
+            $0.setTitleColor(.black, for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         }
         
         self.flexLayout()
@@ -135,7 +136,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
                 .paddingHorizontal(40)
                 .marginBottom(20)
                 .define { flex in
-//                    flex.addItem(self.profileImageView).size(self.profileImageView.size).marginRight(40)
                     flex.addItem(self.profileImageView).size(80).marginRight(40)
                     flex.addItem().grow(1).direction(.column).define { flex in
                         flex.addItem(self.userDisplayNameLabel).marginTop(30).height(50)

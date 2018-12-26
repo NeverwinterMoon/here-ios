@@ -137,6 +137,7 @@
 		D96E804F21A7A02E00887846 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E804E21A7A02E00887846 /* User.swift */; };
 		D96E805121A7A05000887846 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B51121A4FFE8001ECA7F /* RealmSwift.framework */; };
 		D971788121D1BC4B00137149 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971788021D1BC4B00137149 /* RoundImageView.swift */; };
+		D971788321D3177000137149 /* FriendsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971788221D3177000137149 /* FriendsListCell.swift */; };
 		D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363B21AA1FDC002D52E4 /* APIError.swift */; };
 		D978363D21AA286A002D52E4 /* AppEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96E804121A7A00900887846 /* AppEntity.framework */; };
 		D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */; };
@@ -455,6 +456,7 @@
 		D96E804421A7A00A00887846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96E804E21A7A02E00887846 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D971788021D1BC4B00137149 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		D971788221D3177000137149 /* FriendsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListCell.swift; sourceTree = "<group>"; };
 		D978363B21AA1FDC002D52E4 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D978363F21AADDCA002D52E4 /* ConvertToSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToSingle.swift; sourceTree = "<group>"; };
 		D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListDataSource.swift; sourceTree = "<group>"; };
@@ -937,6 +939,7 @@
 			children = (
 				D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */,
 				D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */,
+				D971788221D3177000137149 /* FriendsListCell.swift */,
 				D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */,
 				D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */,
 				D92AFC8B21A6A34C00FCB5FD /* FriendsListWireframe.swift */,
@@ -2007,6 +2010,7 @@
 				D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */,
 				D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */,
 				D96E803B21A788A300887846 /* DetailProfileInfoCell.swift in Sources */,
+				D971788321D3177000137149 /* FriendsListCell.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
 				D900BB3E21A3EFD900E2E9A7 /* DetailProfileInfoInterface.swift in Sources */,
 				D9D74D9721CFE79900141FC7 /* SelectedImageConfirmInterface.swift in Sources */,

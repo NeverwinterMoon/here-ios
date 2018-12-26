@@ -11,7 +11,8 @@ import RxDataSources
 
 struct FriendsListItem {
     let profileImageURL: URL
-    let id: String
+    let userDisplayName: String
+    let username: String
 }
 
 struct FriendsListSection {

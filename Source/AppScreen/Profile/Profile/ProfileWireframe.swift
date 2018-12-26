@@ -35,6 +35,6 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
             wireframe: wireframe
         )
         controller.presenter = presenter
-        show(controller, with: .present, animated: true)
+        show(controller, with: .push, animated: true)
     }
 }

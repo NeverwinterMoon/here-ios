@@ -156,6 +156,7 @@
 		D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF021CCE345002E55F7 /* SelectProfileImagePresenter.swift */; };
 		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
+		D995874321D4947E00FA0F69 /* FriendPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995874221D4947E00FA0F69 /* FriendPending.swift */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -473,6 +474,7 @@
 		D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfileImageWireframe.swift; sourceTree = "<group>"; };
 		D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
 		D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D995874221D4947E00FA0F69 /* FriendPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPending.swift; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
@@ -1025,6 +1027,7 @@
 				D96E804E21A7A02E00887846 /* User.swift */,
 				D9BB613821AFA32800CD5424 /* Me.swift */,
 				D9D74D9A21D071A700141FC7 /* ProfileImage.swift */,
+				D995874221D4947E00FA0F69 /* FriendPending.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2073,6 +2076,7 @@
 				D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */,
 				D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */,
 				D9BB613921AFA32800CD5424 /* Me.swift in Sources */,
+				D995874321D4947E00FA0F69 /* FriendPending.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

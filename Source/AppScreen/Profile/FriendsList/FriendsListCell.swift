@@ -34,6 +34,7 @@ final class FriendsListCell: UICollectionViewCell {
     }
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         
         self.contentView.flex.direction(.row).define { flex in

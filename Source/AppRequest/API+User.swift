@@ -63,6 +63,19 @@ extension API {
             }
         }
         
+        public struct SendFriendRequest: POSTTargetType {
+            
+            public typealias ElementType = AppEntity.FriendPending
+            
+            public let path: String
+            public let parameters: [String : Any]
+            
+            public init(userId: String, toUserId: String) {
+                self.path = "users/\(userId)/friend_pendings"
+                self.parameters = ["with_user_id": toUserId]
+            }
+        }
+        
         public struct Update: PATCHTargetType {
             
             public typealias ElementType = AppEntity.User

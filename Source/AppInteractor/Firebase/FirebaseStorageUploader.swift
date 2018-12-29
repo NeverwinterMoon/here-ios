@@ -12,14 +12,7 @@ import FirebaseStorage
 import RxCocoa
 import RxSwift
 
-final class FirebaseStorageUploader {
-    
-//    let storageRef: StorageReference
-//    static let storageRef = Storage.storage().reference()
-    
-//    init(bucketURL: String) {
-//        self.storageRef = Storage.storage(url: "gs://\(bucketURL)").reference()
-//    }
+final class FirebaseStorageManager {
     
     public static func uploadFile(_ data: Data, filePath: String, ext: Ext) -> Single<Void> {
         
@@ -38,6 +31,10 @@ final class FirebaseStorageUploader {
             }
             return Disposables.create()
         })
+    }
+    
+    public static func downloadFile() -> Single<Data> {
+        
     }
 }
 

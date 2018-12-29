@@ -109,7 +109,7 @@ public final class ProfileInteractor {
             }
             .asObservable()
             .flatMap { _ -> Single<Void> in
-                FirebaseStorageUploader.uploadFile(data, filePath: filePath, ext: .jpeg)
+                FirebaseStorageManager.uploadFile(data, filePath: filePath, ext: .jpeg)
             }
             .subscribe()
             .disposed(by: self.disposeBag)

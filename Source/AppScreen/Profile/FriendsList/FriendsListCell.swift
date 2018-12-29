@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import AppInteractor
 import FlexLayout
 
 final class FriendsListCell: UICollectionViewCell {
     
     var profileImageURL: URL {
         didSet {
-            // change profileImage
+            FirebaseStorage
         }
     }
     

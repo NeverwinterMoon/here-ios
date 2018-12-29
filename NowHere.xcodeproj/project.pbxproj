@@ -44,7 +44,7 @@
 		D908B55621A6436D001ECA7F /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55521A6436D001ECA7F /* API+User.swift */; };
 		D908B55821A64388001ECA7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908B55721A64388001ECA7F /* API.swift */; };
 		D916268021CE1F1600113666 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */; };
-		D916268521CE223A00113666 /* FirebaseStorageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916268421CE223A00113666 /* FirebaseStorageUploader.swift */; };
+		D916268521CE223A00113666 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916268421CE223A00113666 /* FirebaseStorageManager.swift */; };
 		D9189E3B21BDFE1D0034C0AF /* NetworkPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */; };
 		D91E936121A6DC6300E93E04 /* AppExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E935F21A6DC6300E93E04 /* AppExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D91E936A21A6DC7B00E93E04 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E935421A6DA4200E93E04 /* Then.swift */; };
@@ -395,7 +395,7 @@
 		D908B55721A64388001ECA7F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D916267F21CE1F1600113666 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D916268121CE1FD300113666 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D916268421CE223A00113666 /* FirebaseStorageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageUploader.swift; sourceTree = "<group>"; };
+		D916268421CE223A00113666 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		D916268621CF1DA700113666 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlugins.swift; sourceTree = "<group>"; };
 		D91AAB1921A24DD60024E048 /* AppFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppFoundation.framework; path = Carthage/Build/iOS/AppFoundation.framework; sourceTree = "<group>"; };
@@ -787,11 +787,11 @@
 		D908B53521A57FD0001ECA7F /* AppInteractor */ = {
 			isa = PBXGroup;
 			children = (
-				D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */,
 				D978363E21AADD99002D52E4 /* Base */,
 				D916268321CE221700113666 /* Firebase */,
 				D908B54921A63651001ECA7F /* Interactor */,
 				D908B53621A57FD0001ECA7F /* AppInteractor.h */,
+				D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */,
 				D908B53721A57FD0001ECA7F /* Info.plist */,
 			);
 			path = AppInteractor;
@@ -822,8 +822,8 @@
 		D916268321CE221700113666 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				D916268421CE223A00113666 /* FirebaseStorageUploader.swift */,
 				D9D74D9D21D0C4FB00141FC7 /* Configure.swift */,
+				D916268421CE223A00113666 /* FirebaseStorageManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -1966,7 +1966,7 @@
 				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
 				D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */,
 				D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */,
-				D916268521CE223A00113666 /* FirebaseStorageUploader.swift in Sources */,
+				D916268521CE223A00113666 /* FirebaseStorageManager.swift in Sources */,
 				D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */,
 				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
 			);

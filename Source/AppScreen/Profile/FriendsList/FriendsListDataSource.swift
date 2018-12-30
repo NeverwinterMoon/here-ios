@@ -10,7 +10,7 @@ import Foundation
 import RxDataSources
 
 struct FriendsListItem {
-    let profileImageURL: URL
+    let profileImageFilePath: String
     let userDisplayName: String
     let username: String
 }

@@ -126,6 +126,17 @@ public final class ProfileInteractor {
             }
     }
     
+    public func getProfileImageData(filePath: String) -> Single<UIImage> {
+        
+        return FirebaseStorageManager.downloadFile(filePath: filePath).map { data -> UIImage in
+            
+            guard let data = data else {
+                return UIImage(named: "first")!
+            }
+            return UIImage(data: data)!
+        }
+    }
+    
     // MARK: - Private
     private let disposeBag = DisposeBag()
 }

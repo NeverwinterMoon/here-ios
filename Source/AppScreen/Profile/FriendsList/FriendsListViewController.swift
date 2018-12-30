@@ -32,7 +32,7 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
             
             collectionView.register(FriendsListCell.self, forCellWithReuseIdentifier: "FriendsListCell")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsListCell", for: indexPath) as! FriendsListCell
-            cell.profileImageURL = item.profileImageURL
+            cell.profileImageData = item.profileImageFilePath
             cell.userDisplayName = item.userDisplayName
             cell.username = item.username
             return cell

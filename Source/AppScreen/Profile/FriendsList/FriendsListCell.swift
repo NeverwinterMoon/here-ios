@@ -12,9 +12,11 @@ import FlexLayout
 
 final class FriendsListCell: UICollectionViewCell {
     
-    var profileImageURL: URL {
+    // next: cell にinteractor を持たせるイメージ。そこからprofileImageを取ってくる
+    
+    var profileImage: UIImage {
         didSet {
-            FirebaseStorage
+            self.profileImageView.image = self.profileImage
         }
     }
     

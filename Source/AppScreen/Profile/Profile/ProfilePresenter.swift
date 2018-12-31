@@ -33,7 +33,7 @@ final class ProfilePresenter: ProfilePresenterInterface {
         self.userDisplayName = self.user.map { $0.userDisplayName }
         self.selfIntroduction = self.user.map { $0.selfIntroduction }
         
-        self.profileImage = self.interactor.getProfileImage().asDriver(onErrorJustReturn: UIImage())
+        self.profileImage = self.interactor.getSelfProfileImage().asDriver(onErrorJustReturn: UIImage())
 
         self.view.viewWillAppear
             .do(onNext: { [unowned self] in

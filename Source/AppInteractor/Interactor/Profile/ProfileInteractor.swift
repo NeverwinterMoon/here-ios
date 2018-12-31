@@ -115,7 +115,7 @@ public final class ProfileInteractor {
             .disposed(by: self.disposeBag)
     }
     
-    public func getProfileImage() -> Single<UIImage> {
+    public func getSelfProfileImage() -> Single<UIImage> {
         
         return SharedDBManager.activatedAccountRealm()
             .map { realm in
@@ -125,8 +125,8 @@ public final class ProfileInteractor {
                 return UIImage(named: "first")!
             }
     }
-    
-    public func getProfileImageData(filePath: String) -> Single<UIImage> {
+
+    public func getProfileIcon(filePath: String) -> Single<UIImage> {
         
         return FirebaseStorageManager.downloadFile(filePath: filePath).map { data -> UIImage in
             

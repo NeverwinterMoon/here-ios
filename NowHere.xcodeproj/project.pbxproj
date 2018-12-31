@@ -941,10 +941,10 @@
 			children = (
 				D92AFC8721A6A31D00FCB5FD /* FriendsListInterface.swift */,
 				D978364121AB7DDE002D52E4 /* FriendsListDataSource.swift */,
-				D971788221D3177000137149 /* FriendsListCell.swift */,
 				D92AFC8521A6A2F500FCB5FD /* FriendsListViewController.swift */,
 				D92AFC8921A6A34200FCB5FD /* FriendsListPresenter.swift */,
 				D92AFC8B21A6A34C00FCB5FD /* FriendsListWireframe.swift */,
+				D971788221D3177000137149 /* FriendsListCell.swift */,
 			);
 			path = FriendsList;
 			sourceTree = "<group>";

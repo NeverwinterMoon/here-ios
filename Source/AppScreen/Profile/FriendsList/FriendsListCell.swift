@@ -12,23 +12,14 @@ import FlexLayout
 
 final class FriendsListCell: UICollectionViewCell {
     
-    // next: cell にinteractor を持たせるイメージ。そこからprofileImageを取ってくる
-    
-    var profileImage: UIImage {
+    var item: FriendsListItem? {
         didSet {
-            self.profileImageView.image = self.profileImage
-        }
-    }
-    
-    var userDisplayName: String {
-        didSet {
-            self.userDisplayLabel.text = self.userDisplayName
-        }
-    }
-    
-    var username: String {
-        didSet {
-            self.usernameLabel.text = self.username
+            guard let item = item else {
+                return
+            }
+            self.userDisplayLabel.text = item.userDisplayName
+            self.usernameLabel.text = item.username
+//            self.profileImageView.image = item.iconFilePath
         }
     }
 
@@ -39,7 +30,7 @@ final class FriendsListCell: UICollectionViewCell {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-        
+
         self.contentView.flex.direction(.row).define { flex in
             
             flex.addItem(self.profileImageView)

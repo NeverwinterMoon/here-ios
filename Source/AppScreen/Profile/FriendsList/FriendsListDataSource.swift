@@ -10,14 +10,13 @@ import Foundation
 import RxDataSources
 
 struct FriendsListItem {
-    let profileImageFilePath: String
+    let iconFilePath: String?
     let userDisplayName: String
     let username: String
 }
 
 struct FriendsListSection {
     
-    var title: String
     var items: [Item]
 }
 

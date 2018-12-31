@@ -21,7 +21,7 @@ protocol ProfileViewInterface: ViewInterface {
 protocol ProfileInteractorInterface: class {
     func user(userId: String)
     func activatedUser() -> Single<User>
-    func getProfileImage() -> Single<UIImage>
+    func getSelfProfileImage() -> Single<UIImage>
 }
 
 extension ProfileInteractor: ProfileInteractorInterface {}

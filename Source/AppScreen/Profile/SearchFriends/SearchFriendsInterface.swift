@@ -7,17 +7,22 @@
 //
 
 import Foundation
+import AppEntity
 import AppInteractor
+import RxCocoa
+import RxSwift
 
 protocol SearchFriendsViewInterface {
 }
 
 protocol SearchFriendsInteractorInterface {
+    func allUsers() -> Single<[User]>
 }
 
 extension ProfileInteractor: SearchFriendsInteractorInterface {}
 
 protocol SearchFriendsPresenterInterface {
+    var section: Driver<[SearchFriendsSection]> { get }
 }
 
 protocol SearchFriendsWireframeInterface {

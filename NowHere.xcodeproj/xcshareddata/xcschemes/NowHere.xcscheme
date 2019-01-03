@@ -104,7 +104,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "server_staging_url"
-            value = "https://here-drip-staging.herokuapp.com/"
+            value = "https://here-226305.appspot.com"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

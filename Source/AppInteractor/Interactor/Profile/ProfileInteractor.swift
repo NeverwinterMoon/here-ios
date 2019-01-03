@@ -30,6 +30,11 @@ public final class ProfileInteractor {
             .asSingle()
     }
     
+    public func allUsers() -> Single<[User]> {
+        
+        return API.User.GetAllUsers().asSingle()
+    }
+    
     public func user(userId: String) {
         return API.User.Get(userId: userId).asSingle().flatMap { user -> Single<Void> in
             

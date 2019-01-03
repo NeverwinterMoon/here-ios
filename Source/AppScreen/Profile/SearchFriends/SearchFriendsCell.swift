@@ -1,5 +1,5 @@
 //
-//  ProfileCell.swift
+//  SearchFriendsCell.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2019/01/03.
@@ -7,15 +7,18 @@
 //
 
 import Foundation
+import FlexLayout
 
-final class ProfileCell: UICollectionViewCell {
+final class SearchFriendsCell: UICollectionViewCell {
     
-    var item: ProfileItem? {
+    var item: SearchFriendsItem? {
+        
         didSet {
             guard let item = item else {
                 return
             }
-            self.titleLabel.text = item.title
+            self.iconImageView.image = item.icon
+            self.displayNameLabel.text = item.displayName
         }
     }
     
@@ -31,20 +34,14 @@ final class ProfileCell: UICollectionViewCell {
         self.contentView.flex.direction(.row).define { flex in
             
             flex.addItem(self.iconImageView).size(100)
-            flex.addItem(self.titleLabel).grow(1)
+            flex.addItem(self.displayNameLabel).grow(1)
         }
     }
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        self.contentView.flex.layout()
-    }
-
     // MARK: - Private
     private let iconImageView = UIImageView()
-    private let titleLabel = UILabel()
+    private let displayNameLabel = UILabel()
 }

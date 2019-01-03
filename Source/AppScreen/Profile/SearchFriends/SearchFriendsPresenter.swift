@@ -7,14 +7,26 @@
 //
 
 import Foundation
+import AppEntity
+import RxCocoa
+import RxSwift
 
 final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
+    
+    var section: Driver<[SearchFriendsSection]> {
+        
+        return self.sectionsRelay.asDriver()
+    }
+    
+    private let sectionsRelay: BehaviorRelay<[SearchFriendsSection]> = .init(value: [])
     
     init(view: SearchFriendsViewInterface, interactor: SearchFriendsInteractorInterface, wireframe: SearchFriendsWireframeInterface) {
         
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        
+        self.interactor.allUsers()
     }
     
     // MARK: - Private

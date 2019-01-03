@@ -50,6 +50,18 @@ extension API {
             }
         }
         
+        public struct GetAllUsers: GETTargetType {
+            
+            public typealias ElementType = [AppEntity.User]
+            
+            public let path: String
+            public let parameters: [String : Any] = [:]
+            
+            public init() {
+                self.path = "users"
+            }
+        }
+        
         public struct Create: POSTTargetType {
             
             public typealias ElementType = AppEntity.User

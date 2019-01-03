@@ -29,3 +29,8 @@ extension ProfileSection: SectionModelType {
         self.items = items
     }
 }
+
+enum ProfileRowType {
+    case friends
+    case searchFriends
+}

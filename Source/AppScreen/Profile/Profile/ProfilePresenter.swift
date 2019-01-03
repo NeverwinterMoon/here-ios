@@ -72,14 +72,14 @@ final class ProfilePresenter: ProfilePresenterInterface {
         
         self.view.tapProfileRow
             .map { [unowned self] in
-                self.sectionsRelay.value[$0.section].items[$0.item]
+                self.sectionsRelay.value[$0.section].items[$0.item].type
             }
             .emit(onNext: { [unowned self] in
-                switch $0.type {
+                switch $0 {
                 case .friends:
                     self.wireframe.pushfFriendsList()
                 case .searchFriends:
-                    self.wireframe.pushfFriendsList()
+                    self.wireframe.pushSearchFriends()
                 }
             })
             .disposed(by: self.disposeBag)
@@ -90,9 +90,4 @@ final class ProfilePresenter: ProfilePresenterInterface {
     private let interactor: ProfileInteractorInterface
     private let wireframe: ProfileWireframeInterface
     private let disposeBag = DisposeBag()
-}
-
-enum ProfileRowType {
-    case friends
-    case searchFriends
 }

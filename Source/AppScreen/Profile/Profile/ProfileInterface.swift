@@ -37,4 +37,5 @@ protocol ProfilePresenterInterface: class {
 protocol ProfileWireframeInterface: WireframeInterface {
     func presentUserInfo()
     func pushfFriendsList()
+    func pushSearchFriends()
 }

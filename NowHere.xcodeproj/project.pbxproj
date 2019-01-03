@@ -194,6 +194,10 @@
 		D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9D21D0C4FB00141FC7 /* Configure.swift */; };
 		D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */; };
 		D9E6465E21DDFB010046504B /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465D21DDFB010046504B /* ProfileCell.swift */; };
+		D9E6466121DE0B320046504B /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */; };
+		D9E6466321DE0B460046504B /* SearchFriendsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6466221DE0B460046504B /* SearchFriendsInterface.swift */; };
+		D9E6466521DE0B4F0046504B /* SearchFriendsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6466421DE0B4F0046504B /* SearchFriendsPresenter.swift */; };
+		D9E6466721DE0B590046504B /* SearchFriendsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6466621DE0B590046504B /* SearchFriendsWireframe.swift */; };
 		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
 		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
 		D9F70F8D21C085FB0071A36E /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
@@ -504,6 +508,10 @@
 		D9D74D9D21D0C4FB00141FC7 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		D9E6465D21DDFB010046504B /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		D9E6466221DE0B460046504B /* SearchFriendsInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsInterface.swift; sourceTree = "<group>"; };
+		D9E6466421DE0B4F0046504B /* SearchFriendsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsPresenter.swift; sourceTree = "<group>"; };
+		D9E6466621DE0B590046504B /* SearchFriendsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsWireframe.swift; sourceTree = "<group>"; };
 		D9F11D3021BD3A20008AB472 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		D9F11D3321BD3F27008AB472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5AF598A12A570F0356243C1 /* Pods-NowHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowHereTests.debug.xcconfig"; path = "Target Support Files/Pods-NowHereTests/Pods-NowHereTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1061,6 +1069,7 @@
 				D900BB2F21A3E86400E2E9A7 /* Profile */,
 				D900BB3021A3E87900E2E9A7 /* DetailProfileInfo */,
 				D92AFC8421A6A2D200FCB5FD /* FriendsList */,
+				D9E6465F21DE0B080046504B /* SearchFriends */,
 				D92AFC8D21A6A3FB00FCB5FD /* FriendProfile */,
 				D9BB611B21AE88E600CD5424 /* EditProfileInfo */,
 				D981DDEC21CCE230002E55F7 /* SelectProfileImage */,
@@ -1199,6 +1208,17 @@
 				D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */,
 			);
 			path = SelectedImageConfirm;
+			sourceTree = "<group>";
+		};
+		D9E6465F21DE0B080046504B /* SearchFriends */ = {
+			isa = PBXGroup;
+			children = (
+				D9E6466221DE0B460046504B /* SearchFriendsInterface.swift */,
+				D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */,
+				D9E6466421DE0B4F0046504B /* SearchFriendsPresenter.swift */,
+				D9E6466621DE0B590046504B /* SearchFriendsWireframe.swift */,
+			);
+			path = SearchFriends;
 			sourceTree = "<group>";
 		};
 		D9F11D3221BD3F0C008AB472 /* ViewController */ = {
@@ -2023,6 +2043,7 @@
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
 				D9E6465E21DDFB010046504B /* ProfileCell.swift in Sources */,
 				D900BB3E21A3EFD900E2E9A7 /* DetailProfileInfoInterface.swift in Sources */,
+				D9E6466121DE0B320046504B /* SearchFriendsViewController.swift in Sources */,
 				D9D74D9721CFE79900141FC7 /* SelectedImageConfirmInterface.swift in Sources */,
 				D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */,
 				D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */,
@@ -2038,10 +2059,12 @@
 				D95FED8721B3DD05007CEFD6 /* RootInterface.swift in Sources */,
 				D9BB612621AF81E300CD5424 /* MapPresenter.swift in Sources */,
 				D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */,
+				D9E6466321DE0B460046504B /* SearchFriendsInterface.swift in Sources */,
 				D95FED8B21B3DD23007CEFD6 /* RootWireframe.swift in Sources */,
 				D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */,
 				D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */,
 				D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */,
+				D9E6466521DE0B4F0046504B /* SearchFriendsPresenter.swift in Sources */,
 				D981DDD021C73F34002E55F7 /* EditProfileInfoWireframe.swift in Sources */,
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
 				D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */,
@@ -2063,6 +2086,7 @@
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* EditProfileInfoViewController.swift in Sources */,
 				D9BB613021AF8BAA00CD5424 /* ChatInterface.swift in Sources */,
+				D9E6466721DE0B590046504B /* SearchFriendsWireframe.swift in Sources */,
 				D939305221B6BBD900929DA8 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

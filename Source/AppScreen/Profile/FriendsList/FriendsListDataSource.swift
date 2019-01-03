@@ -25,6 +25,7 @@ extension FriendsListSection: SectionModelType {
     typealias Item = FriendsListItem
     
     init(original: FriendsListSection, items: [Item]) {
+        
         self = original
         self.items = items
     }

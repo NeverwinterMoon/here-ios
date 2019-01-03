@@ -60,8 +60,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item]
             }
-            .asObservable()
-            .subscribe(onNext: { [unowned self] in
+            .emit(onNext: { [unowned self] in
                 self.wireframe.pushEditProfileInfo(infoType: $0.type, currentContent: $0.body)
             })
             .disposed(by: self.disposeBag)

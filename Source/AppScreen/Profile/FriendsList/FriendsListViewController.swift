@@ -64,6 +64,14 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
             $0.cellWidth = self.view.bounds.width
             $0.cellHeight = 50
         }
+
+        self.flexLayout()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
+        self.view.flex.layout()
     }
 
     // MARK: - Private
@@ -71,4 +79,11 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
     private let friendsCollectionViewFlowlayout = AppCollectionViewFlowLayout()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<FriendsListSection>
     private let disposeBag = DisposeBag()
+    
+    private func flexLayout() {
+        
+        self.view.flex.define { flex in
+            flex.addItem(self.friendsCollectionView).grow(1)
+        }
+    }
 }

@@ -14,7 +14,6 @@ final public class AppCollectionViewFlowLayout: UICollectionViewFlowLayout {
     public var cellHeight: CGFloat {
         
         didSet {
-            
             self.itemSize.height = self.cellHeight
         }
     }
@@ -30,9 +29,7 @@ final public class AppCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         self.cellHeight = 0
         self.cellWidth = 0
-        
         super.init()
-        
         self.minimumLineSpacing = 0
     }
 

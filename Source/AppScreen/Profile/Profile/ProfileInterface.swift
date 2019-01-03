@@ -14,7 +14,7 @@ import RxSwift
 
 protocol ProfileViewInterface: ViewInterface {
     var tapEditProfile: Signal<Void> { get }
-    var tapFriends: Signal<Void> { get }
+    var tapProfileRow: Signal<IndexPath> { get }
     func update()
 }
 
@@ -31,6 +31,7 @@ protocol ProfilePresenterInterface: class {
     var userDisplayName: Driver<String> { get }
     var selfIntroduction: Driver<String?> { get }
     var profileImage: Driver<UIImage> { get }
+    var sections: Driver<[ProfileSection]> { get }
 }
 
 protocol ProfileWireframeInterface: WireframeInterface {

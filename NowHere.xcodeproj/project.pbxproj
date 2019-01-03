@@ -192,6 +192,8 @@
 		D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9A21D071A700141FC7 /* ProfileImage.swift */; };
 		D9D74D9C21D0C4BB00141FC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */; };
 		D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9D21D0C4FB00141FC7 /* Configure.swift */; };
+		D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */; };
+		D9E6465E21DDFB010046504B /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465D21DDFB010046504B /* ProfileCell.swift */; };
 		D9F11D3121BD3A20008AB472 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3021BD3A20008AB472 /* AppTextField.swift */; };
 		D9F11D3421BD3F27008AB472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F11D3321BD3F27008AB472 /* ViewController.swift */; };
 		D9F70F8D21C085FB0071A36E /* AppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E935D21A6DC6300E93E04 /* AppExtensions.framework */; };
@@ -500,6 +502,8 @@
 		D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmWireframe.swift; sourceTree = "<group>"; };
 		D9D74D9A21D071A700141FC7 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		D9D74D9D21D0C4FB00141FC7 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
+		D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
+		D9E6465D21DDFB010046504B /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D9F11D3021BD3A20008AB472 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		D9F11D3321BD3F27008AB472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5AF598A12A570F0356243C1 /* Pods-NowHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowHereTests.debug.xcconfig"; path = "Target Support Files/Pods-NowHereTests/Pods-NowHereTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -689,6 +693,8 @@
 				D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */,
 				D900BB3921A3EF5500E2E9A7 /* ProfilePresenter.swift */,
 				D900BB2D21A3A8C800E2E9A7 /* ProfileWireframe.swift */,
+				D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */,
+				D9E6465D21DDFB010046504B /* ProfileCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -2015,6 +2021,7 @@
 				D96E803B21A788A300887846 /* DetailProfileInfoCell.swift in Sources */,
 				D971788321D3177000137149 /* FriendsListCell.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
+				D9E6465E21DDFB010046504B /* ProfileCell.swift in Sources */,
 				D900BB3E21A3EFD900E2E9A7 /* DetailProfileInfoInterface.swift in Sources */,
 				D9D74D9721CFE79900141FC7 /* SelectedImageConfirmInterface.swift in Sources */,
 				D908B47C21A4F57A001ECA7F /* AppInterface.swift in Sources */,
@@ -2044,6 +2051,7 @@
 				D92AFC8A21A6A34200FCB5FD /* FriendsListPresenter.swift in Sources */,
 				D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */,
 				D939306721B6C70B00929DA8 /* CreateNewAccountViewController.swift in Sources */,
+				D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */,
 				D900BB3F21A3EFDE00E2E9A7 /* DetailProfileInfoViewController.swift in Sources */,
 				D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */,
 				D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */,

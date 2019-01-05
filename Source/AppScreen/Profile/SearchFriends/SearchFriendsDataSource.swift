@@ -10,7 +10,7 @@ import Foundation
 import RxDataSources
 
 struct SearchFriendsItem {
-    let icon: UIImage?
+    let icon: String?
     let displayName: String
 }
 

@@ -46,7 +46,8 @@ final class ProfilePresenter: ProfilePresenterInterface {
             ProfileItem(icon: UIImage(named: "first"), title: "友達", type: .friends),
             ProfileItem(icon: UIImage(named: "first"), title: "友達を検索する", type: .searchFriends)
         ]
-        Observable.just(items).map { item -> [ProfileSection] in
+        
+        Observable.just(items).map { _ -> [ProfileSection] in
             [ProfileSection(items: items)]
         }
         .bind(to: self.sectionsRelay)

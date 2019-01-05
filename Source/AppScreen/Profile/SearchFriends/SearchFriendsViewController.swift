@@ -18,6 +18,11 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
     
     var presenter: SearchFriendsPresenterInterface!
     
+    var searchText: Driver<String> {
+        
+        return self.searchBar.rx.text.asDriver()
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         self.searchedFriendsCollectoinView = UICollectionView(frame: .init(), collectionViewLayout: self.searchedFriendsCollectionViewFlowLayout)

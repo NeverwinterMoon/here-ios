@@ -13,6 +13,7 @@ import RxCocoa
 import RxSwift
 
 protocol SearchFriendsViewInterface {
+    var searchText: Driver<String> { get }
 }
 
 protocol SearchFriendsInteractorInterface {

@@ -18,6 +18,7 @@ protocol FriendsListViewInterface: ViewInterface {
 
 protocol FriendsListInteractorInterface: class {
     func friends() -> Single<[User]>
+    func getProfileIcon(filePath: String) -> Single<UIImage>
 }
 
 extension ProfileInteractor: FriendsListInteractorInterface {}

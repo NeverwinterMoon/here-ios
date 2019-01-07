@@ -32,9 +32,7 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
             
             collectionView.register(FriendsListCell.self, forCellWithReuseIdentifier: "FriendsListCell")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsListCell", for: indexPath) as! FriendsListCell
-            cell.profileImageURL = item.profileImageURL
-            cell.userDisplayName = item.userDisplayName
-            cell.username = item.username
+            cell.item = item
             return cell
         })
         self.dataSource = dataSource
@@ -66,6 +64,14 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
             $0.cellWidth = self.view.bounds.width
             $0.cellHeight = 50
         }
+
+        self.flexLayout()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
+        self.view.flex.layout()
     }
 
     // MARK: - Private
@@ -73,4 +79,11 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
     private let friendsCollectionViewFlowlayout = AppCollectionViewFlowLayout()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<FriendsListSection>
     private let disposeBag = DisposeBag()
+    
+    private func flexLayout() {
+        
+        self.view.flex.define { flex in
+            flex.addItem(self.friendsCollectionView).grow(1)
+        }
+    }
 }

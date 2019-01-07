@@ -31,10 +31,19 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
         let wireframe = FriendsListWireframe(navigationController: self.navigationController)
         let presenter = FriendsListPresenter(
             view: controller,
-            interactor: ProfileInteractor(),
+            interactor: ProfileInteractor.shared,
             wireframe: wireframe
         )
         controller.presenter = presenter
-        show(controller, with: .push, animated: true)
+        self.show(controller, with: .push, animated: true)
+    }
+    
+    func pushSearchFriends() {
+        
+        let controller = SearchFriendsViewController()
+        let wireframe = SearchFriendsWireframe(navigationController: self.navigationController)
+        let presenter = SearchFriendsPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
     }
 }

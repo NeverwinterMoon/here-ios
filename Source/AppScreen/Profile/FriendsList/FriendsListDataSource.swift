@@ -10,14 +10,13 @@ import Foundation
 import RxDataSources
 
 struct FriendsListItem {
-    let profileImageURL: URL
+    let iconFilePath: String?
     let userDisplayName: String
     let username: String
 }
 
 struct FriendsListSection {
     
-    var title: String
     var items: [Item]
 }
 
@@ -26,6 +25,7 @@ extension FriendsListSection: SectionModelType {
     typealias Item = FriendsListItem
     
     init(original: FriendsListSection, items: [Item]) {
+        
         self = original
         self.items = items
     }

@@ -14,14 +14,14 @@ import RxSwift
 
 protocol ProfileViewInterface: ViewInterface {
     var tapEditProfile: Signal<Void> { get }
-    var tapFriends: Signal<Void> { get }
+    var tapProfileRow: Signal<IndexPath> { get }
     func update()
 }
 
 protocol ProfileInteractorInterface: class {
     func user(userId: String)
     func activatedUser() -> Single<User>
-    func getProfileImage() -> Single<UIImage>
+    func getSelfProfileImage() -> Single<UIImage>
 }
 
 extension ProfileInteractor: ProfileInteractorInterface {}
@@ -31,9 +31,11 @@ protocol ProfilePresenterInterface: class {
     var userDisplayName: Driver<String> { get }
     var selfIntroduction: Driver<String?> { get }
     var profileImage: Driver<UIImage> { get }
+    var sections: Driver<[ProfileSection]> { get }
 }
 
 protocol ProfileWireframeInterface: WireframeInterface {
     func presentUserInfo()
     func pushfFriendsList()
+    func pushSearchFriends()
 }

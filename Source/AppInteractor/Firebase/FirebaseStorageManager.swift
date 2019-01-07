@@ -14,12 +14,14 @@ import RxSwift
 
 final class FirebaseStorageManager {
     
+    private static let storageRef = Storage.storage().reference()
+    
     public static func uploadFile(_ data: Data, filePath: String, ext: Ext) -> Single<Void> {
         
         return Single.create(subscribe: { observer -> Disposable in
             
             let path = filePath + ext.rawValue
-            let fileRef = Storage.storage().reference().child(path)
+            let fileRef = storageRef.child(path)
             fileRef.putData(data, metadata: nil) { (_, error) in
                 if let error = error {
                     observer(.error(error))
@@ -33,8 +35,20 @@ final class FirebaseStorageManager {
         })
     }
     
-    public static func downloadFile() -> Single<Data> {
+    public static func downloadFile(filePath: String) -> Single<Data?> {
         
+        return Single.create(subscribe: { observer -> Disposable in
+            
+            storageRef.child(filePath).getData(maxSize: 1024*1024) { (data, error) in
+                if let error = error {
+                    observer(.error(error))
+                    return
+                } else {
+                    observer(.success(data))
+                }
+            }
+            return Disposables.create()
+        })
     }
 }
 

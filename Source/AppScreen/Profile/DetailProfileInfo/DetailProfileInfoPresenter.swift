@@ -30,7 +30,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.userProfileImage = self.interactor.getProfileImage().asDriver(onErrorJustReturn: UIImage())
+        self.userProfileImage = self.interactor.getSelfProfileImage().asDriver(onErrorJustReturn: UIImage())
         
         let user: Driver<User> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
         
@@ -60,8 +60,7 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item]
             }
-            .asObservable()
-            .subscribe(onNext: { [unowned self] in
+            .emit(onNext: { [unowned self] in
                 self.wireframe.pushEditProfileInfo(infoType: $0.type, currentContent: $0.body)
             })
             .disposed(by: self.disposeBag)
@@ -86,6 +85,7 @@ fileprivate extension Observable where E == User {
         
         return self.map {
             
+            // TODO: make this dry (use map or sth)
             var items: [DetailProfileInfoItem] = []
             items.append(DetailProfileInfoItem(type: userInfoType(infoType: .userDisplayName), body: $0.userDisplayName))
             items.append(DetailProfileInfoItem(type: userInfoType(infoType: .username), body: $0.username))

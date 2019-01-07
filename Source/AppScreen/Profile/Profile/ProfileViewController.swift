@@ -12,9 +12,10 @@ import AppUIKit
 import FlexLayout
 import Nuke
 import RxCocoa
+import RxDataSources
 import RxSwift
 
-final class ProfileViewController: UIViewController, ProfileViewInterface {
+final class ProfileViewController: UIViewController, ProfileViewInterface, UICollectionViewDelegate {
     
     var presenter: ProfilePresenterInterface!
     
@@ -23,11 +24,11 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
         return self.editProfileButton.rx.tap.asSignal()
     }
     
-    var tapFriends: Signal<Void> {
+    var tapProfileRow: Signal<IndexPath> {
         
-        return self.friendsButton.rx.tap.asSignal()
+        return self.profileCollectionView.rx.itemSelected.asSignal()
     }
-    
+
     func update() {
         
         self.presenter.username
@@ -62,6 +63,14 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
+        self.profileCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.profileCollectionViewFlowLayout)
+        let dataSource = RxCollectionViewSectionedReloadDataSource<ProfileSection>(configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+            collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: "ProfileCell")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+            cell.item = item
+            return cell
+        })
+        self.dataSource = dataSource
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -94,16 +103,21 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             $0.layer.cornerRadius = 15
         }
         
-        self.friendsIconImageView.do {
-            // tmp
-            $0.backgroundColor = .orange
+        self.profileCollectionView.do {
+            
+            $0.delegate = self
+            $0.alwaysBounceVertical = true
+            $0.backgroundColor = .white
+            
+            self.presenter.sections
+                .drive($0.rx.items(dataSource: self.dataSource))
+                .disposed(by: self.disposeBag)
         }
         
-        self.friendsButton.do {
-
-            $0.setTitle("友達", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        self.profileCollectionViewFlowLayout.do {
+            
+            $0.cellWidth = self.view.bounds.width
+            $0.cellHeight = 50
         }
         
         self.flexLayout()
@@ -121,8 +135,9 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
     private let userDisplayNameLabel = UILabel()
     private let introLabel = UILabel()
     private let editProfileButton = UIButton()
-    private let friendsButton = AppButton()
-    private let friendsIconImageView = UIImageView()
+    private let profileCollectionView: UICollectionView
+    private let profileCollectionViewFlowLayout = AppCollectionViewFlowLayout()
+    private let dataSource: RxCollectionViewSectionedReloadDataSource<ProfileSection>
     private let disposeBag = DisposeBag()
 
     private func flexLayout() {
@@ -144,12 +159,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface {
             }
             
             flex.addItem(self.editProfileButton).marginHorizontal(50).marginBottom(20).height(30)
-            
-            flex.addItem().height(100).direction(.row).define { flex in
-                
-                flex.addItem(self.friendsIconImageView).width(80)
-                flex.addItem(self.friendsButton).grow(1)
-            }
+            flex.addItem(self.profileCollectionView).grow(1)
         }
     }
 }

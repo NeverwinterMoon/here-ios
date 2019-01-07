@@ -30,6 +30,11 @@ public final class ProfileInteractor {
             .asSingle()
     }
     
+    public func allUsers() -> Single<[User]> {
+        
+        return API.User.GetAllUsers().asSingle()
+    }
+    
     public func user(userId: String) {
         return API.User.Get(userId: userId).asSingle().flatMap { user -> Single<Void> in
             
@@ -115,7 +120,7 @@ public final class ProfileInteractor {
             .disposed(by: self.disposeBag)
     }
     
-    public func getProfileImage() -> Single<UIImage> {
+    public func getSelfProfileImage() -> Single<UIImage> {
         
         return SharedDBManager.activatedAccountRealm()
             .map { realm in
@@ -124,6 +129,17 @@ public final class ProfileInteractor {
                 }
                 return UIImage(named: "first")!
             }
+    }
+
+    public func getProfileIcon(filePath: String) -> Single<UIImage> {
+        
+        return FirebaseStorageManager.downloadFile(filePath: filePath).map { data -> UIImage in
+            
+            guard let data = data else {
+                return UIImage(named: "first")!
+            }
+            return UIImage(data: data)!
+        }
     }
     
     // MARK: - Private

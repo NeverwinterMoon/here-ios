@@ -30,6 +30,7 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
         
         self.view.searchText
             .debounce(0.5)
+            .filterNil()
             .distinctUntilChanged()
             .filterEmpty()
             .asObservable()

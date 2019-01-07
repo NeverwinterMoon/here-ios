@@ -18,11 +18,13 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
     
     var presenter: SearchFriendsPresenterInterface!
     
-    var searchText: Driver<String> {
-        
-        return self.searchBar.rx.text.asDriver()
+    var searchText: Driver<String?> {
+
+        return self.searchTextRelay.asDriver()
     }
     
+    private let searchTextRelay: BehaviorRelay<String?> = .init(value: "")
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         self.searchedFriendsCollectoinView = UICollectionView(frame: .init(), collectionViewLayout: self.searchedFriendsCollectionViewFlowLayout)
@@ -49,6 +51,8 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
             
             $0.delegate = self
             $0.placeholder = "検索"
+            
+            $0.rx.text.bind(to: self.searchTextRelay).disposed(by: self.disposeBag)
         }
         
         self.searchedFriendsCollectoinView.do {

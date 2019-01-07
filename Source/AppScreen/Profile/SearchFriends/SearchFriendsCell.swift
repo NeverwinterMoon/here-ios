@@ -17,7 +17,8 @@ final class SearchFriendsCell: UICollectionViewCell {
             guard let item = item else {
                 return
             }
-            self.iconImageView.image = item.icon
+            // TODO: iconImage
+//            self.iconImageView.image = item.icon
             self.displayNameLabel.text = item.displayName
         }
     }

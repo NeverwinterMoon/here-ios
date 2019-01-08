@@ -52,6 +52,8 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
             $0.delegate = self
             $0.placeholder = "検索"
             
+            $0.autocorrectionType = .no
+            $0.autocapitalizationType = .none
             $0.rx.text.bind(to: self.searchTextRelay).disposed(by: self.disposeBag)
         }
         

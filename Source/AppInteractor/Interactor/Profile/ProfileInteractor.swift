@@ -30,9 +30,9 @@ public final class ProfileInteractor {
             .asSingle()
     }
     
-    public func allUsers() -> Single<[User]> {
+    public func usersWithPrefix(of prefix: String) -> Single<[User]> {
         
-        return API.User.GetAllUsers().asSingle()
+        return API.User.GetUsersWithPrefix(of: prefix).asSingle()
     }
     
     public func user(userId: String) {

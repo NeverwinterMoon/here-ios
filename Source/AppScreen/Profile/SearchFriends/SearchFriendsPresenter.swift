@@ -26,8 +26,6 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        let allUsers = self.interactor.allUsers().asObservable()
-        
         self.view.searchText
             .debounce(0.5)
             .filterNil()
@@ -35,7 +33,7 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
             .filterEmpty()
             .asObservable()
             .flatMap { text -> Observable<[SearchFriendsSection]> in
-                allUsers.mapSections(query: text)
+                self.interactor.usersWithPrefix(of: text).asObservable().mapSections()
             }
             .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)
@@ -50,13 +48,10 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
 
 extension Observable where E == [User] {
     
-    fileprivate func mapSections(query: String) -> Observable<[SearchFriendsSection]> {
+    fileprivate func mapSections() -> Observable<[SearchFriendsSection]> {
         
-        return self.map {
-                $0.filter { $0.userDisplayName.hasPrefix(query) || $0.username.hasPrefix(query) }
-            }
-            .map { users -> [SearchFriendsSection] in
-                
+        return self.map { users -> [SearchFriendsSection] in
+
                 let items = users.map { user in
                     SearchFriendsItem(icon: user.profileImageURL, displayName: user.userDisplayName)
                 }

@@ -17,7 +17,7 @@ protocol SearchFriendsViewInterface {
 }
 
 protocol SearchFriendsInteractorInterface {
-    func allUsers() -> Single<[User]>
+    func usersWithPrefix(of: String) -> Single<[User]>
 }
 
 extension ProfileInteractor: SearchFriendsInteractorInterface {}

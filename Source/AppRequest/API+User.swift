@@ -50,18 +50,19 @@ extension API {
             }
         }
         
-        public struct GetAllUsers: GETTargetType {
+        public struct GetUsersWithPrefix: GETTargetType {
             
             public typealias ElementType = [AppEntity.User]
             
             public let path: String
-            public let parameters: [String : Any] = [:]
+            public let parameters: [String : Any]
             
-            public init() {
+            public init(of prefix: String) {
                 self.path = "users"
+                self.parameters = ["prefix": prefix]
             }
         }
-        
+
         public struct Create: POSTTargetType {
             
             public typealias ElementType = AppEntity.User

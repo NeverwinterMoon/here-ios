@@ -60,12 +60,20 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
         self.searchedFriendsCollectoinView.do {
             
             $0.delegate = self
+            $0.backgroundColor = .white
             
+            // next: self.dataSourceが変わっていない(debug()の結果、self.presenter.sectionには反映されているとわかった!)
             self.presenter.section
                 .drive($0.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
         }
         
+        self.searchedFriendsCollectoinView.rx
+            .setDelegate(self)
+            .disposed(by: self.disposeBag)
+        
+        Observable.just(self.dataSource).debug("datadata").subscribe().disposed(by: self.disposeBag)
+
         self.flexLayout()
     }
     
@@ -87,6 +95,7 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
         self.view.flex.define { flex in
             
             flex.addItem(self.searchBar)
+            flex.addItem(self.searchedFriendsCollectoinView).grow(1)
         }
     }
 }

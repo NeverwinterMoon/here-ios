@@ -24,6 +24,11 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
     }
     
     private let searchTextRelay: BehaviorRelay<String?> = .init(value: "")
+    
+    var tapFriendProfile: Signal<IndexPath> {
+        
+        return self.searchedFriendsCollectionView.rx.itemSelected.asSignal()
+    }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         

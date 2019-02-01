@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+final class FriendProfileWireframe: AppWireframe, FriendProfileWireframeInterface {
+    
+    func pushFriendsList(userId: String) {
+    }
+}

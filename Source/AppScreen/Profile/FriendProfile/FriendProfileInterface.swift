@@ -23,7 +23,6 @@ protocol FriendProfileInteractorInterface {
 extension ProfileInteractor: FriendProfileInteractorInterface {}
 
 protocol FriendProfilePresenterInterface {
-    var userId: Driver<String> { get }
 }
 
 protocol FriendProfileWireframeInterface {

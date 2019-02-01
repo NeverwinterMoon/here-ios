@@ -14,6 +14,7 @@ import RxSwift
 
 protocol SearchFriendsViewInterface {
     var searchText: Driver<String?> { get }
+    var tapFriendProfile: Signal<IndexPath> { get }
 }
 
 protocol SearchFriendsInteractorInterface {
@@ -27,4 +28,5 @@ protocol SearchFriendsPresenterInterface {
 }
 
 protocol SearchFriendsWireframeInterface {
+    func pushFriendProfile(userId: String)
 }

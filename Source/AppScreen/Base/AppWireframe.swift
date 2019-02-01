@@ -19,8 +19,7 @@ enum Transition {
 class AppWireframe: WireframeInterface {
     
     unowned let navigationController: UINavigationController
-//    let navigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }

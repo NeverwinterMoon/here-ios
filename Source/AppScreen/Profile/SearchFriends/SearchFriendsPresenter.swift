@@ -37,6 +37,15 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
             }
             .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)
+        
+        self.view.tapFriendProfile
+            .map { [unowned self] in
+                self.sectionsRelay.value[$0.section].items[$0.item].userId
+            }
+            .emit(onNext: { [unowned self] in
+                self.wireframe.pushFriendProfile(userId: $0)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
@@ -53,7 +62,7 @@ extension Observable where E == [User] {
         return self.map { users -> [SearchFriendsSection] in
 
                 let items = users.map { user in
-                    SearchFriendsItem(icon: user.profileImageURL, displayName: user.userDisplayName)
+                    SearchFriendsItem(icon: user.profileImageURL, userId: user.id, displayName: user.userDisplayName)
                 }
                 return [SearchFriendsSection(items: items)]
             }

@@ -27,7 +27,7 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        self.searchedFriendsCollectoinView = UICollectionView(frame: .init(), collectionViewLayout: self.searchedFriendsCollectionViewFlowLayout)
+        self.searchedFriendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.searchedFriendsCollectionViewFlowLayout)
         let dataSource = RxCollectionViewSectionedReloadDataSource<SearchFriendsSection> (configureCell: {(_, collectionView, indexPath, item) -> UICollectionViewCell in
             collectionView.register(SearchFriendsCell.self, forCellWithReuseIdentifier: "SearchFriendsCell")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchFriendsCell", for: indexPath) as! SearchFriendsCell
@@ -57,15 +57,24 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
             $0.rx.text.bind(to: self.searchTextRelay).disposed(by: self.disposeBag)
         }
         
-        self.searchedFriendsCollectoinView.do {
+        self.searchedFriendsCollectionView.do {
             
             $0.delegate = self
+            $0.backgroundColor = .white
+            $0.alwaysBounceVertical = true
+            $0.rx.setDelegate(self).disposed(by: self.disposeBag)
             
             self.presenter.section
                 .drive($0.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
         }
         
+        self.searchedFriendsCollectionViewFlowLayout.do {
+            
+            $0.cellWidth = self.view.bounds.width
+            $0.cellHeight = 80
+        }
+
         self.flexLayout()
     }
     
@@ -77,7 +86,7 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
     
     // MARK: - Private
     private let searchBar = UISearchBar()
-    private let searchedFriendsCollectoinView: UICollectionView
+    private let searchedFriendsCollectionView: UICollectionView
     private let searchedFriendsCollectionViewFlowLayout = AppCollectionViewFlowLayout()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<SearchFriendsSection>
     private let disposeBag = DisposeBag()
@@ -87,6 +96,7 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
         self.view.flex.define { flex in
             
             flex.addItem(self.searchBar)
+            flex.addItem(self.searchedFriendsCollectionView).grow(1)
         }
     }
 }

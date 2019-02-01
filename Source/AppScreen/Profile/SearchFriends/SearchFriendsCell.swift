@@ -18,7 +18,7 @@ final class SearchFriendsCell: UICollectionViewCell {
                 return
             }
             // TODO: iconImage
-//            self.iconImageView.image = item.icon
+            self.iconImageView.image = UIImage(named: "first")
             self.displayNameLabel.text = item.displayName
         }
     }
@@ -28,13 +28,19 @@ final class SearchFriendsCell: UICollectionViewCell {
         self.init(frame: .zero)
     }
     
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        self.contentView.flex.layout()
+    }
+    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
         
         self.contentView.flex.direction(.row).define { flex in
             
-            flex.addItem(self.iconImageView).size(100)
+            flex.addItem(self.iconImageView).size(70).alignSelf(.center)
             flex.addItem(self.displayNameLabel).grow(1)
         }
     }

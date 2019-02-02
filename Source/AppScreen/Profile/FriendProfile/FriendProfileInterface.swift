@@ -14,12 +14,15 @@ import RxSwift
 
 protocol FriendProfileViewInterface: ViewInterface {
     var tapFriends: Signal<Void> { get }
+    var tapFriendRequest: Signal<RelationState> { get }
 }
 
 protocol FriendProfileInteractorInterface {
     func getUser(userId: String) -> Single<User>
     func friends() -> Single<[User]>
     func getProfileIcon(filePath: String) -> Single<UIImage>
+    func friendRequest(to: String) -> Single<Void>
+    func cancelRequest(to: String) -> Single<Void>
 }
 
 extension ProfileInteractor: FriendProfileInteractorInterface {}

@@ -45,6 +45,30 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
             .asDriver(onErrorJustReturn: .notFriend)
         
         // TODO: also implement blocked user
+        
+        self.view.tapFriendRequest
+            .asObservable()
+            .flatMap { state -> Single<Void> in
+                switch state {
+                case .friend:
+                    // TODO: show sheet (unfriend or sth)
+                    return Single.just(())
+                case .notFriend:
+                    return self.interactor.friendRequest(to: userId)
+                case .pending:
+                    return self.interactor.cancelRequest(to: userId)
+                case .blocking:
+                    // TODO: show sheet (unblock or sth)
+                    return Single.just(())
+                case .blocked:
+                    // TODO: show sheet (unfriend or sth)
+                    return Single.just(())
+                }
+            }
+            .subscribe()
+            .disposed(by: self.disposeBag)
+        
+        // next: viewの申請ボタンの外見を,tapFriendRequestで変える
     }
     
     // MARK: - Private
@@ -57,6 +81,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
 enum RelationState {
     case friend
     case notFriend
+    case pending
     case blocking
     case blocked
 }

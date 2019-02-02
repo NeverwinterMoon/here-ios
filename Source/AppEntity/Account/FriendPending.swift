@@ -38,7 +38,7 @@ public final class FriendPending: Object, Decodable {
         self.id = try container.decode(String.self, forKey: .id)
         self.userId = try container.decode(String.self, forKey: .userId)
         self.withUserId = try container.decode(String.self, forKey: .withUserId)
-        self.createdAt = try container.decode(Date.self, forKey: .createdAt)
-        self.updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        self.createdAt = try container.decodeDate(forKey: .createdAt)
+        self.updatedAt = try container.decodeDate(forKey: .updatedAt)
     }
 }

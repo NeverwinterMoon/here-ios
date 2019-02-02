@@ -18,9 +18,14 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
     var presenter: FriendProfilePresenterInterface!
     
     var tapFriends: Signal<Void> {
-        
         return self.friendsButton.rx.tap.asSignal()
     }
+    
+    var tapFriendRequest: Signal<RelationState> {
+        return self.friendRequestButton.rx.tap.map { self.relationStatus }.asSignal(onErrorJustReturn: .notFriend)
+    }
+    
+    var relationStatus: RelationState!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -74,7 +79,8 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
             $0.backgroundColor = .white
         }
 
-        self.presenter.relation.drive(onNext: {
+        self.presenter.relation.drive(onNext: { [unowned self] in
+            self.relationStatus = $0
             switch $0 {
             case .friend:
                 self.friendRequestButton.do {
@@ -92,6 +98,13 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
                     $0.layer.borderColor = UIColor.blue.cgColor
                 }
                 self.chatButton.isHidden = true
+            case .pending:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .white
+                    $0.setTitle("承認待ち", for: .normal)
+                    $0.setTitleColor(.gray, for: .normal)
+                    $0.layer.borderColor = UIColor.blue.cgColor
+                }
             case .blocking:
                 self.friendRequestButton.do {
                     $0.backgroundColor = .red
@@ -149,7 +162,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
                     }
             }
             
-            flex.addItem(self.friendRequestButton).alignSelf(.center).width(self.view.bounds.width - 2 * 30).height(30)
+            flex.addItem(self.friendRequestButton).alignSelf(.center).width(self.view.bounds.width - 2 * 50).height(30)
             
             flex.addItem(self.chatButton).size(100)
             flex.addItem(self.friendsButton).size(100)

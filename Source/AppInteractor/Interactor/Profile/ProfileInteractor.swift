@@ -58,6 +58,14 @@ public final class ProfileInteractor {
             }
     }
     
+    public func getUser(userId: String) -> Single<User> {
+        return API.User.Get(userId: userId).asSingle()
+    }
+    
+//    public func blockingUsers(of userId: String) -> Single<User> {
+//        return
+//    }
+    
     public func updateProfile(params: [String: Any]) -> Single<Void> {
         
         return SharedDBManager.activatedAccountRealm()

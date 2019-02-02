@@ -17,12 +17,19 @@ protocol FriendProfileViewInterface: ViewInterface {
 }
 
 protocol FriendProfileInteractorInterface {
-    func user(userId: String)
+    func getUser(userId: String) -> Single<User>
+    func friends() -> Single<[User]>
+    func getProfileIcon(filePath: String) -> Single<UIImage>
 }
 
 extension ProfileInteractor: FriendProfileInteractorInterface {}
 
 protocol FriendProfilePresenterInterface {
+    var relation: Driver<RelationState> { get }
+    var userIntro: Driver<String?> { get }
+    var username: Driver<String> { get }
+    var userDisplayName: Driver<String> { get }
+    var userProfileURL: Driver<String?> { get }
 }
 
 protocol FriendProfileWireframeInterface {

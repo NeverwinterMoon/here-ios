@@ -40,8 +40,9 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
         self.relation = userRelation(interactor: self.interactor, userId: userId).asDriver(onErrorJustReturn: .notFriend)
         // TODO: also implement blocked user
         
-        Observable.zip(self.view.tapFriendRequest.asObservable(), self.relation.asObservable())
-            .flatMap { (_, state) -> Single<Void> in
+        self.view.tapFriendRequest.asObservable()
+            .flatMap { userRelation(interactor: self.interactor, userId: userId) }
+            .flatMap { state -> Single<Void> in
                 switch state {
                 case .friend:
                     // show the sheet (block, mute)
@@ -55,7 +56,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
                     self.view.buttonState = .notFriend
                     return self.interactor.cancelRequest(to: userId)
                 case .requested:
-                    self.view.buttonState = .friend
+                    self.view.buttonState = .requested
                     return self.interactor.approveRequest(userId: userId)
                 case .blocking:
                     // show the cheet (unblock)
@@ -76,6 +77,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
 }
 
 fileprivate func userRelation(interactor: FriendProfileInteractorInterface, userId: String) -> Observable<RelationState> {
+    
     return Observable.zip(interactor.friends().asObservable(), interactor.requestsOfUser().asObservable())
         .map { (friends, friendPendings) -> RelationState in
             if friends.first(where: { $0.id == userId }) != nil {

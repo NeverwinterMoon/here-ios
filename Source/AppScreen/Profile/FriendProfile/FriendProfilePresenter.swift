@@ -21,6 +21,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
     let user: Driver<User>
 
     var relation: Driver<RelationState>
+    var buttonState: RelationState
     
     init(view: FriendProfileViewInterface, interactor: FriendProfileInteractorInterface, wireframe: FriendProfileWireframeInterface, userId: String) {
         
@@ -34,54 +35,67 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
         self.username = self.user.map { $0.username }
         self.userDisplayName = self.user.map { $0.userDisplayName }
         self.userProfileURL = self.user.map { $0.profileImageURL }
+        self.buttonState = .notFriend
         
-        self.relation = self.interactor.friends().map { friends -> RelationState in
-                if friends.first(where: { $0.id == userId }) != nil {
-                    return .friend
-                } else {
-                    return .notFriend
-                }
-            }
-            .asDriver(onErrorJustReturn: .notFriend)
-        
+        self.relation = userRelation(interactor: self.interactor, userId: userId).asDriver(onErrorJustReturn: .notFriend)
         // TODO: also implement blocked user
         
-        self.view.tapFriendRequest
-            .asObservable()
-            .flatMap { state -> Single<Void> in
+        Observable.zip(self.view.tapFriendRequest.asObservable(), self.relation.asObservable())
+            .flatMap { (_, state) -> Single<Void> in
                 switch state {
                 case .friend:
-                    // TODO: show sheet (unfriend or sth)
+                    // show the sheet (block, mute)
                     return Single.just(())
                 case .notFriend:
+                    // change the button status to pending
+                    self.view.buttonState = .requesting
                     return self.interactor.friendRequest(to: userId)
-                case .pending:
+                case .requesting:
+                    // change the button status to notFriend
+                    self.view.buttonState = .notFriend
                     return self.interactor.cancelRequest(to: userId)
+                case .requested:
+                    self.view.buttonState = .friend
+                    return self.interactor.approveRequest(userId: userId)
                 case .blocking:
-                    // TODO: show sheet (unblock or sth)
+                    // show the cheet (unblock)
                     return Single.just(())
                 case .blocked:
-                    // TODO: show sheet (unfriend or sth)
                     return Single.just(())
                 }
             }
             .subscribe()
             .disposed(by: self.disposeBag)
-        
-        // next: viewの申請ボタンの外見を,tapFriendRequestで変える
     }
     
     // MARK: - Private
-    private let view: FriendProfileViewInterface
+    private var view: FriendProfileViewInterface
     private let interactor: FriendProfileInteractorInterface
     private let wireframe: FriendProfileWireframeInterface
     private let disposeBag = DisposeBag()
 }
 
+fileprivate func userRelation(interactor: FriendProfileInteractorInterface, userId: String) -> Observable<RelationState> {
+    return Observable.zip(interactor.friends().asObservable(), interactor.requestsOfUser().asObservable())
+        .map { (friends, friendPendings) -> RelationState in
+            if friends.first(where: { $0.id == userId }) != nil {
+                return .friend
+            } else if friendPendings.first(where: { $0.userId == userId }) != nil {
+                return .requested
+            } else if friendPendings.first(where: { $0.withUserId == userId }) != nil {
+                return .requesting
+                // TODO: block, blocking
+            } else {
+                return .notFriend
+            }
+    }
+}
+
 enum RelationState {
     case friend
     case notFriend
-    case pending
+    case requesting
+    case requested
     case blocking
     case blocked
 }

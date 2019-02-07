@@ -21,13 +21,61 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         return self.friendsButton.rx.tap.asSignal()
     }
     
-    var tapFriendRequest: Signal<RelationState> {
-        return self.friendRequestButton.rx.tap.map { self.relationStatus }.asSignal(onErrorJustReturn: .notFriend)
+    var tapFriendRequest: Signal<Void> {
+        return self.friendRequestButton.rx.tap.asSignal()
     }
     
-    var relationStatus: RelationState!
+    var buttonState: RelationState {
+        didSet {
+            switch self.buttonState {
+            case .friend:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .white
+                    $0.setTitle("友達", for: .normal)
+                    $0.setTitleColor(.blue, for: .normal)
+                    $0.layer.borderColor = UIColor.blue.cgColor
+                }
+            case .notFriend:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .blue
+                    $0.setTitle("友達申請する", for: .normal)
+                    $0.setTitleColor(.white, for: .normal)
+                    $0.layer.borderColor = UIColor.blue.cgColor
+                }
+            case .requesting:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .white
+                    $0.setTitle("承認待ち", for: .normal)
+                    $0.setTitleColor(.gray, for: .normal)
+                    $0.layer.borderColor = UIColor.blue.cgColor
+                }
+            case .requested:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .blue
+                    $0.setTitle("友達申請を承認する", for: .normal)
+                    $0.setTitleColor(.white, for: .normal)
+                    $0.layer.borderColor = UIColor.blue.cgColor
+                }
+            case .blocked:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .red
+                    $0.setTitle("ブロックされています", for: .normal)
+                    $0.setTitleColor(.white, for: .normal)
+                    $0.layer.borderColor = UIColor.red.cgColor
+                }
+            case .blocking:
+                self.friendRequestButton.do {
+                    $0.backgroundColor = .red
+                    $0.setTitle("ブロックしています", for: .normal)
+                    $0.setTitleColor(.white, for: .normal)
+                    $0.layer.borderColor = UIColor.red.cgColor
+                }
+            }
+        }
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.buttonState = .notFriend
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -80,51 +128,10 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         }
 
         self.presenter.relation.drive(onNext: { [unowned self] in
-            self.relationStatus = $0
-            switch $0 {
-            case .friend:
-                self.friendRequestButton.do {
-                    $0.backgroundColor = .white
-                    $0.setTitle("友達", for: .normal)
-                    $0.setTitleColor(.blue, for: .normal)
-                    $0.layer.borderColor = UIColor.blue.cgColor
-                }
-                self.chatButton.isHidden = false
-            case .notFriend:
-                self.friendRequestButton.do {
-                    $0.backgroundColor = .blue
-                    $0.setTitle("友達申請する", for: .normal)
-                    $0.setTitleColor(.white, for: .normal)
-                    $0.layer.borderColor = UIColor.blue.cgColor
-                }
-                self.chatButton.isHidden = true
-            case .pending:
-                self.friendRequestButton.do {
-                    $0.backgroundColor = .white
-                    $0.setTitle("承認待ち", for: .normal)
-                    $0.setTitleColor(.gray, for: .normal)
-                    $0.layer.borderColor = UIColor.blue.cgColor
-                }
-            case .blocking:
-                self.friendRequestButton.do {
-                    $0.backgroundColor = .red
-                    $0.setTitle("ブロックしています", for: .normal)
-                    $0.setTitleColor(.white, for: .normal)
-                    $0.layer.borderColor = UIColor.red.cgColor
-                }
-                self.chatButton.isHidden = true
-            case .blocked:
-                self.friendRequestButton.do {
-                    $0.backgroundColor = .red
-                    $0.setTitle("ブロックされています", for: .normal)
-                    $0.setTitleColor(.white, for: .normal)
-                    $0.layer.borderColor = UIColor.red.cgColor
-                }
-                self.chatButton.isHidden = true
-            }
+            self.buttonState = $0
         })
         .disposed(by: self.disposeBag)
-        
+
         self.flexLayout()
     }
     

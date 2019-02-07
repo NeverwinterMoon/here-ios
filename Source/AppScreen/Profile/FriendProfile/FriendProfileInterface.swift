@@ -14,16 +14,28 @@ import RxSwift
 
 protocol FriendProfileViewInterface: ViewInterface {
     var tapFriends: Signal<Void> { get }
+    var tapFriendRequest: Signal<Void> { get }
+    var buttonState: RelationState { get set }
 }
 
 protocol FriendProfileInteractorInterface {
-    func user(userId: String)
+    func getUser(userId: String) -> Single<User>
+    func friends() -> Single<[User]>
+    func requestsOfUser() -> Single<[FriendPending]>
+    func getProfileIcon(filePath: String) -> Single<UIImage>
+    func friendRequest(to: String) -> Single<Void>
+    func cancelRequest(to: String) -> Single<Void>
+    func approveRequest(userId: String) -> Single<Void>
 }
 
 extension ProfileInteractor: FriendProfileInteractorInterface {}
 
 protocol FriendProfilePresenterInterface {
-    var userId: Driver<String> { get }
+    var relation: Driver<RelationState> { get }
+    var userIntro: Driver<String?> { get }
+    var username: Driver<String> { get }
+    var userDisplayName: Driver<String> { get }
+    var userProfileURL: Driver<String?> { get }
 }
 
 protocol FriendProfileWireframeInterface {

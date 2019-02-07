@@ -62,6 +62,18 @@ extension API {
                 self.parameters = ["prefix": prefix]
             }
         }
+        
+        public struct GetRequestsOfUser: GETTargetType {
+            
+            public typealias ElementType = [AppEntity.FriendPending]
+            
+            public let path: String
+            public let parameters: [String : Any] = [:]
+            
+            public init(userId: String) {
+                self.path = "users/\(userId)/friend_pendings"
+            }
+        }
 
         public struct Create: POSTTargetType {
             
@@ -86,6 +98,31 @@ extension API {
             public init(userId: String, toUserId: String) {
                 self.path = "users/\(userId)/friend_pendings"
                 self.parameters = ["with_user_id": toUserId]
+            }
+        }
+        
+        public struct CreateFriend: POSTTargetType {
+            
+            public typealias ElementType = AppEntity.User
+            
+            public let path: String
+            public let parameters: [String : Any]
+            
+            public init(userId: String, friendId: String) {
+                self.path = "users/\(userId)/friends"
+                self.parameters = ["friend_user_id": friendId]
+            }
+        }
+
+        public struct CancelFriendRequest: DELETETargetType {
+            
+            public typealias ElementType = Void
+            
+            public let path: String
+            public let parameters: [String : Any] = [:]
+            
+            public init(userId: String, toUserId: String) {
+                self.path = "users/\(userId)/friend_pendings/\(toUserId)"
             }
         }
         

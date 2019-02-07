@@ -90,13 +90,11 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         }
         
         self.introLabel.do {
-            
             $0.font?.withSize(14)
             $0.font = UIFont.systemFont(ofSize: 20)
         }
         
         self.editProfileButton.do {
-            
             $0.setTitle("プロフィールを編集する", for: .normal)
             $0.setTitleColor(.black, for: .normal)
             $0.layer.borderWidth = 1
@@ -104,7 +102,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         }
         
         self.profileCollectionView.do {
-            
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.backgroundColor = .white
@@ -115,7 +112,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         }
         
         self.profileCollectionViewFlowLayout.do {
-            
             $0.cellWidth = self.view.bounds.width
             $0.cellHeight = 50
         }

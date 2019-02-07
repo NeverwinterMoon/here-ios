@@ -11,6 +11,7 @@ import RxDataSources
 
 struct SearchFriendsItem {
     let icon: String?
+    let userId: String
     let displayName: String
 }
 

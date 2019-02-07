@@ -54,9 +54,46 @@ public final class ProfileInteractor {
     public func friends() -> Single<[User]> {
         return self.activatedUser()
             .flatMap { me -> Single<[User]> in
-                return API.User.GetFriends(username: me.id).asSingle()
+                API.User.GetFriends(username: me.id).asSingle()
             }
     }
+    
+    public func approveRequest(userId: String) -> Single<Void> {
+        return self.activatedUser()
+            .flatMap { me -> Single<String> in
+                API.User.CancelFriendRequest(userId: userId, toUserId: me.id).asSingle().map { _ in me.id }
+            }
+            .flatMap { myId -> Single<Void> in
+                API.User.CreateFriend(userId: myId, friendId: userId).asSingle().map { _ in }
+            }
+    }
+    
+    public func friendRequest(to userId: String) -> Single<Void> {
+        return self.activatedUser().flatMap {
+            API.User.SendFriendRequest(userId: $0.id, toUserId: userId).asSingle()
+        }
+        .map { _ in }
+    }
+    
+    public func cancelRequest(to userId: String) -> Single<Void> {
+        return self.activatedUser().flatMap {
+            API.User.CancelFriendRequest(userId: $0.id, toUserId: userId).asSingle()
+        }
+    }
+    
+    public func requestsOfUser() -> Single<[FriendPending]> {
+        return self.activatedUser().flatMap {
+            API.User.GetRequestsOfUser(userId: $0.id).asSingle()
+        }
+    }
+    
+    public func getUser(userId: String) -> Single<User> {
+        return API.User.Get(userId: userId).asSingle()
+    }
+    
+//    public func blockingUsers(of userId: String) -> Single<User> {
+//        return
+//    }
     
     public func updateProfile(params: [String: Any]) -> Single<Void> {
         

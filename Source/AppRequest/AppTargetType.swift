@@ -127,3 +127,10 @@ extension PATCHTargetType {
     public var method: Moya.Method { return .patch }
     public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
 }
+
+protocol DELETETargetType: AppTargetType {}
+extension DELETETargetType {
+    public var method: Moya.Method { return .delete }
+    public var parameterEncoding: ParameterEncoding { return JSONEncoding.default }
+}
+

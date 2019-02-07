@@ -16,11 +16,11 @@ final class FirebaseStorageManager {
     
     private static let storageRef = Storage.storage().reference()
     
-    public static func uploadFile(_ data: Data, filePath: String, ext: Ext) -> Single<Void> {
+    public static func uploadFile(_ data: Data, userId: String, fileName: String, ext: Ext) -> Single<Void> {
         
         return Single.create(subscribe: { observer -> Disposable in
             
-            let path = filePath + ext.rawValue
+            let path = "users/\(userId)/profile_image/\(fileName)" + ext.rawValue
             let fileRef = storageRef.child(path)
             fileRef.putData(data, metadata: nil) { (_, error) in
                 if let error = error {

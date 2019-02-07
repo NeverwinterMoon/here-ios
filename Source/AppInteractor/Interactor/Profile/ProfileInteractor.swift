@@ -129,8 +129,8 @@ public final class ProfileInteractor {
                     assertionFailure()
                     return
                 }
+                
                 do {
-                    
                     let profileImage = ProfileImage()
                     profileImage.do {
                         $0.user = user
@@ -150,8 +150,11 @@ public final class ProfileInteractor {
                 }
             }
             .asObservable()
-            .flatMap { _ -> Single<Void> in
-                FirebaseStorageManager.uploadFile(data, filePath: filePath, ext: .jpeg)
+            .flatMap {
+                self.activatedUser().map { $0.id }
+            }
+            .flatMap {
+                FirebaseStorageManager.uploadFile(data, userId: $0, fileName: filePath, ext: .jpeg)
             }
             .subscribe()
             .disposed(by: self.disposeBag)

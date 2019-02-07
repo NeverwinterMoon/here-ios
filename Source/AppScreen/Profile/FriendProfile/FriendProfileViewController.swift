@@ -92,10 +92,6 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
             $0.backgroundColor = .black
         }
         
-//        self.profileImageView.do {
-//            $0.image =
-//        }
-        
         self.friendRequestButton.do {
             
             $0.layer.cornerRadius = 15
@@ -130,6 +126,15 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         self.presenter.relation.drive(onNext: { [unowned self] in
             self.buttonState = $0
         })
+        .disposed(by: self.disposeBag)
+
+        self.presenter.userProfileURL.filterNil().map {
+            if let profileURL = URL(string: $0), let imageData = try? Data(contentsOf: profileURL) {
+                self.profileImageView.image = UIImage(data: imageData)
+            }
+        }
+        .asObservable()
+        .subscribe()
         .disposed(by: self.disposeBag)
 
         self.flexLayout()

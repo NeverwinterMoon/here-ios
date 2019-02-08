@@ -43,8 +43,16 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item].userId
             }
-            .emit(onNext: { [unowned self] in
-                self.wireframe.pushFriendProfile(userId: $0)
+            .emit(onNext: { [unowned self] userId in
+                self.interactor.activatedUser().do(onSuccess: {
+                    if $0.id == userId {
+                        return self.wireframe.pushProfile()
+                    } else {
+                        return self.wireframe.pushFriendProfile(userId: $0.id)
+                    }
+                })
+                .subscribe()
+                .disposed(by: self.disposeBag)
             })
             .disposed(by: self.disposeBag)
     }

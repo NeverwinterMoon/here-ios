@@ -18,6 +18,7 @@ protocol SearchFriendsViewInterface {
 }
 
 protocol SearchFriendsInteractorInterface {
+    func activatedUser() -> Single<User>
     func usersWithPrefix(of: String) -> Single<[User]>
 }
 
@@ -29,4 +30,5 @@ protocol SearchFriendsPresenterInterface {
 
 protocol SearchFriendsWireframeInterface {
     func pushFriendProfile(userId: String)
+    func pushProfile()
 }

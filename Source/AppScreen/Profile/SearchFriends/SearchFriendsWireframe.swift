@@ -19,4 +19,13 @@ final class SearchFriendsWireframe: AppWireframe, SearchFriendsWireframeInterfac
         controller.presenter = presenter
         self.show(controller, with: .push, animated: true)
     }
+    
+    func pushProfile() {
+        
+        let controller = ProfileViewController()
+        let wireframe = ProfileWireframe(navigationController: self.navigationController)
+        let presenter = ProfilePresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
+    }
 }

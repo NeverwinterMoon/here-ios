@@ -19,7 +19,6 @@ protocol DetailProfileInfoViewInterface: ViewInterface {
 }
 
 protocol DetailProfileInfoInteractorInterface: class {
-    func user(userId: String)
     func activatedUser() -> Single<User>
     func getSelfProfileImage() -> Single<UIImage>
 }

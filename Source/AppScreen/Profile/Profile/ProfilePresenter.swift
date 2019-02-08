@@ -60,9 +60,7 @@ final class ProfilePresenter: ProfilePresenterInterface {
             .flatMap { [unowned self] in
                 self.interactor.activatedUser()
             }
-            .subscribe(onNext: {
-                self.interactor.user(userId: $0.id)
-            })
+            .subscribe()
             .disposed(by: self.disposeBag)
         
         self.view.tapEditProfile

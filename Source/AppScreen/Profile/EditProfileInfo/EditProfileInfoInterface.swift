@@ -17,8 +17,6 @@ protocol EditProfileInfoViewInterface: ViewInterface {
 }
 
 protocol EditProfileInfoInteractorInterface {
-    func activatedUser() -> Single<User>
-    func user(userId: String)
     func updateProfile(params: [String: Any]) -> Single<Void>
 }
 extension ProfileInteractor: EditProfileInfoInteractorInterface {}

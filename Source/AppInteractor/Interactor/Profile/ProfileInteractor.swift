@@ -34,22 +34,6 @@ public final class ProfileInteractor {
         
         return API.User.GetUsersWithPrefix(of: prefix).asSingle()
     }
-    
-    public func user(userId: String) {
-        return API.User.Get(userId: userId).asSingle().flatMap { user -> Single<Void> in
-            
-            SharedDBManager.activatedAccountRealm().map { realm  in
-                guard let realm = realm else {
-                    return
-                }
-                try realm.write {
-                    realm.add(user, update: true)
-                }
-            }
-        }
-        .subscribe()
-        .disposed(by: self.disposeBag)
-    }
 
     public func friends() -> Single<[User]> {
         return self.activatedUser()

@@ -32,17 +32,6 @@ final class DetailProfileInfoPresenter: DetailProfileInfoPresenterInterface {
         
         self.userProfileImage = self.interactor.getSelfProfileImage().asDriver(onErrorJustReturn: UIImage())
         
-        let user: Driver<User> = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
-        
-        self.view.viewWillAppear
-            .flatMap { [unowned self] in
-                self.interactor.activatedUser()
-            }
-            .subscribe(onNext: { [unowned self] in
-                self.interactor.user(userId: $0.id)
-            })
-            .disposed(by: self.disposeBag)
-        
         self.view.viewWillAppear
             .do(onNext: {
                 self.view.update()

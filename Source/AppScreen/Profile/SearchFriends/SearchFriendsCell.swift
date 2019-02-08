@@ -46,11 +46,13 @@ final class SearchFriendsCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        self.contentView.flex.direction(.row).define { flex in
+        self.contentView.flex.direction(.row).paddingHorizontal(20).define { flex in
             
-            flex.addItem(self.iconImageView).alignSelf(.center).size(70).marginHorizontal(20)
+            let contentSize: CGFloat = 70
             
-            flex.addItem().height(70).justifyContent(.center).alignSelf(.center).define { flex in
+            flex.addItem(self.iconImageView).alignSelf(.center).size(contentSize)
+            
+            flex.addItem().height(contentSize).paddingLeft(20).justifyContent(.center).alignSelf(.center).grow(1).define { flex in
                 flex.addItem(self.displayNameLabel).grow(1)
                 flex.addItem(self.usernameLabel).grow(1)
             }

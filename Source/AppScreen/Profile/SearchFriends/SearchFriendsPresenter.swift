@@ -33,7 +33,6 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
             .filterEmpty()
             .asObservable()
             .flatMap { text -> Observable<[SearchFriendsSection]> in
-                // TODO: except the user itself
                 self.interactor.usersWithPrefix(of: text).asObservable().mapSections()
             }
             .bind(to: self.sectionsRelay)

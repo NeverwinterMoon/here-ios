@@ -54,7 +54,7 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         self.welcomeLabel.do {
             
             $0.text = "hereへようこそ!"
-            $0.font = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.init(30))
+            $0.font = .systemFont(ofSize: 40, weight: .init(30))
         }
         
         self.createNewAccountButton.do {
@@ -68,13 +68,13 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         self.emailOrUsernameTextField.do {
             
             $0.placeholder = "メールアドレス"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.passwordTextField.do {
             
             $0.placeholder = "パスワード"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.loginButton.do {

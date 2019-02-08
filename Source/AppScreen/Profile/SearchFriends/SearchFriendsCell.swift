@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppUIKit
 import FlexLayout
 
 final class SearchFriendsCell: UICollectionViewCell {
@@ -19,7 +20,14 @@ final class SearchFriendsCell: UICollectionViewCell {
             }
             // TODO: iconImage
             self.iconImageView.image = UIImage(named: "first")
-            self.displayNameLabel.text = item.displayName
+            self.displayNameLabel.do {
+                $0.text = item.displayName
+                $0.font = .boldSystemFont(ofSize: 20)
+            }
+            self.usernameLabel.do {
+                $0.text = "@\(item.username)"
+                $0.font = .systemFont(ofSize: 20)
+            }
         }
     }
     
@@ -40,8 +48,12 @@ final class SearchFriendsCell: UICollectionViewCell {
         
         self.contentView.flex.direction(.row).define { flex in
             
-            flex.addItem(self.iconImageView).size(70).alignSelf(.center)
-            flex.addItem(self.displayNameLabel).grow(1)
+            flex.addItem(self.iconImageView).alignSelf(.center).size(70).marginHorizontal(20)
+            
+            flex.addItem().height(70).justifyContent(.center).alignSelf(.center).define { flex in
+                flex.addItem(self.displayNameLabel).grow(1)
+                flex.addItem(self.usernameLabel).grow(1)
+            }
         }
     }
     
@@ -49,6 +61,7 @@ final class SearchFriendsCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     // MARK: - Private
-    private let iconImageView = UIImageView()
+    private let iconImageView = RoundImageView()
     private let displayNameLabel = UILabel()
+    private let usernameLabel = UILabel()
 }

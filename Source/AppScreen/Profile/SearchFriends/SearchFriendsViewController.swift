@@ -77,7 +77,7 @@ final class SearchFriendsViewController: UIViewController, SearchFriendsViewInte
         self.searchedFriendsCollectionViewFlowLayout.do {
             
             $0.cellWidth = self.view.bounds.width
-            $0.cellHeight = 80
+            $0.cellHeight = 110
         }
 
         self.flexLayout()

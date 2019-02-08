@@ -13,6 +13,7 @@ struct SearchFriendsItem {
     let icon: String?
     let userId: String
     let displayName: String
+    let username: String
 }
 
 struct SearchFriendsSection {

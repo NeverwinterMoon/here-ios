@@ -33,5 +33,5 @@ fastlane/.env
 # Google info
 GoogleService-Info.plist
 
-# .env file
-Source/.env
+# environment variables
+NowHere.xcodeproj/xcshareddata/xcschemes/NowHere.xcscheme

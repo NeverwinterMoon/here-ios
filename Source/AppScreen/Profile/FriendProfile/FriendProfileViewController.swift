@@ -80,7 +80,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
     }
 
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
     override func viewDidLoad() {
         
@@ -88,6 +88,13 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         
         self.view.backgroundColor = .white
         
+        self.presenter.username.debug("dddddd").drive(onNext: { [unowned self] in
+            let text = "@\($0)"
+            self.title = text
+            self.usernameLabel.text = text
+        })
+        .disposed(by: self.disposeBag)
+
         self.friendsButton.do {
             $0.backgroundColor = .black
         }
@@ -99,43 +106,42 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         }
         
         self.userDisplayNameLabel.do {
-            
-            $0.backgroundColor = .white
-            $0.font.withSize(20)
-            
-            self.presenter.userDisplayName.drive(onNext: {
-                self.userDisplayNameLabel.text = $0
-            })
-            .disposed(by: self.disposeBag)
+            $0.font = .systemFont(ofSize: 30, weight: .init(5))
+            $0.textAlignment = .center
         }
         
-        self.introLabel.do {
-            
-            $0.backgroundColor = .white
-            
-            self.presenter.userIntro.drive(onNext: {
-                self.introLabel.text = $0
-            })
-            .disposed(by: self.disposeBag)
+        self.usernameLabel.do {
+            $0.font = .systemFont(ofSize: 20)
+            $0.textAlignment = .center
         }
         
         self.chatButton.do {
             $0.backgroundColor = .white
         }
 
+        self.presenter.userDisplayName.drive(onNext: { [unowned self] in
+            self.userDisplayNameLabel.text = $0
+        })
+        .disposed(by: self.disposeBag)
+
         self.presenter.relation.drive(onNext: { [unowned self] in
             self.buttonState = $0
         })
         .disposed(by: self.disposeBag)
 
-        self.presenter.userProfileURL.filterNil().map {
-            if let profileURL = URL(string: $0), let imageData = try? Data(contentsOf: profileURL) {
-                self.profileImageView.image = UIImage(data: imageData)
-            }
-        }
-        .asObservable()
-        .subscribe()
+        self.presenter.userIntro.drive(onNext: { [unowned self] in
+            self.introLabel.text = $0
+        })
         .disposed(by: self.disposeBag)
+        
+//        self.presenter.userProfileURL.filterNil().map { [unowned self] in
+//            if let profileURL = URL(string: $0), let imageData = try? Data(contentsOf: profileURL) {
+//                self.profileImageView.image = UIImage(data: imageData)
+//            }
+//        }
+//        .asObservable()
+//        .subscribe()
+//        .disposed(by: self.disposeBag)
 
         self.flexLayout()
     }
@@ -151,6 +157,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
     private let friendsButton = UIButton()
     private let profileImageView = RoundImageView()
     private let userDisplayNameLabel = UILabel()
+    private let usernameLabel = UILabel()
     private let introLabel = UILabel()
     private let friendRequestButton = UIButton()
     private let chatButton = UIButton()
@@ -160,24 +167,16 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         
         self.view.flex.define { flex in
             
-            flex.addItem()
-                .height(150)
-                .direction(.row)
-                .alignItems(.center)
-                .paddingHorizontal(40)
-                .marginBottom(20)
-                .define { flex in
-                    flex.addItem(self.profileImageView).size(80).marginRight(40)
-                    flex.addItem().grow(1).direction(.column).define { flex in
-                        flex.addItem(self.userDisplayNameLabel).marginTop(30).height(30)
-                        flex.addItem(self.introLabel).height(40)
-                    }
+            flex.addItem().alignContent(.center).define { flex in
+                
+                flex.addItem(self.profileImageView).size(150).marginTop(100).alignSelf(.center)
+                flex.addItem(self.userDisplayNameLabel).height(40).marginTop(10)
+                flex.addItem(self.usernameLabel).height(30)
+                flex.addItem(self.introLabel).height(40).marginTop(10)
+                flex.addItem(self.friendRequestButton).width(self.view.bounds.width - 2 * 50).height(30).alignSelf(.center)
+                flex.addItem(self.chatButton).size(100).alignSelf(.center)
+                flex.addItem(self.friendsButton).size(100)
             }
-            
-            flex.addItem(self.friendRequestButton).alignSelf(.center).width(self.view.bounds.width - 2 * 50).height(30)
-            
-            flex.addItem(self.chatButton).size(100)
-            flex.addItem(self.friendsButton).size(100)
         }
     }
 }

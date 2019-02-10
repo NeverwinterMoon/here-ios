@@ -19,11 +19,6 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
     
     var presenter: ProfilePresenterInterface!
     
-    var tapEditProfile: Signal<Void> {
-        
-        return self.editProfileButton.rx.tap.asSignal()
-    }
-    
     var tapProfileRow: Signal<IndexPath> {
         
         return self.profileCollectionView.rx.itemSelected.asSignal()
@@ -33,7 +28,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         
         self.presenter.username
             .drive(onNext: { [unowned self] in
-                self.title = $0
+                self.usernameLabel.text = "@\($0)"
             })
             .disposed(by: self.disposeBag)
         
@@ -82,23 +77,20 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         
         super.viewDidLoad()
         
+        self.title = "プロフィール"
+        
         self.view.backgroundColor = .white
 
         self.userDisplayNameLabel.do {
-            $0.font = UIFont.systemFont(ofSize: 30)
-            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 30, weight: .init(5))
         }
         
+        self.usernameLabel.do {
+            $0.font = .systemFont(ofSize: 20)
+        }
+
         self.introLabel.do {
-            $0.font?.withSize(14)
-            $0.font = UIFont.systemFont(ofSize: 20)
-        }
-        
-        self.editProfileButton.do {
-            $0.setTitle("プロフィールを編集する", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.layer.borderWidth = 1
-            $0.layer.cornerRadius = 15
+            $0.font = .systemFont(ofSize: 20)
         }
         
         self.profileCollectionView.do {
@@ -129,33 +121,26 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
     // MARK: - Private
     private let profileImageView = RoundImageView()
     private let userDisplayNameLabel = UILabel()
+    private let usernameLabel = UILabel()
     private let introLabel = UILabel()
-    private let editProfileButton = UIButton()
     private let profileCollectionView: UICollectionView
     private let profileCollectionViewFlowLayout = AppCollectionViewFlowLayout()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<ProfileSection>
     private let disposeBag = DisposeBag()
+    // TODO: editProfileButtonやfriendsButtonを用意して、collectionViewの代わりに丸いbuttonを4つ並べるのもいいかも
 
     private func flexLayout() {
         
         self.view.flex.define { flex in
             
-            flex.addItem()
-                .height(150)
-                .direction(.row)
-                .alignItems(.center)
-                .paddingHorizontal(40)
-                .marginBottom(20)
-                .define { flex in
-                    flex.addItem(self.profileImageView).size(80).marginRight(40)
-                    flex.addItem().grow(1).direction(.column).define { flex in
-                        flex.addItem(self.userDisplayNameLabel).marginTop(30).height(50)
-                        flex.addItem(self.introLabel).height(40)
-                    }
+            flex.addItem().alignItems(.center).define { flex in
+                
+                flex.addItem(self.profileImageView).size(150).marginTop(100)
+                flex.addItem(self.userDisplayNameLabel).height(40).marginTop(10)
+                flex.addItem(self.usernameLabel).height(30)
+                flex.addItem(self.introLabel).height(40).marginTop(10)
             }
-            
-            flex.addItem(self.editProfileButton).marginHorizontal(50).marginBottom(20).height(30)
-            flex.addItem(self.profileCollectionView).grow(1)
+            flex.addItem(self.profileCollectionView).grow(1).marginTop(30)
         }
     }
 }

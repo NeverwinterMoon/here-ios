@@ -43,6 +43,7 @@ final class ProfilePresenter: ProfilePresenterInterface {
         self.profileImage = self.interactor.getSelfProfileImage().asDriver(onErrorJustReturn: UIImage())
         
         let items = [
+            ProfileItem(icon: UIImage(named: "first"), title: "プロフィールを編集する", type: .editProfile),
             ProfileItem(icon: UIImage(named: "first"), title: "友達", type: .friends),
             ProfileItem(icon: UIImage(named: "first"), title: "友達を検索する", type: .searchFriends)
         ]
@@ -63,18 +64,14 @@ final class ProfilePresenter: ProfilePresenterInterface {
             .subscribe()
             .disposed(by: self.disposeBag)
         
-        self.view.tapEditProfile
-            .emit(onNext: { [unowned self] in
-                self.wireframe.presentUserInfo()
-            })
-            .disposed(by: self.disposeBag)
-        
         self.view.tapProfileRow
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item].type
             }
             .emit(onNext: { [unowned self] in
                 switch $0 {
+                case .editProfile:
+                    self.wireframe.presentUserInfo()
                 case .friends:
                     self.wireframe.pushfFriendsList()
                 case .searchFriends:

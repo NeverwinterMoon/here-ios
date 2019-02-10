@@ -13,7 +13,6 @@ import RxCocoa
 import RxSwift
 
 protocol ProfileViewInterface: ViewInterface {
-    var tapEditProfile: Signal<Void> { get }
     var tapProfileRow: Signal<IndexPath> { get }
     func update()
 }

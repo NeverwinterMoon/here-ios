@@ -33,3 +33,5 @@ fastlane/.env
 # Google info
 GoogleService-Info.plist
 
+# .env file
+Source/.env

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'AppEntity' do
   use_frameworks!
@@ -52,4 +52,5 @@ target 'NowHere' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'Kingfisher', '~> 5.0'
 end

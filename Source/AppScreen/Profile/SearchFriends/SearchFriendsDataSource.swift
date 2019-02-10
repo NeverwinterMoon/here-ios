@@ -14,6 +14,7 @@ struct SearchFriendsItem {
     let userId: String
     let displayName: String
     let username: String
+    let profileImageURL: String?
 }
 
 struct SearchFriendsSection {

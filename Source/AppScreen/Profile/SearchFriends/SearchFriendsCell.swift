@@ -9,6 +9,7 @@
 import Foundation
 import AppUIKit
 import FlexLayout
+import Kingfisher
 
 final class SearchFriendsCell: UICollectionViewCell {
     
@@ -18,15 +19,26 @@ final class SearchFriendsCell: UICollectionViewCell {
             guard let item = item else {
                 return
             }
-            // TODO: iconImage
-            self.iconImageView.image = UIImage(named: "first")
+            
             self.displayNameLabel.do {
                 $0.text = item.displayName
                 $0.font = .boldSystemFont(ofSize: 20)
             }
+            
             self.usernameLabel.do {
                 $0.text = "@\(item.username)"
                 $0.font = .systemFont(ofSize: 20)
+            }
+            
+            // TODO: iconImage
+            // next: ここ
+            if let userProfileImageURL = item.profileImageURL {
+                let baseURLString = ProcessInfo.processInfo.environment["server_staging_url"]
+                guard let profileImageURL = URL(string: "/users/\(item.userId)/\(userProfileImageURL).jpg", relativeTo: URL(string: baseURLString!)) else {
+                    self.iconImageView.image = UIImage(named: "first")
+                    return
+                }
+                self.iconImageView.kf.setImage(with: profileImageURL)
             }
         }
     }

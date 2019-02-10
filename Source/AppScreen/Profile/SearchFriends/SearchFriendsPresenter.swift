@@ -8,14 +8,12 @@
 
 import Foundation
 import AppEntity
-import Kingfisher
 import RxCocoa
 import RxSwift
 
 final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
     
     var section: Driver<[SearchFriendsSection]> {
-        
         return self.sectionsRelay.asDriver()
     }
     

@@ -115,6 +115,10 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
             $0.textAlignment = .center
         }
         
+        self.introLabel.do {
+            $0.textAlignment = .center
+        }
+        
         self.chatButton.do {
             $0.backgroundColor = .white
         }

@@ -20,6 +20,7 @@ target 'AppInteractor' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'Kingfisher', '~> 5.0'
 end
 
 target 'AppRequest' do
@@ -30,6 +31,7 @@ target 'AppScreen' do
   use_frameworks!
 
   pod 'Firebase'
+  pod 'Kingfisher', '~> 5.0'
   target 'AppScreenTests' do
     inherit! :search_paths
   end

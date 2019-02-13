@@ -18,20 +18,19 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     var presenter: WelcomePresenterInterface!
 
     var tapCreateNewAccount: Signal<Void> {
-        
         return self.createNewAccountButton.rx.tap.asSignal()
     }
     
     var tapLogin: Signal<LoginInfo> {
-        
         return self.loginButton.rx.tap
+            .asSignal()
+            .debug("ddddddd")
             .map { [unowned self] in
                 LoginInfo(
                     usernameOrEmail: self.emailOrUsernameTextField.text!.trimmingCharacters(in: .whitespaces),
                     password: self.passwordTextField.text!.trimmingCharacters(in: .whitespaces)
                 )
             }
-            .asSignal(onErrorJustReturn: .init(usernameOrEmail: "", password: ""))
     }
     
     convenience init() {

@@ -161,6 +161,10 @@
 		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
 		D995874321D4947E00FA0F69 /* FriendPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995874221D4947E00FA0F69 /* FriendPending.swift */; };
+		D9ADE011221450A000F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
+		D9ADE012221450A900F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
+		D9ADE013221450A900F7A89C /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9ADE014221450BF00F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
 		D9AE260021C291B700B74CFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE25FF21C291B700B74CFC /* Date.swift */; };
 		D9AE260321C3399C00B74CFC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; };
 		D9AE260421C3399C00B74CFC /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE260121C3399300B74CFC /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -315,6 +319,7 @@
 				D968C85D21AE2E800063E335 /* ReactiveMoya.framework in Embed Frameworks */,
 				D968C85B21AE2E800063E335 /* Nuke.framework in Embed Frameworks */,
 				D968C86921AE2E800063E335 /* RxOptional.framework in Embed Frameworks */,
+				D9ADE013221450A900F7A89C /* PKHUD.framework in Embed Frameworks */,
 				D95FED9021B43801007CEFD6 /* RxRealm.framework in Embed Frameworks */,
 				D981DDE521CC86D0002E55F7 /* Differentiator.framework in Embed Frameworks */,
 				D968C86B21AE2E800063E335 /* RxDataSources.framework in Embed Frameworks */,
@@ -488,6 +493,7 @@
 		D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
 		D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D995874221D4947E00FA0F69 /* FriendPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPending.swift; sourceTree = "<group>"; };
+		D9ADE010221450A000F7A89C /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		D9B945AF219F1F1D0009FF6D /* FlexLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlexLayout.framework; path = Carthage/Build/iOS/FlexLayout.framework; sourceTree = "<group>"; };
@@ -540,6 +546,7 @@
 				D968C85721AE2E2E0063E335 /* RxSwift.framework in Frameworks */,
 				D968C86821AE2E800063E335 /* RxOptional.framework in Frameworks */,
 				D9D74D8321CFA58600141FC7 /* RxMediaPicker.framework in Frameworks */,
+				D9ADE012221450A900F7A89C /* PKHUD.framework in Frameworks */,
 				D968C83621AE2BDA0063E335 /* AppExtensions.framework in Frameworks */,
 				D968C83521AE2BD10063E335 /* AppUIKit.framework in Frameworks */,
 				D968C83421AE2BCC0063E335 /* AppExtensions.framework in Frameworks */,
@@ -606,6 +613,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9ADE011221450A000F7A89C /* PKHUD.framework in Frameworks */,
 				D9223F8121A6A0FD00C5B2E7 /* AppRequest.framework in Frameworks */,
 				D908B54621A58077001ECA7F /* RxCocoa.framework in Frameworks */,
 				D908B54721A58077001ECA7F /* RxSwift.framework in Frameworks */,
@@ -640,6 +648,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9ADE014221450BF00F7A89C /* PKHUD.framework in Frameworks */,
 				D9D74D8121CFA55300141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D95FED8E21B437F3007CEFD6 /* RxRealm.framework in Frameworks */,
 				D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */,
@@ -1140,6 +1149,7 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9ADE010221450A000F7A89C /* PKHUD.framework */,
 				D96169182210664000DCA625 /* Kingfisher.framework */,
 				D96169162210654900DCA625 /* Kingfisher.framework */,
 				D961690E221064B200DCA625 /* Kingfisher.framework */,

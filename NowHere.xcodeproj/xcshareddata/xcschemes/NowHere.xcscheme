@@ -108,13 +108,8 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "SERVER_STAGING_URL"
-            value = "https://here-drip-staging.herokuapp.com/"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "firebase_bucket_name"
-            value = ""
+            key = "storage_staging_url"
+            value = "https://console.cloud.google.com/storage/browser/here-226305.appspot.com"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

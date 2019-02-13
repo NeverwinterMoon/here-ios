@@ -21,7 +21,14 @@ final class WelcomeWireframe: AppWireframe, WelcomeWireframeInterface {
     }
     
     func pushLogin() {
-        
         RootWireframe.shared.setRootTabBar(loggedIn: true)
+    }
+    
+    func showWelcomeAgain() {
+        let controller = WelcomeViewController()
+        let wireframe = WelcomeWireframe(navigationController: self.navigationController)
+        let presenter = WelcomePresenter(view: controller, interactor: WelcomeInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: false)
     }
 }

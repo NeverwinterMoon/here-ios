@@ -31,9 +31,13 @@ final class SearchFriendsCell: UICollectionViewCell {
             }
             
             // TODO: iconImage
-            // next: ここ
             if let userProfileImageURL = item.profileImageURL {
-                let baseURLString = ProcessInfo.processInfo.environment["server_staging_url"]
+                #if STAGE
+                let baseURLString = ProcessInfo.processInfo.environment["storage_staging_url"]
+                #else
+//                let baseURLString = ProcessInfo.processInfo.environment["storage_production_url"]
+                let baseURLString = ProcessInfo.processInfo.environment["storage_staging_url"]
+                #endif
                 guard let profileImageURL = URL(string: "/users/\(item.userId)/\(userProfileImageURL).jpg", relativeTo: URL(string: baseURLString!)) else {
                     self.iconImageView.image = UIImage(named: "first")
                     return

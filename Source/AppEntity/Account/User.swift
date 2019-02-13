@@ -29,9 +29,9 @@ public final class User: Object, Decodable {
     private enum CodingKeys: String, CodingKey {
         
         case id
-        case username = "username"
+        case username
         case userDisplayName = "user_display_name"
-        case email = "email"
+        case email
         case profileImageURL = "profile_image_url"
         case selfIntroduction = "self_introduction"
         case createdAt = "created_at"

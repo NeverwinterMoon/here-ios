@@ -28,4 +28,5 @@ protocol WelcomePresenterInterface {
 protocol WelcomeWireframeInterface {
     func pushCreateNewAccount()
     func pushLogin()
+    func showWelcomeAgain()
 }

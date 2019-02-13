@@ -88,7 +88,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         
         self.view.backgroundColor = .white
         
-        self.presenter.username.debug("dddddd").drive(onNext: { [unowned self] in
+        self.presenter.username.drive(onNext: { [unowned self] in
             let text = "@\($0)"
             self.title = text
             self.usernameLabel.text = text
@@ -100,7 +100,6 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         }
         
         self.friendRequestButton.do {
-            
             $0.layer.cornerRadius = 15
             $0.layer.borderWidth = 2
         }

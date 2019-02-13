@@ -26,6 +26,8 @@ final class WelcomePresenter: WelcomePresenterInterface {
             }
             .subscribe(onNext: { [unowned self] in
                 self.wireframe.pushLogin()
+            }, onError: { [unowned self] _ in
+                self.wireframe.showWelcomeAgain()
             })
             .disposed(by: self.disposeBag)
         

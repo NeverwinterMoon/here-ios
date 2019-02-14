@@ -161,6 +161,7 @@
 		D981DDF321CCE4BE002E55F7 /* SelectProfileImageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF221CCE4BD002E55F7 /* SelectProfileImageWireframe.swift */; };
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
 		D995874321D4947E00FA0F69 /* FriendPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995874221D4947E00FA0F69 /* FriendPending.swift */; };
+		D99B77822215824300E10770 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B77812215824300E10770 /* Friend.swift */; };
 		D9ADE011221450A000F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
 		D9ADE012221450A900F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
 		D9ADE013221450A900F7A89C /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -493,6 +494,7 @@
 		D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
 		D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D995874221D4947E00FA0F69 /* FriendPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPending.swift; sourceTree = "<group>"; };
+		D99B77812215824300E10770 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D9ADE010221450A000F7A89C /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
@@ -1061,6 +1063,7 @@
 				D9BB613821AFA32800CD5424 /* Me.swift */,
 				D9D74D9A21D071A700141FC7 /* ProfileImage.swift */,
 				D995874221D4947E00FA0F69 /* FriendPending.swift */,
+				D99B77812215824300E10770 /* Friend.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2134,6 +2137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
+				D99B77822215824300E10770 /* Friend.swift in Sources */,
 				D92A41D921B2382A003ABE8A /* Account.swift in Sources */,
 				D978363C21AA1FDC002D52E4 /* APIError.swift in Sources */,
 				D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */,

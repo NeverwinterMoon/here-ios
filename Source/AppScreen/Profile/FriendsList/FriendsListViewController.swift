@@ -62,7 +62,7 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
         self.friendsCollectionViewFlowlayout.do {
             
             $0.cellWidth = self.view.bounds.width
-            $0.cellHeight = 50
+            $0.cellHeight = 110
         }
 
         self.flexLayout()

@@ -28,5 +28,5 @@ protocol FriendsListPresenterInterface: class {
 }
 
 protocol FriendsListWireframeInterface: WireframeInterface {
-    func pushFriendInfo(userId: String)
+    func pushFriendProfile(userId: String)
 }

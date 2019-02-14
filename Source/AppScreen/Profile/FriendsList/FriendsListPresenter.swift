@@ -26,6 +26,15 @@ final class FriendsListPresenter: FriendsListPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
+        self.view.tapFriend
+            .map { [unowned self] in
+                self.sectionsRelay.value[$0.section].items[$0.item].userId
+            }
+            .emit(onNext: {
+                self.wireframe.pushFriendProfile(userId: $0)
+            })
+            .disposed(by: self.disposeBag)
+
         self.interactor.friends()
             .asObservable()
             .mapSections()
@@ -52,8 +61,7 @@ extension Observable where E == [User] {
 //            }
             
             let items = users.map { user -> FriendsListItem in
-                
-                return FriendsListItem(iconFilePath: user.profileImageURL, userDisplayName: user.userDisplayName, username: user.username)
+                FriendsListItem(profileImageURL: user.profileImageURL, userDisplayName: user.userDisplayName, username: user.username, userId: user.id)
             }
             
             return [FriendsListSection(items: items)]

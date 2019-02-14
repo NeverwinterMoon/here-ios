@@ -8,7 +8,11 @@
 
 import Foundation
 import AppInteractor
+import AppUIKit
 import FlexLayout
+import RxCocoa
+import RxSwift
+import RxOptional
 
 final class FriendsListCell: UICollectionViewCell {
     
@@ -18,8 +22,22 @@ final class FriendsListCell: UICollectionViewCell {
                 return
             }
             self.userDisplayLabel.text = item.userDisplayName
-            self.usernameLabel.text = item.username
-//            self.profileImageView.image = item.iconFilePath
+            self.usernameLabel.text = "@\(item.username)"
+            
+            let filePath: String
+            if let url = item.profileImageURL {
+                filePath = "/users/\(item.userId)/profile_image/\(url).jpg"
+            } else {
+                filePath = "dafault.jpg"
+            }
+            
+            FirebaseStorageManager.downloadFile(filePath: filePath)
+                .asObservable()
+                .filterNil()
+                .subscribe(onNext: { [unowned self] in
+                    self.profileImageView.image = UIImage(data: $0)
+                })
+                .disposed(by: self.disposeBag)
         }
     }
 
@@ -31,12 +49,15 @@ final class FriendsListCell: UICollectionViewCell {
         
         super.init(frame: frame)
 
-        self.contentView.flex.direction(.row).define { flex in
+        self.contentView.flex.direction(.row).paddingHorizontal(20).define { flex in
             
-            flex.addItem(self.profileImageView)
-            flex.addItem().direction(.column).define { flex in
-                flex.addItem(self.userDisplayLabel)
-                flex.addItem(self.usernameLabel)
+            let contentSize: CGFloat = 70
+            
+            flex.addItem(self.profileImageView).alignSelf(.center).size(contentSize)
+            
+            flex.addItem().height(contentSize).paddingLeft(20).justifyContent(.center).alignSelf(.center).grow(1).define { flex in
+                flex.addItem(self.userDisplayLabel).grow(1)
+                flex.addItem(self.usernameLabel).grow(1)
             }
         }
     }
@@ -51,7 +72,8 @@ final class FriendsListCell: UICollectionViewCell {
     }
     
     // MARK: - Private
-    private let profileImageView = UIImageView()
     private let userDisplayLabel = UILabel()
     private let usernameLabel = UILabel()
+    private let profileImageView = RoundImageView()
+    private let disposeBag = DisposeBag()
 }

@@ -138,5 +138,10 @@ extension API {
                 self.parameters = params
             }
         }
+        
+//        public struct ApproveFriendRequest: POSTTargetType {
+//
+//            public typealias
+//        }
     }
 }

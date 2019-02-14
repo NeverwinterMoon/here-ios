@@ -10,9 +10,10 @@ import Foundation
 import RxDataSources
 
 struct FriendsListItem {
-    let iconFilePath: String?
+    let profileImageURL: String?
     let userDisplayName: String
     let username: String
+    let userId: String
 }
 
 struct FriendsListSection {

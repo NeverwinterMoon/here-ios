@@ -12,7 +12,7 @@ import FirebaseStorage
 import RxCocoa
 import RxSwift
 
-final class FirebaseStorageManager {
+public final class FirebaseStorageManager {
     
     private static let storageRef = Storage.storage().reference()
     

@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import AppInteractor
 import AppUIKit
 import FlexLayout
-import Kingfisher
+import RxCocoa
+import RxSwift
+import RxOptional
 
 final class SearchFriendsCell: UICollectionViewCell {
     
@@ -31,19 +34,20 @@ final class SearchFriendsCell: UICollectionViewCell {
             }
             
             // TODO: iconImage
+            let filePath: String
             if let userProfileImageURL = item.profileImageURL {
-                #if STAGE
-                let baseURLString = ProcessInfo.processInfo.environment["storage_staging_url"]
-                #else
-//                let baseURLString = ProcessInfo.processInfo.environment["storage_production_url"]
-                let baseURLString = ProcessInfo.processInfo.environment["storage_staging_url"]
-                #endif
-                guard let profileImageURL = URL(string: "/users/\(item.userId)/\(userProfileImageURL).jpg", relativeTo: URL(string: baseURLString!)) else {
-                    self.iconImageView.image = UIImage(named: "first")
-                    return
-                }
-                self.iconImageView.kf.setImage(with: profileImageURL)
+                filePath = "/users/\(item.userId)/profile_image/\(userProfileImageURL).jpg"
+            } else {
+                filePath = "default.jpg"
             }
+            
+            FirebaseStorageManager.downloadFile(filePath: filePath)
+                .asObservable()
+                .filterNil()
+                .subscribe(onNext: { [unowned self] in
+                    self.iconImageView.image = UIImage(data: $0)
+                })
+                .disposed(by: self.disposeBag)
         }
     }
     
@@ -82,4 +86,5 @@ final class SearchFriendsCell: UICollectionViewCell {
     private let iconImageView = RoundImageView()
     private let displayNameLabel = UILabel()
     private let usernameLabel = UILabel()
+    private let disposeBag = DisposeBag()
 }

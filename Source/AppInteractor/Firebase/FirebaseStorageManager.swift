@@ -38,12 +38,13 @@ public final class FirebaseStorageManager {
     public static func downloadFile(filePath: String) -> Single<Data?> {
         
         return Single.create(subscribe: { observer -> Disposable in
-            
-            storageRef.child(filePath).getData(maxSize: 1024*1024) { (data, error) in
+
+            // TODO: maxSize の正規な値を調べる
+            storageRef.child(filePath).getData(maxSize: 10240000*102400000000) { (data, error) in
                 if let error = error {
                     observer(.error(error))
                     return
-                } else {
+                } else if let data = data {
                     observer(.success(data))
                 }
             }

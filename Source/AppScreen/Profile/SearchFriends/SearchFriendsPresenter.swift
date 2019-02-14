@@ -69,7 +69,7 @@ extension Observable where E == [User] {
         return self.map { users -> [SearchFriendsSection] in
 
                 let items = users.map { user -> SearchFriendsItem in
-                    return SearchFriendsItem(userId: user.id, displayName: user.userDisplayName, username: user.username, profileImageURL: user.profileImageURL)
+                    SearchFriendsItem(userId: user.id, displayName: user.userDisplayName, username: user.username, profileImageURL: user.profileImageURL)
                 }
                 return [SearchFriendsSection(items: items)]
             }

@@ -22,7 +22,6 @@ public final class User: Object, Decodable {
     @objc public dynamic var updatedAt: Date = .init()
 
     public override static func primaryKey() -> String? {
-        
         return "id"
     }
     

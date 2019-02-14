@@ -65,10 +65,32 @@ public final class ProfileInteractor {
         }
     }
     
-    public func requestsOfUser() -> Single<[FriendPending]> {
-        return self.activatedUser().flatMap {
-            API.User.GetRequestsOfUser(userId: $0.id).asSingle()
-        }
+    public func requestsOfUser(userId: String) -> Single<[FriendPending]> {
+        return API.User.GetRequestsOfUser(userId: userId).asSingle()
+    }
+    
+    public func getRelationWith(userId: String) -> Observable<RelationState> {
+        return activatedUser().map { $0.id }
+            .asObservable()
+            .flatMap { [unowned self] in
+                Observable.zip(
+                    self.friends().asObservable(),
+                    self.requestsOfUser(userId: $0).asObservable(),
+                    self.requestsOfUser(userId: userId).asObservable(),
+                    self.activatedUser().map { $0.id }.asObservable()
+                )
+            }
+            .map { (friends, requestingsOfSelf, requestingsOfUser, activatedId) -> RelationState in
+                if friends.first(where: { $0.id == userId }) != nil {
+                    return .friend
+                } else if requestingsOfSelf.first(where: { $0.relation == "sent" && $0.withUserId == userId }) != nil {
+                    return .requesting
+                } else if requestingsOfUser.first(where: { $0.relation == "sent" && $0.withUserId == activatedId }) != nil {
+                    return .requested
+                } else {
+                    return .notFriend
+                }
+            }
     }
     
     public func getUser(userId: String) -> Single<User> {
@@ -168,4 +190,13 @@ public final class ProfileInteractor {
     
     // MARK: - Private
     private let disposeBag = DisposeBag()
+}
+
+public enum RelationState {
+    case friend
+    case notFriend
+    case requesting
+    case requested
+    case blocking
+    case blocked
 }

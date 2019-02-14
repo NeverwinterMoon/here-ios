@@ -8,6 +8,7 @@
 
 import Foundation
 import AppExtensions
+import AppInteractor
 import AppUIKit
 import FlexLayout
 import RxCocoa
@@ -137,14 +138,11 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         })
         .disposed(by: self.disposeBag)
         
-//        self.presenter.userProfileURL.filterNil().map { [unowned self] in
-//            if let profileURL = URL(string: $0), let imageData = try? Data(contentsOf: profileURL) {
-//                self.profileImageView.image = UIImage(data: imageData)
-//            }
-//        }
-//        .asObservable()
-//        .subscribe()
-//        .disposed(by: self.disposeBag)
+        self.presenter.userProfileImage.filterNil()
+            .drive(onNext: { [unowned self] in
+                self.profileImageView.image = UIImage(data: $0)
+            })
+            .disposed(by: self.disposeBag)
 
         self.flexLayout()
     }

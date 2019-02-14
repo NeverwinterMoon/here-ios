@@ -21,11 +21,11 @@ protocol FriendProfileViewInterface: ViewInterface {
 protocol FriendProfileInteractorInterface {
     func getUser(userId: String) -> Single<User>
     func friends() -> Single<[User]>
-    func requestsOfUser() -> Single<[FriendPending]>
     func getProfileIcon(filePath: String) -> Single<UIImage>
     func friendRequest(to: String) -> Single<Void>
     func cancelRequest(to: String) -> Single<Void>
     func approveRequest(userId: String) -> Single<Void>
+    func getRelationWith(userId: String) -> Observable<RelationState>
 }
 
 extension ProfileInteractor: FriendProfileInteractorInterface {}
@@ -35,7 +35,7 @@ protocol FriendProfilePresenterInterface {
     var userIntro: Driver<String?> { get }
     var username: Driver<String> { get }
     var userDisplayName: Driver<String> { get }
-    var userProfileURL: Driver<String?> { get }
+    var userProfileImage: Driver<Data?> { get }
 }
 
 protocol FriendProfileWireframeInterface {

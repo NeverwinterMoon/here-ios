@@ -17,8 +17,10 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
     var userIntro: Driver<String?>
     var username: Driver<String>
     var userDisplayName: Driver<String>
-    var userProfileURL: Driver<String?>
-    let user: Driver<User>
+    var userProfileImage: Driver<Data?> {
+        return self.userProfileImageRelay.asDriver()
+    }
+    private let userProfileImageRelay: BehaviorRelay<Data?> = .init(value: nil)
 
     var relation: Driver<RelationState>
     var buttonState: RelationState
@@ -29,19 +31,34 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.user = self.interactor.getUser(userId: userId).asDriver(onErrorJustReturn: .init())
+        let user: Driver<User> = self.interactor.getUser(userId: userId).asDriver(onErrorJustReturn: .init())
         
-        self.userIntro = self.user.map{ $0.selfIntroduction }
-        self.username = self.user.map { $0.username }
-        self.userDisplayName = self.user.map { $0.userDisplayName }
-        self.userProfileURL = self.user.map { $0.profileImageURL }
+        self.userIntro = user.map{ $0.selfIntroduction }
+        self.username = user.map { $0.username }
+        self.userDisplayName = user.map { $0.userDisplayName }
         self.buttonState = .notFriend
-        
-        self.relation = userRelation(interactor: self.interactor, userId: userId).asDriver(onErrorJustReturn: .notFriend)
+
+        self.relation = self.interactor.getRelationWith(userId: userId).asDriver(onErrorJustReturn: .notFriend)
         // TODO: also implement blocked user
         
+        user.asObservable()
+            .map { user -> String in
+                if let url = user.profileImageURL {
+                    return "/users/\(user.id)/profile_image_url/\(url).jpg"
+                } else {
+                    return "default.jpg"
+                }
+            }
+            .flatMap {
+                FirebaseStorageManager.downloadFile(filePath: $0)
+            }
+            .bind(to: self.userProfileImageRelay)
+            .disposed(by: self.disposeBag)
+
         self.view.tapFriendRequest.asObservable()
-            .flatMap { userRelation(interactor: self.interactor, userId: userId) }
+            .flatMap { [unowned self] in
+                self.interactor.getRelationWith(userId: userId)
+            }
             .flatMap { state -> Single<Void> in
                 switch state {
                 case .friend:
@@ -59,7 +76,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
                     self.view.buttonState = .requested
                     return self.interactor.approveRequest(userId: userId)
                 case .blocking:
-                    // show the cheet (unblock)
+                    // show the sheet (unblock)
                     return Single.just(())
                 case .blocked:
                     return Single.just(())
@@ -74,30 +91,4 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
     private let interactor: FriendProfileInteractorInterface
     private let wireframe: FriendProfileWireframeInterface
     private let disposeBag = DisposeBag()
-}
-
-fileprivate func userRelation(interactor: FriendProfileInteractorInterface, userId: String) -> Observable<RelationState> {
-    
-    return Observable.zip(interactor.friends().asObservable(), interactor.requestsOfUser().asObservable())
-        .map { (friends, friendPendings) -> RelationState in
-            if friends.first(where: { $0.id == userId }) != nil {
-                return .friend
-            } else if friendPendings.first(where: { $0.userId == userId }) != nil {
-                return .requested
-            } else if friendPendings.first(where: { $0.withUserId == userId }) != nil {
-                return .requesting
-                // TODO: block, blocking
-            } else {
-                return .notFriend
-            }
-    }
-}
-
-enum RelationState {
-    case friend
-    case notFriend
-    case requesting
-    case requested
-    case blocking
-    case blocked
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ProfileCell: UICollectionViewCell {
+final class ProfileCollectionViewCell: UICollectionViewCell {
     
     var item: ProfileItem? {
         didSet {

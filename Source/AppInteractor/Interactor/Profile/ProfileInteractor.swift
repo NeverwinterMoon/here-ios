@@ -44,12 +44,10 @@ public final class ProfileInteractor {
     
     public func approveRequest(userId: String) -> Single<Void> {
         return self.activatedUser()
-            .flatMap { me -> Single<String> in
-                API.User.CancelFriendRequest(userId: userId, toUserId: me.id).asSingle().map { _ in me.id }
+            .flatMap { me -> Single<Friend> in
+                API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
             }
-            .flatMap { myId -> Single<Void> in
-                API.User.CreateFriend(userId: myId, friendId: userId).asSingle().map { _ in }
-            }
+            .map { _ in }
     }
     
     public func friendRequest(to userId: String) -> Single<Void> {
@@ -83,9 +81,9 @@ public final class ProfileInteractor {
             .map { (friends, requestingsOfSelf, requestingsOfUser, activatedId) -> RelationState in
                 if friends.first(where: { $0.id == userId }) != nil {
                     return .friend
-                } else if requestingsOfSelf.first(where: { $0.relation == "sent" && $0.withUserId == userId }) != nil {
+                } else if requestingsOfSelf.first(where: { $0.withUserId == userId }) != nil {
                     return .requesting
-                } else if requestingsOfUser.first(where: { $0.relation == "sent" && $0.withUserId == activatedId }) != nil {
+                } else if requestingsOfUser.first(where: { $0.withUserId == activatedId }) != nil {
                     return .requested
                 } else {
                     return .notFriend

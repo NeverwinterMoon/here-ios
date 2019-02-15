@@ -101,16 +101,16 @@ extension API {
             }
         }
         
-        public struct CreateFriend: POSTTargetType {
+        public struct ApproveFriendRequest: POSTTargetType {
             
-            public typealias ElementType = AppEntity.User
+            public typealias ElementType = AppEntity.Friend
             
             public let path: String
             public let parameters: [String : Any]
             
-            public init(userId: String, friendId: String) {
+            public init(userId: String, approvedUserId: String) {
                 self.path = "users/\(userId)/friends"
-                self.parameters = ["friend_user_id": friendId]
+                self.parameters = ["approved_user_id": approvedUserId]
             }
         }
 
@@ -138,10 +138,5 @@ extension API {
                 self.parameters = params
             }
         }
-        
-//        public struct ApproveFriendRequest: POSTTargetType {
-//
-//            public typealias
-//        }
     }
 }

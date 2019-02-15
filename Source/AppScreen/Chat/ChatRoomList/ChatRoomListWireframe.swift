@@ -1,5 +1,5 @@
 //
-//  ChatWireframe.swift
+//  ChatRoomListWireframe.swift
 //  AppScreen
 //
 //  Created by 服部穣 on 2018/11/29.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ChatWireframe: AppWireframe, ChatWireframeInterface {
+final class ChatRoomListWireframe: AppWireframe, ChatRoomListWireframeInterface {
     
     func pushChatRoom() {
     }

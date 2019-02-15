@@ -14,7 +14,6 @@ public final class FriendPending: Object, Decodable {
     @objc public dynamic var id: String = ""
     @objc public dynamic var userId: String = ""
     @objc public dynamic var withUserId: String = ""
-    @objc public dynamic var relation: String = ""
     @objc public dynamic var createdAt: Date = .init()
     @objc public dynamic var updatedAt: Date = .init()
     
@@ -28,7 +27,6 @@ public final class FriendPending: Object, Decodable {
         case id
         case userId = "user_id"
         case withUserId = "with_user_id"
-        case relation
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -40,7 +38,6 @@ public final class FriendPending: Object, Decodable {
         self.id = try container.decode(String.self, forKey: .id)
         self.userId = try container.decode(String.self, forKey: .userId)
         self.withUserId = try container.decode(String.self, forKey: .withUserId)
-        self.relation = try container.decode(String.self, forKey: .relation)
         self.createdAt = try container.decodeDate(forKey: .createdAt)
         self.updatedAt = try container.decodeDate(forKey: .updatedAt)
     }

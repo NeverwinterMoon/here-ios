@@ -55,10 +55,10 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
         }
         
         chat: do {
-            let controller = ChatViewController()
+            let controller = ChatRoomListViewController()
             let navigationController = AppNavigationController(rootViewController: controller)
-            let wireframe = ChatWireframe(navigationController: navigationController)
-            let presenter = ChatPresenter(view: controller, interactor: ChatInteractor(), wireframe: wireframe)
+            let wireframe = ChatRoomListWireframe(navigationController: navigationController)
+            let presenter = ChatRoomListPresenter(view: controller, interactor: ChatInteractor.shared, wireframe: wireframe)
             controller.presenter = presenter
             viewControllers.append(navigationController)
             

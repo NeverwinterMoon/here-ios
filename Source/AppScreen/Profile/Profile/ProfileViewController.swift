@@ -24,6 +24,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         return self.profileCollectionView.rx.itemSelected.asSignal()
     }
 
+    // TODO: fix here!!
     func update() {
         
         self.presenter.username
@@ -60,8 +61,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         
         self.profileCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.profileCollectionViewFlowLayout)
         let dataSource = RxCollectionViewSectionedReloadDataSource<ProfileSection>(configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
-            collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: "ProfileCell")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+            collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: "ProfileCell")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCollectionViewCell
             cell.item = item
             return cell
         })

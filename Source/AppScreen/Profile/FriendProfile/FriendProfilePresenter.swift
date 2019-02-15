@@ -73,7 +73,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
                     self.view.buttonState = .notFriend
                     return self.interactor.cancelRequest(to: userId)
                 case .requested:
-                    self.view.buttonState = .requested
+                    self.view.buttonState = .friend
                     return self.interactor.approveRequest(userId: userId)
                 case .blocking:
                     // show the sheet (unblock)

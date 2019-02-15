@@ -46,4 +46,12 @@ final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
         controller.presenter = presenter
         self.show(controller, with: .push, animated: true)
     }
+    
+    func pushRequestedUsers() {
+        let controller = RequestedUserViewController()
+        let wireframe = RequestedUserWireframe(navigationController: self.navigationController)
+        let presenter = RequestedUserPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
+    }
 }

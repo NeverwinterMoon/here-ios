@@ -76,6 +76,8 @@ final class ProfilePresenter: ProfilePresenterInterface {
                     self.wireframe.pushfFriendsList()
                 case .searchFriends:
                     self.wireframe.pushSearchFriends()
+                case .requested:
+                    self.wireframe.pushRequestedUsers()
                 }
             })
             .disposed(by: self.disposeBag)

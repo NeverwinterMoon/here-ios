@@ -36,4 +36,5 @@ protocol ProfileWireframeInterface: WireframeInterface {
     func presentUserInfo()
     func pushfFriendsList()
     func pushSearchFriends()
+    func pushRequestedUsers()
 }

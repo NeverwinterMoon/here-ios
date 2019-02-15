@@ -192,6 +192,12 @@
 		D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */; };
 		D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613621AFA2AE00CD5424 /* API+Me.swift */; };
 		D9BB613921AFA32800CD5424 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB613821AFA32800CD5424 /* Me.swift */; };
+		D9BCE00F2216D1DB003FA0AC /* RequestedUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE00E2216D1DB003FA0AC /* RequestedUserInterface.swift */; };
+		D9BCE0112216D1E5003FA0AC /* RequestedUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0102216D1E5003FA0AC /* RequestedUserViewController.swift */; };
+		D9BCE0132216D1EC003FA0AC /* RequestedUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0122216D1EC003FA0AC /* RequestedUserPresenter.swift */; };
+		D9BCE0152216D1F8003FA0AC /* RequestedUserWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */; };
+		D9BCE0172216D1FF003FA0AC /* RequestedUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */; };
+		D9BCE0192216D209003FA0AC /* RequestedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */; };
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
 		D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -524,6 +530,12 @@
 		D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInteractor.swift; sourceTree = "<group>"; };
 		D9BB613621AFA2AE00CD5424 /* API+Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Me.swift"; sourceTree = "<group>"; };
 		D9BB613821AFA32800CD5424 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
+		D9BCE00E2216D1DB003FA0AC /* RequestedUserInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserInterface.swift; sourceTree = "<group>"; };
+		D9BCE0102216D1E5003FA0AC /* RequestedUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserViewController.swift; sourceTree = "<group>"; };
+		D9BCE0122216D1EC003FA0AC /* RequestedUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserPresenter.swift; sourceTree = "<group>"; };
+		D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserWireframe.swift; sourceTree = "<group>"; };
+		D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserDataSource.swift; sourceTree = "<group>"; };
+		D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* DetailProfileInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProfileInfoDataSource.swift; sourceTree = "<group>"; };
 		D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMediaPicker.framework; path = Carthage/Build/iOS/RxMediaPicker.framework; sourceTree = "<group>"; };
@@ -1130,6 +1142,7 @@
 				D9E6465F21DE0B080046504B /* SearchFriends */,
 				D92AFC8D21A6A3FB00FCB5FD /* FriendProfile */,
 				D9BB611B21AE88E600CD5424 /* EditProfileInfo */,
+				D9BCE00D2216D1B8003FA0AC /* RequestedUser */,
 				D981DDEC21CCE230002E55F7 /* SelectProfileImage */,
 				D9D74D9121CFE71300141FC7 /* SelectedImageConfirm */,
 			);
@@ -1258,6 +1271,19 @@
 				D9BB613421AF8BDF00CD5424 /* ChatInteractor.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		D9BCE00D2216D1B8003FA0AC /* RequestedUser */ = {
+			isa = PBXGroup;
+			children = (
+				D9BCE00E2216D1DB003FA0AC /* RequestedUserInterface.swift */,
+				D9BCE0102216D1E5003FA0AC /* RequestedUserViewController.swift */,
+				D9BCE0122216D1EC003FA0AC /* RequestedUserPresenter.swift */,
+				D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */,
+				D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */,
+				D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */,
+			);
+			path = RequestedUser;
 			sourceTree = "<group>";
 		};
 		D9D74D9121CFE71300141FC7 /* SelectedImageConfirm */ = {
@@ -2104,9 +2130,11 @@
 				D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */,
 				D9411AD122165B2A00F9086A /* ChatRoomWireframe.swift in Sources */,
 				D92AFC9321A6A43600FCB5FD /* FriendProfilePresenter.swift in Sources */,
+				D9BCE0132216D1EC003FA0AC /* RequestedUserPresenter.swift in Sources */,
 				D939305421B6BBE500929DA8 /* WelcomePresenter.swift in Sources */,
 				D96E803B21A788A300887846 /* DetailProfileInfoCell.swift in Sources */,
 				D971788321D3177000137149 /* FriendsListCell.swift in Sources */,
+				D9BCE00F2216D1DB003FA0AC /* RequestedUserInterface.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
 				D9411AD522165C2600F9086A /* ChatRoomListDataSource.swift in Sources */,
 				D9411ACB22165B0E00F9086A /* ChatRoomInterface.swift in Sources */,
@@ -2137,10 +2165,12 @@
 				D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */,
 				D978364221AB7DDE002D52E4 /* FriendsListDataSource.swift in Sources */,
 				D9E6466521DE0B4F0046504B /* SearchFriendsPresenter.swift in Sources */,
+				D9BCE0192216D209003FA0AC /* RequestedUserCollectionViewCell.swift in Sources */,
 				D981DDD021C73F34002E55F7 /* EditProfileInfoWireframe.swift in Sources */,
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
 				D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */,
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
+				D9BCE0152216D1F8003FA0AC /* RequestedUserWireframe.swift in Sources */,
 				D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */,
 				D9E6466921DE13FC0046504B /* SearchFriendsDataSource.swift in Sources */,
 				D981DDF121CCE345002E55F7 /* SelectProfileImagePresenter.swift in Sources */,
@@ -2150,12 +2180,14 @@
 				D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */,
 				D900BB3F21A3EFDE00E2E9A7 /* DetailProfileInfoViewController.swift in Sources */,
 				D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */,
+				D9BCE0112216D1E5003FA0AC /* RequestedUserViewController.swift in Sources */,
 				D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */,
 				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* EditProfileInfoInterface.swift in Sources */,
 				D9D74D9521CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift in Sources */,
 				D9BB613221AF8BBD00CD5424 /* ChatRoomListWireframe.swift in Sources */,
+				D9BCE0172216D1FF003FA0AC /* RequestedUserDataSource.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* EditProfileInfoViewController.swift in Sources */,
 				D9BB613021AF8BAA00CD5424 /* ChatRoomListInterface.swift in Sources */,

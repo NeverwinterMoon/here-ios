@@ -34,4 +34,5 @@ enum ProfileRowType {
     case editProfile
     case friends
     case searchFriends
+    case requested
 }

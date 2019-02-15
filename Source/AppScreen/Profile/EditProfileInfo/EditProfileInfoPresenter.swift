@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PKHUD
 import RxCocoa
 import RxSwift
 
@@ -26,9 +27,15 @@ final class EditProfileInfoPresenter: EditProfileInfoPresenterInterface {
 
         self.view.tapSaveProfileInfo
             .asObservable()
+            .do(onNext: { _ in
+                HUD.show(.labeledProgress(title: "変更中", subtitle: nil))
+            })
             .flatMap { [unowned self] newInfo -> Single<Void> in
                 self.interactor.updateProfile(params: [infoType.paramsKey: newInfo])
             }
+            .do(onNext: { _ in
+                HUD.hide()
+            })
             .subscribe(onNext: { [unowned self] in
                 self.wireframe.popBackToDetailProfileInfo()
             })

@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import PKHUD
 import RxCocoa
 import RxSwift
 
@@ -31,9 +32,15 @@ final class SearchFriendsPresenter: SearchFriendsPresenterInterface {
             .distinctUntilChanged()
             .filterEmpty()
             .asObservable()
+            .do(onNext: { _ in
+                HUD.show(.labeledProgress(title: "検索中...", subtitle: nil))
+            })
             .flatMap { text -> Observable<[SearchFriendsSection]> in
                 self.interactor.usersWithPrefix(of: text).asObservable().mapSections()
             }
+            .do(onNext: { _ in
+                HUD.hide()
+            })
             .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)
         

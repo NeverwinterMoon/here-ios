@@ -64,8 +64,18 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
             $0.cellWidth = self.view.bounds.width
             $0.cellHeight = 110
         }
+        
+        self.emptyViewLabel.do {
+            $0.text = "まだ友達はいません\nアカウントを教えてもらって申請しましょう!"
+            $0.textAlignment = .center
+            $0.font = .systemFont(ofSize: 16)
+        }
 
-        self.flexLayout()
+        self.presenter.viewIsEmpty
+            .emit(onNext: { [unowned self] in
+                self.flexLayout(viewIsEmpty: $0)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,13 +87,18 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
     // MARK: - Private
     private let friendsCollectionView: UICollectionView
     private let friendsCollectionViewFlowlayout = AppCollectionViewFlowLayout()
+    private let emptyViewLabel = UILabel()
     private let dataSource: RxCollectionViewSectionedReloadDataSource<FriendsListSection>
     private let disposeBag = DisposeBag()
     
-    private func flexLayout() {
+    private func flexLayout(viewIsEmpty: Bool) {
         
         self.view.flex.define { flex in
-            flex.addItem(self.friendsCollectionView).grow(1)
+            if viewIsEmpty {
+                flex.addItem(self.emptyViewLabel).height(50).grow(1)
+            } else {
+                flex.addItem(self.friendsCollectionView).grow(1)
+            }
         }
     }
 }

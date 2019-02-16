@@ -47,29 +47,39 @@ class RequestedUserCollectionViewCell: UICollectionViewCell {
             $0.setTitle("承認", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .blue
+            $0.layer.cornerRadius = 10
         }
         
         self.declineButton.do {
             $0.setTitle("拒否", for: .normal)
-        }
-        
-        self.usernameLabel.do {
-            $0.textAlignment = .center
+            $0.setTitleColor(.black, for: .normal)
+            $0.layer.borderWidth = 1
+            $0.layer.cornerRadius = 10
         }
         
         self.userDisplayName.do {
             $0.textAlignment = .center
         }
         
-        self.contentView.flex.define { flex in
-            flex.addItem(self.profileImageView).size(50).alignSelf(.center)
-            flex.addItem().direction(.row).define { flex in
-                flex.addItem(self.usernameLabel).height(20).alignSelf(.stretch)
-                flex.addItem(self.userDisplayName).height(20).alignSelf(.stretch)
-            }
-            flex.addItem().direction(.row).define { flex in
-                flex.addItem(self.approveButton).width(40).height(20)
-                flex.addItem(self.declineButton).width(40).height(20)
+        self.usernameLabel.do {
+            $0.textAlignment = .center
+            $0.textColor = .gray
+        }
+
+        self.contentView.flex.direction(.row).define { flex in
+            
+            flex.addItem(self.profileImageView).size(70).alignSelf(.center).margin(10)
+            
+            flex.addItem().grow(1).direction(.column).marginRight(20).define { flex in
+                
+                flex.addItem().direction(.row).alignContent(.center).height(30).marginTop(20).define { flex in
+                    flex.addItem(self.userDisplayName).grow(1)
+                    flex.addItem(self.usernameLabel).grow(1)
+                }
+                flex.addItem().direction(.row).alignSelf(.stretch).justifyContent(.center).height(30).marginTop(10).define { flex in
+                    flex.addItem(self.approveButton).width(80).marginRight(20)
+                    flex.addItem(self.declineButton).width(80)
+                }
             }
         }
     }

@@ -54,6 +54,11 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             $0.textAlignment = .center
         }
         
+        self.collectionViewFlowLayout.do {
+            $0.cellHeight = 90
+            $0.cellWidth = self.view.bounds.width
+        }
+        
         self.presenter.sections.drive(onNext: { [unowned self] in
             self.flexLayout(empty: $0.isEmpty)
         })
@@ -78,10 +83,12 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             self.view.flex.define { flex in
                 flex.addItem(self.emptyViewLabel).alignSelf(.center).marginTop(80)
             }
+            self.collectionView.removeFromSuperview()
         } else {
             self.view.flex.define { flex in
                 flex.addItem(self.collectionView).grow(1)
             }
+            self.emptyViewLabel.removeFromSuperview()
         }
     }
 }

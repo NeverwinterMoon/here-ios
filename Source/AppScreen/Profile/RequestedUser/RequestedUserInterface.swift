@@ -13,10 +13,14 @@ import RxCocoa
 import RxSwift
 
 protocol RequestedUserViewInterface: class {
+    var tapApproveRequest: Signal<IndexPath> { get }
+    var tapDeclineRequest: Signal<IndexPath> { get }
 }
 
 protocol RequestedUserInteractorInterface: class {
     func requestsReceiving() -> Single<[User]>
+    func declineRequest(userId: String)
+    func approveRequest(userId: String)
 }
 
 extension ProfileInteractor: RequestedUserInteractorInterface {}

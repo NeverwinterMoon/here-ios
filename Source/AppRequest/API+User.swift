@@ -126,15 +126,15 @@ extension API {
             }
         }
 
-        public struct CancelFriendRequest: DELETETargetType {
+        public struct DeleteFriendRequest: DELETETargetType {
             
             public typealias ElementType = Void
             
             public let path: String
             public let parameters: [String : Any] = [:]
             
-            public init(userId: String, toUserId: String) {
-                self.path = "users/\(userId)/friend_pendings/\(toUserId)"
+            public init(from fromUserId: String, to toUserId: String) {
+                self.path = "users/\(fromUserId)/friend_pendings/\(toUserId)"
             }
         }
         

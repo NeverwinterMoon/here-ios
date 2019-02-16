@@ -24,6 +24,24 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
+        self.view.tapApproveRequest
+            .map { [unowned self] in
+                self.sectionsRelay.value[$0.section].items[$0.item].userId
+            }
+            .emit(onNext: { [unowned self] in
+                self.interactor.approveRequest(userId: $0)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.view.tapDeclineRequest
+            .map { [unowned self] in
+                self.sectionsRelay.value[$0.section].items[$0.item].userId
+            }
+            .emit(onNext: { [unowned self] in
+                self.interactor.declineRequest(userId: $0)
+            })
+            .disposed(by: self.disposeBag)
+
         self.interactor.requestsReceiving()
             .asObservable()
             .mapSections()

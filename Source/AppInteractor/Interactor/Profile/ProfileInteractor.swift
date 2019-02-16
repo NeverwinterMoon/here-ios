@@ -42,25 +42,39 @@ public final class ProfileInteractor {
             }
     }
     
-    public func approveRequest(userId: String) -> Single<Void> {
-        return self.activatedUser()
+    public func approveRequest(userId: String) {
+        self.activatedUser()
             .flatMap { me -> Single<Friend> in
                 API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
             }
-            .map { _ in }
+            .subscribe()
+            .disposed(by: self.disposeBag)
     }
     
-    public func friendRequest(to userId: String) -> Single<Void> {
-        return self.activatedUser().flatMap {
+    public func declineRequest(userId: String) {
+        self.activatedUser()
+            .flatMap { me -> Single<Void> in
+                API.User.DeleteFriendRequest(from: userId, to: me.id).asSingle()
+            }
+            .subscribe()
+            .disposed(by: self.disposeBag)
+    }
+    
+    public func friendRequest(to userId: String) {
+        self.activatedUser().flatMap {
             API.User.SendFriendRequest(userId: $0.id, toUserId: userId).asSingle()
         }
-        .map { _ in }
+        .subscribe()
+        .disposed(by: self.disposeBag)
     }
     
-    public func cancelRequest(to userId: String) -> Single<Void> {
-        return self.activatedUser().flatMap {
-            API.User.CancelFriendRequest(userId: $0.id, toUserId: userId).asSingle()
-        }
+    public func cancelRequest(to userId: String) {
+        self.activatedUser()
+            .flatMap { me -> Single<Void> in
+                API.User.DeleteFriendRequest(from: me.id, to: userId).asSingle()
+            }
+            .subscribe()
+            .disposed(by: self.disposeBag)
     }
     
     public func requestsOfUser(userId: String) -> Single<[FriendPending]> {

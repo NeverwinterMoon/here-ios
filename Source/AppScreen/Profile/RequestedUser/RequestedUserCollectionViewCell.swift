@@ -16,6 +16,18 @@ import RxSwift
 
 class RequestedUserCollectionViewCell: UICollectionViewCell {
     
+    var tapApproveRequest: Signal<Void> {
+        return self.tapApproveRequestRelay.asSignal()
+    }
+    
+    private let tapApproveRequestRelay: PublishRelay<Void> = .init()
+    
+    var tapDeclineRequest: Signal<Void> {
+        return self.tapDeclineRequestRelay.asSignal()
+    }
+    
+    private let tapDeclineRequestRelay: PublishRelay<Void> = .init()
+    
     var item: RequestedUserItem? {
         didSet {
             guard let item = item else {
@@ -30,6 +42,7 @@ class RequestedUserCollectionViewCell: UICollectionViewCell {
             } else {
                 profileImageURL = "default.jpg"
             }
+            
             FirebaseStorageManager.downloadFile(filePath: profileImageURL)
                 .asObservable()
                 .filterNil()
@@ -48,6 +61,8 @@ class RequestedUserCollectionViewCell: UICollectionViewCell {
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .blue
             $0.layer.cornerRadius = 10
+            
+            $0.rx.tap.bind(to: self.tapApproveRequestRelay).disposed(by: self.disposeBag)
         }
         
         self.declineButton.do {
@@ -55,6 +70,8 @@ class RequestedUserCollectionViewCell: UICollectionViewCell {
             $0.setTitleColor(.black, for: .normal)
             $0.layer.borderWidth = 1
             $0.layer.cornerRadius = 10
+            
+            $0.rx.tap.bind(to: self.tapDeclineRequestRelay).disposed(by: self.disposeBag)
         }
         
         self.userDisplayName.do {

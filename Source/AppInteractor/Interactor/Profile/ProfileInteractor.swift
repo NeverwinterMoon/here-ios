@@ -186,6 +186,12 @@ public final class ProfileInteractor {
         }
     }
     
+    public func requestsReceiving() -> Single<[User]> {
+        return self.activatedUser().flatMap {
+            API.User.GetFriendRequests(userId: $0.id).asSingle()
+        }
+    }
+    
     // MARK: - Private
     private let disposeBag = DisposeBag()
 }

@@ -45,7 +45,8 @@ final class ProfilePresenter: ProfilePresenterInterface {
         let items = [
             ProfileItem(icon: UIImage(named: "first"), title: "プロフィールを編集する", type: .editProfile),
             ProfileItem(icon: UIImage(named: "first"), title: "友達", type: .friends),
-            ProfileItem(icon: UIImage(named: "first"), title: "友達を検索する", type: .searchFriends)
+            ProfileItem(icon: UIImage(named: "first"), title: "友達を検索する", type: .searchFriends),
+            ProfileItem(icon: UIImage(named: "first"), title: "友達申請", type: .requested)
         ]
         
         Observable.just(items).map { _ -> [ProfileSection] in

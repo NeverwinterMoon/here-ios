@@ -15,7 +15,7 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
-final class ProfileViewController: UIViewController, ProfileViewInterface, UICollectionViewDelegate {
+final class ProfileViewController: UIViewController, ProfileViewInterface, UICollectionViewDelegate, UIScrollViewDelegate {
     
     var presenter: ProfilePresenterInterface!
     
@@ -101,7 +101,8 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.backgroundColor = .white
-            
+            $0.isScrollEnabled = false
+
             self.presenter.sections
                 .drive($0.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
@@ -110,6 +111,13 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         self.profileCollectionViewFlowLayout.do {
             $0.cellWidth = self.view.bounds.width
             $0.cellHeight = 50
+        }
+        
+        self.containerScrollView.do {
+            $0.delegate = self
+            $0.contentSize = CGSize(width: self.view.bounds.width, height: 380 + 50 * 4)
+            $0.showsVerticalScrollIndicator = false
+            $0.showsHorizontalScrollIndicator = false
         }
         
         self.flexLayout()
@@ -123,6 +131,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
     }
     
     // MARK: - Private
+    private let containerScrollView = UIScrollView()
     private let profileImageView = RoundImageView()
     private let userDisplayNameLabel = UILabel()
     private let usernameLabel = UILabel()
@@ -137,14 +146,14 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         
         self.view.flex.define { flex in
             
-            flex.addItem().alignItems(.stretch).define { flex in
-                
-                flex.addItem(self.profileImageView).size(150).marginTop(100).alignSelf(.center)
+            flex.addItem(self.containerScrollView).grow(1).define { flex in
+
+                flex.addItem(self.profileImageView).size(150).marginTop(70).alignSelf(.center)
                 flex.addItem(self.userDisplayNameLabel).height(40).marginTop(10).alignSelf(.center)
                 flex.addItem(self.usernameLabel).height(30).alignSelf(.center)
                 flex.addItem(self.introLabel).height(40).marginTop(10).alignSelf(.center)
+                flex.addItem(self.profileCollectionView).grow(1).marginTop(30)
             }
-            flex.addItem(self.profileCollectionView).grow(1).marginTop(30)
         }
     }
 }

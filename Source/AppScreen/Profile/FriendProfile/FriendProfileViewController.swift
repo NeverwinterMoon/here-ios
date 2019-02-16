@@ -170,7 +170,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
             
             flex.addItem().alignContent(.center).define { flex in
                 
-                flex.addItem(self.profileImageView).size(150).marginTop(100).alignSelf(.center)
+                flex.addItem(self.profileImageView).size(150).marginTop(70).alignSelf(.center)
                 flex.addItem(self.userDisplayNameLabel).height(40).marginTop(10)
                 flex.addItem(self.usernameLabel).height(30)
                 flex.addItem(self.introLabel).height(40).marginTop(10)

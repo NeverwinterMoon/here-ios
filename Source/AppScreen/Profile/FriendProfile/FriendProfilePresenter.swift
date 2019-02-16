@@ -55,7 +55,7 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
             .bind(to: self.userProfileImageRelay)
             .disposed(by: self.disposeBag)
 
-        self.view.tapFriendRequest.asObservable()
+        self.view.tapRelation.asObservable()
             .flatMap { [unowned self] in
                 self.interactor.getRelationWith(userId: userId)
             }

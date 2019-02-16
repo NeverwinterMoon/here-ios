@@ -14,7 +14,7 @@ import RxSwift
 
 protocol FriendProfileViewInterface: ViewInterface {
     var tapFriends: Signal<Void> { get }
-    var tapFriendRequest: Signal<Void> { get }
+    var tapRelation: Signal<Void> { get }
     var buttonState: RelationState { get set }
 }
 

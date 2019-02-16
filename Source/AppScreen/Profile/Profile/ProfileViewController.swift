@@ -115,7 +115,7 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         
         self.containerScrollView.do {
             $0.delegate = self
-            $0.contentSize = CGSize(width: self.view.bounds.width, height: 380 + 50 * 4)
+            $0.contentSize = CGSize(width: self.view.bounds.width, height: 380 + self.profileCollectionViewFlowLayout.cellHeight * 4)
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
         }

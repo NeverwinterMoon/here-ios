@@ -14,7 +14,7 @@ import FlexLayout
 import RxCocoa
 import RxSwift
 
-final class FriendProfileViewController: UIViewController, FriendProfileViewInterface {
+final class FriendProfileViewController: UIViewController, FriendProfileViewInterface, UIScrollViewDelegate {
 
     var presenter: FriendProfilePresenterInterface!
     
@@ -22,50 +22,50 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         return self.friendsButton.rx.tap.asSignal()
     }
     
-    var tapFriendRequest: Signal<Void> {
-        return self.friendRequestButton.rx.tap.asSignal()
+    var tapRelation: Signal<Void> {
+        return self.relationButton.rx.tap.asSignal()
     }
     
     var buttonState: RelationState {
         didSet {
             switch self.buttonState {
             case .friend:
-                self.friendRequestButton.do {
+                self.relationButton.do {
                     $0.backgroundColor = .white
                     $0.setTitle("友達", for: .normal)
                     $0.setTitleColor(.blue, for: .normal)
                     $0.layer.borderColor = UIColor.blue.cgColor
                 }
             case .notFriend:
-                self.friendRequestButton.do {
+                self.relationButton.do {
                     $0.backgroundColor = .blue
                     $0.setTitle("友達申請する", for: .normal)
                     $0.setTitleColor(.white, for: .normal)
                     $0.layer.borderColor = UIColor.blue.cgColor
                 }
             case .requesting:
-                self.friendRequestButton.do {
+                self.relationButton.do {
                     $0.backgroundColor = .white
                     $0.setTitle("承認待ち", for: .normal)
                     $0.setTitleColor(.gray, for: .normal)
                     $0.layer.borderColor = UIColor.blue.cgColor
                 }
             case .requested:
-                self.friendRequestButton.do {
+                self.relationButton.do {
                     $0.backgroundColor = .blue
                     $0.setTitle("友達申請を承認する", for: .normal)
                     $0.setTitleColor(.white, for: .normal)
                     $0.layer.borderColor = UIColor.blue.cgColor
                 }
             case .blocked:
-                self.friendRequestButton.do {
+                self.relationButton.do {
                     $0.backgroundColor = .red
                     $0.setTitle("ブロックされています", for: .normal)
                     $0.setTitleColor(.white, for: .normal)
                     $0.layer.borderColor = UIColor.red.cgColor
                 }
             case .blocking:
-                self.friendRequestButton.do {
+                self.relationButton.do {
                     $0.backgroundColor = .red
                     $0.setTitle("ブロックしています", for: .normal)
                     $0.setTitleColor(.white, for: .normal)
@@ -89,6 +89,13 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         
         self.view.backgroundColor = .white
         
+        self.containerScrollView.do {
+            $0.delegate = self
+            $0.contentSize = CGSize(width: self.view.bounds.width, height: 480)
+            $0.showsVerticalScrollIndicator = false
+            $0.showsHorizontalScrollIndicator = false
+        }
+        
         self.presenter.username.drive(onNext: { [unowned self] in
             let text = "@\($0)"
             self.title = text
@@ -100,7 +107,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
             $0.backgroundColor = .black
         }
         
-        self.friendRequestButton.do {
+        self.relationButton.do {
             $0.layer.cornerRadius = 15
             $0.layer.borderWidth = 2
         }
@@ -121,6 +128,7 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         
         self.chatButton.do {
             $0.backgroundColor = .white
+            $0.backgroundColor = .orange
         }
 
         self.presenter.userDisplayName.drive(onNext: { [unowned self] in
@@ -155,12 +163,13 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
     }
     
     // MARK: - Private
+    private let containerScrollView = UIScrollView()
     private let friendsButton = UIButton()
     private let profileImageView = RoundImageView()
     private let userDisplayNameLabel = UILabel()
     private let usernameLabel = UILabel()
     private let introLabel = UILabel()
-    private let friendRequestButton = UIButton()
+    private let relationButton = UIButton()
     private let chatButton = UIButton()
     private let disposeBag = DisposeBag()
     
@@ -168,15 +177,14 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         
         self.view.flex.define { flex in
             
-            flex.addItem().alignContent(.center).define { flex in
+            flex.addItem(self.containerScrollView).grow(1).alignContent(.center).define { flex in
                 
                 flex.addItem(self.profileImageView).size(150).marginTop(70).alignSelf(.center)
                 flex.addItem(self.userDisplayNameLabel).height(40).marginTop(10)
                 flex.addItem(self.usernameLabel).height(30)
                 flex.addItem(self.introLabel).height(40).marginTop(10)
-                flex.addItem(self.friendRequestButton).width(self.view.bounds.width - 2 * 50).height(30).alignSelf(.center)
+                flex.addItem(self.relationButton).width(self.view.bounds.width - 2 * 50).height(30).alignSelf(.center)
                 flex.addItem(self.chatButton).size(100).alignSelf(.center)
-                flex.addItem(self.friendsButton).size(100)
             }
         }
     }

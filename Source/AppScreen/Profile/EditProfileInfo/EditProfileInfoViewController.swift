@@ -69,7 +69,7 @@ final class EditProfileInfoViewController: UIViewController, EditProfileInfoView
             flex.addItem().direction(.row).marginTop(80).define { flex in
                 
                 flex.addItem(self.infoInChangeLabel).height(60).width(150)
-                flex.addItem(self.editInfoTextField).height(60).grow(1)
+                flex.addItem(self.editInfoTextField).height(60).width(self.view.bounds.width - 150)
             }
         }
     }

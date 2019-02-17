@@ -74,7 +74,6 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             $0.backgroundColor = .white
 
             self.presenter.sections
-                .debug("dddddddddddddddddd")
                 .drive($0.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
         }

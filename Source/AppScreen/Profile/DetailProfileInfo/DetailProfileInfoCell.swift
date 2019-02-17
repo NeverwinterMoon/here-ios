@@ -40,14 +40,12 @@ final class DetailProfileInfoCell: UICollectionViewCell {
         self.bodyLabel.do {
 
             $0.font = UIFont.systemFont(ofSize: 20)
-            $0.numberOfLines = 0
-            $0.preferredMaxLayoutWidth = self.contentView.bounds.width - 150
         }
 
         self.contentView.flex.direction(.row).alignItems(.center).define { flex in
 
             flex.addItem(self.titleLabel).width(100).marginHorizontal(30)
-            flex.addItem(self.bodyLabel).grow(1)
+            flex.addItem(self.bodyLabel).alignSelf(.stretch).width(self.contentView.bounds.width - 180)
         }
     }
     

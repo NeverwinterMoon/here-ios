@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import AppEntity
+import AppRequest
+import RxCocoa
+import RxSwift
 
 public final class ChatInteractor {
     
     public static let shared = ChatInteractor()
     
     public init() {}
+    
+    public func getUser(userId: String) -> Single<User> {
+        return API.User.Get(userId: userId).asSingle()
+    }
 }

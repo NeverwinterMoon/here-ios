@@ -20,8 +20,7 @@ final class ProfilePresenter: ProfilePresenterInterface {
     var userDisplayName: Driver<String>
     var selfIntroduction: Driver<String?>
     var profileImage: Driver<UIImage>
-    let user: Driver<User>
-    
+
     var sections: Driver<[ProfileSection]> {
         
         return self.sectionsRelay.asDriver()
@@ -35,10 +34,10 @@ final class ProfilePresenter: ProfilePresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.user = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
-        self.username = self.user.map { $0.username }
-        self.userDisplayName = self.user.map { $0.userDisplayName }
-        self.selfIntroduction = self.user.map { $0.selfIntroduction }
+        let user = self.interactor.activatedUser().asDriver(onErrorJustReturn: .init())
+        self.username = user.map { $0.username }
+        self.userDisplayName = user.map { $0.userDisplayName }
+        self.selfIntroduction = user.map { $0.selfIntroduction }
         
         self.profileImage = self.interactor.getSelfProfileImage().asDriver(onErrorJustReturn: UIImage())
         

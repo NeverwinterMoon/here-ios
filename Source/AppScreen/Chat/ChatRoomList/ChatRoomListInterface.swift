@@ -21,5 +21,5 @@ protocol ChatRoomListPresenterInterface: class {
 }
 
 protocol ChatRoomListWireframeInterface: class {
-    func pushChatRoom()
+    func pushChatRoom(userId: String)
 }

@@ -13,8 +13,8 @@ import RxCocoa
 import RxSwift
 
 protocol FriendProfileViewInterface: ViewInterface {
-    var tapFriends: Signal<Void> { get }
     var tapRelation: Signal<Void> { get }
+    var tapChatButton: Signal<Void> { get }
     var buttonState: RelationState { get set }
 }
 
@@ -39,5 +39,5 @@ protocol FriendProfilePresenterInterface {
 }
 
 protocol FriendProfileWireframeInterface {
-    func pushFriendsList(userId: String)
+    func pushChatRoom(userId: String)
 }

@@ -18,14 +18,14 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
 
     var presenter: FriendProfilePresenterInterface!
     
-    var tapFriends: Signal<Void> {
-        return self.friendsButton.rx.tap.asSignal()
-    }
-    
     var tapRelation: Signal<Void> {
         return self.relationButton.rx.tap.asSignal()
     }
     
+    var tapChatButton: Signal<Void> {
+        return self.chatButton.rx.tap.asSignal()
+    }
+
     var buttonState: RelationState {
         didSet {
             switch self.buttonState {
@@ -103,10 +103,6 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
         })
         .disposed(by: self.disposeBag)
 
-        self.friendsButton.do {
-            $0.backgroundColor = .black
-        }
-        
         self.relationButton.do {
             $0.layer.cornerRadius = 15
             $0.layer.borderWidth = 2
@@ -164,7 +160,6 @@ final class FriendProfileViewController: UIViewController, FriendProfileViewInte
     
     // MARK: - Private
     private let containerScrollView = UIScrollView()
-    private let friendsButton = UIButton()
     private let profileImageView = RoundImageView()
     private let userDisplayNameLabel = UILabel()
     private let usernameLabel = UILabel()

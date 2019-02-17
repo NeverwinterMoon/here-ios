@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import AppEntity
+import AppInteractor
+import RxCocoa
+import RxSwift
+
+protocol ChatRoomViewInterface: class {
+}
+
+protocol ChatRoomInteractorInterface: class {
+    func getUser(userId: String) -> Single<User>
+}
+
+extension ChatInteractor: ChatRoomInteractorInterface {}
+
+protocol ChatRoomPresenterInterface: class {
+    var userDisplayName: Driver<String> { get }
+}
+
+protocol ChatRoomWireframeInterface: class {
+}

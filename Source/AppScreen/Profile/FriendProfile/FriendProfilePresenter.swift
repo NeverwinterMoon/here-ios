@@ -62,25 +62,31 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
             .subscribe(onNext: { state in
                 switch state {
                 case .friend:
-                    // show the sheet (block, mute)
+                    //TODO: show the sheet (block, mute)
                     print("notyet")
                 case .notFriend:
-                    // change the button status to pending
                     self.view.buttonState = .requesting
                     self.interactor.friendRequest(to: userId)
                 case .requesting:
-                    // change the button status to notFriend
                     self.view.buttonState = .notFriend
                     self.interactor.cancelRequest(to: userId)
                 case .requested:
+                    // TODO: clean here up
                     self.view.buttonState = .friend
                     self.interactor.approveRequest(userId: userId)
                 case .blocking:
-                    // show the sheet (unblock)
+                    //TODO: show the sheet (unblock)
                     print("notyet")
                 case .blocked:
+                    // TODO:
                     print("notyet")
                 }
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.view.tapChatButton
+            .emit(onNext: { [unowned self] in
+                self.wireframe.pushChatRoom(userId: userId)
             })
             .disposed(by: self.disposeBag)
     }

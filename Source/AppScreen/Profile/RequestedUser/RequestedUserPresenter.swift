@@ -18,6 +18,11 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
     }
     private let sectionsRelay: BehaviorRelay<[RequestedUserSection]> = .init(value: [])
     
+    var isRequestEmpty: Driver<Bool> {
+        return self.isRequestEmptyRelay.asDriver()
+    }
+    private let isRequestEmptyRelay: BehaviorRelay<Bool> = .init(value: false)
+    
     init(view: RequestedUserViewInterface, interactor: RequestedUserInteractorInterface, wireframe: RequestedUserWireframeInterface) {
         
         self.view = view
@@ -28,8 +33,11 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item].userId
             }
-            .emit(onNext: { [unowned self] in
+            .asObservable()
+            .flatMap { [unowned self] in
                 self.interactor.approveRequest(userId: $0)
+            }
+            .subscribe(onNext: { [unowned self] in
                 self.reload()
             })
             .disposed(by: self.disposeBag)
@@ -38,8 +46,11 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item].userId
             }
-            .emit(onNext: { [unowned self] userId in
-                self.interactor.declineRequest(userId: userId)
+            .asObservable()
+            .flatMap { [unowned self] in
+                self.interactor.declineRequest(userId: $0)
+            }
+            .subscribe(onNext: { [unowned self] in
                 self.reload()
             })
             .disposed(by: self.disposeBag)
@@ -48,6 +59,12 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
             .asObservable()
             .mapSections()
             .bind(to: self.sectionsRelay)
+            .disposed(by: self.disposeBag)
+        
+        self.interactor.requestsReceiving()
+            .asObservable()
+            .map { $0.isEmpty }
+            .bind(to: self.isRequestEmptyRelay)
             .disposed(by: self.disposeBag)
     }
     
@@ -59,10 +76,15 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
     
     private func reload() {
         self.interactor.requestsReceiving()
-            .debug("ddddddd")
             .asObservable()
             .mapSections()
             .bind(to: self.sectionsRelay)
+            .disposed(by: self.disposeBag)
+        
+        self.interactor.requestsReceiving()
+            .asObservable()
+            .map { $0.isEmpty }
+            .bind(to: self.isRequestEmptyRelay)
             .disposed(by: self.disposeBag)
     }
 }

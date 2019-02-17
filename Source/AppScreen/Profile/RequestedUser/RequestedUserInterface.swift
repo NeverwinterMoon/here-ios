@@ -15,18 +15,20 @@ import RxSwift
 protocol RequestedUserViewInterface: class {
     var tapApproveRequest: Signal<IndexPath> { get }
     var tapDeclineRequest: Signal<IndexPath> { get }
+    func resetDataSource()
 }
 
 protocol RequestedUserInteractorInterface: class {
     func requestsReceiving() -> Single<[User]>
-    func declineRequest(userId: String)
-    func approveRequest(userId: String)
+    func declineRequest(userId: String) -> Single<Void>
+    func approveRequest(userId: String) -> Single<Void>
 }
 
 extension ProfileInteractor: RequestedUserInteractorInterface {}
 
 protocol RequestedUserPresenterInterface: class {
     var sections: Driver<[RequestedUserSection]> { get }
+    var isRequestEmpty: Driver<Bool> { get }
 }
 
 protocol RequestedUserWireframeInterface: class {

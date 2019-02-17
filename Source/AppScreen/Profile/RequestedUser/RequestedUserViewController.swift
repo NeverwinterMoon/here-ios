@@ -30,15 +30,9 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
     
     private let tapDeclineRequestRelay: PublishRelay<IndexPath> = .init()
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.collectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
-        self.dataSource = RxCollectionViewSectionedReloadDataSource<RequestedUserSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
-            return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RequestedUserCollectionViewCell.self), for: indexPath) as! RequestedUserCollectionViewCell
-        })
-
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    func resetDataSource() {
         
-        self.dataSource = RxCollectionViewSectionedReloadDataSource<RequestedUserSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+        self.dataSource = RxCollectionViewSectionedAnimatedDataSource<RequestedUserSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
             collectionView.register(RequestedUserCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: RequestedUserCollectionViewCell.self))
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RequestedUserCollectionViewCell.self), for: indexPath) as! RequestedUserCollectionViewCell
             cell.item = item
@@ -55,6 +49,17 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
         })
     }
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.collectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
+        self.dataSource = RxCollectionViewSectionedAnimatedDataSource<RequestedUserSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+            return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RequestedUserCollectionViewCell.self), for: indexPath) as! RequestedUserCollectionViewCell
+        })
+
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.resetDataSource()
+    }
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) { fatalError() }
 
@@ -69,6 +74,7 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             $0.backgroundColor = .white
 
             self.presenter.sections
+                .debug("dddddddddddddddddd")
                 .drive($0.rx.items(dataSource: self.dataSource))
                 .disposed(by: self.disposeBag)
         }
@@ -84,13 +90,9 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             $0.cellWidth = self.view.bounds.width
         }
 
-        self.presenter.sections
-            .debug("ddddddddd")
-            .filterEmpty()
+        self.presenter.isRequestEmpty
             .drive(onNext: { [unowned self] in
-                if let items = $0.first?.items {
-                    self.flexLayout(empty: items.isEmpty)
-                }
+                self.flexLayout(empty: $0)
             })
             .disposed(by: self.disposeBag)
     }
@@ -104,7 +106,7 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
     // MARK: - Private
     private let collectionView: UICollectionView
     private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
-    private var dataSource: RxCollectionViewSectionedReloadDataSource<RequestedUserSection>
+    private var dataSource: RxCollectionViewSectionedAnimatedDataSource<RequestedUserSection>
     private let emptyViewLabel = UILabel()
     private let disposeBag = DisposeBag()
     

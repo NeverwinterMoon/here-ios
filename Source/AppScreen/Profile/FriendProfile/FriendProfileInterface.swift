@@ -24,7 +24,7 @@ protocol FriendProfileInteractorInterface {
     func getProfileIcon(filePath: String) -> Single<UIImage>
     func friendRequest(to: String)
     func cancelRequest(to: String)
-    func approveRequest(userId: String)
+    func approveRequest(userId: String) -> Single<Void>
     func getRelationWith(userId: String) -> Observable<RelationState>
 }
 

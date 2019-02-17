@@ -24,7 +24,6 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
     var tapLogin: Signal<LoginInfo> {
         return self.loginButton.rx.tap
             .asSignal()
-            .debug("ddddddd")
             .map { [unowned self] in
                 LoginInfo(
                     usernameOrEmail: self.emailOrUsernameTextField.text!.trimmingCharacters(in: .whitespaces),

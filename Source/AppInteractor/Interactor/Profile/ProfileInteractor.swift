@@ -42,22 +42,19 @@ public final class ProfileInteractor {
             }
     }
     
-    public func approveRequest(userId: String) {
-        self.activatedUser()
+    public func approveRequest(userId: String) -> Single<Void> {
+        return self.activatedUser()
             .flatMap { me -> Single<Friend> in
                 API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
             }
-            .subscribe()
-            .disposed(by: self.disposeBag)
+            .map { _ in }
     }
     
-    public func declineRequest(userId: String) {
-        self.activatedUser()
+    public func declineRequest(userId: String) -> Single<Void> {
+        return self.activatedUser()
             .flatMap { me -> Single<Void> in
                 API.User.DeleteFriendRequest(from: userId, to: me.id).asSingle()
             }
-            .subscribe()
-            .disposed(by: self.disposeBag)
     }
     
     public func friendRequest(to userId: String) {

@@ -9,7 +9,14 @@
 import Foundation
 import RxDataSources
 
-struct RequestedUserItem {
+struct RequestedUserItem: IdentifiableType, Equatable {
+    
+    typealias Identity = String
+    
+    var identity: String {
+        return self.userId
+    }
+    
     let userId: String
     let profileImageURL: String?
     let username: String
@@ -20,8 +27,14 @@ struct RequestedUserSection {
     var items: [Item]
 }
 
-extension RequestedUserSection: SectionModelType {
+extension RequestedUserSection: AnimatableSectionModelType {
+
+    typealias Identity = [String]
     
+    var identity: [String] {
+        return self.items.map { $0.userId }
+    }
+
     typealias Item = RequestedUserItem
     
     init(original: RequestedUserSection, items: [Item]) {

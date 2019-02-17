@@ -14,21 +14,20 @@ final class FriendProfileWireframe: AppWireframe, FriendProfileWireframeInterfac
     
     func pushChatRoom(userId: String) {
         
-        guard let window = UIApplication.shared.delegate?.window else {
+        guard let window = UIApplication.shared.delegate?.window, let tabBarController = window?.rootViewController as? UITabBarController else {
             return
         }
-        
-        let tabBarController = AppTabBarController()
         tabBarController.selectedIndex = 1
-        window?.rootViewController = tabBarController
         
-        if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController {
-            let controller = ChatRoomViewController()
-            let wireframe = ChatRoomWireframe(navigationController: self.navigationController)
-            let presenter = ChatRoomPresenter(view: controller, interactor: ChatInteractor.shared, wireframe: wireframe, with: userId)
-            controller.presenter = presenter
-            navigationController.pushViewController(controller, animated: true)
+        guard let navigationController = tabBarController.viewControllers?[1] as? UINavigationController else {
+            return
         }
-        window?.makeKeyAndVisible()
+
+        let controller = ChatRoomViewController()
+        let wireframe = ChatRoomWireframe(navigationController: navigationController)
+        let presenter = ChatRoomPresenter(view: controller, interactor: ChatInteractor.shared, wireframe: wireframe, with: userId)
+        controller.presenter = presenter
+        navigationController.pushViewController(controller, animated: true)
+        print(navigationController.viewControllers)
     }
 }

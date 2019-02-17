@@ -7,7 +7,7 @@
 //
 
 import Foundation
+import AppInteractor
 
 final class RequestedUserWireframe: AppWireframe, RequestedUserWireframeInterface {
-    
 }

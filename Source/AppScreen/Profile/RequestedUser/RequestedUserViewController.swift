@@ -43,13 +43,11 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RequestedUserCollectionViewCell.self), for: indexPath) as! RequestedUserCollectionViewCell
             cell.item = item
             cell.tapApproveRequest
-                .debug("ddddddd")
                 .map { _ in indexPath }
                 .emit(to: self.tapApproveRequestRelay)
                 .disposed(by: self.disposeBag)
             
             cell.tapDeclineRequest
-                .debug("ddddddd")
                 .map { _ in indexPath }
                 .emit(to: self.tapDeclineRequestRelay)
                 .disposed(by: self.disposeBag)
@@ -86,10 +84,15 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
             $0.cellWidth = self.view.bounds.width
         }
 
-        self.presenter.sections.drive(onNext: { [unowned self] in
-            self.flexLayout(empty: $0.isEmpty)
-        })
-        .disposed(by: self.disposeBag)
+        self.presenter.sections
+            .debug("ddddddddd")
+            .filterEmpty()
+            .drive(onNext: { [unowned self] in
+                if let items = $0.first?.items {
+                    self.flexLayout(empty: items.isEmpty)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -108,7 +111,7 @@ final class RequestedUserViewController: UIViewController, RequestedUserViewInte
     private func flexLayout(empty: Bool) {
         if empty {
             self.view.flex.define { flex in
-                flex.addItem(self.emptyViewLabel).alignSelf(.center).marginTop(80)
+                flex.addItem(self.emptyViewLabel).height(50).grow(1)
             }
             self.collectionView.removeFromSuperview()
         } else {

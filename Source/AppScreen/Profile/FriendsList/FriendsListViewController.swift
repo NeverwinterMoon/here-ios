@@ -67,13 +67,16 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
         
         self.emptyViewLabel.do {
             $0.text = "まだ友達はいません\nアカウントを教えてもらって申請しましょう!"
+            $0.textColor = .gray
             $0.textAlignment = .center
             $0.font = .systemFont(ofSize: 16)
         }
 
-        self.presenter.viewIsEmpty
-            .emit(onNext: { [unowned self] in
-                self.flexLayout(viewIsEmpty: $0)
+        self.presenter.sections
+            .drive(onNext: { [unowned self] in
+                if let items = $0.first?.items {
+                    self.flexLayout(viewIsEmpty: items.isEmpty)
+                }
             })
             .disposed(by: self.disposeBag)
     }
@@ -96,8 +99,10 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
         self.view.flex.define { flex in
             if viewIsEmpty {
                 flex.addItem(self.emptyViewLabel).height(50).grow(1)
+                self.friendsCollectionView.removeFromSuperview()
             } else {
                 flex.addItem(self.friendsCollectionView).grow(1)
+                self.emptyViewLabel.removeFromSuperview()
             }
         }
     }

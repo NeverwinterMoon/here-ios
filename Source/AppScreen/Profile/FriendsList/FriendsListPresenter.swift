@@ -19,12 +19,6 @@ final class FriendsListPresenter: FriendsListPresenterInterface {
     
     private let sectionsRelay: BehaviorRelay<[FriendsListSection]> = .init(value: [])
     
-    var viewIsEmpty: Signal<Bool> {
-        return self.viewIsEmptyRelay.asSignal()
-    }
-    
-    private let viewIsEmptyRelay: PublishRelay<Bool> = .init()
-
     init(view: FriendsListViewInterface, interactor: FriendsListInteractorInterface, wireframe: FriendsListWireframe) {
         
         self.view = view
@@ -42,9 +36,6 @@ final class FriendsListPresenter: FriendsListPresenterInterface {
 
         self.interactor.friends()
             .asObservable()
-            .do(onNext: { [unowned self] in
-                self.viewIsEmptyRelay.accept($0.isEmpty)
-            })
             .mapSections()
             .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)

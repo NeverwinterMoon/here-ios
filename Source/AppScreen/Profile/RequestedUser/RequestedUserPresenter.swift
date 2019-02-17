@@ -30,6 +30,7 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
             }
             .emit(onNext: { [unowned self] in
                 self.interactor.approveRequest(userId: $0)
+                self.reload()
             })
             .disposed(by: self.disposeBag)
         
@@ -37,8 +38,9 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
             .map { [unowned self] in
                 self.sectionsRelay.value[$0.section].items[$0.item].userId
             }
-            .emit(onNext: { [unowned self] in
-                self.interactor.declineRequest(userId: $0)
+            .emit(onNext: { [unowned self] userId in
+                self.interactor.declineRequest(userId: userId)
+                self.reload()
             })
             .disposed(by: self.disposeBag)
 
@@ -54,6 +56,15 @@ final class RequestedUserPresenter: RequestedUserPresenterInterface {
     private let interactor: RequestedUserInteractorInterface
     private let wireframe: RequestedUserWireframeInterface
     private let disposeBag = DisposeBag()
+    
+    private func reload() {
+        self.interactor.requestsReceiving()
+            .debug("ddddddd")
+            .asObservable()
+            .mapSections()
+            .bind(to: self.sectionsRelay)
+            .disposed(by: self.disposeBag)
+    }
 }
 
 extension Observable where E == [User] {

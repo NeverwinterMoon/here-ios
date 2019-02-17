@@ -25,7 +25,6 @@ extension ProfileInteractor: FriendsListInteractorInterface {}
 
 protocol FriendsListPresenterInterface: class {
     var sections: Driver<[FriendsListSection]> { get }
-    var viewIsEmpty: Signal<Bool> { get }
 }
 
 protocol FriendsListWireframeInterface: WireframeInterface {

@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
 import FlexLayout
+import MessageKit
 import RxCocoa
 import RxSwift
 
-final class ChatRoomViewController: UIViewController, ChatRoomViewInterface {
-    
+final class ChatRoomViewController: MessagesViewController, ChatRoomViewInterface, MessagesDisplayDelegate, MessagesLayoutDelegate, MessagesDataSource {
+
     var presenter: ChatRoomPresenterInterface!
     
     convenience init() {
@@ -28,6 +30,9 @@ final class ChatRoomViewController: UIViewController, ChatRoomViewInterface {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
+        self.messagesCollectionView.messagesDataSource = self
+        self.messagesCollectionView.messagesLayoutDelegate = self
+        self.messagesCollectionView.messagesDisplayDelegate = self
         
         self.presenter.userDisplayName
             .drive(onNext: { [unowned self] in
@@ -47,7 +52,22 @@ final class ChatRoomViewController: UIViewController, ChatRoomViewInterface {
         self.view.flex.paddingTop(self.view.safeAreaInsets.top)
     }
     
+    // MARK: - MessagesDataSource
+    func currentSender() -> Sender {
+        return Sender(id: <#T##String#>, displayName: <#T##String#>)
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return self.messages.count
+    }
+
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return self.messages[indexPath.section]
+    }
+    
     // MARK: - Private
+    private var messages: [MessageType] = []
+    private var messageListener: ListenerRegistration?
     private let disposeBag = DisposeBag()
     
     private func flexLayout() {

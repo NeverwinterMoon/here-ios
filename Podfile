@@ -31,6 +31,7 @@ target 'AppScreen' do
   use_frameworks!
 
   pod 'Firebase'
+  pod 'Firebase/Firestore'
   pod 'Kingfisher', '~> 5.0'
   target 'AppScreenTests' do
     inherit! :search_paths

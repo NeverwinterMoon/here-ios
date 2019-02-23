@@ -168,6 +168,8 @@
 		D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981DDF621CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift */; };
 		D995874321D4947E00FA0F69 /* FriendPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995874221D4947E00FA0F69 /* FriendPending.swift */; };
 		D99B77822215824300E10770 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B77812215824300E10770 /* Friend.swift */; };
+		D9A0E5EB2221B03800063B3C /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A0E5EA2221B03800063B3C /* MessageKit.framework */; };
+		D9A0E5EC2221B06C00063B3C /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A0E5EA2221B03800063B3C /* MessageKit.framework */; };
 		D9ADE011221450A000F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
 		D9ADE012221450A900F7A89C /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; };
 		D9ADE013221450A900F7A89C /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADE010221450A000F7A89C /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -513,6 +515,8 @@
 		D989B4E121CF2317000F1DFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D995874221D4947E00FA0F69 /* FriendPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPending.swift; sourceTree = "<group>"; };
 		D99B77812215824300E10770 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		D9A0E5EA2221B03800063B3C /* MessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageKit.framework; path = Carthage/Build/iOS/MessageKit.framework; sourceTree = "<group>"; };
+		D9A0E5ED2221B48A00063B3C /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Firebase; path = Pods/Firebase; sourceTree = "<group>"; };
 		D9ADE010221450A000F7A89C /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		D9AE25FF21C291B700B74CFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AE260121C3399300B74CFC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
@@ -565,6 +569,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A0E5EC2221B06C00063B3C /* MessageKit.framework in Frameworks */,
 				D96169192210664000DCA625 /* Kingfisher.framework in Frameworks */,
 				D9D74D8221CFA56E00141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D916268021CE1F1600113666 /* GTMSessionFetcher.framework in Frameworks */,
@@ -674,6 +679,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A0E5EB2221B03800063B3C /* MessageKit.framework in Frameworks */,
 				D9ADE014221450BF00F7A89C /* PKHUD.framework in Frameworks */,
 				D9D74D8121CFA55300141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D95FED8E21B437F3007CEFD6 /* RxRealm.framework in Frameworks */,
@@ -1199,6 +1205,8 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9A0E5ED2221B48A00063B3C /* Firebase */,
+				D9A0E5EA2221B03800063B3C /* MessageKit.framework */,
 				D9ADE010221450A000F7A89C /* PKHUD.framework */,
 				D96169182210664000DCA625 /* Kingfisher.framework */,
 				D96169162210654900DCA625 /* Kingfisher.framework */,

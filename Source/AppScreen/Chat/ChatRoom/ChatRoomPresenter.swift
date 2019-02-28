@@ -15,6 +15,7 @@ import RxSwift
 final class ChatRoomPresenter: ChatRoomPresenterInterface {
     
     var userDisplayName: Driver<String>
+    var userId: Driver<String>
     
     init(view: ChatRoomViewInterface, interactor: ChatRoomInteractorInterface, wireframe: ChatRoomWireframeInterface, with userId: String) {
         
@@ -25,6 +26,7 @@ final class ChatRoomPresenter: ChatRoomPresenterInterface {
         let user = self.interactor.getUser(userId: userId)
         
         self.userDisplayName = user.map { $0.userDisplayName }.asDriver(onErrorJustReturn: "")
+        self.userId = user.map { $0.id }.asDriver(onErrorJustReturn: "")
     }
     
     // MARK: - Private

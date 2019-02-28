@@ -23,6 +23,7 @@ extension ChatInteractor: ChatRoomInteractorInterface {}
 
 protocol ChatRoomPresenterInterface: class {
     var userDisplayName: Driver<String> { get }
+    var userId: Driver<String> { get }
 }
 
 protocol ChatRoomWireframeInterface: class {

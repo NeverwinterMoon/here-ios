@@ -54,6 +54,7 @@ target 'NowHere' do
   end
 
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Kingfisher', '~> 5.0'
 end

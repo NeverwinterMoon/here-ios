@@ -57,7 +57,7 @@
 		D91E937821A6DD9F00E93E04 /* AppUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D91E937621A6DD9F00E93E04 /* AppUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D91E938521A6DE0F00E93E04 /* AppUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E937421A6DD9F00E93E04 /* AppUIKit.framework */; };
 		D9223F8121A6A0FD00C5B2E7 /* AppRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B4ED21A4FB4D001ECA7F /* AppRequest.framework */; };
-		D9223F8221A6A1BC00C5B2E7 /* AppInteractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B53421A57FD0001ECA7F /* AppInteractor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		D9223F8221A6A1BC00C5B2E7 /* AppInteractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D908B53421A57FD0001ECA7F /* AppInteractor.framework */; };
 		D925C24A219F19DD00B166B4 /* AppScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D925C241219F19DD00B166B4 /* AppScreen.framework */; };
 		D925C251219F19DD00B166B4 /* AppScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D925C250219F19DD00B166B4 /* AppScreenTests.swift */; };
 		D925C253219F19DD00B166B4 /* AppScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = D925C243219F19DD00B166B4 /* AppScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -199,6 +199,7 @@
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
 		D9D1619921B53A3B0083A1E4 /* AppNavigationEmbeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938321A6DDEF00E93E04 /* AppNavigationEmbeded.swift */; };
 		D9D171F322282A9200A373A4 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981DDE221CC86B6002E55F7 /* Differentiator.framework */; };
+		D9D171FD22283EB500A373A4 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D171FC22283EB500A373A4 /* Protobuf.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D9D1B16721A6FB9100FE3829 /* DetailProfileInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1B16621A6FB9100FE3829 /* DetailProfileInfoDataSource.swift */; };
 		D9D74D8121CFA55300141FC7 /* RxMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */; };
@@ -542,6 +543,9 @@
 		D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserWireframe.swift; sourceTree = "<group>"; };
 		D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserDataSource.swift; sourceTree = "<group>"; };
 		D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9C342B02228437100380AE1 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9D171F422282C9700A373A4 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9D171FC22283EB500A373A4 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		D9D1B16621A6FB9100FE3829 /* DetailProfileInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProfileInfoDataSource.swift; sourceTree = "<group>"; };
 		D9D74D7A21CF947500141FC7 /* RxMediaPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMediaPicker.framework; path = Carthage/Build/iOS/RxMediaPicker.framework; sourceTree = "<group>"; };
@@ -584,6 +588,7 @@
 				D968C86C21AE2E800063E335 /* Moya.framework in Frameworks */,
 				D968C85A21AE2E800063E335 /* Nuke.framework in Frameworks */,
 				D9ADE012221450A900F7A89C /* PKHUD.framework in Frameworks */,
+				D9D171FD22283EB500A373A4 /* Protobuf.framework in Frameworks */,
 				D968C85C21AE2E800063E335 /* ReactiveMoya.framework in Frameworks */,
 				D968C85E21AE2E800063E335 /* ReactiveSwift.framework in Frameworks */,
 				D968C86E21AE2E800063E335 /* RealmSwift.framework in Frameworks */,
@@ -675,16 +680,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91E936B21A6DCC500E93E04 /* AppExtensions.framework in Frameworks */,
+				D9223F8221A6A1BC00C5B2E7 /* AppInteractor.framework in Frameworks */,
+				D91E938521A6DE0F00E93E04 /* AppUIKit.framework in Frameworks */,
+				D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */,
 				D9A0E5EB2221B03800063B3C /* MessageKit.framework in Frameworks */,
 				D9ADE014221450BF00F7A89C /* PKHUD.framework in Frameworks */,
 				D9D74D8121CFA55300141FC7 /* RxMediaPicker.framework in Frameworks */,
 				D95FED8E21B437F3007CEFD6 /* RxRealm.framework in Frameworks */,
 				D978364621AB8E19002D52E4 /* RxOptional.framework in Frameworks */,
 				D9D1B16521A6FB2A00FE3829 /* RxDataSources.framework in Frameworks */,
-				D91E938521A6DE0F00E93E04 /* AppUIKit.framework in Frameworks */,
-				D91E936B21A6DCC500E93E04 /* AppExtensions.framework in Frameworks */,
-				D9223F8221A6A1BC00C5B2E7 /* AppInteractor.framework in Frameworks */,
-				D9B945B0219F1F1D0009FF6D /* FlexLayout.framework in Frameworks */,
 				83540BCE550A80E91E5383B8 /* Pods_AppScreen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1202,6 +1207,8 @@
 		D9B945AE219F1F1D0009FF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9D171FC22283EB500A373A4 /* Protobuf.framework */,
+				D9D171F422282C9700A373A4 /* Protobuf.framework */,
 				D976A2932228288F00CEAA6A /* Protobuf.framework */,
 				D976A291222826AE00CEAA6A /* Protobuf.framework */,
 				D97F8A2E22264AA9008C06B4 /* Protobuf.framework */,
@@ -1227,6 +1234,7 @@
 				D968C84821AE2D840063E335 /* RxAtomic.framework */,
 				D968C84A21AE2D840063E335 /* RxBlocking.framework */,
 				D968C84B21AE2D840063E335 /* RxTest.framework */,
+				D9C342B02228437100380AE1 /* Protobuf.framework */,
 				D978364521AB8E19002D52E4 /* RxOptional.framework */,
 				D9D1B16421A6FB2A00FE3829 /* RxDataSources.framework */,
 				D91E936D21A6DD5A00E93E04 /* CoreGraphics.framework */,
@@ -1797,6 +1805,11 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1806,6 +1819,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

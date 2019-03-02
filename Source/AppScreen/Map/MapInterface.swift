@@ -13,6 +13,7 @@ import RxCocoa
 import RxSwift
 
 protocol MapViewInterface: class {
+    var t: Observable<Void> { get }
 }
 
 protocol MapInteractorInterface: class {

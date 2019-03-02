@@ -43,7 +43,7 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             let controller = MapViewController()
             let navigationController = AppNavigationController(rootViewController: controller)
             let wireframe = MapWireframe(navigationController: navigationController)
-            let presenter = MapPresenter(view: controller, interactor: MapInteractor(), wireframe: wireframe)
+            let presenter = MapPresenter(view: controller, interactor: MapInteractor.shared, wireframe: wireframe)
             controller.presenter = presenter
             viewControllers.append(navigationController)
             
@@ -85,6 +85,6 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
         }
 
         self.setViewControllers(viewControllers, animated: false)
-        self.selectedIndex = 2
+        self.selectedIndex = 0
     }
 }

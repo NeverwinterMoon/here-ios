@@ -9,7 +9,6 @@
 import UIKit
 import AppInteractor
 import AppScreen
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        configureFirebaseApp()
         let wireframe = RootWireframe.shared
         self.rootPresenter = RootPresenter(wireframe: wireframe, interactor: RootInteractor.shared)
         self.window = wireframe.window
-        configureFirebaseApp()
         return true
     }
 

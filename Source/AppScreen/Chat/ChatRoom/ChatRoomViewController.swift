@@ -17,6 +17,12 @@ final class ChatRoomViewController: MessagesViewController, ChatRoomViewInterfac
 
     var presenter: ChatRoomPresenterInterface!
     
+    var tapSend: Signal<String> {
+        return self.messageInputBar.sendButton.rx.tap.asSignal().map { [unowned self] in
+            self.messageInputBar.inputTextView.attributedText.string
+        }
+    }
+    
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
@@ -46,6 +52,23 @@ final class ChatRoomViewController: MessagesViewController, ChatRoomViewInterfac
         self.messagesCollectionView.messagesLayoutDelegate = self
         self.messagesCollectionView.messagesDisplayDelegate = self
         
+        self.messageInputBar.sendButton.rx.tap
+            .map { self.messageInputBar.inputTextView.attributedText.string }
+            .subscribe(onNext: { [unowned self] in
+                
+                let message = Message(
+                    sender: self.currentSender(),
+                    messageId: UUID().uuidString,
+                    sentDate: Date(),
+                    kind: .text($0)
+                )
+                self.messageInputBar.sendButton.isEnabled = false
+                self.messageInputBar.inputTextView.clearsOnInsertion = true
+                self.messageInputBar.inputTextView.attributedText = NSAttributedString(string: "")
+                return self.insertNewMessage(message)
+            })
+            .disposed(by: self.disposeBag)
+
         self.presenter.userDisplayName
             .drive(onNext: { [unowned self] in
                 self.title = $0

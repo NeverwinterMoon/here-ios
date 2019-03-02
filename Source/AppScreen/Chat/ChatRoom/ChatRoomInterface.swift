@@ -13,6 +13,7 @@ import RxCocoa
 import RxSwift
 
 protocol ChatRoomViewInterface: class {
+    var tapSend: Signal<String> { get }
 }
 
 protocol ChatRoomInteractorInterface: class {

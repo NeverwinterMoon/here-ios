@@ -17,10 +17,11 @@ end
 target 'AppInteractor' do
   use_frameworks!
 
+  pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
-  pod 'Kingfisher', '~> 5.0'
 end
 
 target 'AppRequest' do
@@ -29,12 +30,11 @@ end
 
 target 'AppScreen' do
   use_frameworks!
-
   pod 'Firebase'
-  pod 'Firebase/Firestore'
-  pod 'Kingfisher', '~> 5.0'
+
   target 'AppScreenTests' do
     inherit! :search_paths
+    pod 'Firebase'
   end
 end
 
@@ -44,17 +44,18 @@ end
 
 target 'NowHere' do
   use_frameworks!
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   target 'NowHereTests' do
     inherit! :search_paths
+    pod 'Firebase'
   end
 
   target 'NowHereUITests' do
     inherit! :search_paths
   end
-
-  pod 'Firebase/Core'
-  pod 'Firebase/Firestore'
-  pod 'Firebase/Storage'
-  pod 'Kingfisher', '~> 5.0'
 end

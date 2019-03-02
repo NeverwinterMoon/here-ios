@@ -26,6 +26,12 @@ final class MapPresenter: MapPresenterInterface {
             .asObservable()
             .bind(to: self.nearbyFriends)
             .disposed(by: self.disposeBag)
+        
+        self.view.t
+            .subscribe(onNext: { _ in
+                LocationManager.shared.sendLocation(location: ["l": 797])
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

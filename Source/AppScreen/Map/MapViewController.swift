@@ -29,6 +29,10 @@ final class MapViewController: UIViewController, MapViewInterface {
     required init?(coder aDecoder: NSCoder) { fatalError() }
 
     override func viewDidLoad() {
+        
+        self.view.backgroundColor = .white
+        self.title = "近くにいる友達"
+        
         super.viewDidLoad()
         
         // test

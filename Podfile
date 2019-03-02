@@ -20,6 +20,7 @@ target 'AppInteractor' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
 end
@@ -47,6 +48,7 @@ target 'NowHere' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
 

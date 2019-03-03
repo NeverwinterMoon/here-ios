@@ -7,21 +7,33 @@
 //
 
 import UIKit
+import AppEntity
+import AppUIKit
+import CoreLocation
 import FirebaseFirestore
 import RxCocoa
+import RxDataSources
 import RxSwift
 
-final class MapViewController: UIViewController, MapViewInterface {
+final class MapViewController: UIViewController, MapViewInterface, CLLocationManagerDelegate {
     
     var presenter: MapPresenterInterface!
     var docRef: DocumentReference!
     
-    var t: Observable<Void> {
-        return s.map { _ in }
+    var location: Signal<CLLocationCoordinate2D> {
+        return self.locationRelay.asSignal()
     }
-    var s = Observable.just("test")
+    
+    private let locationRelay: PublishRelay<CLLocationCoordinate2D> = .init()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.nearbyFriendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
+        let dataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
+            cell.item = item
+            return cell
+            })
+        self.dataSource = dataSource
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -35,6 +47,34 @@ final class MapViewController: UIViewController, MapViewInterface {
         
         super.viewDidLoad()
         
-        // test
+        if CLLocationManager.locationServicesEnabled() {
+            
+            self.locationManager.delegate = self
+            self.locationManager.requestAlwaysAuthorization()
+            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.startUpdatingLocation()
+            
+//            self.checkLocationAuthorization()
+        } else {
+            
+            // TODO:  show alert
+        }
+    }
+    
+    // MARK: - Private
+    private let locationManager = CLLocationManager()
+    private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
+    private let dataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
+    private let nearbyFriendsCollectionView: UICollectionView
+    
+    private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let latestLocation = locations.last
+        guard let currentLocation = latestLocation else {
+            return
+        }
+        
+        let coordinate = currentLocation.coordinate
+        self.locationRelay.accept(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
     }
 }

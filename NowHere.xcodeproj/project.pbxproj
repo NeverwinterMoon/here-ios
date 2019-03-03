@@ -62,6 +62,8 @@
 		D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */; };
 		D925C260219F19ED00B166B4 /* MapViewController_.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BCA219F0F0800A9A7CA /* MapViewController_.swift */; };
 		D925C261219F19F100B166B4 /* ChatRoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BF6219F0F5A00A9A7CA /* ChatRoomListViewController.swift */; };
+		D92945F4222B6FC900106306 /* MapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92945F3222B6FC900106306 /* MapDataSource.swift */; };
+		D92945F6222B715400106306 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92945F5222B715400106306 /* MapCollectionViewCell.swift */; };
 		D92A41CD21B13143003ABE8A /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41CC21B13143003ABE8A /* RootInteractor.swift */; };
 		D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D221B13B63003ABE8A /* DBManager.swift */; };
 		D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */; };
@@ -441,6 +443,8 @@
 		D925C249219F19DD00B166B4 /* AppScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D925C250219F19DD00B166B4 /* AppScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenTests.swift; sourceTree = "<group>"; };
 		D925C252219F19DD00B166B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D92945F3222B6FC900106306 /* MapDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataSource.swift; sourceTree = "<group>"; };
+		D92945F5222B715400106306 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		D92A41CC21B13143003ABE8A /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		D92A41D221B13B63003ABE8A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D92A41D521B2373F003ABE8A /* SharedDBMaganer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDBMaganer.swift; sourceTree = "<group>"; };
@@ -1174,6 +1178,8 @@
 				D9EAEBE32228CD1400328831 /* MapViewController.swift */,
 				D9BB612521AF81E300CD5424 /* MapPresenter.swift */,
 				D9BB612721AF81F100CD5424 /* MapWireframe.swift */,
+				D92945F3222B6FC900106306 /* MapDataSource.swift */,
+				D92945F5222B715400106306 /* MapCollectionViewCell.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -2244,12 +2250,14 @@
 				D9E6466B21DE14080046504B /* SearchFriendsCell.swift in Sources */,
 				D9BB612E21AF8B9F00CD5424 /* ChatRoomListPresenter.swift in Sources */,
 				D981DDEF21CCE259002E55F7 /* SelectProfileImageInterface.swift in Sources */,
+				D92945F6222B715400106306 /* MapCollectionViewCell.swift in Sources */,
 				D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */,
 				D9D1B16721A6FB9100FE3829 /* DetailProfileInfoDataSource.swift in Sources */,
 				D925C260219F19ED00B166B4 /* MapViewController_.swift in Sources */,
 				D92AFC9521A6A44F00FCB5FD /* FriendProfileWireframe.swift in Sources */,
 				D900BB3C21A3EFD000E2E9A7 /* ProfilePresenter.swift in Sources */,
 				D95FED8721B3DD05007CEFD6 /* RootInterface.swift in Sources */,
+				D92945F4222B6FC900106306 /* MapDataSource.swift in Sources */,
 				D9BB612621AF81E300CD5424 /* MapPresenter.swift in Sources */,
 				D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */,
 				D9E6466321DE0B460046504B /* SearchFriendsInterface.swift in Sources */,

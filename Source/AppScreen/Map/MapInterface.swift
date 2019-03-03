@@ -6,6 +6,7 @@
 //  Copyright © 2018 服部穣. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 import AppEntity
 import AppInteractor
@@ -13,7 +14,7 @@ import RxCocoa
 import RxSwift
 
 protocol MapViewInterface: class {
-    var t: Observable<Void> { get }
+    var location: Signal<CLLocationCoordinate2D> { get }
 }
 
 protocol MapInteractorInterface: class {

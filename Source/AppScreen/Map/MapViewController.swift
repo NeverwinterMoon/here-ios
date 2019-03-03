@@ -47,17 +47,11 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
         
         super.viewDidLoad()
         
-        if CLLocationManager.locationServicesEnabled() {
-            
-            self.locationManager.delegate = self
-            self.locationManager.requestAlwaysAuthorization()
-            self.locationManager.requestWhenInUseAuthorization()
-            self.locationManager.startUpdatingLocation()
-            
-//            self.checkLocationAuthorization()
-        } else {
-            
-            // TODO:  show alert
+        self.locationManager.do {
+            $0.distanceFilter = 10
+            $0.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            $0.delegate = self
+            $0.startUpdatingLocation()
         }
     }
     
@@ -69,12 +63,9 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     
     private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let latestLocation = locations.last
-        guard let currentLocation = latestLocation else {
-            return
-        }
-        
-        let coordinate = currentLocation.coordinate
+        print("called")
+        // argument "locations" have at least one CLLocation
+        let coordinate = locations.last!.coordinate
         self.locationRelay.accept(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
     }
 }

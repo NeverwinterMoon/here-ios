@@ -21,7 +21,6 @@ public final class LocationManager {
     private var ref: DatabaseReference!
 
     private init() {
-        
         self.ref = Database.database().reference()
     }
     
@@ -50,7 +49,7 @@ public final class LocationManager {
                         distMeters = location.distance(from: CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude))
                     })
 
-                    return distMeters != nil ? distMeters! >= Double(500) : false
+                    return distMeters != nil ? distMeters! <= Double(1000) : false
                 }
             }
     }

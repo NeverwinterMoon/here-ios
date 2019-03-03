@@ -8,15 +8,7 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestore
 
 public func configureFirebaseApp() {
-    print()
-    print("called")
-    print()
     FirebaseApp.configure()
-    let db = Firestore.firestore()
-    print()
-    print(db)
-    print()
 }

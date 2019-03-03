@@ -45,7 +45,8 @@ public final class ProfileInteractor {
     public func approveRequest(userId: String) -> Single<Void> {
         return self.activatedUser()
             .flatMap { me -> Single<Friend> in
-                API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
+                FirebaseFriendsManager.shared.uploadFriendId()
+                return API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
             }
             .map { _ in }
     }

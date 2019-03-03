@@ -191,7 +191,8 @@
 		D9BCE0152216D1F8003FA0AC /* RequestedUserWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */; };
 		D9BCE0172216D1FF003FA0AC /* RequestedUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */; };
 		D9BCE0192216D209003FA0AC /* RequestedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */; };
-		D9C71A9222299BD60032BCEE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C71A90222999240032BCEE /* LocationManager.swift */; };
+		D9BEC8DE222BF8AC00DD54B8 /* FirebaseFriendsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEC8DD222BF8AC00DD54B8 /* FirebaseFriendsManager.swift */; };
+		D9C71A9222299BD60032BCEE /* FirebaseLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C71A90222999240032BCEE /* FirebaseLocationManager.swift */; };
 		D9C71A9F222A512A0032BCEE /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C71A9E222A512A0032BCEE /* GTMSessionFetcher.framework */; };
 		D9C71AAA222A59210032BCEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9C71A97222A19320032BCEE /* GoogleService-Info.plist */; };
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
@@ -545,8 +546,9 @@
 		D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserWireframe.swift; sourceTree = "<group>"; };
 		D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserDataSource.swift; sourceTree = "<group>"; };
 		D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9BEC8DD222BF8AC00DD54B8 /* FirebaseFriendsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFriendsManager.swift; sourceTree = "<group>"; };
 		D9C342B02228437100380AE1 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9C71A90222999240032BCEE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D9C71A90222999240032BCEE /* FirebaseLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLocationManager.swift; sourceTree = "<group>"; };
 		D9C71A9322299BFB0032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9522299DD30032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A97222A19320032BCEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -901,7 +903,8 @@
 			children = (
 				D9D74D9D21D0C4FB00141FC7 /* Configure.swift */,
 				D916268421CE223A00113666 /* FirebaseStorageManager.swift */,
-				D9C71A90222999240032BCEE /* LocationManager.swift */,
+				D9C71A90222999240032BCEE /* FirebaseLocationManager.swift */,
+				D9BEC8DD222BF8AC00DD54B8 /* FirebaseFriendsManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -2176,6 +2179,7 @@
 				D939306E21B6C8E000929DA8 /* WelcomeInteractor.swift in Sources */,
 				D92A41D321B13B63003ABE8A /* DBManager.swift in Sources */,
 				D956E47F21C4FF1E001DBFBA /* RealmMigration.swift in Sources */,
+				D9BEC8DE222BF8AC00DD54B8 /* FirebaseFriendsManager.swift in Sources */,
 				D92A41CD21B13143003ABE8A /* RootInteractor.swift in Sources */,
 				D978364021AADDCA002D52E4 /* ConvertToSingle.swift in Sources */,
 				D9BB613521AF8BDF00CD5424 /* ChatInteractor.swift in Sources */,
@@ -2183,7 +2187,7 @@
 				D916268521CE223A00113666 /* FirebaseStorageManager.swift in Sources */,
 				D92A41D621B2373F003ABE8A /* SharedDBMaganer.swift in Sources */,
 				D908B54B21A63668001ECA7F /* ProfileInteractor.swift in Sources */,
-				D9C71A9222299BD60032BCEE /* LocationManager.swift in Sources */,
+				D9C71A9222299BD60032BCEE /* FirebaseLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

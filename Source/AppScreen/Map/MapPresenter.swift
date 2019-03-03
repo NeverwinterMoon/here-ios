@@ -30,7 +30,7 @@ final class MapPresenter: MapPresenterInterface {
         self.view.location
             .asObservable()
             .subscribe(onNext: {
-                LocationManager.shared.sendLocation(location: $0)
+                FirebaseLocationManager.shared.sendLocation(location: $0)
             })
             .disposed(by: self.disposeBag)
     }

@@ -1,5 +1,5 @@
 //
-//  LocationManager.swift
+//  FirebaseLocationManager.swift
 //  NowHere
 //
 //  Created by 服部穣 on 2019/03/02.
@@ -14,9 +14,9 @@ import FirebaseDatabase
 import RxCocoa
 import RxSwift
 
-public final class LocationManager {
+public final class FirebaseLocationManager {
     
-    public static let shared = LocationManager()
+    public static let shared = FirebaseLocationManager()
     
     private var ref: DatabaseReference!
 

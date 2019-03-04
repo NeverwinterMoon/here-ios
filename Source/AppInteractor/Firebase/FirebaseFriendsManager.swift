@@ -24,7 +24,7 @@ public final class FirebaseFriendsManager {
         self.ref = Database.database().reference()
     }
 
-    public func uploadFriendId() {
+    public func uploadFriendIds() {
         ProfileInteractor.shared.activatedUser()
             .asObservable()
             .flatMap {

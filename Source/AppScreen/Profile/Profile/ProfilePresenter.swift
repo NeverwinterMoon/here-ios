@@ -58,10 +58,12 @@ final class ProfilePresenter: ProfilePresenterInterface {
             .do(onNext: { [unowned self] in
                 self.view.update()
             })
-            .flatMap { [unowned self] in
-                self.interactor.activatedUser()
-            }
-            .subscribe()
+//            .flatMap { [unowned self] in
+//                self.interactor.activatedUser()
+//            }
+            .subscribe(onNext: {
+                FirebaseFriendsManager.shared.uploadFriendIds()
+            })
             .disposed(by: self.disposeBag)
         
         self.view.tapProfileRow

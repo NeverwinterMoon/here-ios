@@ -33,6 +33,12 @@ final class MapPresenter: MapPresenterInterface {
                 FirebaseLocationManager.shared.sendLocation(location: $0)
             })
             .disposed(by: self.disposeBag)
+        
+        self.view.viewWillAppear
+            .subscribe(onNext: {
+                FirebaseFriendsManager.shared.uploadFriendIds()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

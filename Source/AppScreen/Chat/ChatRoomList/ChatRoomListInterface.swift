@@ -9,7 +9,7 @@
 import Foundation
 import AppInteractor
 
-protocol ChatRoomListViewInterface: class {
+protocol ChatRoomListViewInterface: class, ViewInterface {
 }
 
 protocol ChatRoomListInteractorInterface: class {

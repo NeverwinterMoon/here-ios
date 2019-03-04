@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import AppInteractor
+import RxCocoa
+import RxSwift
 
 final class ChatRoomListPresenter: ChatRoomListPresenterInterface {
     
@@ -14,10 +17,18 @@ final class ChatRoomListPresenter: ChatRoomListPresenterInterface {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        
+        FirebaseFriendsManager.shared.uploadFriendIds()
+        self.view.viewWillAppear
+            .subscribe(onNext: {
+                FirebaseFriendsManager.shared.uploadFriendIds()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private
-    let view: ChatRoomListViewInterface
-    let interactor: ChatRoomListInteractorInterface
-    let wireframe: ChatRoomListWireframeInterface
+    private let view: ChatRoomListViewInterface
+    private let interactor: ChatRoomListInteractorInterface
+    private let wireframe: ChatRoomListWireframeInterface
+    private let disposeBag = DisposeBag()
 }

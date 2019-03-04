@@ -8,6 +8,7 @@
 
 import Foundation
 import AppEntity
+import AppInteractor
 import RxCocoa
 import RxSwift
 
@@ -38,6 +39,12 @@ final class FriendsListPresenter: FriendsListPresenterInterface {
             .asObservable()
             .mapSections()
             .bind(to: self.sectionsRelay)
+            .disposed(by: self.disposeBag)
+        
+        self.view.viewWillAppear
+            .subscribe(onNext: {
+                FirebaseFriendsManager.shared.uploadFriendIds()
+            })
             .disposed(by: self.disposeBag)
     }
     

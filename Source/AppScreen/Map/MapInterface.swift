@@ -13,7 +13,7 @@ import AppInteractor
 import RxCocoa
 import RxSwift
 
-protocol MapViewInterface: class {
+protocol MapViewInterface: class, ViewInterface {
     var location: Signal<CLLocationCoordinate2D> { get }
 }
 

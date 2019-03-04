@@ -9,6 +9,7 @@
 import Foundation
 import AppEntity
 import AppInteractor
+import CoreLocation
 import RxCocoa
 import RxSwift
 
@@ -37,6 +38,7 @@ final class MapPresenter: MapPresenterInterface {
         self.view.viewWillAppear
             .subscribe(onNext: {
                 FirebaseFriendsManager.shared.uploadFriendIds()
+                FirebaseLocationManager.shared.sendLocation(location: CLLocationCoordinate2D(latitude: 1, longitude: 2))
             })
             .disposed(by: self.disposeBag)
     }

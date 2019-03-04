@@ -34,7 +34,7 @@ public final class FirebaseFriendsManager {
                 return (friends, user.id)
             })
             .subscribe(onNext: { [unowned self] (friends, userId) in
-                let newData = ["friend_ids": friends.map { $0.id }]
+                let newData = friends.map { $0.id }
                 self.ref.child("users/\(userId)/friends").setValue(newData)
             })
             .disposed(by: self.disposeBag)

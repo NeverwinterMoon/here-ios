@@ -23,6 +23,8 @@ target 'AppInteractor' do
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'RxFirebase'
+  pod 'RxFirebase/Database'
 end
 
 target 'AppRequest' do

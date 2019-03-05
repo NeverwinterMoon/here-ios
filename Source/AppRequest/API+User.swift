@@ -26,6 +26,19 @@ extension API {
             }
         }
         
+        public struct GetAllFriends: GETTargetType {
+            
+            public typealias ElementType = [AppEntity.User]
+            
+            public let path: String
+            public let parameters: [String: Any]
+            
+            public init(fromIds: [String]) {
+                self.path = "users"
+                self.parameters = ["user_ids": fromIds]
+            }
+        }
+        
         public struct GetFriends: GETTargetType {
             
             public typealias ElementType = [AppEntity.User]

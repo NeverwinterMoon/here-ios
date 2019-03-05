@@ -12,7 +12,7 @@
 		<key>AppEntity.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>34</integer>
+			<integer>45</integer>
 		</dict>
 		<key>AppExtensions.xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>AppExtensions.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>32</integer>
+			<integer>46</integer>
 		</dict>
 		<key>AppInteractor.xcscheme</key>
 		<dict>
@@ -32,7 +32,7 @@
 		<key>AppInteractor.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>35</integer>
+			<integer>48</integer>
 		</dict>
 		<key>AppInterface.xcscheme</key>
 		<dict>
@@ -47,7 +47,7 @@
 		<key>AppRequest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>36</integer>
+			<integer>49</integer>
 		</dict>
 		<key>AppScreen.xcscheme</key>
 		<dict>
@@ -57,7 +57,7 @@
 		<key>AppScreen.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>37</integer>
+			<integer>50</integer>
 		</dict>
 		<key>AppUIKit.xcscheme</key>
 		<dict>
@@ -67,7 +67,7 @@
 		<key>AppUIKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>33</integer>
+			<integer>47</integer>
 		</dict>
 		<key>CustomExtension.xcscheme</key>
 		<dict>

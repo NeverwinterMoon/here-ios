@@ -54,20 +54,20 @@ final class AppTabBarController: UITabBarController, UITabBarControllerDelegate 
             )
         }
         
-        chat: do {
-            let controller = ChatRoomListViewController()
-            let navigationController = AppNavigationController(rootViewController: controller)
-            let wireframe = ChatRoomListWireframe(navigationController: navigationController)
-            let presenter = ChatRoomListPresenter(view: controller, interactor: ChatInteractor.shared, wireframe: wireframe)
-            controller.presenter = presenter
-            viewControllers.append(navigationController)
-            
-            navigationController.tabBarItem = UITabBarItem(
-                title: "chat",
-                image: UIImage(named: "first"),
-                selectedImage: UIImage(named: "first")
-            )
-        }
+//        chat: do {
+//            let controller = ChatRoomListViewController()
+//            let navigationController = AppNavigationController(rootViewController: controller)
+//            let wireframe = ChatRoomListWireframe(navigationController: navigationController)
+//            let presenter = ChatRoomListPresenter(view: controller, interactor: ChatInteractor.shared, wireframe: wireframe)
+//            controller.presenter = presenter
+//            viewControllers.append(navigationController)
+//            
+//            navigationController.tabBarItem = UITabBarItem(
+//                title: "chat",
+//                image: UIImage(named: "first"),
+//                selectedImage: UIImage(named: "first")
+//            )
+//        }
         
         profile: do {
             let controller = ProfileViewController()

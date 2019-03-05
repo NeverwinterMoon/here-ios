@@ -18,13 +18,12 @@ protocol MapViewInterface: class, ViewInterface {
 }
 
 protocol MapInteractorInterface: class {
-    func nearbyFriends() -> Single<[User]>
 }
 
 extension MapInteractor: MapInteractorInterface {}
 
 protocol MapPresenterInterface: class {
-    var nearbyFriends: BehaviorRelay<[User]> { get }
+    var sections: Driver<[MapSection]> { get }
 }
 
 protocol MapWireframeInterface: class {

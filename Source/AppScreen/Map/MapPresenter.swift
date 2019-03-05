@@ -15,7 +15,10 @@ import RxSwift
 
 final class MapPresenter: MapPresenterInterface {
     
-    let nearbyFriends: BehaviorRelay<[User]> = .init(value: [])
+    var sections: Driver<[MapSection]> {
+        return self.sectionsRelay.asDriver()
+    }
+    private let sectionsRelay: BehaviorRelay<[MapSection]> = .init(value: [])
 
     init(view: MapViewInterface, interactor: MapInteractorInterface, wireframe: MapWireframeInterface) {
         
@@ -23,11 +26,13 @@ final class MapPresenter: MapPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.interactor.nearbyFriends()
+        FirebaseLocationManager.shared
+            .getNearbyFriends()
             .asObservable()
-            .bind(to: self.nearbyFriends)
+            .mapSections()
+            .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)
-        
+
         self.view.location
             .asObservable()
             .subscribe(onNext: {
@@ -38,7 +43,6 @@ final class MapPresenter: MapPresenterInterface {
         self.view.viewWillAppear
             .subscribe(onNext: {
                 FirebaseFriendsManager.shared.uploadFriendIds()
-                FirebaseLocationManager.shared.sendLocation(location: CLLocationCoordinate2D(latitude: 1, longitude: 2))
             })
             .disposed(by: self.disposeBag)
     }
@@ -48,4 +52,17 @@ final class MapPresenter: MapPresenterInterface {
     private let interactor: MapInteractorInterface
     private let wireframe: MapWireframeInterface
     private let disposeBag = DisposeBag()
+}
+
+extension Observable where E == [User] {
+    
+    fileprivate func mapSections() -> Observable<[MapSection]> {
+        
+        return self.map { users in
+            let items = users.map { user -> MapItem in
+                MapItem(userId: user.id, profileImageURL: user.profileImageURL, userDisplayName: user.userDisplayName, username: user.username)
+            }
+            return [MapSection(items: items)]
+        }
+    }
 }

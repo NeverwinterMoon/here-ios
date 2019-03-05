@@ -31,17 +31,4 @@ public final class MapInteractor {
             .asObservable()
             .asSingle()
     }
-    
-    public func nearbyFriends() -> Single<[User]> {
-        
-        return Single.just([])
-        // TODO: implement
-//        return self.activatedUser()
-//            .flatMap { me -> Single<[User]> in
-//                guard let me = me else {
-//                    return Single.just([])
-//                }
-//                return API.User.GetNearbyFriends(username: me.id).asSingle()
-//            }
-    }
 }

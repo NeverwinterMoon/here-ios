@@ -60,13 +60,6 @@ public final class FirebaseLocationManager {
             .asSingle()
     }
 
-    public func friends() -> Single<[User]> {
-        return self.activatedUser()
-            .flatMap { me -> Single<[User]> in
-                API.User.GetFriendsOfUser(username: me.id).asSingle()
-        }
-    }
-    
     public func sendLocation(location: CLLocationCoordinate2D) {
         self.activatedUser()
             .map { $0.id }
@@ -74,6 +67,7 @@ public final class FirebaseLocationManager {
             .subscribe(onNext: {
                 let newData = ["latitude": location.latitude, "longitude": location.longitude]
                 self.ref.child("users/\($0)/location").setValue(newData)
+                self.ref.child("users/\($0)/updated_at").setValue("\(Date())")
             })
             .disposed(by: self.disposeBag)
     }

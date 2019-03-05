@@ -8,6 +8,7 @@
 
 import UIKit
 import AppEntity
+import AppExtensions
 import AppUIKit
 import CoreLocation
 import FirebaseFirestore
@@ -27,7 +28,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     private let locationRelay: PublishRelay<CLLocationCoordinate2D> = .init()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.nearbyFriendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
+        self.nearbyFiendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
         let dataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
             cell.item = item
@@ -47,24 +48,58 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
         
         super.viewDidLoad()
         
-        self.locationManager.do {
-            $0.distanceFilter = 10
-            $0.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            $0.delegate = self
-            $0.startUpdatingLocation()
+        self.locationManager.delegate = self
+
+        if CLLocationManager.locationServicesEnabled() {
+            
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedAlways:
+                self.locationManager.do {
+                    $0.distanceFilter = 100
+                    $0.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                    $0.startUpdatingLocation()
+                }
+            case .authorizedWhenInUse:
+                self.locationManager.requestAlwaysAuthorization()
+                self.locationManager.do {
+                    $0.distanceFilter = 100
+                    $0.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                    $0.startUpdatingLocation()
+                }
+            case .denied, .notDetermined, .restricted:
+                // TODO: show alert
+                self.locationManager.requestWhenInUseAuthorization()
+            }
+        } else {
+            // TODO: show alert
+            self.locationManager.requestWhenInUseAuthorization()
         }
     }
-    
-    // MARK: - Private
-    private let locationManager = CLLocationManager()
-    private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
-    private let dataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
-    private let nearbyFriendsCollectionView: UICollectionView
-    
-    private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    // MARK: - CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // argument "locations" have at least one CLLocation
         let coordinate = locations.last!.coordinate
         self.locationRelay.accept(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
+        print("called: \(coordinate)")
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.startUpdatingLocation()
+            
+        case .denied, .notDetermined, .restricted:
+            self.locationManager.stopUpdatingLocation()
+        }
+    }
+
+    // MARK: - Private
+    private let locationManager = CLLocationManager()
+    private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
+    private let dataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
+    private let nearbyFiendsCollectionView: UICollectionView
 }

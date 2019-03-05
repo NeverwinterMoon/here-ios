@@ -50,7 +50,12 @@ public final class FirebaseLocationManager {
                 return ids
             }
             .flatMap { ids -> Single<[User]> in
-                API.User.GetAllFriends(fromIds: ids).asSingle()
+                
+                if ids.isEmpty {
+                    return Single.just([])
+                } else {
+                    return API.User.GetFriends(fromIds: ids).asSingle()
+                }
             }
             .asSingle()
     }
@@ -58,7 +63,7 @@ public final class FirebaseLocationManager {
     public func friends() -> Single<[User]> {
         return self.activatedUser()
             .flatMap { me -> Single<[User]> in
-                API.User.GetFriends(username: me.id).asSingle()
+                API.User.GetFriendsOfUser(username: me.id).asSingle()
         }
     }
     

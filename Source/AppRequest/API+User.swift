@@ -26,7 +26,7 @@ extension API {
             }
         }
         
-        public struct GetAllFriends: GETTargetType {
+        public struct GetFriends: GETTargetType {
             
             public typealias ElementType = [AppEntity.User]
             
@@ -39,7 +39,7 @@ extension API {
             }
         }
         
-        public struct GetFriends: GETTargetType {
+        public struct GetFriendsOfUser: GETTargetType {
             
             public typealias ElementType = [AppEntity.User]
             

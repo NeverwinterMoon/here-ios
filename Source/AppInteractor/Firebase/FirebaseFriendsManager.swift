@@ -28,7 +28,7 @@ public final class FirebaseFriendsManager {
         ProfileInteractor.shared.activatedUser()
             .asObservable()
             .flatMap {
-                API.User.GetFriends(username: $0.id).asSingle()
+                API.User.GetFriendsOfUser(username: $0.id).asSingle()
             }
             .withLatestFrom(ProfileInteractor.shared.activatedUser(), resultSelector: { (friends, user) -> ([AppEntity.User], String) in
                 return (friends, user.id)

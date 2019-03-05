@@ -38,7 +38,7 @@ public final class ProfileInteractor {
     public func friends() -> Single<[User]> {
         return self.activatedUser()
             .flatMap { me -> Single<[User]> in
-                API.User.GetFriends(username: me.id).asSingle()
+                API.User.GetFriendsOfUser(username: me.id).asSingle()
             }
     }
     

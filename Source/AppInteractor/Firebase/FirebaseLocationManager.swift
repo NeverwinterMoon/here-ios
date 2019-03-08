@@ -14,6 +14,7 @@ import FirebaseDatabase
 import RxCocoa
 import RxFirebaseDatabase
 import RxSwift
+import SwiftDate
 
 public final class FirebaseLocationManager {
     
@@ -48,6 +49,30 @@ public final class FirebaseLocationManager {
                     return []
                 }
                 return ids
+            }
+            // Next: ここを正しくかく
+            .map { ids -> [String] in
+                var nearbyFriendIds = [String]()
+                ids.forEach { id in
+                    self.ref.child("users/\(id)/updated_at")
+                        .rx
+                        .observeSingleEvent(.value)
+                        .asObservable()
+                        .subscribe(onNext: { snapshot in
+                            if let updatedAtString = snapshot.value as? String {
+                                guard let updatedAt = updatedAtString.toISODate() else {
+                                    assertionFailure("failed to parse Date")
+                                    return
+                                }
+                                let tokyo = Region(calendar: Calendar(identifier: .gregorian), zone: Zones.asiaTokyo, locale: Locales.japaneseJapan)
+                                let now = DateInRegion(Date(), region: tokyo)
+                                if let hourDif = (now.date - updatedAt.date).hour, hourDif <= 3 {
+                                    nearbyFriendIds.append(id)
+                                }
+                            }
+                        })
+                }
+                return nearbyFriendIds
             }
             .flatMap { ids -> Single<[User]> in
                 

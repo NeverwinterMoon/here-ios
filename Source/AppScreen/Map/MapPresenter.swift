@@ -35,9 +35,10 @@ final class MapPresenter: MapPresenterInterface {
 
         self.view.location
             .asObservable()
-            .subscribe(onNext: { [unowned self] in
+            .flatMap { [unowned self] in
                 self.interactor.updateLocation(location: $0)
-            })
+            }
+            .subscribe()
             .disposed(by: self.disposeBag)
     }
     

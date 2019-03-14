@@ -82,7 +82,6 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
         // argument "locations" have at least one CLLocation
         let coordinate = locations.last!.coordinate
         self.locationRelay.accept(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
-        print("called: \(coordinate)")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

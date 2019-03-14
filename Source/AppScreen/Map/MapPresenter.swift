@@ -26,7 +26,7 @@ final class MapPresenter: MapPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        FirebaseLocationManager.shared
+        self.interactor
             .getNearbyFriends()
             .asObservable()
             .mapSections()
@@ -35,14 +35,8 @@ final class MapPresenter: MapPresenterInterface {
 
         self.view.location
             .asObservable()
-            .subscribe(onNext: {
-                FirebaseLocationManager.shared.sendLocation(location: $0)
-            })
-            .disposed(by: self.disposeBag)
-        
-        self.view.viewWillAppear
-            .subscribe(onNext: {
-                FirebaseFriendsManager.shared.uploadFriendIds()
+            .subscribe(onNext: { [unowned self] in
+                self.interactor.updateLocation(location: $0)
             })
             .disposed(by: self.disposeBag)
     }

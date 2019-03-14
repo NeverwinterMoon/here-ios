@@ -18,6 +18,8 @@ protocol MapViewInterface: class, ViewInterface {
 }
 
 protocol MapInteractorInterface: class {
+    func getNearbyFriends() -> Single<[User]>
+    func updateLocation(location: CLLocationCoordinate2D) -> Single<Void>
 }
 
 extension MapInteractor: MapInteractorInterface {}

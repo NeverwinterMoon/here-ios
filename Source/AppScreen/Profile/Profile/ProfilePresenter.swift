@@ -55,14 +55,8 @@ final class ProfilePresenter: ProfilePresenterInterface {
         .disposed(by: self.disposeBag)
 
         self.view.viewWillAppear
-            .do(onNext: { [unowned self] in
+            .subscribe(onNext: { [unowned self] in
                 self.view.update()
-            })
-//            .flatMap { [unowned self] in
-//                self.interactor.activatedUser()
-//            }
-            .subscribe(onNext: {
-                FirebaseFriendsManager.shared.uploadFriendIds()
             })
             .disposed(by: self.disposeBag)
         

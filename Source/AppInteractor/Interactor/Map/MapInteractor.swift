@@ -41,6 +41,10 @@ public final class MapInteractor {
             }
     }
     
+    public func getNearSpotFriends() -> Single<(String, [User])> {
+        return Single.just(("", []))
+    }
+    
     public func updateLocation(location: CLLocationCoordinate2D) -> Single<Void> {
         return self.activatedUser()
             .flatMap { user -> Single<User> in

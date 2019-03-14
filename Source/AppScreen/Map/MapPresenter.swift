@@ -15,10 +15,15 @@ import RxSwift
 
 final class MapPresenter: MapPresenterInterface {
     
-    var sections: Driver<[MapSection]> {
-        return self.sectionsRelay.asDriver()
+    var nearbyFriendsSections: Driver<[MapSection]> {
+        return self.nearbyFriendsSectionsRelay.asDriver()
     }
-    private let sectionsRelay: BehaviorRelay<[MapSection]> = .init(value: [])
+    private let nearbyFriendsSectionsRelay: BehaviorRelay<[MapSection]> = .init(value: [])
+    
+    var nearSpotFriendsSections: Driver<[MapSection]> {
+        return self.nearSpotFriendsSectionsRelay.asDriver()
+    }
+    private let nearSpotFriendsSectionsRelay: BehaviorRelay<[MapSection]> = .init(value: [])
 
     init(view: MapViewInterface, interactor: MapInteractorInterface, wireframe: MapWireframeInterface) {
         
@@ -26,11 +31,24 @@ final class MapPresenter: MapPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
         
-        self.interactor
-            .getNearbyFriends()
-            .asObservable()
-            .mapSections()
-            .bind(to: self.sectionsRelay)
+        self.view
+            .viewWillAppear
+            .flatMap { [unowned self] in
+                self.interactor.getNearbyFriends()
+                    .asObservable()
+                    .mapSections()
+            }
+            .bind(to: self.nearbyFriendsSectionsRelay)
+            .disposed(by: self.disposeBag)
+        
+        self.view
+            .viewWillAppear
+            .flatMap { [unowned self] in
+                self.interactor.getNearSpotFriends()
+                    .asObservable()
+                    .mapSections()
+            }
+            .bind(to: self.nearSpotFriendsSectionsRelay)
             .disposed(by: self.disposeBag)
 
         self.view.location

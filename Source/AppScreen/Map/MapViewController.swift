@@ -16,7 +16,7 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
-final class MapViewController: UIViewController, MapViewInterface, CLLocationManagerDelegate {
+final class MapViewController: UIViewController, MapViewInterface, CLLocationManagerDelegate, UICollectionViewDelegate {
     
     var presenter: MapPresenterInterface!
     var docRef: DocumentReference!
@@ -29,12 +29,20 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.nearbyFiendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
-        let dataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+        let nearbyFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
             cell.item = item
             return cell
             })
-        self.dataSource = dataSource
+        self.nearbyFriendsDataSource = nearbyFriendsDataSource
+        
+        self.nearSpotFriendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
+        let nearSpotFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
+            cell.item = item
+            return cell
+            })
+        self.nearSpotFriendsDataSource = nearSpotFriendsDataSource
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -74,6 +82,23 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             // TODO: show alert
             self.locationManager.requestWhenInUseAuthorization()
         }
+        
+        self.nearbyFiendsCollectionView.do {
+            $0.delegate = self
+            $0.alwaysBounceVertical = true
+            $0.isScrollEnabled = false
+            
+            self.presenter.nearbyFriendsSections
+                .drive($0.rx.items(dataSource: self.nearbyFriendsDataSource))
+                .disposed(by: self.disposeBag)
+        }
+        
+        self.nearSpotFriendsCollectionView.do {
+            $0.delegate = self
+            $0.alwaysBounceVertical = true
+            $0.isScrollEnabled = false
+            
+        }
     }
 
     // MARK: - CLLocationManagerDelegate
@@ -99,6 +124,9 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     // MARK: - Private
     private let locationManager = CLLocationManager()
     private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
-    private let dataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
+    private let disposeBag = DisposeBag()
+    private let nearbyFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
+    private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
     private let nearbyFiendsCollectionView: UICollectionView
+    private let nearSpotFriendsCollectionView: UICollectionView
 }

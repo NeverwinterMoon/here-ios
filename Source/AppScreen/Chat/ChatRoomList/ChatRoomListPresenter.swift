@@ -17,13 +17,6 @@ final class ChatRoomListPresenter: ChatRoomListPresenterInterface {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
-        
-        FirebaseFriendsManager.shared.uploadFriendIds()
-        self.view.viewWillAppear
-            .subscribe(onNext: {
-                FirebaseFriendsManager.shared.uploadFriendIds()
-            })
-            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

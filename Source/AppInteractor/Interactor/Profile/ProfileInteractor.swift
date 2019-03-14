@@ -45,8 +45,7 @@ public final class ProfileInteractor {
     public func approveRequest(userId: String) -> Single<Void> {
         return self.activatedUser()
             .flatMap { me -> Single<Friend> in
-                FirebaseFriendsManager.shared.uploadFriendIds()
-                return API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
+                API.User.ApproveFriendRequest(userId: me.id, approvedUserId: userId).asSingle()
             }
             .map { _ in }
     }
@@ -101,6 +100,10 @@ public final class ProfileInteractor {
                     return .notFriend
                 }
             }
+    }
+    
+    public func getNearbyFriends(userId: String) -> Single<[User]> {
+        return API.User.GetNearbyFriends(username: userId).asSingle()
     }
     
     public func getUser(userId: String) -> Single<User> {

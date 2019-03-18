@@ -29,7 +29,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.nearbyFiendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
-        let nearbyFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+        let nearbyFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapNearbyFriendsSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
             cell.item = item
             return cell
@@ -37,7 +37,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
         self.nearbyFriendsDataSource = nearbyFriendsDataSource
         
         self.nearSpotFriendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
-        let nearSpotFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+        let nearSpotFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapNearSpotFriendsSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
             cell.item = item
             return cell
@@ -125,8 +125,8 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     private let locationManager = CLLocationManager()
     private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
     private let disposeBag = DisposeBag()
-    private let nearbyFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
-    private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapSection>
+    private let nearbyFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearbyFriendsSection>
+    private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearSpotFriendsSection>
     private let nearbyFiendsCollectionView: UICollectionView
     private let nearSpotFriendsCollectionView: UICollectionView
 }

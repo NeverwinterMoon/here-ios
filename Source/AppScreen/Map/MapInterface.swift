@@ -19,15 +19,15 @@ protocol MapViewInterface: class, ViewInterface {
 
 protocol MapInteractorInterface: class {
     func getNearbyFriends() -> Single<[User]>
-    func getNearSpotFriends() -> Single<[User]>
+    func getNearSpotFriends() -> Single<[String: [User]]>
     func updateLocation(location: CLLocationCoordinate2D) -> Single<Void>
 }
 
 extension MapInteractor: MapInteractorInterface {}
 
 protocol MapPresenterInterface: class {
-    var nearbyFriendsSections: Driver<[MapSection]> { get }
-    var nearSpotFriendsSections: Driver<[MapSection]> { get }
+    var nearbyFriendsSections: Driver<[MapNearbyFriendsSection]> { get }
+    var nearSpotFriendsSections: Driver<[MapNearSpotFriendsSection]> { get }
 }
 
 protocol MapWireframeInterface: class {

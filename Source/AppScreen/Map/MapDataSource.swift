@@ -16,15 +16,30 @@ struct MapItem {
     let username: String
 }
 
-struct MapSection {
+struct MapNearbyFriendsSection {
     var items: [Item]
 }
 
-extension MapSection: SectionModelType {
+extension MapNearbyFriendsSection: SectionModelType {
     
     typealias Item = MapItem
     
-    init(original: MapSection, items: [Item]) {
+    init(original: MapNearbyFriendsSection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+struct MapNearSpotFriendsSection {
+    var title: String?
+    var items: [Item]
+}
+
+extension MapNearSpotFriendsSection: SectionModelType {
+    
+    typealias Item = MapItem
+    
+    init(original: MapNearSpotFriendsSection, items: [Item]) {
         self = original
         self.items = items
     }

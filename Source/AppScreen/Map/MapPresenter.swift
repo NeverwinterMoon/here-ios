@@ -15,15 +15,15 @@ import RxSwift
 
 final class MapPresenter: MapPresenterInterface {
     
-    var nearbyFriendsSections: Driver<[MapSection]> {
+    var nearbyFriendsSections: Driver<[MapNearbyFriendsSection]> {
         return self.nearbyFriendsSectionsRelay.asDriver()
     }
-    private let nearbyFriendsSectionsRelay: BehaviorRelay<[MapSection]> = .init(value: [])
+    private let nearbyFriendsSectionsRelay: BehaviorRelay<[MapNearbyFriendsSection]> = .init(value: [])
     
-    var nearSpotFriendsSections: Driver<[MapSection]> {
+    var nearSpotFriendsSections: Driver<[MapNearSpotFriendsSection]> {
         return self.nearSpotFriendsSectionsRelay.asDriver()
     }
-    private let nearSpotFriendsSectionsRelay: BehaviorRelay<[MapSection]> = .init(value: [])
+    private let nearSpotFriendsSectionsRelay: BehaviorRelay<[MapNearSpotFriendsSection]> = .init(value: [])
 
     init(view: MapViewInterface, interactor: MapInteractorInterface, wireframe: MapWireframeInterface) {
         
@@ -36,7 +36,7 @@ final class MapPresenter: MapPresenterInterface {
             .flatMap { [unowned self] in
                 self.interactor.getNearbyFriends()
                     .asObservable()
-                    .mapSections()
+                    .mapNearbyFriendsSections()
             }
             .bind(to: self.nearbyFriendsSectionsRelay)
             .disposed(by: self.disposeBag)
@@ -46,7 +46,7 @@ final class MapPresenter: MapPresenterInterface {
             .flatMap { [unowned self] in
                 self.interactor.getNearSpotFriends()
                     .asObservable()
-                    .mapSections()
+                    .mapNearSpotFriendsSections()
             }
             .bind(to: self.nearSpotFriendsSectionsRelay)
             .disposed(by: self.disposeBag)
@@ -69,13 +69,27 @@ final class MapPresenter: MapPresenterInterface {
 
 extension Observable where E == [User] {
     
-    fileprivate func mapSections() -> Observable<[MapSection]> {
+    fileprivate func mapNearbyFriendsSections() -> Observable<[MapNearbyFriendsSection]> {
         
         return self.map { users in
             let items = users.map { user -> MapItem in
                 MapItem(userId: user.id, profileImageURL: user.profileImageURL, userDisplayName: user.userDisplayName, username: user.username)
             }
-            return [MapSection(items: items)]
+            return [MapNearbyFriendsSection(items: items)]
+        }
+    }
+}
+
+extension Observable where E == [String: [User]] {
+    fileprivate func mapNearSpotFriendsSections() -> Observable<[MapNearSpotFriendsSection]> {
+        
+        return self.map {
+            $0.map { item -> MapNearSpotFriendsSection in
+                let items = item.value.map { user in
+                    MapItem(userId: user.id, profileImageURL: user.profileImageURL, userDisplayName: user.userDisplayName, username: user.username)
+                }
+                return MapNearSpotFriendsSection(title: item.key, items: items)
+            }
         }
     }
 }

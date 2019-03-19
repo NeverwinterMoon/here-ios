@@ -87,6 +87,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.isScrollEnabled = false
+            $0.backgroundColor = .white
             
             self.presenter.nearbyFriendsSections
                 .drive($0.rx.items(dataSource: self.nearbyFriendsDataSource))
@@ -97,11 +98,21 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.isScrollEnabled = false
+            $0.backgroundColor = .white
             
             self.presenter.nearSpotFriendsSections
                 .drive($0.rx.items(dataSource: self.nearSpotFriendsDataSource))
                 .disposed(by: self.disposeBag)
         }
+        
+        self.flexLayout(isNearbyFriendsEmpty: false, isNearSpotFriendsEmpty: false)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.flex.paddingTop(self.view.safeAreaInsets.top)
+        self.view.flex.paddingBottom(self.view.safeAreaInsets.bottom)
+        self.view.flex.layout()
     }
 
     // MARK: - CLLocationManagerDelegate
@@ -132,4 +143,15 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearSpotFriendsSection>
     private let nearbyFiendsCollectionView: UICollectionView
     private let nearSpotFriendsCollectionView: UICollectionView
+    private let nearbyFriendsTitleLabel = UILabel()
+    private let nearSpotFriendsTitleLabel = UILabel()
+
+    private func flexLayout(isNearbyFriendsEmpty: Bool, isNearSpotFriendsEmpty: Bool) {
+        
+        self.view.flex.define { flex in
+            
+            flex.addItem(self.nearbyFiendsCollectionView).grow(1)
+            flex.addItem(self.nearSpotFriendsCollectionView).grow(1)
+        }
+    }
 }

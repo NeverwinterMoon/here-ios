@@ -75,7 +75,7 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
         self.presenter.sections
             .drive(onNext: { [unowned self] in
                 if let items = $0.first?.items {
-                    self.flexLayout(viewIsEmpty: items.isEmpty)
+                    self.flexLayout(isViewEmpty: items.isEmpty)
                 }
             })
             .disposed(by: self.disposeBag)
@@ -94,10 +94,10 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
     private let dataSource: RxCollectionViewSectionedReloadDataSource<FriendsListSection>
     private let disposeBag = DisposeBag()
     
-    private func flexLayout(viewIsEmpty: Bool) {
+    private func flexLayout(isViewEmpty: Bool) {
         
         self.view.flex.define { flex in
-            if viewIsEmpty {
+            if isViewEmpty {
                 flex.addItem(self.emptyViewLabel).height(50).grow(1)
                 self.friendsCollectionView.removeFromSuperview()
             } else {

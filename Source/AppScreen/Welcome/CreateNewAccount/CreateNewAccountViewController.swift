@@ -36,19 +36,19 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
         self.emailTextField.do {
             
             $0.placeholder = "メールアドレス"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.usernameTextField.do {
             
             $0.placeholder = "ユーザー名"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.passwordTextField.do {
 
             $0.placeholder = "パスワード"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.createAccountButton.do {

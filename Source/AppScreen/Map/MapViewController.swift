@@ -52,11 +52,14 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     override func viewDidLoad() {
         
         self.view.backgroundColor = .white
-        self.title = "近くにいる友達"
         
         super.viewDidLoad()
         
         self.locationManager.delegate = self
+
+        if let navigationController = self.navigationController {
+            navigationController.isNavigationBarHidden = true
+        }
 
         if CLLocationManager.locationServicesEnabled() {
             
@@ -87,7 +90,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.isScrollEnabled = false
-            $0.backgroundColor = .white
+            $0.backgroundColor = .gray
             
             self.presenter.nearbyFriendsSections
                 .drive($0.rx.items(dataSource: self.nearbyFriendsDataSource))
@@ -98,11 +101,35 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.isScrollEnabled = false
-            $0.backgroundColor = .white
+            $0.backgroundColor = .gray
             
             self.presenter.nearSpotFriendsSections
                 .drive($0.rx.items(dataSource: self.nearSpotFriendsDataSource))
                 .disposed(by: self.disposeBag)
+        }
+        
+        self.nearbyFriendsTitleLabel.do {
+            $0.text = "近くにいる友達"
+            $0.font = .systemFont(ofSize: 20, weight: .init(5))
+        }
+        
+        self.nearSpotFriendsTitleLabel.do {
+            $0.text = "登録した場所の近くにいる友達"
+            $0.font = .systemFont(ofSize: 20, weight: .init(5))
+        }
+        
+        self.nearbyFriendsView.do {
+            $0.backgroundColor = .white
+            $0.layer.cornerRadius = 30
+            $0.layer.shadowOpacity = 0.3
+            $0.layer.shadowRadius = 10
+        }
+        
+        self.nearSpotFriendsView.do {
+            $0.backgroundColor = .white
+            $0.layer.cornerRadius = 30
+            $0.layer.shadowOpacity = 0.3
+            $0.layer.shadowRadius = 10
         }
         
         Observable.zip(self.presenter.nearbyFriendsSections.asObservable(), self.presenter.nearSpotFriendsSections.asObservable())
@@ -141,21 +168,26 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     }
 
     // MARK: - Private
-    private let locationManager = CLLocationManager()
     private let collectionViewFlowLayout = AppCollectionViewFlowLayout()
     private let disposeBag = DisposeBag()
-    private let nearbyFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearbyFriendsSection>
-    private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearSpotFriendsSection>
+    private let locationManager = CLLocationManager()
+    
     private let nearbyFiendsCollectionView: UICollectionView
-    private let nearSpotFriendsCollectionView: UICollectionView
+    private let nearbyFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearbyFriendsSection>
     private let nearbyFriendsTitleLabel = UILabel()
+    private let nearbyFriendsView = UIView()
+    
+    private let nearSpotFriendsCollectionView: UICollectionView
+    private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearSpotFriendsSection>
     private let nearSpotFriendsTitleLabel = UILabel()
+    private let nearSpotFriendsView = UIView()
 
     private func flexLayout(isNearbyFriendsEmpty: Bool, isNearSpotFriendsEmpty: Bool) {
         
         self.view.flex.define { flex in
             
-            flex.addItem().grow(1).justifyContent(.center).define { flex in
+            flex.addItem(self.nearbyFriendsTitleLabel).marginLeft(40)
+            flex.addItem(self.nearbyFriendsView).marginHorizontal(20).grow(1).justifyContent(.center).define { flex in
                 
                 if isNearbyFriendsEmpty {
                     let emptyLabel = AppLabel(text: "近くにいる友達はいません")
@@ -169,10 +201,11 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
                 }
             }
             
-            flex.addItem().grow(1).justifyContent(.center).define { flex in
+            flex.addItem(self.nearSpotFriendsTitleLabel).marginLeft(40).marginTop(10)
+            flex.addItem(self.nearSpotFriendsView).marginHorizontal(20).marginBottom(10).grow(1).justifyContent(.center).define { flex in
                 
                 if isNearSpotFriendsEmpty {
-                    let emptyLabel = AppLabel(text: "登録場所に友達はいません")
+                    let emptyLabel = AppLabel(text: "場所を登録しましょう")
                     emptyLabel.do {
                         $0.textColor = .gray
                     }

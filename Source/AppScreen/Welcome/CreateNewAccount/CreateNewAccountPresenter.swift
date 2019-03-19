@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PKHUD
 import RxSwift
 
 final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
@@ -19,8 +20,14 @@ final class CreateNewAccountPresenter: CreateNewAccountPresenterInterface {
         
         self.view.tapCreateAccount
             .asObservable()
+            .do(onNext: { _ in
+                HUD.show(.progress)
+            })
             .flatMap { [unowned self] createUserInfo in
                 self.interactor.sendEmail(email: createUserInfo.email, username: createUserInfo.username, password: createUserInfo.password)
+            }
+            .do {
+                HUD.hide()
             }
             .subscribe(onNext: { [unowned self] _ in
                 self.wireframe.pushAppTabBarController()

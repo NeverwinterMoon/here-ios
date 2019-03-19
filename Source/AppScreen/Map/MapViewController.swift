@@ -98,6 +98,9 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.alwaysBounceVertical = true
             $0.isScrollEnabled = false
             
+            self.presenter.nearSpotFriendsSections
+                .drive($0.rx.items(dataSource: self.nearSpotFriendsDataSource))
+                .disposed(by: self.disposeBag)
         }
     }
 

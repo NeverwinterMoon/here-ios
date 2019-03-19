@@ -8,14 +8,14 @@
 
 import UIKit
 
-class AppLabel: UILabel {
+final public class AppLabel: UILabel {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    public init(text: String) {
+        super.init(frame: .zero)
+        self.text = text
+        self.textAlignment = .center
     }
-    */
-
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
 }

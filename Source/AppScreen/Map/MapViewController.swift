@@ -105,7 +105,12 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
                 .disposed(by: self.disposeBag)
         }
         
-        self.flexLayout(isNearbyFriendsEmpty: false, isNearSpotFriendsEmpty: false)
+        Observable.zip(self.presenter.nearbyFriendsSections.asObservable(), self.presenter.nearSpotFriendsSections.asObservable())
+            .take(1)
+            .subscribe(onNext: { [unowned self] in
+                self.flexLayout(isNearbyFriendsEmpty: $0.0.isEmpty, isNearSpotFriendsEmpty: $0.1.isEmpty)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -150,8 +155,33 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
         
         self.view.flex.define { flex in
             
-            flex.addItem(self.nearbyFiendsCollectionView).grow(1)
-            flex.addItem(self.nearSpotFriendsCollectionView).grow(1)
+            flex.addItem().grow(1).justifyContent(.center).define { flex in
+                
+                if isNearbyFriendsEmpty {
+                    let emptyLabel = AppLabel(text: "近くにいる友達はいません")
+                    emptyLabel.do {
+                        $0.textColor = .gray
+                    }
+                    
+                    flex.addItem(emptyLabel)
+                } else {
+                    flex.addItem(self.nearbyFiendsCollectionView)
+                }
+            }
+            
+            flex.addItem().grow(1).justifyContent(.center).define { flex in
+                
+                if isNearSpotFriendsEmpty {
+                    let emptyLabel = AppLabel(text: "登録場所に友達はいません")
+                    emptyLabel.do {
+                        $0.textColor = .gray
+                    }
+                    
+                    flex.addItem(emptyLabel)
+                } else {
+                    flex.addItem(self.nearSpotFriendsCollectionView)
+                }
+            }
         }
     }
 }

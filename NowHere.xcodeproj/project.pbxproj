@@ -206,6 +206,7 @@
 		D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */; };
 		D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9A21D071A700141FC7 /* ProfileImage.swift */; };
 		D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9D21D0C4FB00141FC7 /* Configure.swift */; };
+		D9DD5B2B224125550053DEDE /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD5B2A224125550053DEDE /* AppLabel.swift */; };
 		D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */; };
 		D9E6465E21DDFB010046504B /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465D21DDFB010046504B /* ProfileCollectionViewCell.swift */; };
 		D9E6466121DE0B320046504B /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */; };
@@ -560,6 +561,7 @@
 		D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmWireframe.swift; sourceTree = "<group>"; };
 		D9D74D9A21D071A700141FC7 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		D9D74D9D21D0C4FB00141FC7 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
+		D9DD5B2A224125550053DEDE /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		D9E6465D21DDFB010046504B /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
@@ -926,6 +928,7 @@
 				D91E938021A6DDB200E93E04 /* Navigation */,
 				D91E937621A6DD9F00E93E04 /* AppUIKit.h */,
 				D91E937721A6DD9F00E93E04 /* Info.plist */,
+				D9DD5B2A224125550053DEDE /* AppLabel.swift */,
 			);
 			path = AppUIKit;
 			sourceTree = "<group>";
@@ -2202,6 +2205,7 @@
 				D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */,
 				D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */,
 				D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */,
+				D9DD5B2B224125550053DEDE /* AppLabel.swift in Sources */,
 				D956E47D21C3A6C5001DBFBA /* AppButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

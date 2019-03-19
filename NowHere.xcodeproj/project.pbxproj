@@ -60,7 +60,6 @@
 		D925C256219F19DD00B166B4 /* AppScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D925C241219F19DD00B166B4 /* AppScreen.framework */; };
 		D925C257219F19DD00B166B4 /* AppScreen.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D925C241219F19DD00B166B4 /* AppScreen.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D925C25F219F19E800B166B4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */; };
-		D925C260219F19ED00B166B4 /* MapViewController_.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BCA219F0F0800A9A7CA /* MapViewController_.swift */; };
 		D925C261219F19F100B166B4 /* ChatRoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9061BF6219F0F5A00A9A7CA /* ChatRoomListViewController.swift */; };
 		D92945F4222B6FC900106306 /* MapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92945F3222B6FC900106306 /* MapDataSource.swift */; };
 		D92945F6222B715400106306 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92945F5222B715400106306 /* MapCollectionViewCell.swift */; };
@@ -207,6 +206,7 @@
 		D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */; };
 		D9D74D9B21D071A700141FC7 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9A21D071A700141FC7 /* ProfileImage.swift */; };
 		D9D74D9F21D0C58700141FC7 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D74D9D21D0C4FB00141FC7 /* Configure.swift */; };
+		D9DD5B2B224125550053DEDE /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD5B2A224125550053DEDE /* AppLabel.swift */; };
 		D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */; };
 		D9E6465E21DDFB010046504B /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6465D21DDFB010046504B /* ProfileCollectionViewCell.swift */; };
 		D9E6466121DE0B320046504B /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */; };
@@ -389,7 +389,6 @@
 		D9061BC3219F0F0800A9A7CA /* NowHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NowHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9061BC6219F0F0800A9A7CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9061BC8219F0F0800A9A7CA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		D9061BCA219F0F0800A9A7CA /* MapViewController_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController_.swift; sourceTree = "<group>"; };
 		D9061BCF219F0F0900A9A7CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9061BD2219F0F0900A9A7CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9061BD4219F0F0900A9A7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -562,6 +561,7 @@
 		D9D74D9821CFECA400141FC7 /* SelectedImageConfirmWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageConfirmWireframe.swift; sourceTree = "<group>"; };
 		D9D74D9A21D071A700141FC7 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		D9D74D9D21D0C4FB00141FC7 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
+		D9DD5B2A224125550053DEDE /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		D9E6465B21DDF70A0046504B /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		D9E6465D21DDFB010046504B /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9E6466021DE0B320046504B /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
@@ -928,6 +928,7 @@
 				D91E938021A6DDB200E93E04 /* Navigation */,
 				D91E937621A6DD9F00E93E04 /* AppUIKit.h */,
 				D91E937721A6DD9F00E93E04 /* Info.plist */,
+				D9DD5B2A224125550053DEDE /* AppLabel.swift */,
 			);
 			path = AppUIKit;
 			sourceTree = "<group>";
@@ -1171,7 +1172,6 @@
 			isa = PBXGroup;
 			children = (
 				D900BB2921A3A57C00E2E9A7 /* MapInterface.swift */,
-				D9061BCA219F0F0800A9A7CA /* MapViewController_.swift */,
 				D9EAEBE32228CD1400328831 /* MapViewController.swift */,
 				D9BB612521AF81E300CD5424 /* MapPresenter.swift */,
 				D9BB612721AF81F100CD5424 /* MapWireframe.swift */,
@@ -2205,6 +2205,7 @@
 				D981DDDA21CC7477002E55F7 /* AlertController.swift in Sources */,
 				D981DDF721CD2EB2002E55F7 /* UIImagePickerController+RxCreate.swift in Sources */,
 				D981DDCE21C72A57002E55F7 /* UICollectionViewFlowLayout.swift in Sources */,
+				D9DD5B2B224125550053DEDE /* AppLabel.swift in Sources */,
 				D956E47D21C3A6C5001DBFBA /* AppButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2249,7 +2250,6 @@
 				D92945F6222B715400106306 /* MapCollectionViewCell.swift in Sources */,
 				D9BB612821AF81F100CD5424 /* MapWireframe.swift in Sources */,
 				D9D1B16721A6FB9100FE3829 /* DetailProfileInfoDataSource.swift in Sources */,
-				D925C260219F19ED00B166B4 /* MapViewController_.swift in Sources */,
 				D92AFC9521A6A44F00FCB5FD /* FriendProfileWireframe.swift in Sources */,
 				D900BB3C21A3EFD000E2E9A7 /* ProfilePresenter.swift in Sources */,
 				D95FED8721B3DD05007CEFD6 /* RootInterface.swift in Sources */,

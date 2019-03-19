@@ -63,6 +63,18 @@ extension API {
             }
         }
         
+        public struct GetNearSpotFriends: GETTargetType {
+            
+            public typealias ElementType = [String: [AppEntity.User]]
+            
+            public let path: String
+            public let parameters: [String: Any] = [:]
+            
+            public init(username: String) {
+                self.path = "users/\(username)/near_spot_friends"
+            }
+        }
+        
         public struct GetUsersWithPrefix: GETTargetType {
             
             public typealias ElementType = [AppEntity.User]

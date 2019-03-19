@@ -24,7 +24,7 @@ final class WelcomePresenter: WelcomePresenterInterface {
             .flatMap { [unowned self] in
                 self.interactor.login(usernameOrEmail: $0.usernameOrEmail, password: $0.password)
             }
-            .subscribe(onNext: { [unowned self] in
+            .subscribe(onNext: { [unowned self] _ in
                 self.wireframe.pushLogin()
             }, onError: { [unowned self] _ in
                 self.wireframe.showWelcomeAgain()

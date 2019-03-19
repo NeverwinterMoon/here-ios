@@ -59,29 +59,30 @@ final class FriendProfilePresenter: FriendProfilePresenterInterface {
             .flatMap { [unowned self] in
                 self.interactor.getRelationWith(userId: userId)
             }
-            .subscribe(onNext: { state in
+            .flatMap { state -> Single<Void> in
                 switch state {
                 case .friend:
                     //TODO: show the sheet (block, mute)
-                    print("notyet")
+                    return Single.just(())
                 case .notFriend:
                     self.view.buttonState = .requesting
-                    self.interactor.friendRequest(to: userId)
+                    return self.interactor.friendRequest(to: userId)
                 case .requesting:
                     self.view.buttonState = .notFriend
-                    self.interactor.cancelRequest(to: userId)
+                    return self.interactor.cancelRequest(to: userId)
                 case .requested:
                     // TODO: clean here up
                     self.view.buttonState = .friend
-                    self.interactor.approveRequest(userId: userId)
+                    return self.interactor.approveRequest(userId: userId)
                 case .blocking:
                     //TODO: show the sheet (unblock)
-                    print("notyet")
+                    return Single.just(())
                 case .blocked:
                     // TODO:
-                    print("notyet")
+                    return Single.just(())
                 }
-            })
+            }
+            .subscribe()
             .disposed(by: self.disposeBag)
         
         self.view.tapChatButton

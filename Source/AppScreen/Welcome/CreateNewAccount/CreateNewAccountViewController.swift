@@ -36,19 +36,19 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
         self.emailTextField.do {
             
             $0.placeholder = "メールアドレス"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.usernameTextField.do {
             
             $0.placeholder = "ユーザー名"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.passwordTextField.do {
 
             $0.placeholder = "パスワード"
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 14)
         }
         
         self.createAccountButton.do {
@@ -59,9 +59,9 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
         }
         
         Observable.combineLatest(self.emailTextField.isNotEmpty, self.usernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 && $2 }
-            .subscribe { [unowned self] in
-                self.createAccountButton.isEnabled = $0.element!
-            }
+            .subscribe(onNext: { [unowned self] in
+                self.createAccountButton.isEnabled = $0
+            })
             .disposed(by: self.disposeBag)
 
         self.flexLayout()

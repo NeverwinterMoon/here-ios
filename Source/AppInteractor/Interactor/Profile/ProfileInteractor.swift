@@ -57,21 +57,18 @@ public final class ProfileInteractor {
             }
     }
     
-    public func friendRequest(to userId: String) {
-        self.activatedUser().flatMap {
-            API.User.SendFriendRequest(userId: $0.id, toUserId: userId).asSingle()
-        }
-        .subscribe()
-        .disposed(by: self.disposeBag)
+    public func friendRequest(to userId: String) -> Single<Void> {
+        return self.activatedUser().flatMap {
+                API.User.SendFriendRequest(userId: $0.id, toUserId: userId).asSingle()
+            }
+            .map { _ in }
     }
     
-    public func cancelRequest(to userId: String) {
-        self.activatedUser()
-            .flatMap { me -> Single<Void> in
-                API.User.DeleteFriendRequest(from: me.id, to: userId).asSingle()
+    public func cancelRequest(to userId: String) -> Single<Void> {
+        return self.activatedUser()
+            .flatMap {
+                API.User.DeleteFriendRequest(from: $0.id, to: userId).asSingle()
             }
-            .subscribe()
-            .disposed(by: self.disposeBag)
     }
     
     public func requestsOfUser(userId: String) -> Single<[FriendPending]> {

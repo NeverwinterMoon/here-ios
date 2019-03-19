@@ -32,14 +32,14 @@ final class DetailProfileInfoCell: UICollectionViewCell {
         
         self.titleLabel.do {
             
-            $0.font = UIFont.systemFont(ofSize: 15)
+            $0.font = .systemFont(ofSize: 15)
             $0.numberOfLines = 1
             $0.textAlignment = .center
         }
 
         self.bodyLabel.do {
 
-            $0.font = UIFont.systemFont(ofSize: 20)
+            $0.font = .systemFont(ofSize: 20)
         }
 
         self.contentView.flex.direction(.row).alignItems(.center).define { flex in

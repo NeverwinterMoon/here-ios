@@ -88,9 +88,9 @@ final class WelcomeViewController: UIViewController, WelcomeViewInterface {
         }
         
         Observable.combineLatest(self.emailOrUsernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 }
-            .subscribe { [unowned self] in
-                self.loginButton.isEnabled = $0.element!
-            }
+            .subscribe(onNext: { [unowned self] in
+                self.loginButton.isEnabled = $0
+            })
             .disposed(by: self.disposeBag)
 
         self.flexLayout()

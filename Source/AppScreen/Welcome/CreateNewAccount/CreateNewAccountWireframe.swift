@@ -17,6 +17,7 @@ final class CreateNewAccountWireframe: AppWireframe, CreateNewAccountWireframeIn
     
     func showCreateNewAccountAgain() {
         let controller = CreateNewAccountViewController()
+        self.navigationController.viewControllers.removeLast()
         let wireframe = CreateNewAccountWireframe(navigationController: self.navigationController)
         let presenter = CreateNewAccountPresenter(view: controller, interactor: WelcomeInteractor.shared, wireframe: wireframe)
         controller.presenter = presenter

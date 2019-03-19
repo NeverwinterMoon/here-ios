@@ -52,7 +52,6 @@ public final class RootWireframe: RootWireframeInterface {
     // MARK: - Private
 //    private weak var window: UIWindow?
     private weak var rootViewController: UIViewController? {
-        
         return self.window.rootViewController
     }
 }

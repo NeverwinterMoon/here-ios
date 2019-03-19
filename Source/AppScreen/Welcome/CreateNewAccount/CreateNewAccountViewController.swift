@@ -59,9 +59,9 @@ final class CreateNewAccountViewController: UIViewController, CreateNewAccountVi
         }
         
         Observable.combineLatest(self.emailTextField.isNotEmpty, self.usernameTextField.isNotEmpty, self.passwordTextField.isNotEmpty) { $0 && $1 && $2 }
-            .subscribe { [unowned self] in
-                self.createAccountButton.isEnabled = $0.element!
-            }
+            .subscribe(onNext: { [unowned self] in
+                self.createAccountButton.isEnabled = $0
+            })
             .disposed(by: self.disposeBag)
 
         self.flexLayout()

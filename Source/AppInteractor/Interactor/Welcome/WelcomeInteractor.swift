@@ -10,6 +10,7 @@ import Foundation
 import AppEntity
 import AppRequest
 import FirebaseAuth
+import PKHUD
 import RxCocoa
 import RxSwift
 import RealmSwift
@@ -94,11 +95,7 @@ public final class WelcomeInteractor {
                         }
                     }()
                     
-                    if let currentController = UIApplication.shared.keyWindow?.rootViewController {
-                        let alertController = UIAlertController(title: "エラー", message: message, preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        currentController.present(alertController, animated: true, completion: nil)
-                    }
+                    HUD.flash(.labeledError(title: "エラー", subtitle: message), delay: 1.5)
                     observer(.error(error))
                     return
                 }

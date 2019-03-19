@@ -26,4 +26,5 @@ protocol CreateNewAccountPresenterInterface {
 
 protocol CreateNewAccountWireframeInterface {
     func pushAppTabBarController()
+    func showCreateNewAccountAgain()
 }

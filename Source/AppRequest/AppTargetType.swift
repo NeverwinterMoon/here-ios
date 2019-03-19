@@ -89,17 +89,13 @@ extension AppTargetType {
 }
 
 extension AppTargetType where ElementType == Void {
-    
     public static func decodeData(_ data: Data) throws {
-        
         return
     }
 }
 
 extension AppTargetType where ElementType: Decodable {
-    
     public static func decodeData(_ data: Data) throws -> ElementType {
-        
         return try JSONDecoder().decode(ElementType.self, from: data)
     }
 }

@@ -12,28 +12,28 @@ import AppUIKit
 
 final class ProfileWireframe: AppWireframe, ProfileWireframeInterface {
     
-    func presentUserInfo() {
+    func pushUserInfo() {
         
         let controller = DetailProfileInfoViewController()
         let wireframe = DetailProfileInfoWireframe(navigationController: self.navigationController)
-        let presenter = DetailProfileInfoPresenter(
-            view: controller,
-            interactor: ProfileInteractor(),
-            wireframe: wireframe
-        )
+        let presenter = DetailProfileInfoPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
         controller.presenter = presenter
         self.show(controller, with: .push, animated: true)
     }
     
-    func pushfFriendsList() {
+    func pushWatchingPlaces() {
+        let controller = WatchingPlacesViewController()
+        let wireframe = WatchingPlacesWireframe(navigationController: self.navigationController)
+        let presenter = WatchingPlacesPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
+    }
+    
+    func pushFriendsList() {
         
         let controller = FriendsListViewController()
         let wireframe = FriendsListWireframe(navigationController: self.navigationController)
-        let presenter = FriendsListPresenter(
-            view: controller,
-            interactor: ProfileInteractor.shared,
-            wireframe: wireframe
-        )
+        let presenter = FriendsListPresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
         controller.presenter = presenter
         self.show(controller, with: .push, animated: true)
     }

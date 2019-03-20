@@ -123,6 +123,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.layer.cornerRadius = 30
             $0.layer.shadowOpacity = 0.3
             $0.layer.shadowRadius = 10
+            $0.layer.shadowOffset = CGSize(width: 0, height: 3)
         }
         
         self.nearSpotFriendsView.do {
@@ -130,6 +131,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.layer.cornerRadius = 30
             $0.layer.shadowOpacity = 0.3
             $0.layer.shadowRadius = 10
+            $0.layer.shadowOffset = CGSize(width: 0, height: 3)
         }
         
         Observable.zip(self.presenter.nearbyFriendsSections.asObservable(), self.presenter.nearSpotFriendsSections.asObservable())
@@ -186,7 +188,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
         
         self.view.flex.define { flex in
             
-            flex.addItem(self.nearbyFriendsTitleLabel).marginLeft(40)
+            flex.addItem(self.nearbyFriendsTitleLabel).marginLeft(40).marginBottom(5)
             flex.addItem(self.nearbyFriendsView).marginHorizontal(20).grow(1).justifyContent(.center).define { flex in
                 
                 if isNearbyFriendsEmpty {
@@ -201,7 +203,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
                 }
             }
             
-            flex.addItem(self.nearSpotFriendsTitleLabel).marginLeft(40).marginTop(10)
+            flex.addItem(self.nearSpotFriendsTitleLabel).marginLeft(40).marginTop(10).marginBottom(5)
             flex.addItem(self.nearSpotFriendsView).marginHorizontal(20).marginBottom(10).grow(1).justifyContent(.center).define { flex in
                 
                 if isNearSpotFriendsEmpty {

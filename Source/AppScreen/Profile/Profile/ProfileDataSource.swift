@@ -32,6 +32,7 @@ extension ProfileSection: SectionModelType {
 
 enum ProfileRowType {
     case editProfile
+    case watchingPlaces
     case friends
     case searchFriends
     case requested

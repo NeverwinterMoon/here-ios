@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import AppEntity
 import AppInteractor
+import RxSwift
 
 protocol WatchingPlacesViewInterface {
 }
 
 protocol WatchingPlacesInteractorInterface {
+    func getWatchingPlaces() -> Single<[WatchingPlace]>
 }
 
 extension ProfileInteractor: WatchingPlacesInteractorInterface {}

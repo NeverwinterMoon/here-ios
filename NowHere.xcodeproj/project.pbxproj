@@ -194,6 +194,8 @@
 		D9BF56BB2241C71B00A99679 /* WatchingPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BA2241C71B00A99679 /* WatchingPlacesViewController.swift */; };
 		D9BF56BD2241C72600A99679 /* WatchingPlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BC2241C72600A99679 /* WatchingPlacesPresenter.swift */; };
 		D9BF56BF2241C72E00A99679 /* WatchingPlacesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */; };
+		D9BF56C12241CF4900A99679 /* API+WatchingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */; };
+		D9BF56C42241CFBB00A99679 /* WatchingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C22241CFB600A99679 /* WatchingPlace.swift */; };
 		D9C71A9F222A512A0032BCEE /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C71A9E222A512A0032BCEE /* GTMSessionFetcher.framework */; };
 		D9C71AAA222A59210032BCEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9C71A97222A19320032BCEE /* GoogleService-Info.plist */; };
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
@@ -551,6 +553,8 @@
 		D9BF56BA2241C71B00A99679 /* WatchingPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesViewController.swift; sourceTree = "<group>"; };
 		D9BF56BC2241C72600A99679 /* WatchingPlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesPresenter.swift; sourceTree = "<group>"; };
 		D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesWireframe.swift; sourceTree = "<group>"; };
+		D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+WatchingPlaces.swift"; sourceTree = "<group>"; };
+		D9BF56C22241CFB600A99679 /* WatchingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlace.swift; sourceTree = "<group>"; };
 		D9C342B02228437100380AE1 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9322299BFB0032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9522299DD30032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -858,6 +862,7 @@
 				D908B55521A6436D001ECA7F /* API+User.swift */,
 				D9BB613621AFA2AE00CD5424 /* API+Me.swift */,
 				D939306F21B6C9CC00929DA8 /* API+Login.swift */,
+				D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D954B95821A8481B00A42D2C /* APIProvider.swift */,
 				D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */,
@@ -1139,6 +1144,7 @@
 				D9D74D9A21D071A700141FC7 /* ProfileImage.swift */,
 				D995874221D4947E00FA0F69 /* FriendPending.swift */,
 				D99B77812215824300E10770 /* Friend.swift */,
+				D9BF56C22241CFB600A99679 /* WatchingPlace.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2179,6 +2185,7 @@
 				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
 				D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */,
 				D908B55821A64388001ECA7F /* API.swift in Sources */,
+				D9BF56C12241CF4900A99679 /* API+WatchingPlaces.swift in Sources */,
 				D939307021B6C9CC00929DA8 /* API+Login.swift in Sources */,
 				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
 			);
@@ -2330,6 +2337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9BF56C42241CFBB00A99679 /* WatchingPlace.swift in Sources */,
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
 				D99B77822215824300E10770 /* Friend.swift in Sources */,
 				D92A41D921B2382A003ABE8A /* Account.swift in Sources */,

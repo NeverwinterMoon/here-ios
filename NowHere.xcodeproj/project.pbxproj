@@ -196,6 +196,8 @@
 		D9BF56BF2241C72E00A99679 /* WatchingPlacesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */; };
 		D9BF56C12241CF4900A99679 /* API+WatchingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */; };
 		D9BF56C42241CFBB00A99679 /* WatchingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C22241CFB600A99679 /* WatchingPlace.swift */; };
+		D9BF56C62241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C52241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift */; };
+		D9BF56C82241ECBB00A99679 /* WatchingPlacesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C72241ECBB00A99679 /* WatchingPlacesDataSource.swift */; };
 		D9C71A9F222A512A0032BCEE /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C71A9E222A512A0032BCEE /* GTMSessionFetcher.framework */; };
 		D9C71AAA222A59210032BCEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9C71A97222A19320032BCEE /* GoogleService-Info.plist */; };
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
@@ -555,6 +557,8 @@
 		D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesWireframe.swift; sourceTree = "<group>"; };
 		D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+WatchingPlaces.swift"; sourceTree = "<group>"; };
 		D9BF56C22241CFB600A99679 /* WatchingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlace.swift; sourceTree = "<group>"; };
+		D9BF56C52241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9BF56C72241ECBB00A99679 /* WatchingPlacesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesDataSource.swift; sourceTree = "<group>"; };
 		D9C342B02228437100380AE1 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9322299BFB0032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9522299DD30032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1344,6 +1348,8 @@
 				D9BF56BA2241C71B00A99679 /* WatchingPlacesViewController.swift */,
 				D9BF56BC2241C72600A99679 /* WatchingPlacesPresenter.swift */,
 				D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */,
+				D9BF56C72241ECBB00A99679 /* WatchingPlacesDataSource.swift */,
+				D9BF56C52241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift */,
 			);
 			path = WatchingPlaces;
 			sourceTree = "<group>";
@@ -2260,6 +2266,8 @@
 				D971788321D3177000137149 /* FriendsListCell.swift in Sources */,
 				D9BCE00F2216D1DB003FA0AC /* RequestedUserInterface.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
+				D9BF56C82241ECBB00A99679 /* WatchingPlacesDataSource.swift in Sources */,
+				D9BF56C62241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift in Sources */,
 				D9411AD522165C2600F9086A /* ChatRoomListDataSource.swift in Sources */,
 				D9411ACB22165B0E00F9086A /* ChatRoomInterface.swift in Sources */,
 				D9E6465E21DDFB010046504B /* ProfileCollectionViewCell.swift in Sources */,

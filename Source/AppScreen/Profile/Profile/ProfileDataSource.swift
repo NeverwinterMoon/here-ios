@@ -24,7 +24,6 @@ extension ProfileSection: SectionModelType {
     typealias Item = ProfileItem
     
     init(original: ProfileSection, items: [Item]) {
-        
         self = original
         self.items = items
     }

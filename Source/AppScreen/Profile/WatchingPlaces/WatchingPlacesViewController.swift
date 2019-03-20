@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import AppUIKit
 import FlexLayout
 
 final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewInterface {
     
     var presenter: WatchingPlacesPresenterInterface!
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
     
     override func viewDidLoad() {
         
@@ -22,6 +27,9 @@ final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewIn
         self.flexLayout()
     }
     
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.flex.paddingTop(self.view.safeAreaInsets.top)
@@ -29,6 +37,9 @@ final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewIn
     }
     
     // MARK: - Private
+    private let watchingPlacesCollectionView: UICollectionView
+    private let watchingPlacesCollectionViewFlowLayout = AppCollectionViewFlowLayout()
+    
     private func flexLayout() {
         
     }

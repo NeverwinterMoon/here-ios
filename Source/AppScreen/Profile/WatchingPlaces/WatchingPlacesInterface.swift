@@ -9,6 +9,7 @@
 import Foundation
 import AppEntity
 import AppInteractor
+import RxCocoa
 import RxSwift
 
 protocol WatchingPlacesViewInterface {
@@ -21,6 +22,7 @@ protocol WatchingPlacesInteractorInterface {
 extension ProfileInteractor: WatchingPlacesInteractorInterface {}
 
 protocol WatchingPlacesPresenterInterface {
+    var sections: Driver<[WatchingPlacesSection]> { get }
 }
 
 protocol WatchingPlacesWireframeInterface {

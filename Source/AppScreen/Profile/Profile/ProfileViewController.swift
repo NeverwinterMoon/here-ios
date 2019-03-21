@@ -61,8 +61,9 @@ final class ProfileViewController: UIViewController, ProfileViewInterface, UICol
         
         self.profileCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.profileCollectionViewFlowLayout)
         let dataSource = RxCollectionViewSectionedReloadDataSource<ProfileSection>(configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
-            collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: "ProfileCell")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCollectionViewCell
+            let identifier = String(describing: ProfileCollectionViewCell.self)
+            collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProfileCollectionViewCell
             cell.item = item
             return cell
         })

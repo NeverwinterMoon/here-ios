@@ -10,8 +10,19 @@ import Foundation
 import AppUIKit
 import FlexLayout
 import RxDataSources
+import RxCocoa
+import RxSwift
 
-final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewInterface {
+final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewInterface, UICollectionViewDelegate {
+    
+//    var tapAddWatchingPlace: Signal<Void> {
+//        return self.tapAddWatchingPlaceRelay.asSignal()
+//    }
+//
+//    private let tapAddWatchingPlaceRelay: PublishRelay<Void> = .init()
+    var tapAddWatchingPlace: Signal<Void> {
+        return self.addCreateWatchingPlaceItem.rx.tap.asSignal()
+    }
     
     var presenter: WatchingPlacesPresenterInterface!
     
@@ -32,9 +43,46 @@ final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewIn
         
         super.viewDidLoad()
         
+        self.title = "登録した場所"
+        
         self.view.backgroundColor = .white
         
-        self.flexLayout()
+//        if let target = self.addCreateWatchingPlace.target, let action = self.addCreateWatchingPlace.action {
+//
+//        }
+        
+        self.navigationItem.rightBarButtonItem = self.addCreateWatchingPlaceItem
+
+        self.watchingPlacesCollectionView.do {
+            $0.backgroundColor = .white
+            $0.delegate = self
+            $0.alwaysBounceVertical = true
+            $0.isScrollEnabled = false
+            
+            self.presenter.sections
+                .drive($0.rx.items(dataSource: self.dataSource))
+                .disposed(by: self.disposeBag)
+        }
+        
+        self.watchingPlacesCollectionViewFlowLayout.do {
+            $0.cellWidth = self.view.bounds.width
+            $0.cellHeight = 100
+        }
+        
+        self.watchingPlacesEmptyLabel.do {
+            $0.textColor = .gray
+            $0.font = .systemFont(ofSize: 14)
+        }
+        
+        self.presenter.sections
+            .drive(onNext: { [unowned self] in
+                if let items = $0.first?.items {
+                    self.flexLayout(isViewEmpty: items.isEmpty)
+                } else {
+                    self.flexLayout(isViewEmpty: true)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
     
     @available(*, unavailable)
@@ -47,11 +95,24 @@ final class WatchingPlacesViewController: UIViewController, WatchingPlacesViewIn
     }
     
     // MARK: - Private
+    private let addCreateWatchingPlaceItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     private let dataSource: RxCollectionViewSectionedReloadDataSource<WatchingPlacesSection>
+    private let disposeBag = DisposeBag()
     private let watchingPlacesCollectionView: UICollectionView
     private let watchingPlacesCollectionViewFlowLayout = AppCollectionViewFlowLayout()
-    
-    private func flexLayout() {
+    private let watchingPlacesEmptyLabel = AppLabel(text: "登録した場所はありません")
+
+    private func flexLayout(isViewEmpty: Bool) {
         
+        self.view.flex.define { flex in
+            
+            if isViewEmpty {
+                flex.addItem(self.watchingPlacesEmptyLabel).grow(1)
+                self.watchingPlacesCollectionView.removeFromSuperview()
+            } else {
+                flex.addItem(self.watchingPlacesCollectionView).grow(1)
+                self.watchingPlacesEmptyLabel.removeFromSuperview()
+            }
+        }
     }
 }

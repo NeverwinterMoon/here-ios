@@ -7,7 +7,15 @@
 //
 
 import Foundation
+import AppInteractor
 
 final class WatchingPlacesWireframe: AppWireframe, WatchingPlacesWireframeInterface {
     
+    func pushCreateWatchingPlace() {
+        let controller = SearchWatchingPlaceViewController()
+        let wireframe = SearchWatchingPlaceWireframe(navigationController: self.navigationController)
+        let presenter = SearchWatchingPlacePresenter(view: controller, interactor: ProfileInteractor.shared, wireframe: wireframe)
+        controller.presenter = presenter
+        self.show(controller, with: .push, animated: true)
+    }
 }

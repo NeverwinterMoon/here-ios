@@ -13,6 +13,7 @@ import RxCocoa
 import RxSwift
 
 protocol WatchingPlacesViewInterface {
+    var tapAddWatchingPlace: Signal<Void> { get }
 }
 
 protocol WatchingPlacesInteractorInterface {
@@ -26,4 +27,5 @@ protocol WatchingPlacesPresenterInterface {
 }
 
 protocol WatchingPlacesWireframeInterface {
+    func pushCreateWatchingPlace()
 }

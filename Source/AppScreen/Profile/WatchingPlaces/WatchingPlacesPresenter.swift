@@ -29,6 +29,12 @@ final class WatchingPlacesPresenter: WatchingPlacesPresenterInterface {
             .mapSections()
             .bind(to: self.sectionsRelay)
             .disposed(by: self.disposeBag)
+        
+        self.view.tapAddWatchingPlace
+            .emit(onNext: { [unowned self] in
+                self.wireframe.pushCreateWatchingPlace()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

@@ -15,6 +15,7 @@ import RxSwift
 
 protocol MapViewInterface: class, ViewInterface {
     var location: Signal<CLLocationCoordinate2D> { get }
+    var tapCreateWatchingPlaceButton: Signal<Void> { get }
 }
 
 protocol MapInteractorInterface: class {
@@ -31,4 +32,5 @@ protocol MapPresenterInterface: class {
 }
 
 protocol MapWireframeInterface: class {
+    func createWatchingPlace()
 }

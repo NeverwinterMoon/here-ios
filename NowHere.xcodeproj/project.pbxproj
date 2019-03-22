@@ -190,6 +190,18 @@
 		D9BCE0152216D1F8003FA0AC /* RequestedUserWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */; };
 		D9BCE0172216D1FF003FA0AC /* RequestedUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */; };
 		D9BCE0192216D209003FA0AC /* RequestedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */; };
+		D9BF56B92241C71200A99679 /* WatchingPlacesInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56B82241C71200A99679 /* WatchingPlacesInterface.swift */; };
+		D9BF56BB2241C71B00A99679 /* WatchingPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BA2241C71B00A99679 /* WatchingPlacesViewController.swift */; };
+		D9BF56BD2241C72600A99679 /* WatchingPlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BC2241C72600A99679 /* WatchingPlacesPresenter.swift */; };
+		D9BF56BF2241C72E00A99679 /* WatchingPlacesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */; };
+		D9BF56C12241CF4900A99679 /* API+WatchingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */; };
+		D9BF56C42241CFBB00A99679 /* WatchingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C22241CFB600A99679 /* WatchingPlace.swift */; };
+		D9BF56C62241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C52241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift */; };
+		D9BF56C82241ECBB00A99679 /* WatchingPlacesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF56C72241ECBB00A99679 /* WatchingPlacesDataSource.swift */; };
+		D9BF9CC72244771F0011F19C /* SearchWatchingPlaceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF9CC62244771F0011F19C /* SearchWatchingPlaceInterface.swift */; };
+		D9BF9CC9224477290011F19C /* SearchWatchingPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF9CC8224477290011F19C /* SearchWatchingPlaceViewController.swift */; };
+		D9BF9CCB224477320011F19C /* SearchWatchingPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF9CCA224477310011F19C /* SearchWatchingPlacePresenter.swift */; };
+		D9BF9CCD224477390011F19C /* SearchWatchingPlaceWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF9CCC224477390011F19C /* SearchWatchingPlaceWireframe.swift */; };
 		D9C71A9F222A512A0032BCEE /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C71A9E222A512A0032BCEE /* GTMSessionFetcher.framework */; };
 		D9C71AAA222A59210032BCEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9C71A97222A19320032BCEE /* GoogleService-Info.plist */; };
 		D9D1619821B53A340083A1E4 /* AppNagivationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91E938121A6DDD700E93E04 /* AppNagivationController.swift */; };
@@ -543,6 +555,18 @@
 		D9BCE0142216D1F8003FA0AC /* RequestedUserWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserWireframe.swift; sourceTree = "<group>"; };
 		D9BCE0162216D1FF003FA0AC /* RequestedUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserDataSource.swift; sourceTree = "<group>"; };
 		D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9BF56B82241C71200A99679 /* WatchingPlacesInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesInterface.swift; sourceTree = "<group>"; };
+		D9BF56BA2241C71B00A99679 /* WatchingPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesViewController.swift; sourceTree = "<group>"; };
+		D9BF56BC2241C72600A99679 /* WatchingPlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesPresenter.swift; sourceTree = "<group>"; };
+		D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesWireframe.swift; sourceTree = "<group>"; };
+		D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+WatchingPlaces.swift"; sourceTree = "<group>"; };
+		D9BF56C22241CFB600A99679 /* WatchingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlace.swift; sourceTree = "<group>"; };
+		D9BF56C52241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9BF56C72241ECBB00A99679 /* WatchingPlacesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingPlacesDataSource.swift; sourceTree = "<group>"; };
+		D9BF9CC62244771F0011F19C /* SearchWatchingPlaceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWatchingPlaceInterface.swift; sourceTree = "<group>"; };
+		D9BF9CC8224477290011F19C /* SearchWatchingPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWatchingPlaceViewController.swift; sourceTree = "<group>"; };
+		D9BF9CCA224477310011F19C /* SearchWatchingPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWatchingPlacePresenter.swift; sourceTree = "<group>"; };
+		D9BF9CCC224477390011F19C /* SearchWatchingPlaceWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWatchingPlaceWireframe.swift; sourceTree = "<group>"; };
 		D9C342B02228437100380AE1 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9322299BFB0032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C71A9522299DD30032BCEE /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -850,6 +874,7 @@
 				D908B55521A6436D001ECA7F /* API+User.swift */,
 				D9BB613621AFA2AE00CD5424 /* API+Me.swift */,
 				D939306F21B6C9CC00929DA8 /* API+Login.swift */,
+				D9BF56C02241CF4900A99679 /* API+WatchingPlaces.swift */,
 				D908B54D21A6385B001ECA7F /* AppTargetType.swift */,
 				D954B95821A8481B00A42D2C /* APIProvider.swift */,
 				D9189E3A21BDFE1D0034C0AF /* NetworkPlugins.swift */,
@@ -1131,6 +1156,7 @@
 				D9D74D9A21D071A700141FC7 /* ProfileImage.swift */,
 				D995874221D4947E00FA0F69 /* FriendPending.swift */,
 				D99B77812215824300E10770 /* Friend.swift */,
+				D9BF56C22241CFB600A99679 /* WatchingPlace.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1157,6 +1183,8 @@
 			children = (
 				D900BB2F21A3E86400E2E9A7 /* Profile */,
 				D900BB3021A3E87900E2E9A7 /* DetailProfileInfo */,
+				D9BF56B72241C6EB00A99679 /* WatchingPlaces */,
+				D9BF9CC5224476F20011F19C /* SearchWatchingPlace */,
 				D92AFC8421A6A2D200FCB5FD /* FriendsList */,
 				D9E6465F21DE0B080046504B /* SearchFriends */,
 				D92AFC8D21A6A3FB00FCB5FD /* FriendProfile */,
@@ -1320,6 +1348,30 @@
 				D9BCE0182216D209003FA0AC /* RequestedUserCollectionViewCell.swift */,
 			);
 			path = RequestedUser;
+			sourceTree = "<group>";
+		};
+		D9BF56B72241C6EB00A99679 /* WatchingPlaces */ = {
+			isa = PBXGroup;
+			children = (
+				D9BF56B82241C71200A99679 /* WatchingPlacesInterface.swift */,
+				D9BF56BA2241C71B00A99679 /* WatchingPlacesViewController.swift */,
+				D9BF56BC2241C72600A99679 /* WatchingPlacesPresenter.swift */,
+				D9BF56BE2241C72E00A99679 /* WatchingPlacesWireframe.swift */,
+				D9BF56C72241ECBB00A99679 /* WatchingPlacesDataSource.swift */,
+				D9BF56C52241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift */,
+			);
+			path = WatchingPlaces;
+			sourceTree = "<group>";
+		};
+		D9BF9CC5224476F20011F19C /* SearchWatchingPlace */ = {
+			isa = PBXGroup;
+			children = (
+				D9BF9CC62244771F0011F19C /* SearchWatchingPlaceInterface.swift */,
+				D9BF9CC8224477290011F19C /* SearchWatchingPlaceViewController.swift */,
+				D9BF9CCA224477310011F19C /* SearchWatchingPlacePresenter.swift */,
+				D9BF9CCC224477390011F19C /* SearchWatchingPlaceWireframe.swift */,
+			);
+			path = SearchWatchingPlace;
 			sourceTree = "<group>";
 		};
 		D9D74D9121CFE71300141FC7 /* SelectedImageConfirm */ = {
@@ -2159,6 +2211,7 @@
 				D908B55621A6436D001ECA7F /* API+User.swift in Sources */,
 				D9BB613721AFA2AE00CD5424 /* API+Me.swift in Sources */,
 				D908B55821A64388001ECA7F /* API.swift in Sources */,
+				D9BF56C12241CF4900A99679 /* API+WatchingPlaces.swift in Sources */,
 				D939307021B6C9CC00929DA8 /* API+Login.swift in Sources */,
 				D908B54E21A6385B001ECA7F /* AppTargetType.swift in Sources */,
 			);
@@ -2220,6 +2273,7 @@
 				D900BB4121A3EFE500E2E9A7 /* DetailProfileInfoWireframe.swift in Sources */,
 				D9D74D9321CFE74E00141FC7 /* SelectedImageConfirmViewController.swift in Sources */,
 				D900BB3D21A3EFD300E2E9A7 /* ProfileWireframe.swift in Sources */,
+				D9BF56BF2241C72E00A99679 /* WatchingPlacesWireframe.swift in Sources */,
 				D900BB4021A3EFE100E2E9A7 /* DetailProfileInfoPresenter.swift in Sources */,
 				D9EAEBE42228CD1400328831 /* MapViewController.swift in Sources */,
 				D9BB612221AE896100CD5424 /* EditProfileInfoPresenter.swift in Sources */,
@@ -2232,6 +2286,8 @@
 				D971788321D3177000137149 /* FriendsListCell.swift in Sources */,
 				D9BCE00F2216D1DB003FA0AC /* RequestedUserInterface.swift in Sources */,
 				D908B47D21A4F5B9001ECA7F /* AppWireframe.swift in Sources */,
+				D9BF56C82241ECBB00A99679 /* WatchingPlacesDataSource.swift in Sources */,
+				D9BF56C62241ECB000A99679 /* WatchingPlacesCollectionViewCell.swift in Sources */,
 				D9411AD522165C2600F9086A /* ChatRoomListDataSource.swift in Sources */,
 				D9411ACB22165B0E00F9086A /* ChatRoomInterface.swift in Sources */,
 				D9E6465E21DDFB010046504B /* ProfileCollectionViewCell.swift in Sources */,
@@ -2257,6 +2313,7 @@
 				D9BB612621AF81E300CD5424 /* MapPresenter.swift in Sources */,
 				D92AFC8621A6A2F500FCB5FD /* FriendsListViewController.swift in Sources */,
 				D9E6466321DE0B460046504B /* SearchFriendsInterface.swift in Sources */,
+				D9BF9CC72244771F0011F19C /* SearchWatchingPlaceInterface.swift in Sources */,
 				D95FED8B21B3DD23007CEFD6 /* RootWireframe.swift in Sources */,
 				D9D74D9921CFECA400141FC7 /* SelectedImageConfirmWireframe.swift in Sources */,
 				D95FED8921B3DD1A007CEFD6 /* RootPresenter.swift in Sources */,
@@ -2267,6 +2324,7 @@
 				D92AFC8821A6A31D00FCB5FD /* FriendsListInterface.swift in Sources */,
 				D939306521B6C70200929DA8 /* CreateNewAccountInterface.swift in Sources */,
 				D92AFC9121A6A42700FCB5FD /* FriendProfileViewController.swift in Sources */,
+				D9BF9CCB224477320011F19C /* SearchWatchingPlacePresenter.swift in Sources */,
 				D9BCE0152216D1F8003FA0AC /* RequestedUserWireframe.swift in Sources */,
 				D939305021B6BBCE00929DA8 /* WelcomeInterface.swift in Sources */,
 				D9E6466921DE13FC0046504B /* SearchFriendsDataSource.swift in Sources */,
@@ -2275,20 +2333,25 @@
 				D9BB612921AF82F800CD5424 /* MapInterface.swift in Sources */,
 				D9AC6D142223DDB4002AEDD0 /* Message.swift in Sources */,
 				D939306721B6C70B00929DA8 /* CreateNewAccountViewController.swift in Sources */,
+				D9BF56BD2241C72600A99679 /* WatchingPlacesPresenter.swift in Sources */,
 				D9E6465C21DDF70A0046504B /* ProfileDataSource.swift in Sources */,
 				D900BB3F21A3EFDE00E2E9A7 /* DetailProfileInfoViewController.swift in Sources */,
 				D939305621B6BBF500929DA8 /* WelcomeWireframe.swift in Sources */,
 				D9BCE0112216D1E5003FA0AC /* RequestedUserViewController.swift in Sources */,
 				D939306B21B6C71900929DA8 /* CreateNewAccountWireframe.swift in Sources */,
+				D9BF9CC9224477290011F19C /* SearchWatchingPlaceViewController.swift in Sources */,
 				D92AFC8C21A6A34C00FCB5FD /* FriendsListWireframe.swift in Sources */,
 				D900BB3B21A3EFCB00E2E9A7 /* ProfileInterface.swift in Sources */,
 				D9BB612021AE894E00CD5424 /* EditProfileInfoInterface.swift in Sources */,
+				D9BF9CCD224477390011F19C /* SearchWatchingPlaceWireframe.swift in Sources */,
 				D9D74D9521CFE77F00141FC7 /* SelectedImageConfirmPresenter.swift in Sources */,
 				D9BB613221AF8BBD00CD5424 /* ChatRoomListWireframe.swift in Sources */,
 				D9BCE0172216D1FF003FA0AC /* RequestedUserDataSource.swift in Sources */,
 				D92AFC8F21A6A41900FCB5FD /* FriendProfileInterface.swift in Sources */,
 				D9BB611E21AE893D00CD5424 /* EditProfileInfoViewController.swift in Sources */,
+				D9BF56B92241C71200A99679 /* WatchingPlacesInterface.swift in Sources */,
 				D9BB613021AF8BAA00CD5424 /* ChatRoomListInterface.swift in Sources */,
+				D9BF56BB2241C71B00A99679 /* WatchingPlacesViewController.swift in Sources */,
 				D9E6466721DE0B590046504B /* SearchFriendsWireframe.swift in Sources */,
 				D939305221B6BBD900929DA8 /* WelcomeViewController.swift in Sources */,
 			);
@@ -2306,6 +2369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9BF56C42241CFBB00A99679 /* WatchingPlace.swift in Sources */,
 				D96E804F21A7A02E00887846 /* User.swift in Sources */,
 				D99B77822215824300E10770 /* Friend.swift in Sources */,
 				D92A41D921B2382A003ABE8A /* Account.swift in Sources */,

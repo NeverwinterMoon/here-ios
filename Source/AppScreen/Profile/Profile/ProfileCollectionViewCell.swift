@@ -29,7 +29,6 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.contentView.flex.direction(.row).define { flex in
-            
             flex.addItem(self.iconImageView).size(100)
             flex.addItem(self.titleLabel).grow(1)
         }

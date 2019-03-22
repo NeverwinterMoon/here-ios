@@ -11,20 +11,21 @@ import UIKit
 
 final public class AppButton: UIButton {
     
-    public convenience init(backgroundColor: UIColor = .blue) {
-        self.init(frame: .init(), backgroundColor: backgroundColor)
+    public convenience init(backgroundColor: UIColor = .blue, title: String = "") {
+        self.init(frame: .init(), backgroundColor: backgroundColor, title: title)
     }
     
-    public init(frame: CGRect, backgroundColor: UIColor) {
+    public init(frame: CGRect, backgroundColor: UIColor, title: String) {
         
         self.defaultBackgroundColor = backgroundColor
         super.init(frame: frame)
         
-        setTitleColor(.white, for: .normal)
+        self.backgroundColor = backgroundColor
+        self.setTitle(title, for: .normal)
     }
     
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
     public override var isEnabled: Bool {
         didSet {

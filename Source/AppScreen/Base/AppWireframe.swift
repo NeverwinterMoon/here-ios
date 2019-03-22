@@ -41,4 +41,25 @@ class AppWireframe: WireframeInterface {
             self.navigationController.present(viewController, animated: animated, completion: nil)
         }
     }
+    
+    func navigationControllerOnSwitch(tabIndex: ViewType) -> UINavigationController? {
+        
+        guard let window = UIApplication.shared.delegate?.window, let tabBarController = window?.rootViewController as? UITabBarController else {
+            return nil
+        }
+        
+        let index: Int
+        switch tabIndex {
+        case .map: index = 0
+        case .profile: index = 1
+        }
+        
+        tabBarController.selectedIndex = index
+        return tabBarController.viewControllers?[index] as? UINavigationController
+    }
+    
+    enum ViewType {
+        case map
+        case profile
+    }
 }

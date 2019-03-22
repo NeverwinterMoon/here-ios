@@ -107,6 +107,13 @@ public final class ProfileInteractor {
         return API.User.Get(userId: userId).asSingle()
     }
     
+    public func getWatchingPlaces() -> Single<[WatchingPlace]> {
+        return self.activatedUser()
+            .flatMap {
+                API.WatchingPlaces.Get(userId: $0.id).asSingle()
+            }
+    }
+    
 //    public func blockingUsers(of userId: String) -> Single<User> {
 //        return
 //    }

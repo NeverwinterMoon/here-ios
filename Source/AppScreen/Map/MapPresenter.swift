@@ -58,6 +58,12 @@ final class MapPresenter: MapPresenterInterface {
             }
             .subscribe()
             .disposed(by: self.disposeBag)
+
+        self.view.tapCreateWatchingPlaceButton
+            .emit(onNext: { [unowned self] in
+                self.wireframe.createWatchingPlace()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Private

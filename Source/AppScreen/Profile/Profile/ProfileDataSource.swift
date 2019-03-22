@@ -24,7 +24,6 @@ extension ProfileSection: SectionModelType {
     typealias Item = ProfileItem
     
     init(original: ProfileSection, items: [Item]) {
-        
         self = original
         self.items = items
     }
@@ -32,6 +31,7 @@ extension ProfileSection: SectionModelType {
 
 enum ProfileRowType {
     case editProfile
+    case watchingPlaces
     case friends
     case searchFriends
     case requested

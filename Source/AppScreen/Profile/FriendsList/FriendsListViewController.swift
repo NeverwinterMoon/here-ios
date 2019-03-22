@@ -76,6 +76,8 @@ final class FriendsListViewController: UIViewController, FriendsListViewInterfac
             .drive(onNext: { [unowned self] in
                 if let items = $0.first?.items {
                     self.flexLayout(isViewEmpty: items.isEmpty)
+                } else {
+                    self.flexLayout(isViewEmpty: true)
                 }
             })
             .disposed(by: self.disposeBag)

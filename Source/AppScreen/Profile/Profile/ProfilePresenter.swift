@@ -43,6 +43,7 @@ final class ProfilePresenter: ProfilePresenterInterface {
         
         let items = [
             ProfileItem(icon: UIImage(named: "first"), title: "プロフィールを編集する", type: .editProfile),
+            ProfileItem(icon: UIImage(named: "first"), title: "登録した場所", type: .watchingPlaces),
             ProfileItem(icon: UIImage(named: "first"), title: "友達", type: .friends),
             ProfileItem(icon: UIImage(named: "first"), title: "友達を検索する", type: .searchFriends),
             ProfileItem(icon: UIImage(named: "first"), title: "友達申請", type: .requested)
@@ -67,9 +68,11 @@ final class ProfilePresenter: ProfilePresenterInterface {
             .emit(onNext: { [unowned self] in
                 switch $0 {
                 case .editProfile:
-                    self.wireframe.presentUserInfo()
+                    self.wireframe.pushUserInfo()
+                case .watchingPlaces:
+                    self.wireframe.pushWatchingPlaces()
                 case .friends:
-                    self.wireframe.pushfFriendsList()
+                    self.wireframe.pushFriendsList()
                 case .searchFriends:
                     self.wireframe.pushSearchFriends()
                 case .requested:

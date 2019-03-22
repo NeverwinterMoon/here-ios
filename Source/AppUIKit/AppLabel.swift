@@ -10,6 +10,10 @@ import UIKit
 
 final public class AppLabel: UILabel {
 
+    public convenience init() {
+        self.init(text: "")
+    }
+    
     public init(text: String) {
         super.init(frame: .zero)
         self.text = text

@@ -11,7 +11,6 @@ import AppEntity
 import AppExtensions
 import AppUIKit
 import CoreLocation
-import FirebaseFirestore
 import RxCocoa
 import RxDataSources
 import RxSwift
@@ -19,16 +18,18 @@ import RxSwift
 final class MapViewController: UIViewController, MapViewInterface, CLLocationManagerDelegate, UICollectionViewDelegate {
     
     var presenter: MapPresenterInterface!
-    var docRef: DocumentReference!
     
     var location: Signal<CLLocationCoordinate2D> {
         return self.locationRelay.asSignal()
     }
-    
     private let locationRelay: PublishRelay<CLLocationCoordinate2D> = .init()
+    
+    var tapCreateWatchingPlaceButton: Signal<Void> {
+        return self.createWatchingPlaceButton.rx.tap.asSignal()
+    }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.nearbyFiendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
+        self.nearbyFriendsCollectionView = UICollectionView(frame: .init(), collectionViewLayout: self.collectionViewFlowLayout)
         let nearbyFriendsDataSource = RxCollectionViewSectionedReloadDataSource<MapNearbyFriendsSection> (configureCell: { (_, collectionView, indexPath, item) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MapCollectionViewCell.self), for: indexPath) as! MapCollectionViewCell
             cell.item = item
@@ -86,7 +87,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             self.locationManager.requestWhenInUseAuthorization()
         }
         
-        self.nearbyFiendsCollectionView.do {
+        self.nearbyFriendsCollectionView.do {
             $0.delegate = self
             $0.alwaysBounceVertical = true
             $0.isScrollEnabled = false
@@ -123,6 +124,7 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.layer.cornerRadius = 30
             $0.layer.shadowOpacity = 0.3
             $0.layer.shadowRadius = 10
+            $0.layer.shadowOffset = CGSize(width: 0, height: 3)
         }
         
         self.nearSpotFriendsView.do {
@@ -130,12 +132,28 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
             $0.layer.cornerRadius = 30
             $0.layer.shadowOpacity = 0.3
             $0.layer.shadowRadius = 10
+            $0.layer.shadowOffset = CGSize(width: 0, height: 3)
         }
         
-        Observable.zip(self.presenter.nearbyFriendsSections.asObservable(), self.presenter.nearSpotFriendsSections.asObservable())
-            .take(1)
+        self.nearbyFriendsEmptyLabel.do {
+            $0.textColor = .gray
+        }
+        
+        self.nearSpotFriendsEmptyLabel.do {
+            $0.textColor = .gray
+        }
+        
+        self.createWatchingPlaceButton.do {
+            $0.layer.cornerRadius = 30
+        }
+        
+        Observable.combineLatest(self.presenter.nearbyFriendsSections.asObservable(), self.presenter.nearSpotFriendsSections.asObservable())
             .subscribe(onNext: { [unowned self] in
-                self.flexLayout(isNearbyFriendsEmpty: $0.0.isEmpty, isNearSpotFriendsEmpty: $0.1.isEmpty)
+                if let nearbyFriendsItems = $0.0.first?.items, let nearSpotFriendsItems = $0.1.first?.items {
+                    self.flexLayout(isNearbyFriendsEmpty: nearbyFriendsItems.isEmpty, isNearSpotFriendsEmpty: nearSpotFriendsItems.isEmpty)
+                } else {
+                    self.flexLayout(isNearbyFriendsEmpty: true, isNearSpotFriendsEmpty: true)
+                }
             })
             .disposed(by: self.disposeBag)
     }
@@ -172,47 +190,46 @@ final class MapViewController: UIViewController, MapViewInterface, CLLocationMan
     private let disposeBag = DisposeBag()
     private let locationManager = CLLocationManager()
     
-    private let nearbyFiendsCollectionView: UICollectionView
+    private let nearbyFriendsCollectionView: UICollectionView
     private let nearbyFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearbyFriendsSection>
     private let nearbyFriendsTitleLabel = UILabel()
     private let nearbyFriendsView = UIView()
+    private let nearbyFriendsEmptyLabel = AppLabel(text: "近くにいる友達はいません")
     
     private let nearSpotFriendsCollectionView: UICollectionView
     private let nearSpotFriendsDataSource: RxCollectionViewSectionedReloadDataSource<MapNearSpotFriendsSection>
     private let nearSpotFriendsTitleLabel = UILabel()
     private let nearSpotFriendsView = UIView()
+    private let nearSpotFriendsEmptyLabel = AppLabel(text: "まだ登録した場所はありません")
+    private let createWatchingPlaceButton = AppButton(title: "場所を登録する")
 
     private func flexLayout(isNearbyFriendsEmpty: Bool, isNearSpotFriendsEmpty: Bool) {
         
         self.view.flex.define { flex in
             
-            flex.addItem(self.nearbyFriendsTitleLabel).marginLeft(40)
+            flex.addItem(self.nearbyFriendsTitleLabel).marginLeft(40).marginBottom(5)
             flex.addItem(self.nearbyFriendsView).marginHorizontal(20).grow(1).justifyContent(.center).define { flex in
                 
                 if isNearbyFriendsEmpty {
-                    let emptyLabel = AppLabel(text: "近くにいる友達はいません")
-                    emptyLabel.do {
-                        $0.textColor = .gray
-                    }
-                    
-                    flex.addItem(emptyLabel)
+                    flex.addItem(self.nearbyFriendsEmptyLabel)
+                    self.nearbyFriendsCollectionView.removeFromSuperview()
                 } else {
-                    flex.addItem(self.nearbyFiendsCollectionView)
+                    flex.addItem(self.nearbyFriendsCollectionView)
+                    self.nearbyFriendsEmptyLabel.removeFromSuperview()
                 }
             }
             
-            flex.addItem(self.nearSpotFriendsTitleLabel).marginLeft(40).marginTop(10)
+            flex.addItem(self.nearSpotFriendsTitleLabel).marginLeft(40).marginTop(10).marginBottom(5)
             flex.addItem(self.nearSpotFriendsView).marginHorizontal(20).marginBottom(10).grow(1).justifyContent(.center).define { flex in
                 
                 if isNearSpotFriendsEmpty {
-                    let emptyLabel = AppLabel(text: "場所を登録しましょう")
-                    emptyLabel.do {
-                        $0.textColor = .gray
-                    }
-                    
-                    flex.addItem(emptyLabel)
+                    flex.addItem(self.nearSpotFriendsEmptyLabel).marginBottom(20)
+                    flex.addItem(self.createWatchingPlaceButton).alignSelf(.stretch).height(60).marginHorizontal(30)
+                    self.nearSpotFriendsCollectionView.removeFromSuperview()
                 } else {
                     flex.addItem(self.nearSpotFriendsCollectionView)
+                    self.nearSpotFriendsEmptyLabel.removeFromSuperview()
+                    self.createWatchingPlaceButton.removeFromSuperview()
                 }
             }
         }
